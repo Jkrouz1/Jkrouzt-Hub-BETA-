@@ -187,6 +187,16 @@ sc.BorderColor3 = Color3.new(255, 0, 0)
 sc.BorderSizePixel = 2
 sc.Visible = false
 
+local Others = Instance.new("Frame")
+Others.Parent = hom
+Others.Name = "Others"
+Others.Size = UDim2.new(0, 650, 0, 270)
+Others.Position = UDim2.new(0, 0, 0.53, 0)
+Others.BackgroundColor3 = Color3.new(0, 0, 0)
+Others.BorderColor3 = Color3.new(255, 0, 0)
+Others.BorderSizePixel = 2
+Others.Visible = false
+
 local tab1 = Instance.new("TextButton")
 tab1.Parent = hom
 tab1.Text = "Home"
@@ -204,6 +214,7 @@ tab1.MouseButton1Click:Connect(function()
 home.Visible = true
 exec.Visible = false
 sc.Visible = false
+Others.Visible = false
 end)
 
 local tab2 = Instance.new("TextButton")
@@ -223,6 +234,7 @@ tab2.MouseButton1Click:Connect(function()
 home.Visible = false
 exec.Visible = true
 sc.Visible = false
+Others.Visible = false
 end)
 
 local tab3 = Instance.new("TextButton")
@@ -242,6 +254,27 @@ tab3.MouseButton1Click:Connect(function()
 home.Visible = false
 exec.Visible = false
 sc.Visible = true
+Others.Visible = false
+end)
+
+local tab4 = Instance.new("TextButton")
+tab4.Parent = hom
+tab4.Text = "Other"
+tab4.TextYAlignment = Enum.TextYAlignment.Center
+tab4.Font = Enum.Font.SciFi
+tab4.TextScaled = true
+tab4.TextColor3 = Color3.new(255, 255, 255)
+tab4.Size = UDim2.new(0, 150, 0, 23)
+tab4.Position = UDim2.new(0, 450, 0, 0)
+tab4.BackgroundColor3 = Color3.new(0, 0, 0) 
+tab4.BackgroundTransparency = 0
+tab4.BorderSizePixel = 2.5
+tab4.BorderColor3 = Color3.new(255, 0, 0)
+tab4.MouseButton1Click:Connect(function()
+home.Visible = false
+exec.Visible = false
+sc.Visible = false
+Others.Visible = true
 end)
 
 local imageLabel = Instance.new("ImageLabel")
@@ -261,9 +294,9 @@ first.BackgroundColor3 = Color3.new(0, 1, 0)
 first.BackgroundTransparency = 1
 first.BorderColor3 = Color3.new(0, 0, 0)
 first.BorderSizePixel = 1
-first.TextColor3 = Color3.new(1, 0, 0)
+first.TextColor3 = Color3.new(1, 1, 1)
 first.TextScaled = true
-first.Font = Enum.Font.GothamBlack
+first.Font = Enum.Font.SourceSansBold
 first.TextXAlignment = Enum.TextXAlignment.Left
 first.TextYAlignment = Enum.TextYAlignment.Center
 first.Text = "Welcome back, " .. game.Players.LocalPlayer.Name
@@ -323,7 +356,7 @@ info.TextScaled = true
 info.TextXAlignment = Enum.TextXAlignment.Left
 info.TextYAlignment = Enum.TextYAlignment.Center
 info.Font = Enum.Font.SourceSansBold
-info.Text = "aha"
+info.Text = "age"
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -1403,7 +1436,7 @@ scn28.Name = "scn28"
 scn28.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn28.Position = UDim2.new(0.52, 0, 0.03, 0)
 scn28.BackgroundColor3 = Color3.new(0, 0, 0)
-scn28.BorderColor3 = Color3.new(1, 0, 0)
+scn28.BorderColor3 = Color3.new(0, 0, 1)
 scn28.BorderSizePixel = 3
 scn28.TextColor3 = Color3.new(1, 1, 1)
 scn28.TextScaled = true
@@ -1438,7 +1471,7 @@ scn30.Name = "scn30"
 scn30.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scn30.Position = UDim2.new(0.86, 0, 0.03, 0)
 scn30.BackgroundColor3 = Color3.new(0, 0, 0)
-scn30.BorderColor3 = Color3.new(1, 0, 0)
+scn30.BorderColor3 = Color3.new(1, 1, 0)
 scn30.BorderSizePixel = 3
 scn30.TextColor3 = Color3.new(1, 1, 1)
 scn30.TextScaled = true
@@ -1509,12 +1542,12 @@ ngpg.Parent = sc
 ngpg.Name = "ngpg "
 ngpg.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
 ngpg.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
-ngpg.BackgroundColor3 = Color3.new(0, 0, 1)
+ngpg.BackgroundColor3 = Color3.new(0, 0, 0)
 ngpg.BorderColor3 = Color3.new(1, 0, 0)
 ngpg.BorderSizePixel = 2
 ngpg.TextColor3 = Color3.new(1, 1, 1)
 ngpg.TextScaled = true
-ngpg.Font = Enum.Font.GothamBold
+ngpg.Font = Enum.Font.LuckiestGuy
 ngpg.Text = ">"
 ngpg.Visible = false
 
@@ -1523,12 +1556,12 @@ bgpg.Parent = sc
 bgpg.Name = "bgpg"
 bgpg.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
 bgpg.Position = UDim2.new(0.0100000035, 0, 0.920000196, 0)
-bgpg.BackgroundColor3 = Color3.new(0, 0, 1)
+bgpg.BackgroundColor3 = Color3.new(0, 0, 0)
 bgpg.BorderColor3 = Color3.new(1, 0, 0)
 bgpg.BorderSizePixel = 2
 bgpg.TextColor3 = Color3.new(1, 1, 1)
 bgpg.TextScaled = true
-bgpg.Font = Enum.Font.GothamBold
+bgpg.Font = Enum.Font.LuckiestGuy
 bgpg.Text = "<"
 bgpg.Visible = false
 
@@ -1615,12 +1648,12 @@ scg3.Name = "scg3"
 scg3.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg3.Position = UDim2.new(0.35, 0, 0.150, 0)
 scg3.BackgroundColor3 = Color3.new(0, 0, 0)
-scg3.BorderColor3 = Color3.new(1, 0, 0)
+scg3.BorderColor3 = Color3.new(1, 1, 0)
 scg3.BorderSizePixel = 3
 scg3.TextColor3 = Color3.new(1, 1, 1)
 scg3.TextScaled = true
 scg3.Font = Enum.Font.Roboto
-scg3.Text = "forge Hub (mm2) [K]"
+scg3.Text = "forge Hub (mm2) "
 scg3.Visible = false
 scg3.MouseButton1Click:Connect(function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
@@ -1666,12 +1699,12 @@ scg6.Name = "scg6"
 scg6.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scg6.Position = UDim2.new(0.86, 0, 0.150, 0)
 scg6.BackgroundColor3 = Color3.new(0, 0, 0)
-scg6.BorderColor3 = Color3.new(1, 0, 0)
+scg6.BorderColor3 = Color3.new(1, 1, 0)
 scg6.BorderSizePixel = 3
 scg6.TextColor3 = Color3.new(1, 1, 1)
 scg6.TextScaled = true
 scg6.Font = Enum.Font.Roboto
-scg6.Text = "Aussie hub (mm2) [K]"
+scg6.Text = "Aussie hub (mm2) "
 scg6.Visible = false
 scg6.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet(request({Url='https://aussie.productions/script'}).Body))()
@@ -1700,12 +1733,12 @@ scg8.Name = "scg8"
 scg8.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg8.Position = UDim2.new(0.18, 0, 0.350, 0)
 scg8.BackgroundColor3 = Color3.new(0, 0, 0)
-scg8.BorderColor3 = Color3.new(1, 0, 0)
+scg8.BorderColor3 = Color3.new(1, 1, 0)
 scg8.BorderSizePixel = 3
 scg8.TextColor3 = Color3.new(1, 1, 1)
 scg8.TextScaled = true
 scg8.Font = Enum.Font.Roboto
-scg8.Text = "Alchemy Hub (Fisch) [K]"
+scg8.Text = "Alchemy Hub (Fisch) "
 scg8.Visible = false
 scg8.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
@@ -1734,12 +1767,12 @@ scg10.Name = "scg10"
 scg10.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg10.Position = UDim2.new(0.52, 0, 0.350, 0)
 scg10.BackgroundColor3 = Color3.new(0, 0, 0)
-scg10.BorderColor3 = Color3.new(1, 0, 0)
+scg10.BorderColor3 = Color3.new(1, 1, 0)
 scg10.BorderSizePixel = 3
 scg10.TextColor3 = Color3.new(1, 1, 1)
 scg10.TextScaled = true
 scg10.Font = Enum.Font.Roboto
-scg10.Text = "Lunor Hub (Fisch) [K]"
+scg10.Text = "Lunor Hub (Fisch) "
 scg10.Visible = false
 scg10.MouseButton1Click:Connect(function()
     script_key = 'PASTE_KEY_HERE';
@@ -1752,12 +1785,12 @@ scg11.Name = "scg11"
 scg11.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg11.Position = UDim2.new(0.69, 0, 0.350, 0)
 scg11.BackgroundColor3 = Color3.new(0, 0, 0)
-scg11.BorderColor3 = Color3.new(1, 0, 0)
+scg11.BorderColor3 = Color3.new(1, 1, 0)
 scg11.BorderSizePixel = 3
 scg11.TextColor3 = Color3.new(1, 1, 1)
 scg11.TextScaled = true
 scg11.Font = Enum.Font.Roboto
-scg11.Text = "Native Hub (Fisch) [K]"
+scg11.Text = "Native Hub (Fisch) "
 scg11.Visible = false
 scg11.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/axized/Native-Hub/refs/heads/main/Native"))()
@@ -1769,12 +1802,12 @@ scg12.Name = "scg12"
 scg12.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scg12.Position = UDim2.new(0.86, 0, 0.350, 0)
 scg12.BackgroundColor3 = Color3.new(0, 0, 0)
-scg12.BorderColor3 = Color3.new(1, 0, 0)
+scg12.BorderColor3 = Color3.new(1, 1, 0)
 scg12.BorderSizePixel = 3
 scg12.TextColor3 = Color3.new(1, 1, 1)
 scg12.TextScaled = true
 scg12.Font = Enum.Font.Roboto
-scg12.Text = "Forge Hub (Fisch) [K]"
+scg12.Text = "Forge Hub (Fisch) "
 scg12.Visible = false
 scg12.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
@@ -1786,12 +1819,12 @@ scg13.Name = "scg13"
 scg13.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg13.Position = UDim2.new(0.00996587239, 0, 0.550, 0)
 scg13.BackgroundColor3 = Color3.new(0, 0, 0)
-scg13.BorderColor3 = Color3.new(1, 0, 0)
+scg13.BorderColor3 = Color3.new(1, 1, 0)
 scg13.BorderSizePixel = 3
 scg13.TextColor3 = Color3.new(1, 1, 1)
 scg13.TextScaled = true
 scg13.Font = Enum.Font.Roboto
-scg13.Text = "Aussie Hub (Deadrails) [K]"
+scg13.Text = "Aussie Hub (Deadrails) "
 scg13.Visible = false
 scg13.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet(request({Url='https://aussie.productions/script'}).Body))()
@@ -1825,10 +1858,10 @@ scg15.BorderSizePixel = 3
 scg15.TextColor3 = Color3.new(1, 1, 1)
 scg15.TextScaled = true
 scg15.Font = Enum.Font.Roboto
-scg15.Text = "Tbao Hub (Deadrails)"
+scg15.Text = "Nullfire Hub (Deadrails)"
 scg15.Visible = false
 scg15.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ovxrloadEzploits/Dead-Rails/refs/heads/main/Tbao.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()
 end)
 
 local scg16 = Instance.new("TextButton")
@@ -1854,12 +1887,12 @@ scg17.Name = "scg17"
 scg17.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg17.Position = UDim2.new(0.69, 0, 0.550, 0)
 scg17.BackgroundColor3 = Color3.new(0, 0, 0)
-scg17.BorderColor3 = Color3.new(1, 0, 0)
+scg17.BorderColor3 = Color3.new(1, 1, 0)
 scg17.BorderSizePixel = 3
 scg17.TextColor3 = Color3.new(1, 1, 1)
 scg17.TextScaled = true
 scg17.Font = Enum.Font.Roboto
-scg17.Text = "Solix Hub (Deadrails) [K]"
+scg17.Text = "Solix Hub (Deadrails) "
 scg17.Visible = false
 scg17.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/debunked69/Solixreworkkeysystem/refs/heads/main/solix%20new%20keyui.lua"))() 
@@ -1871,13 +1904,13 @@ scg18.Name = "scg18"
 scg18.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scg18.Position = UDim2.new(0.86, 0, 0.550, 0)
 scg18.BackgroundColor3 = Color3.new(0, 0, 0)
-scg18.BorderColor3 = Color3.new(1, 0, 0)
+scg18.BorderColor3 = Color3.new(1, 1, 0)
 scg18.BorderSizePixel = 3
 scg18.TextColor3 = Color3.new(1, 1, 1)
 scg18.TextScaled = true
 scg18.Font = Enum.Font.Roboto
 scg18.Visible = false
-scg18.Text = "Lunor Hub (Deadrails) [K]"
+scg18.Text = "Lunor Hub (Deadrails) "
 scg18.MouseButton1Click:Connect(function()
 script_key = 'PASTE_KEY_HERE';
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Catto-YFCN/Lunor_Dependencies/refs/heads/main/Loader'))()
@@ -1911,12 +1944,12 @@ scg20.Name = "scg20"
 scg20.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg20.Position = UDim2.new(0.18, 0, 0.750, 0)
 scg20.BackgroundColor3 = Color3.new(0, 0, 0)
-scg20.BorderColor3 = Color3.new(1, 0, 0)
+scg20.BorderColor3 = Color3.new(1, 1, 0)
 scg20.BorderSizePixel = 3
 scg20.TextColor3 = Color3.new(1, 1, 1)
 scg20.TextScaled = true
 scg20.Font = Enum.Font.Roboto
-scg20.Text = "Solix Hub (Bloxfruit) [K]"
+scg20.Text = "Solix Hub (Bloxfruit) "
 scg20.Visible = false
 scg20.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/debunked69/Solixreworkkeysystem/refs/heads/main/solix%20new%20keyui.lua"))() 
@@ -1962,12 +1995,12 @@ scg23.Name = "scg23"
 scg23.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg23.Position = UDim2.new(0.69, 0, 0.750, 0)
 scg23.BackgroundColor3 = Color3.new(0, 0, 0)
-scg23.BorderColor3 = Color3.new(1, 0, 0)
+scg23.BorderColor3 = Color3.new(1, 1, 0)
 scg23.BorderSizePixel = 3
 scg23.TextColor3 = Color3.new(1, 1, 1)
 scg23.TextScaled = true
 scg23.Font = Enum.Font.Roboto
-scg23.Text = "HoHo Hub {BloxFruit}[K]"
+scg23.Text = "HoHo Hub {BloxFruit}"
 scg23.Visible = false
 scg23.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
@@ -2030,12 +2063,12 @@ scgn27.Name = "scgn27"
 scgn27.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgn27.Position = UDim2.new(0.35, 0, 0.03, 0)
 scgn27.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn27.BorderColor3 = Color3.new(1, 0, 0)
+scgn27.BorderColor3 = Color3.new(1, 1, 0)
 scgn27.BorderSizePixel = 3
 scgn27.TextColor3 = Color3.new(1, 1, 1)
 scgn27.TextScaled = true
 scgn27.Font = Enum.Font.Roboto
-scgn27.Text = "Zenon Hub (Arise Crossover) [K]"
+scgn27.Text = "Zenon Hub (Arise Crossover) "
 scgn27.Visible = false
 scgn27.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/241f48b1fc63b8e5c641df2af4b39d0c.lua"))()
@@ -2081,16 +2114,522 @@ scgn30.Name = "scgn30"
 scgn30.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scgn30.Position = UDim2.new(0.86, 0, 0.03, 0)
 scgn30.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn30.BorderColor3 = Color3.new(1, 0, 0)
+scgn30.BorderColor3 = Color3.new(1, 1, 0)
 scgn30.BorderSizePixel = 3
 scgn30.TextColor3 = Color3.new(1, 1, 1)
 scgn30.TextScaled = true
 scgn30.Font = Enum.Font.Roboto
-scgn30.Text = "NS Hub (AriseCrossover) [K]"
+scgn30.Text = "NS Hub (AriseCrossover) "
 scgn30.Visible = false
 scgn30.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/OhhMyGehlee/y/refs/heads/main/hj"))()
 end)
+
+local oc1 = Instance.new("TextButton")
+oc1.Parent = Others
+oc1.Name = "oc1"
+oc1.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc1.Position = UDim2.new(0.00996587239, 0, 0.150, 0)
+oc1.BackgroundColor3 = Color3.new(0, 0, 0)
+oc1.BorderColor3 = Color3.new(1, 0, 0)
+oc1.BorderSizePixel = 3
+oc1.TextColor3 = Color3.new(1, 1, 1)
+oc1.TextScaled = true
+oc1.Font = Enum.Font.SourceSans
+oc1.Text = "Local 1"
+oc1.MouseButton1Click:Connect(function()
+print("OwO")
+end)
+
+local oc2 = Instance.new("TextButton")
+oc2.Parent = Others
+oc2.Name = "oc2"
+oc2.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc2.Position = UDim2.new(0.18, 0, 0.150, 0)
+oc2.BackgroundColor3 = Color3.new(0, 0, 0)
+oc2.BorderColor3 = Color3.new(1, 0, 0)
+oc2.BorderSizePixel = 3
+oc2.TextColor3 = Color3.new(1, 1, 1)
+oc2.TextScaled = true
+oc2.Font = Enum.Font.SourceSans
+oc2.Text = "Local 2"
+oc2.MouseButton1Click:Connect(function()
+print("OWO")
+end)
+
+local oc3 = Instance.new("TextButton")
+oc3.Parent = Others
+oc3.Name = "oc3"
+oc3.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc3.Position = UDim2.new(0.35, 0, 0.150, 0)
+oc3.BackgroundColor3 = Color3.new(0, 0, 0)
+oc3.BorderColor3 = Color3.new(1, 0, 0)
+oc3.BorderSizePixel = 3
+oc3.TextColor3 = Color3.new(1, 1, 1)
+oc3.TextScaled = true
+oc3.Font = Enum.Font.SourceSans
+oc3.Text = "Local 3"
+oc3.MouseButton1Click:Connect(function()
+print("OwO")
+end)
+
+local oc4 = Instance.new("TextButton")
+oc4.Parent = Others
+oc4.Name = "oc4"
+oc4.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc4.Position = UDim2.new(0.52, 0, 0.150, 0)
+oc4.BackgroundColor3 = Color3.new(0, 0, 0)
+oc4.BorderColor3 = Color3.new(1, 0, 0)
+oc4.BorderSizePixel = 3
+oc4.TextColor3 = Color3.new(1, 1, 1)
+oc4.TextScaled = true
+oc4.Font = Enum.Font.SourceSans
+oc4.Text = "Local 4"
+oc4.MouseButton1Click:Connect(function()
+print("TwT")
+end)
+
+local oc5 = Instance.new("TextButton")
+oc5.Parent = Others
+oc5.Name = "oc5"
+oc5.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc5.Position = UDim2.new(0.69, 0, 0.150, 0)
+oc5.BackgroundColor3 = Color3.new(0, 0, 0)
+oc5.BorderColor3 = Color3.new(1, 0, 0)
+oc5.BorderSizePixel = 3
+oc5.TextColor3 = Color3.new(1, 1, 1)
+oc5.TextScaled = true
+oc5.Font = Enum.Font.SourceSans
+oc5.Text = "Local 5"
+oc5.MouseButton1Click:Connect(function()
+print("UwU")
+end)
+
+local oc6 = Instance.new("TextButton")
+oc6.Parent = Others
+oc6.Name = "oc6"
+oc6.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+oc6.Position = UDim2.new(0.86, 0, 0.150, 0)
+oc6.BackgroundColor3 = Color3.new(0, 0, 0)
+oc6.BorderColor3 = Color3.new(1, 0, 0)
+oc6.BorderSizePixel = 3
+oc6.TextColor3 = Color3.new(1, 1, 1)
+oc6.TextScaled = true
+oc6.Font = Enum.Font.SourceSans
+oc6.Text = "Local 6"
+oc6.MouseButton1Click:Connect(function()
+print("uwu")
+end)
+
+local oc7 = Instance.new("TextButton")
+oc7.Parent = Others
+oc7.Name = "oc7"
+oc7.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc7.Position = UDim2.new(0.00996587239, 0, 0.350, 0)
+oc7.BackgroundColor3 = Color3.new(0, 0, 0)
+oc7.BorderColor3 = Color3.new(1, 0, 0)
+oc7.BorderSizePixel = 3
+oc7.TextColor3 = Color3.new(1, 1, 1)
+oc7.TextScaled = true
+oc7.Font = Enum.Font.SourceSans
+oc7.Text = "Local 7"
+oc7.MouseButton1Click:Connect(function()
+print("uwu")
+end)
+
+local oc8 = Instance.new("TextButton")
+oc8.Parent = Others
+oc8.Name = "oc8"
+oc8.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc8.Position = UDim2.new(0.18, 0, 0.350, 0)
+oc8.BackgroundColor3 = Color3.new(0, 0, 0)
+oc8.BorderColor3 = Color3.new(1, 0, 0)
+oc8.BorderSizePixel = 3
+oc8.TextColor3 = Color3.new(1, 1, 1)
+oc8.TextScaled = true
+oc8.Font = Enum.Font.SourceSans
+oc8.Text = "Local 7"
+oc8.MouseButton1Click:Connect(function()
+print("uwu~")
+end)
+
+local oc9 = Instance.new("TextButton")
+oc9.Parent = Others
+oc9.Name = "oc9"
+oc9.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc9.Position = UDim2.new(0.35, 0, 0.350, 0)
+oc9.BackgroundColor3 = Color3.new(0, 0, 0)
+oc9.BorderColor3 = Color3.new(1, 0, 0)
+oc9.BorderSizePixel = 3
+oc9.TextColor3 = Color3.new(1, 1, 1)
+oc9.TextScaled = true
+oc9.Font = Enum.Font.SourceSans
+oc9.Text = "Local 9"
+oc9.MouseButton1Click:Connect(function()
+print("UwU~")
+end)
+
+local oc10 = Instance.new("TextButton")
+oc10.Parent = Others
+oc10.Name = "oc10"
+oc10.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc10.Position = UDim2.new(0.52, 0, 0.350, 0)
+oc10.BackgroundColor3 = Color3.new(0, 0, 0)
+oc10.BorderColor3 = Color3.new(1, 0, 0)
+oc10.BorderSizePixel = 3
+oc10.TextColor3 = Color3.new(1, 1, 1)
+oc10.TextScaled = true
+oc10.Font = Enum.Font.SourceSans
+oc10.Text = "Local 10"
+oc10.MouseButton1Click:Connect(function()
+print("Uwu~~")
+end)
+
+local oc11 = Instance.new("TextButton")
+oc11.Parent = Others
+oc11.Name = "oc11"
+oc11.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc11.Position = UDim2.new(0.69, 0, 0.350, 0)
+oc11.BackgroundColor3 = Color3.new(0, 0, 0)
+oc11.BorderColor3 = Color3.new(1, 0, 0)
+oc11.BorderSizePixel = 3
+oc11.TextColor3 = Color3.new(1, 1, 1)
+oc11.TextScaled = true
+oc11.Font = Enum.Font.SourceSans
+oc11.Text = "Local 11"
+oc11.MouseButton1Click:Connect(function()
+print("OwO~")
+end)
+
+local oc12 = Instance.new("TextButton")
+oc12.Parent = Others
+oc12.Name = "oc12"
+oc12.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+oc12.Position = UDim2.new(0.86, 0, 0.350, 0)
+oc12.BackgroundColor3 = Color3.new(0, 0, 0)
+oc12.BorderColor3 = Color3.new(1, 0, 0)
+oc12.BorderSizePixel = 3
+oc12.TextColor3 = Color3.new(1, 1, 1)
+oc12.TextScaled = true
+oc12.Font = Enum.Font.SourceSans
+oc12.Text = "Local 12"
+oc12.MouseButton1Click:Connect(function()
+print("OwO~~")
+end)
+
+local oc13 = Instance.new("TextButton")
+oc13.Parent = Others
+oc13.Name = "oc13"
+oc13.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc13.Position = UDim2.new(0.00996587239, 0, 0.550, 0)
+oc13.BackgroundColor3 = Color3.new(0, 0, 0)
+oc13.BorderColor3 = Color3.new(1, 0, 0)
+oc13.BorderSizePixel = 3
+oc13.TextColor3 = Color3.new(1, 1, 1)
+oc13.TextScaled = true
+oc13.Font = Enum.Font.SourceSans
+oc13.Text = "Local 13"
+oc13.MouseButton1Click:Connect(function()
+print("OWO~~~")
+end)
+
+local oc14 = Instance.new("TextButton")
+oc14.Parent = Others
+oc14.Name = "oc14"
+oc14.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc14.Position = UDim2.new(0.18, 0, 0.550, 0)
+oc14.BackgroundColor3 = Color3.new(0, 0, 0)
+oc14.BorderColor3 = Color3.new(1, 0, 0)
+oc14.BorderSizePixel = 3
+oc14.TextColor3 = Color3.new(1, 1, 1)
+oc14.TextScaled = true
+oc14.Font = Enum.Font.SourceSans
+oc14.Text = "Local 14"
+oc14.MouseButton1Click:Connect(function()
+print("uwu~~~")
+end)
+
+local oc15 = Instance.new("TextButton")
+oc15.Parent = Others
+oc15.Name = "oc15"
+oc15.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc15.Position = UDim2.new(0.35, 0, 0.550, 0)
+oc15.BackgroundColor3 = Color3.new(0, 0, 0)
+oc15.BorderColor3 = Color3.new(1, 0, 0)
+oc15.BorderSizePixel = 3
+oc15.TextColor3 = Color3.new(1, 1, 1)
+oc15.TextScaled = true
+oc15.Font = Enum.Font.SourceSans
+oc15.Text = "Local 15"
+oc15.MouseButton1Click:Connect(function()
+print("h")
+end)
+
+local oc16 = Instance.new("TextButton")
+oc16.Parent = Others
+oc16.Name = "oc16"
+oc16.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc16.Position = UDim2.new(0.52, 0, 0.550, 0)
+oc16.BackgroundColor3 = Color3.new(0, 0, 0)
+oc16.BorderColor3 = Color3.new(1, 0, 0)
+oc16.BorderSizePixel = 3
+oc16.TextColor3 = Color3.new(1, 1, 1)
+oc16.TextScaled = true
+oc16.Font = Enum.Font.SourceSans
+oc16.Text = "Local 16"
+oc16.MouseButton1Click:Connect(function()
+print("e")
+end)
+
+local oc17 = Instance.new("TextButton")
+oc17.Parent = Others
+oc17.Name = "oc17"
+oc17.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc17.Position = UDim2.new(0.69, 0, 0.550, 0)
+oc17.BackgroundColor3 = Color3.new(0, 0, 0)
+oc17.BorderColor3 = Color3.new(1, 0, 0)
+oc17.BorderSizePixel = 3
+oc17.TextColor3 = Color3.new(1, 1, 1)
+oc17.TextScaled = true
+oc17.Font = Enum.Font.SourceSans
+oc17.Text = "Local 17"
+oc17.MouseButton1Click:Connect(function()
+print("W")
+end)
+
+local oc18 = Instance.new("TextButton")
+oc18.Parent = Others
+oc18.Name = "oc18"
+oc18.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+oc18.Position = UDim2.new(0.86, 0, 0.550, 0)
+oc18.BackgroundColor3 = Color3.new(0, 0, 0)
+oc18.BorderColor3 = Color3.new(1, 0, 0)
+oc18.BorderSizePixel = 3
+oc18.TextColor3 = Color3.new(1, 1, 1)
+oc18.TextScaled = true
+oc18.Font = Enum.Font.SourceSans
+oc18.Text = "Local 18"
+oc18.MouseButton1Click:Connect(function()
+ print("L")
+end)
+
+local sc19 = Instance.new("TextButton")
+sc19.Parent = Others
+sc19.Name = "oc19"
+sc19.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+sc19.Position = UDim2.new(0.00996587239, 0, 0.750, 0)
+sc19.BackgroundColor3 = Color3.new(0, 0, 0)
+sc19.BorderColor3 = Color3.new(1, 0, 0)
+sc19.BorderSizePixel = 3
+sc19.TextColor3 = Color3.new(1, 1, 1)
+sc19.TextScaled = true
+sc19.Font = Enum.Font.SourceSans
+sc19.Text = "Local 19"
+sc19.MouseButton1Click:Connect(function()
+print("e")
+end)
+
+local oc20 = Instance.new("TextButton")
+oc20.Parent = Others
+oc20.Name = "oc20"
+oc20.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc20.Position = UDim2.new(0.18, 0, 0.750, 0)
+oc20.BackgroundColor3 = Color3.new(0, 0, 0)
+oc20.BorderColor3 = Color3.new(1, 0, 0)
+oc20.BorderSizePixel = 3
+oc20.TextColor3 = Color3.new(1, 1, 1)
+oc20.TextScaled = true
+oc20.Font = Enum.Font.SourceSans
+oc20.Text = "Local 20"
+oc20.MouseButton1Click:Connect(function()
+print("l")
+end)
+
+local oc21 = Instance.new("TextButton")
+oc21.Parent = Others
+oc21.Name = "oc21"
+oc21.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc21.Position = UDim2.new(0.35, 0, 0.750, 0)
+oc21.BackgroundColor3 = Color3.new(0, 0, 0)
+oc21.BorderColor3 = Color3.new(1, 0, 0)
+oc21.BorderSizePixel = 3
+oc21.TextColor3 = Color3.new(1, 1, 1)
+oc21.TextScaled = true
+oc21.Font = Enum.Font.SourceSans
+oc21.Text = "Locla 21"
+oc21.MouseButton1Click:Connect(function()
+print("o")
+end)
+
+local oc22 = Instance.new("TextButton")
+oc22.Parent = Others
+oc22.Name = "oc22"
+oc22.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc22.Position = UDim2.new(0.52, 0, 0.750, 0)
+oc22.BackgroundColor3 = Color3.new(0, 0, 0)
+oc22.BorderColor3 = Color3.new(1, 0, 0)
+oc22.BorderSizePixel = 3
+oc22.TextColor3 = Color3.new(1, 1, 1)
+oc22.TextScaled = true
+oc22.Font = Enum.Font.SourceSans
+oc22.Text = "Local 22"
+oc22.MouseButton1Click:Connect(function()
+print("GG")
+end)
+
+local oc23 = Instance.new("TextButton")
+oc23.Parent = Others
+oc23.Name = "oc23"
+oc23.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc23.Position = UDim2.new(0.69, 0, 0.750, 0)
+oc23.BackgroundColor3 = Color3.new(0, 0, 0)
+oc23.BorderColor3 = Color3.new(1, 0, 0)
+oc23.BorderSizePixel = 3
+oc23.TextColor3 = Color3.new(1, 1, 1)
+oc23.TextScaled = true
+oc23.Font = Enum.Font.SourceSans
+oc23.Text = "Local 23"
+oc23.MouseButton1Click:Connect(function()
+print("====D")
+end)
+
+local oc24 = Instance.new("TextButton")
+oc24.Parent = Others
+oc24.Name = "oc24"
+oc24.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+oc24.Position = UDim2.new(0.86, 0, 0.750, 0)
+oc24.BackgroundColor3 = Color3.new(0, 0, 0)
+oc24.BorderColor3 = Color3.new(1, 0, 0)
+oc24.BorderSizePixel = 3
+oc24.TextColor3 = Color3.new(1, 1, 1)
+oc24.TextScaled = true
+oc24.Font = Enum.Font.SourceSans
+oc24.Text = "Local 24"
+oc24.MouseButton1Click:Connect(function()
+print("17")
+end)
+
+
+local ocn25 = Instance.new("TextButton")
+ocn25.Parent = Others
+ocn25.Name = "ocn25"
+ocn25.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn25.Position = UDim2.new(0.00996587239, 0, 0.03, 0)
+ocn25.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn25.BorderColor3 = Color3.new(1, 0, 0)
+ocn25.BorderSizePixel = 3
+ocn25.TextColor3 = Color3.new(1, 1, 1)
+ocn25.TextScaled = true
+ocn25.Font = Enum.Font.SourceSans
+ocn25.Text = "Local 25"
+ocn25.Visible = false
+ocn25.MouseButton1Click:Connect(function()
+print("Bad?")
+end)
+
+local ocn26 = Instance.new("TextButton")
+ocn26.Parent = Others
+ocn26.Name = "ocn26"
+ocn26.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn26.Position = UDim2.new(0.18, 0, 0.03, 0)
+ocn26.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn26.BorderColor3 = Color3.new(1, 0, 0)
+ocn26.BorderSizePixel = 3
+ocn26.TextColor3 = Color3.new(1, 1, 1)
+ocn26.TextScaled = true
+ocn26.Font = Enum.Font.SourceSans
+ocn26.Text = "Locla 26"
+ocn26.Visible = false
+ocn26.MouseButton1Click:Connect(function()
+print("7")
+end)
+
+local ocn27 = Instance.new("TextButton")
+ocn27.Parent = Others
+ocn27.Name = "ocn27"
+ocn27.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn27.Position = UDim2.new(0.35, 0, 0.03, 0)
+ocn27.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn27.BorderColor3 = Color3.new(1, 0, 0)
+ocn27.BorderSizePixel = 3
+ocn27.TextColor3 = Color3.new(1, 1, 1)
+ocn27.TextScaled = true
+ocn27.Font = Enum.Font.SourceSans
+ocn27.Text = "Local 27"
+ocn27.Visible = false
+ocn27.MouseButton1Click:Connect(function()
+print("mmm")
+end)
+
+local oppage = Instance.new("Frame")
+oppage.Parent = Others
+oppage.Name = "oppage"
+oppage.Size = UDim2.new(0, 645, 0, 35)
+oppage.Position = UDim2.new(0.00720000034, 0, 0, 0)
+oppage.BackgroundColor3 = Color3.new(0, 0, 0)
+oppage.BorderColor3 = Color3.new(255, 0, 0)
+oppage.BorderSizePixel = 2
+
+local mysc = Instance.new("TextLabel")
+mysc.Parent = oppage
+mysc.Name = "mysc"
+mysc.Size = UDim2.new(1, 0, 1.1, 0)
+mysc.Position = UDim2.new(0, 0, 0, 0)
+mysc.BackgroundColor3 = Color3.new(0, 0, 0)
+mysc.BackgroundTransparency = 1
+mysc.BorderColor3 = Color3.new(0, 0, 0)
+mysc.BorderSizePixel = 1
+mysc.TextColor3 = Color3.new(1, 1, 1)
+mysc.TextScaled = true
+mysc.Font = Enum.Font.SourceSansBold
+mysc.Text = "my Scripts"
+mysc.TextXAlignment = Enum.TextXAlignment.Center
+mysc.TextYAlignment = Enum.TextYAlignment.Center
+
+local nextmy = Instance.new("TextButton")
+nextmy.Parent = Others
+nextmy.Name = "nextmy"
+nextmy.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+nextmy.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
+nextmy.BackgroundColor3 = Color3.new(0, 0, 0)
+nextmy.BorderColor3 = Color3.new(1, 0, 0)
+nextmy.BorderSizePixel = 2
+nextmy.TextColor3 = Color3.new(1, 1, 1)
+nextmy.TextScaled = true
+nextmy.Font = Enum.Font.GothamBold
+nextmy.Text = ">"
+nextmy.Visible = true
+
+local backmy = Instance.new("TextButton")
+backmy.Parent = Others
+backmy.Name = "backmy"
+backmy.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+backmy.Position = UDim2.new(0.0100000035, 0, 0.920000196, 0)
+backmy.BackgroundColor3 = Color3.new(0, 0, 0)
+backmy.BorderColor3 = Color3.new(1, 0, 0)
+backmy.BorderSizePixel = 2
+backmy.TextColor3 = Color3.new(1, 1, 1)
+backmy.TextScaled = true
+backmy.Font = Enum.Font.GothamBold
+backmy.Text = "<"
+backmy.Visible = false
+
+
+local mypages = Instance.new("TextLabel")
+mypages.Parent = Others
+mypages.Name = "mypages"
+mypages.Size = UDim2.new(0.150000006, 0, 0.0799999982, 0)
+mypages.Position = UDim2.new(0.429999977, 0, 0.921000004, 0)
+mypages.BackgroundColor3 = Color3.new(0, 0, 0)
+mypages.BackgroundTransparency = 0
+mypages.BorderColor3 = Color3.new(1, 0, 0)
+mypages.BorderSizePixel = 2
+mypages.TextColor3 = Color3.new(1, 1, 1)
+mypages.TextScaled = true
+mypages.Text = "Page 1"
+mypages.TextXAlignment = Enum.TextXAlignment.Center
+mypages.TextYAlignment = Enum.TextYAlignment.Center
+
 
 nextmn.MouseButton1Click:Connect(function()
 for i = 1, 30 do
@@ -2232,4 +2771,50 @@ end
     ngpg.Visible = true
     mpages.Text = "Page 1"
     scsPage.Visible = true
+end)
+
+nextmy.MouseButton1Click:Connect(function()
+for i = 1, 24 do
+  local buttonName = "oc" .. i
+  local button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+for i = 25, 27 do
+  local buttonName = "ocn" .. i
+  local button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = true
+  end
+end
+
+    backmy.Visible = true
+    nextmy.Visible = false
+    mypages.Text = "Page 2"
+    oppage.Visible = false
+end)
+
+backmy.MouseButton1Click:Connect(function()
+for i = 1, 24 do
+  local buttonName = "oc" .. i
+  local button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = true
+  end
+end
+
+for i = 25, 27 do
+  local buttonName = "ocn" .. i
+  local button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+    backmy.Visible = false
+    nextmy.Visible = true
+    mypages.Text = "Page 1"
+    oppage.Visible = true
 end)
