@@ -2626,10 +2626,10 @@ scgn33.BorderSizePixel = 3
 scgn33.TextColor3 = Color3.new(1, 1, 1)
 scgn33.TextScaled = true
 scgn33.Font = Enum.Font.Roboto
-scgn33.Text = "blulock"
+scgn33.Text = "ToraisMe (Bluelock)"
 scgn33.Visible = false
 scgn33.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/BlueLock"))()
 end)
 
 local scgn34 = Instance.new("TextButton")
@@ -2672,7 +2672,7 @@ scgn36.Name = "scgn36"
 scgn36.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scgn36.Position = UDim2.new(0.86, 0, 0.229999959, 0)
 scgn36.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn36.BorderColor3 = Color3.new(1, 0, 0)
+scgn36.BorderColor3 = Color3.new(1, 1, 0)
 scgn36.BorderSizePixel = 3
 scgn36.TextColor3 = Color3.new(1, 1, 1)
 scgn36.TextScaled = true
