@@ -1687,13 +1687,13 @@ TextBox.TextSize = 14.000
 TextBox.TextWrapped = true
 
 TextButton.Parent = Main
-TextButton.BackgroundColor3 = Color3.fromRGB(102, 0, 0)
+TextButton.BackgroundColor3 = Color3.fromRGB(1, 1, 1)
 TextButton.BorderSizePixel = 0
 TextButton.Position = UDim2.new(0.10352423, 0, 0.596330225, 0)
 TextButton.Size = UDim2.new(0, 359, 0, 50)
 TextButton.Font = Enum.Font.SourceSans
 TextButton.Text = "[[Yeet Player]]"
-TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextColor3 = Color3.fromRGB(1, 0, 0)
 TextButton.TextScaled = true
 TextButton.TextSize = 14.000
 TextButton.TextWrapped = true
@@ -1741,7 +1741,7 @@ local scn37 = Instance.new("TextButton")
 scn37.Parent = sc
 scn37.Name = "scn37"
 scn37.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn37.Position = UDim2.new(0.00996587239, 0, 0.41, 0)
+scn37.Position = UDim2.new(0.00996587239, 0, 0.43, 0)
 scn37.BackgroundColor3 = Color3.new(0, 0, 0)
 scn37.BorderColor3 = Color3.new(1, 0, 0)
 scn37.BorderSizePixel = 3
@@ -1758,24 +1758,24 @@ local scn38 = Instance.new("TextButton")
 scn38.Parent = sc
 scn38.Name = "scn38"
 scn38.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn38.Position = UDim2.new(0.18, 0, 0.41, 0)
+scn38.Position = UDim2.new(0.18, 0, 0.44, 0)
 scn38.BackgroundColor3 = Color3.new(0, 0, 0)
-scn38.BorderColor3 = Color3.new(0, 0, 1)
+scn38.BorderColor3 = Color3.new(1, 0, 0)
 scn38.BorderSizePixel = 3
 scn38.TextColor3 = Color3.new(1, 1, 1)
 scn38.TextScaled = true
 scn38.Font = Enum.Font.Roboto
-scn38.Text = "Secret Service Panel"
+scn38.Text = "[FE] Super Ring"
 scn38.Visible = false
 scn38.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://pastebin.com/raw/vMe7urpH'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dqtixz/kyuu-is-fire/refs/heads/main/and%20projeto%20lkb%20Super%20Ring"))()
 end)
 
 local scn39 = Instance.new("TextButton")
 scn39.Parent = sc
 scn39.Name = "scn39"
 scn39.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn39.Position = UDim2.new(0.35, 0, 0.41, 0)
+scn39.Position = UDim2.new(0.35, 0, 0.43, 0)
 scn39.BackgroundColor3 = Color3.new(0, 0, 0)
 scn39.BorderColor3 = Color3.new(1, 0, 0)
 scn39.BorderSizePixel = 3
@@ -1792,7 +1792,7 @@ local scn40 = Instance.new("TextButton")
 scn40.Parent = sc
 scn40.Name = "scn40"
 scn40.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn40.Position = UDim2.new(0.52, 0, 0.41, 0)
+scn40.Position = UDim2.new(0.52, 0, 0.43, 0)
 scn40.BackgroundColor3 = Color3.new(0, 0, 0)
 scn40.BorderColor3 = Color3.new(1, 0, 0)
 scn40.BorderSizePixel = 3
@@ -1809,24 +1809,24 @@ local scn41 = Instance.new("TextButton")
 scn41.Parent = sc
 scn41.Name = "scn41"
 scn41.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn41.Position = UDim2.new(0.69, 0, 0.41, 0)
+scn41.Position = UDim2.new(0.69, 0, 0.43, 0)
 scn41.BackgroundColor3 = Color3.new(0, 0, 0)
 scn41.BorderColor3 = Color3.new(1, 0, 0)
 scn41.BorderSizePixel = 3
 scn41.TextColor3 = Color3.new(1, 1, 1)
 scn41.TextScaled = true
 scn41.Font = Enum.Font.Roboto
-scn41.Text = "Arceus X"
+scn41.Text = "Smorg's hub Remote Gui v1"
 scn41.Visible = false
 scn41.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/SPDM-Team/ArceusX-V3-Scripts/main/ArceusX-Executor.lua"), true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MIKEDRIPZOWSKU/test/refs/heads/main/SmorgsHubRemoteGui.lua", true))()
 end)
 
 local scn42 = Instance.new("TextButton")
 scn42.Parent = sc
 scn42.Name = "scn42"
 scn42.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
-scn42.Position = UDim2.new(0.86, 0, 0.41, 0)
+scn42.Position = UDim2.new(0.86, 0, 0.43, 0)
 scn42.BackgroundColor3 = Color3.new(0, 0, 0)
 scn42.BorderColor3 = Color3.new(1, 0, 0)
 scn42.BorderSizePixel = 3
@@ -1843,7 +1843,7 @@ local scn43 = Instance.new("TextButton")
 scn43.Parent = sc
 scn43.Name = "scn43"
 scn43.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn43.Position = UDim2.new(0.00996587239, 0, 0.60, 0)
+scn43.Position = UDim2.new(0.00996587239, 0, 0.64, 0)
 scn43.BackgroundColor3 = Color3.new(0, 0, 0)
 scn43.BorderColor3 = Color3.new(1, 0, 0)
 scn43.BorderSizePixel = 3
@@ -1860,24 +1860,24 @@ local scn44 = Instance.new("TextButton")
 scn44.Parent = sc
 scn44.Name = "scn44"
 scn44.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn44.Position = UDim2.new(0.18, 0, 0.60, 0)
+scn44.Position = UDim2.new(0.18, 0, 0.64, 0)
 scn44.BackgroundColor3 = Color3.new(0, 0, 0)
 scn44.BorderColor3 = Color3.new(1, 0, 0)
 scn44.BorderSizePixel = 3
 scn44.TextColor3 = Color3.new(1, 1, 1)
 scn44.TextScaled = true
 scn44.Font = Enum.Font.Roboto
-scn44.Text = "[FE] Time Reverser"
+scn44.Text = "[FE] Unanchored Abuse"
 scn44.Visible = false
 scn44.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://pastebin.com/raw/cgWLwdN9", true))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/cowka/c0wkaHub/refs/heads/main/UnanchoredParts'))()
 end)
 
 local scn45 = Instance.new("TextButton")
 scn45.Parent = sc
 scn45.Name = "scn45"
 scn45.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn45.Position = UDim2.new(0.35, 0, 0.60, 0)
+scn45.Position = UDim2.new(0.35, 0, 0.64, 0)
 scn45.BackgroundColor3 = Color3.new(0, 0, 0)
 scn45.BorderColor3 = Color3.new(1, 0, 0)
 scn45.BorderSizePixel = 3
@@ -1894,7 +1894,7 @@ local scn46 = Instance.new("TextButton")
 scn46.Parent = sc
 scn46.Name = "scn46"
 scn46.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn46.Position = UDim2.new(0.52, 0, 0.60, 0)
+scn46.Position = UDim2.new(0.52, 0, 0.64, 0)
 scn46.BackgroundColor3 = Color3.new(0, 0, 0)
 scn46.BorderColor3 = Color3.new(1, 0, 0)
 scn46.BorderSizePixel = 3
@@ -1911,26 +1911,24 @@ local scn47 = Instance.new("TextButton")
 scn47.Parent = sc
 scn47.Name = "scn47"
 scn47.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn47.Position = UDim2.new(0.69, 0, 0.60, 0)
+scn47.Position = UDim2.new(0.69, 0, 0.64, 0)
 scn47.BackgroundColor3 = Color3.new(0, 0, 0)
 scn47.BorderColor3 = Color3.new(1, 0, 0)
 scn47.BorderSizePixel = 3
 scn47.TextColor3 = Color3.new(1, 1, 1)
 scn47.TextScaled = true
 scn47.Font = Enum.Font.Roboto
-scn47.Text = "[FE] Invisible hit Gui"
+scn47.Text = "[FE] Energizer Gui"
 scn47.Visible = false
 scn47.MouseButton1Click:Connect(function()
---// IMPORTANT: You'll be visible while ragdolled/jumping
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Sakupenny/Universal-R6-Invis/refs/heads/main/Main.lua"))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Energize-10408"))()
 end)
 
 local scn48 = Instance.new("TextButton")
 scn48.Parent = sc
 scn48.Name = "scn48"
 scn48.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
-scn48.Position = UDim2.new(0.86, 0, 0.60, 0)
+scn48.Position = UDim2.new(0.86, 0, 0.64, 0)
 scn48.BackgroundColor3 = Color3.new(0, 0, 0)
 scn48.BorderColor3 = Color3.new(1, 0, 0)
 scn48.BorderSizePixel = 3
@@ -2583,6 +2581,312 @@ scgn30.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/OhhMyGehlee/y/refs/heads/main/hj"))()
 end)
 
+local scgn31 = Instance.new("TextButton")
+scgn31.Parent = sc
+scgn31.Name = "scgn31"
+scgn31.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn31.Position = UDim2.new(0.00996587239, 0, 0.229999959, 0)
+scgn31.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn31.BorderColor3 = Color3.new(1, 0, 0)
+scgn31.BorderSizePixel = 3
+scgn31.TextColor3 = Color3.new(1, 1, 1)
+scgn31.TextScaled = true
+scgn31.Font = Enum.Font.SourceSans
+scgn31.Text = "blulock"
+scgn31.Visible = false
+scgn31.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn32 = Instance.new("TextButton")
+scgn32.Parent = sc
+scgn32.Name = "scgn32"
+scgn32.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn32.Position = UDim2.new(0.18, 0, 0.229999959, 0)
+scgn32.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn32.BorderColor3 = Color3.new(1, 0, 0)
+scgn32.BorderSizePixel = 3
+scgn32.TextColor3 = Color3.new(1, 1, 1)
+scgn32.TextScaled = true
+scgn32.Font = Enum.Font.SourceSans
+scgn32.Text = "blulock"
+scgn32.Visible = false
+scgn32.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn33 = Instance.new("TextButton")
+scgn33.Parent = sc
+scgn33.Name = "scgn33"
+scgn33.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn33.Position = UDim2.new(0.35, 0, 0.229999959, 0)
+scgn33.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn33.BorderColor3 = Color3.new(1, 0, 0)
+scgn33.BorderSizePixel = 3
+scgn33.TextColor3 = Color3.new(1, 1, 1)
+scgn33.TextScaled = true
+scgn33.Font = Enum.Font.Roboto
+scgn33.Text = "blulock"
+scgn33.Visible = false
+scgn33.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn34 = Instance.new("TextButton")
+scgn34.Parent = sc
+scgn34.Name = "scgn34"
+scgn34.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn34.Position = UDim2.new(0.52, 0, 0.229999959, 0)
+scgn34.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn34.BorderColor3 = Color3.new(1, 0, 0)
+scgn34.BorderSizePixel = 3
+scgn34.TextColor3 = Color3.new(1, 1, 1)
+scgn34.TextScaled = true
+scgn34.Font = Enum.Font.Roboto
+scgn34.Text = "blulock"
+scgn34.Visible = false
+scgn34.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn35 = Instance.new("TextButton")
+scgn35.Parent = sc
+scgn35.Name = "scgn35"
+scgn35.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn35.Position = UDim2.new(0.69, 0, 0.229999959, 0)
+scgn35.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn35.BorderColor3 = Color3.new(1, 0, 0)
+scgn35.BorderSizePixel = 3
+scgn35.TextColor3 = Color3.new(1, 1, 1)
+scgn35.TextScaled = true
+scgn35.Font = Enum.Font.Roboto
+scgn35.Text = "blulock"
+scgn35.Visible = false
+scgn35.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn36 = Instance.new("TextButton")
+scgn36.Parent = sc
+scgn36.Name = "scgn36"
+scgn36.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scgn36.Position = UDim2.new(0.86, 0, 0.229999959, 0)
+scgn36.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn36.BorderColor3 = Color3.new(1, 0, 0)
+scgn36.BorderSizePixel = 3
+scgn36.TextColor3 = Color3.new(1, 1, 1)
+scgn36.TextScaled = true
+scgn36.Font = Enum.Font.Roboto
+scgn36.Text = "blulock"
+scgn36.Visible = false
+scgn36.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn37 = Instance.new("TextButton")
+scgn37.Parent = sc
+scgn37.Name = "scgn37"
+scgn37.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn37.Position = UDim2.new(0.00996587239, 0, 0.43, 0)
+scgn37.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn37.BorderColor3 = Color3.new(1, 0, 0)
+scgn37.BorderSizePixel = 3
+scgn37.TextColor3 = Color3.new(1, 1, 1)
+scgn37.TextScaled = true
+scgn37.Font = Enum.Font.Roboto
+scgn37.Text = "Tsb"
+scgn37.Visible = false
+scgn37.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn38 = Instance.new("TextButton")
+scgn38.Parent = sc
+scgn38.Name = "scgn38"
+scgn38.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn38.Position = UDim2.new(0.18, 0, 0.44, 0)
+scgn38.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn38.BorderColor3 = Color3.new(1, 0, 0)
+scgn38.BorderSizePixel = 3
+scgn38.TextColor3 = Color3.new(1, 1, 1)
+scgn38.TextScaled = true
+scgn38.Font = Enum.Font.Roboto
+scgn38.Text = "Tsb"
+scgn38.Visible = false
+scgn38.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn39 = Instance.new("TextButton")
+scgn39.Parent = sc
+scgn39.Name = "scgn39"
+scgn39.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn39.Position = UDim2.new(0.35, 0, 0.43, 0)
+scgn39.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn39.BorderColor3 = Color3.new(1, 0, 0)
+scgn39.BorderSizePixel = 3
+scgn39.TextColor3 = Color3.new(1, 1, 1)
+scgn39.TextScaled = true
+scgn39.Font = Enum.Font.Roboto
+scgn39.Text = "Tsb"
+scgn39.Visible = false
+scgn39.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn40 = Instance.new("TextButton")
+scgn40.Parent = sc
+scgn40.Name = "scgn40"
+scgn40.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn40.Position = UDim2.new(0.52, 0, 0.43, 0)
+scgn40.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn40.BorderColor3 = Color3.new(1, 0, 0)
+scgn40.BorderSizePixel = 3
+scgn40.TextColor3 = Color3.new(1, 1, 1)
+scgn40.TextScaled = true
+scgn40.Font = Enum.Font.Roboto
+scgn40.Text = "Tsb"
+scgn40.Visible = false
+scgn40.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn41 = Instance.new("TextButton")
+scgn41.Parent = sc
+scgn41.Name = "scgn41"
+scgn41.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn41.Position = UDim2.new(0.69, 0, 0.43, 0)
+scgn41.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn41.BorderColor3 = Color3.new(1, 0, 0)
+scgn41.BorderSizePixel = 3
+scgn41.TextColor3 = Color3.new(1, 1, 1)
+scgn41.TextScaled = true
+scgn41.Font = Enum.Font.Roboto
+scgn41.Text = "Tsb"
+scgn41.Visible = false
+scgn41.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn42 = Instance.new("TextButton")
+scgn42.Parent = sc
+scgn42.Name = "scgn42"
+scgn42.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scgn42.Position = UDim2.new(0.86, 0, 0.43, 0)
+scgn42.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn42.BorderColor3 = Color3.new(1, 0, 0)
+scgn42.BorderSizePixel = 3
+scgn42.TextColor3 = Color3.new(1, 1, 1)
+scgn42.TextScaled = true
+scgn42.Font = Enum.Font.Roboto
+scgn42.Text = "Tsb"
+scgn42.Visible = false
+scgn42.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn43 = Instance.new("TextButton")
+scgn43.Parent = sc
+scgn43.Name = "scgn43"
+scgn43.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn43.Position = UDim2.new(0.00996587239, 0, 0.64, 0)
+scgn43.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn43.BorderColor3 = Color3.new(1, 0, 0)
+scgn43.BorderSizePixel = 3
+scgn43.TextColor3 = Color3.new(1, 1, 1)
+scgn43.TextScaled = true
+scgn43.Font = Enum.Font.Roboto
+scgn43.Text = "Tsb"
+scgn43.Visible = false
+scgn43.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn44 = Instance.new("TextButton")
+scgn44.Parent = sc
+scgn44.Name = "scgn44"
+scgn44.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn44.Position = UDim2.new(0.18, 0, 0.64, 0)
+scgn44.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn44.BorderColor3 = Color3.new(1, 0, 0)
+scgn44.BorderSizePixel = 3
+scgn44.TextColor3 = Color3.new(1, 1, 1)
+scgn44.TextScaled = true
+scgn44.Font = Enum.Font.Roboto
+scgn44.Text = "Pets Simulator99"
+scgn44.Visible = false
+scgn44.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn45 = Instance.new("TextButton")
+scgn45.Parent = sc
+scgn45.Name = "scgn45"
+scgn45.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn45.Position = UDim2.new(0.35, 0, 0.64, 0)
+scgn45.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn45.BorderColor3 = Color3.new(1, 0, 0)
+scgn45.BorderSizePixel = 3
+scgn45.TextColor3 = Color3.new(1, 1, 1)
+scgn45.TextScaled = true
+scgn45.Font = Enum.Font.Roboto
+scgn45.Text = "Pets Simulator99"
+scgn45.Visible = false
+scgn45.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn46 = Instance.new("TextButton")
+scgn46.Parent = sc
+scgn46.Name = "scgn46"
+scgn46.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn46.Position = UDim2.new(0.52, 0, 0.64, 0)
+scgn46.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn46.BorderColor3 = Color3.new(1, 0, 0)
+scgn46.BorderSizePixel = 3
+scgn46.TextColor3 = Color3.new(1, 1, 1)
+scgn46.TextScaled = true
+scgn46.Font = Enum.Font.Roboto
+scgn46.Text = "Pets Simulator99"
+scgn46.Visible = false
+scgn46.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn47 = Instance.new("TextButton")
+scgn47.Parent = sc
+scgn47.Name = "scgn47"
+scgn47.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgn47.Position = UDim2.new(0.69, 0, 0.64, 0)
+scgn47.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn47.BorderColor3 = Color3.new(1, 0, 0)
+scgn47.BorderSizePixel = 3
+scgn47.TextColor3 = Color3.new(1, 1, 1)
+scgn47.TextScaled = true
+scgn47.Font = Enum.Font.Roboto
+scgn47.Text = "Pets Simulator99"
+scgn47.Visible = false
+scgn47.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn48 = Instance.new("TextButton")
+scgn48.Parent = sc
+scgn48.Name = "scgn48"
+scgn48.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scgn48.Position = UDim2.new(0.86, 0, 0.64, 0)
+scgn48.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn48.BorderColor3 = Color3.new(1, 0, 0)
+scgn48.BorderSizePixel = 3
+scgn48.TextColor3 = Color3.new(1, 1, 1)
+scgn48.TextScaled = true
+scgn48.Font = Enum.Font.Roboto
+scgn48.Text = "Pets Simulator99"
+scgn48.Visible = false
+scgn48.MouseButton1Click:Connect(function()
+
+end)
+
 local oc1 = Instance.new("TextButton")
 oc1.Parent = Others
 oc1.Name = "oc1"
@@ -2793,7 +3097,7 @@ oc8.MouseButton1Click:Connect(function()
         end
     end
 
-    -- Also check the Character for tools that might have been equipped
+    
     local character = LocalPlayer.Character
     if character then
         for _, item in pairs(character:GetChildren()) do
@@ -2818,8 +3122,7 @@ oc9.TextScaled = true
 oc9.Font = Enum.Font.SourceSans
 oc9.Text = "Activate Tools"
 oc9.MouseButton1Click:Connect(function()
-    local backpackTools = Players.LocalPlayer.Backpack:GetChildren() -- Get a snapshot
-
+    local backpackTools = Players.LocalPlayer.Backpack:GetChildren() 
     for i, tool in pairs(backpackTools) do
         if tool:IsA("Tool") then
             tool.Parent = Players.LocalPlayer.Character
@@ -2842,8 +3145,7 @@ oc10.TextScaled = true
 oc10.Font = Enum.Font.SourceSans
 oc10.Text = "Use Tools"
 oc10.MouseButton1Click:Connect(function()
-    local backpackTools = Players.LocalPlayer.Backpack:GetChildren() -- Get a snapshot
-
+    local backpackTools = Players.LocalPlayer.Backpack:GetChildren() 
     for i, tool in pairs(backpackTools) do
         if tool:IsA("Tool") then
             tool.Parent = Players.LocalPlayer.Character
@@ -3054,9 +3356,8 @@ oc23.Text = "Bring UnAnchored Parts Gui"
 oc23.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
 
--- This will only work on some games so go exploring. 
 
--- Brings unanchored parts to the player
+
 end)
 
 local oc24 = Instance.new("TextButton")
@@ -3273,7 +3574,7 @@ mypages.Text = "Page 1"
 mypages.TextXAlignment = Enum.TextXAlignment.Center
 mypages.TextYAlignment = Enum.TextYAlignment.Center
 
-local ocnf1 = Instance.new("TextButton")
+ocnf1 = Instance.new("TextButton")
 ocnf1.Parent = Others
 ocnf1.Name = "ocnf1"
 ocnf1.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3290,7 +3591,7 @@ ocnf1.MouseButton1Click:Connect(function()
 print("coming soon")
 end)
 
-local ocnf2 = Instance.new("TextButton")
+ocnf2 = Instance.new("TextButton")
 ocnf2.Parent = Others
 ocnf2.Name = "ocnf2"
 ocnf2.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3307,7 +3608,7 @@ ocnf2.MouseButton1Click:Connect(function()
 print("coming Soon")
 end)
 
-local ocnf3 = Instance.new("TextButton")
+ocnf3 = Instance.new("TextButton")
 ocnf3.Parent = Others
 ocnf3.Name = "ocnf3"
 ocnf3.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3324,7 +3625,7 @@ ocnf3.MouseButton1Click:Connect(function()
 print("coming soon")
 end)
 
-local ocnf4 = Instance.new("TextButton")
+ocnf4 = Instance.new("TextButton")
 ocnf4.Parent = Others
 ocnf4.Name = "ocnf4"
 ocnf4.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3341,7 +3642,7 @@ ocnf4.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf5 = Instance.new("TextButton")
+ocnf5 = Instance.new("TextButton")
 ocnf5.Parent = Others
 ocnf5.Name = "ocnf5"
 ocnf5.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3358,7 +3659,7 @@ ocnf5.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf6 = Instance.new("TextButton")
+ocnf6 = Instance.new("TextButton")
 ocnf6.Parent = Others
 ocnf6.Name = "ocnf6"
 ocnf6.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
@@ -3375,7 +3676,7 @@ ocnf6.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf7 = Instance.new("TextButton")
+ocnf7 = Instance.new("TextButton")
 ocnf7.Parent = Others
 ocnf7.Name = "ocnf7"
 ocnf7.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3392,7 +3693,7 @@ ocnf7.MouseButton1Click:Connect(function()
 print("Xoming Coon")
 end)
 
-local ocnf8 = Instance.new("TextButton")
+ocnf8 = Instance.new("TextButton")
 ocnf8.Parent = Others
 ocnf8.Name = "ocnf8"
 ocnf8.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3409,7 +3710,7 @@ ocnf8.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf9 = Instance.new("TextButton")
+ocnf9 = Instance.new("TextButton")
 ocnf9.Parent = Others
 ocnf9.Name = "ocnf9"
 ocnf9.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3426,7 +3727,7 @@ ocnf9.MouseButton1Click:Connect(function()
 print("Coming Blood")
 end)
 
-local ocnf10 = Instance.new("TextButton")
+ocnf10 = Instance.new("TextButton")
 ocnf10.Parent = Others
 ocnf10.Name = "ocnf10"
 ocnf10.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3443,7 +3744,7 @@ ocnf10.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf11 = Instance.new("TextButton")
+ocnf11 = Instance.new("TextButton")
 ocnf11.Parent = Others
 ocnf11.Name = "ocnf11"
 ocnf11.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3460,7 +3761,7 @@ ocnf11.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf12 = Instance.new("TextButton")
+ocnf12 = Instance.new("TextButton")
 ocnf12.Parent = Others
 ocnf12.Name = "ocnf12"
 ocnf12.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
@@ -3477,7 +3778,7 @@ ocnf12.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf13 = Instance.new("TextButton")
+ocnf13 = Instance.new("TextButton")
 ocnf13.Parent = Others
 ocnf13.Name = "ocnf13"
 ocnf13.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3494,7 +3795,7 @@ ocnf13.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf14 = Instance.new("TextButton")
+ocnf14 = Instance.new("TextButton")
 ocnf14.Parent = Others
 ocnf14.Name = "ocnf14"
 ocnf14.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3511,7 +3812,7 @@ ocnf14.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf15 = Instance.new("TextButton")
+ocnf15 = Instance.new("TextButton")
 ocnf15.Parent = Others
 ocnf15.Name = "ocnf15"
 ocnf15.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3528,7 +3829,7 @@ ocnf15.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf16 = Instance.new("TextButton")
+ocnf16 = Instance.new("TextButton")
 ocnf16.Parent = Others
 ocnf16.Name = "ocnf16"
 ocnf16.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3545,7 +3846,7 @@ ocnf16.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf17 = Instance.new("TextButton")
+ocnf17 = Instance.new("TextButton")
 ocnf17.Parent = Others
 ocnf17.Name = "ocnf17"
 ocnf17.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3562,7 +3863,7 @@ ocnf17.MouseButton1Click:Connect(function()
 print("Coming Soon")
 end)
 
-local ocnf18 = Instance.new("TextButton")
+ocnf18 = Instance.new("TextButton")
 ocnf18.Parent = Others
 ocnf18.Name = "ocnf18"
 ocnf18.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
@@ -3579,7 +3880,7 @@ ocnf18.MouseButton1Click:Connect(function()
 print("coming soon")
 end)
 
-local ocnf19 = Instance.new("TextButton")
+ocnf19 = Instance.new("TextButton")
 ocnf19.Parent = Others
 ocnf19.Name = "ocnf19"
 ocnf19.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3596,7 +3897,7 @@ ocnf19.MouseButton1Click:Connect(function()
 print("coming Soon")
 end)
 
-local ocnf20 = Instance.new("TextButton")
+ocnf20 = Instance.new("TextButton")
 ocnf20.Parent = Others
 ocnf20.Name = "ocnf20"
 ocnf20.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3613,7 +3914,7 @@ ocnf20.MouseButton1Click:Connect(function()
 print("coming soon")
 end)
 
-local ocnf21 = Instance.new("TextButton")
+ocnf21 = Instance.new("TextButton")
 ocnf21.Parent = Others
 ocnf21.Name = "ocnf21"
 ocnf21.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3630,7 +3931,7 @@ ocnf21.MouseButton1Click:Connect(function()
 print("coming soon")
 end)
 
- ocnf22 = Instance.new("TextButton")
+ocnf22 = Instance.new("TextButton")
 ocnf22.Parent = Others
 ocnf22.Name = "ocnf22"
 ocnf22.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3647,7 +3948,7 @@ ocnf22.MouseButton1Click:Connect(function()
 print("coming Soon")
 end)
 
- ocnf23 = Instance.new("TextButton")
+ocnf23 = Instance.new("TextButton")
 ocnf23.Parent = Others
 ocnf23.Name = "ocnf23"
 ocnf23.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -3664,7 +3965,7 @@ ocnf23.MouseButton1Click:Connect(function()
 print("coming soon")
 end)
 
- ocnf24 = Instance.new("TextButton")
+ocnf24 = Instance.new("TextButton")
 ocnf24.Parent = Others
 ocnf24.Name = "ocnf24"
 ocnf24.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
@@ -3852,7 +4153,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 30 do
+for i = 25, 48 do
    buttonName = "scgn" .. i
    button = sc:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -3875,7 +4176,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 30 do
+for i = 25, 48 do
    buttonName = "scgn" .. i
    button = sc:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -3935,21 +4236,30 @@ end
     oppage.Visible = true
 end)
 
-oc13.MouseButton1Click:Connect(function()
-	local character = player.Character
+function grabAllTools(player)
+	character = player.Character
 	if not character or not character:FindFirstChildWhichIsA("Humanoid") then
-		return -- Player's character or humanoid doesn't exist yet
+		return 
 	end
-	local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+	humanoid = character:FindFirstChildWhichIsA("Humanoid")
 
 	for _, child in ipairs(workspace:GetChildren()) do
-		if child:IsA("Tool") then -- Changed to check for "Tool" directly
+		if child:IsA("Tool") then 
 			humanoid:EquipTool(child)
 		end
 	end
+end
+
+oc13.MouseButton1Click:Connect(function()
+	local player = game.Players.LocalPlayer
+	if player then
+		grabAllTools(player)
+	else
+		warn("LocalPlayer not found when Grab All Tools button was clicked.")
+	end
 end)
 
--- Function to get the root part of a character
+
  function getRoot(character)
 	if character and character:FindFirstChild("HumanoidRootPart") then
 		return character.HumanoidRootPart
@@ -3977,7 +4287,7 @@ oc17.MouseButton1Click:Connect(function()
 	for _, descendant in pairs(workspace:GetDescendants()) do
 		if descendant:IsA("BasePart") and descendant.Name:lower() == partNameToFind:lower() then
 			foundPart = descendant
-			break -- Assuming you want to bring the first part found with that name
+			break 
 		end
 	end
 
@@ -4024,14 +4334,47 @@ oc16.MouseButton1Click:Connect(function()
 	end
 end)
 
--- Variables to track the "bring player" state and the target player
+originalPosition = nil
+isTeleported = false
+
+
+function teleportPlayer()
+    local player = game.Players.LocalPlayer
+    if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        if not isTeleported then
+            
+            originalPosition = player.Character.HumanoidRootPart.CFrame
+            local targetPosition = Vector3.new(0, -99999999999, 0)
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+            print("Teleported player to X: 0, Y: -99999997952, Z: 0")
+            oc24.Text = "UnVoid" 
+            isTeleported = true
+        else
+            
+            if originalPosition then
+                player.Character.HumanoidRootPart.CFrame = originalPosition
+                print("Teleported player back to original position.")
+                oc24.Text = "Void" 
+                isTeleported = false
+            else
+                print("Original position not stored.")
+            end
+        end
+    else
+        print("Player character not found.")
+    end
+end
+
+
+oc24.MouseButton1Click:Connect(teleportPlayer)
+
+
+
  bringPlayerActive = false
  targetPlayerToBring = nil
 
--- Assuming 'oc22' is a TextBox for the target username
--- Assuming 'sc19' is a TextButton to trigger the bring action
 
--- Function to handle the button click
+
 sc19.MouseButton1Click:Connect(function()
 	local targetUsername = oc22.Text
 	local localPlayer = Players.LocalPlayer
@@ -4042,7 +4385,7 @@ sc19.MouseButton1Click:Connect(function()
 	end
 
 	if bringPlayerActive then
-		-- Stop bringing the player
+		
 		bringPlayerActive = false
 		targetPlayerToBring = nil
 		sc19.Text = "Bring player"
@@ -4050,7 +4393,7 @@ sc19.MouseButton1Click:Connect(function()
 		return
 	end
 
-	-- Start bringing the player
+	
 	 target = Players:FindFirstChild(targetUsername)
 	if target and target ~= localPlayer then
 		targetPlayerToBring = target
@@ -4064,7 +4407,6 @@ sc19.MouseButton1Click:Connect(function()
 	end
 end)
 
--- Function to continuously bring the target player
 RunService.Heartbeat:Connect(function()
 	if bringPlayerActive and targetPlayerToBring then
 		 localPlayer = Players.LocalPlayer
@@ -4076,11 +4418,10 @@ RunService.Heartbeat:Connect(function()
 			 targetRootPart = targetCharacter:FindFirstChild("HumanoidRootPart")
 
 			if localRootPart and targetRootPart then
-				-- Calculate the position one stud in front of the local player
-				 bringOffset = localRootPart.CFrame.LookVector * 3 -- Adjust the 3 for distance
+				
+				 bringOffset = localRootPart.CFrame.LookVector * 3 
 				 bringPosition = localRootPart.CFrame.Position + bringOffset
-				 bringCFrame = CFrame.lookAt(bringPosition, localRootPart.CFrame.Position) -- Make them face you
-
+				 bringCFrame = CFrame.lookAt(bringPosition, localRootPart.CFrame.Position) 
 				targetRootPart.CFrame = bringCFrame
 
 				 targetHumanoid = targetCharacter:FindFirstChild("Humanoid")
@@ -4144,7 +4485,7 @@ oc14.MouseButton1Click:Connect(function()
  
   autoKeyPressing = false
  cancelAutoKeyPress = nil
- currentKey = "q" -- Default key
+ currentKey = "q" 
 
 keycodeMap = {
 	["0"] = 0x30,
@@ -4216,7 +4557,7 @@ keycodeMap = {
 }
 
 oc2.MouseButton1Click:Connect(function()
-	if keypress and keyrelease and kb then -- Use the 'kb' variable directly
+	if keypress and keyrelease and kb then 
 		 text = kb.Text:lower()
 		 code = keycodeMap[text]
 
@@ -4266,7 +4607,7 @@ oc2.MouseButton1Click:Connect(function()
 			if cancelAutoKeyPress then
 				cancelAutoKeyPress:Disconnect()
 				cancelAutoKeyPress = nil
-				 code = keycodeMap[currentKey] -- Use currentKey here
+				 code = keycodeMap[currentKey] 
 				if keyrelease and code then keyrelease(code) end
 			end
 			print("Auto Key: Auto key toggled OFF.")
@@ -4287,27 +4628,23 @@ oc20.MouseButton1Click:Connect(function()
          targetPlayer = Players:FindFirstChild(playerName)
         if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
             if isCameraFocused and focusedSubject == targetPlayer.Character.HumanoidRootPart then
-                -- Toggle off: Reset camera to default subject
                 camera.CameraSubject = Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or camera.CameraSubject
                 isCameraFocused = false
                 focusedSubject = nil
-                oc20.Text = "View player" -- Update button text
+                oc20.Text = "View player"
                 print("Camera focus toggled off.")
             else
-                -- Toggle on: Focus camera on the target player
                 camera.CameraSubject = targetPlayer.Character.HumanoidRootPart
                 isCameraFocused = true
                 focusedSubject = targetPlayer.Character.HumanoidRootPart
-                oc20.Text = "Unview player" -- Update button text
+                oc20.Text = "Unview player"
                 print("Camera focused on player:", targetPlayer.Name)
             end
         else
             warn("Player '" .. playerName .. "' not found or character not loaded.")
-            -- Optionally, provide feedback to the user in the GUI.
         end
     else
         warn("Please enter a player name.")
-        -- Optionally, provide feedback to the user in the GUI.
     end
 end)
 
