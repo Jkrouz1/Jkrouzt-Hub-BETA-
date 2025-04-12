@@ -1843,7 +1843,7 @@ local scn43 = Instance.new("TextButton")
 scn43.Parent = sc
 scn43.Name = "scn43"
 scn43.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn43.Position = UDim2.new(0.00996587239, 0, 0.64, 0)
+scn43.Position = UDim2.new(0.00996587239, 0, 0.63, 0)
 scn43.BackgroundColor3 = Color3.new(0, 0, 0)
 scn43.BorderColor3 = Color3.new(1, 0, 0)
 scn43.BorderSizePixel = 3
@@ -1860,7 +1860,7 @@ local scn44 = Instance.new("TextButton")
 scn44.Parent = sc
 scn44.Name = "scn44"
 scn44.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn44.Position = UDim2.new(0.18, 0, 0.64, 0)
+scn44.Position = UDim2.new(0.18, 0, 0.63, 0)
 scn44.BackgroundColor3 = Color3.new(0, 0, 0)
 scn44.BorderColor3 = Color3.new(1, 0, 0)
 scn44.BorderSizePixel = 3
@@ -1877,7 +1877,7 @@ local scn45 = Instance.new("TextButton")
 scn45.Parent = sc
 scn45.Name = "scn45"
 scn45.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn45.Position = UDim2.new(0.35, 0, 0.64, 0)
+scn45.Position = UDim2.new(0.35, 0, 0.63, 0)
 scn45.BackgroundColor3 = Color3.new(0, 0, 0)
 scn45.BorderColor3 = Color3.new(1, 0, 0)
 scn45.BorderSizePixel = 3
@@ -1894,7 +1894,7 @@ local scn46 = Instance.new("TextButton")
 scn46.Parent = sc
 scn46.Name = "scn46"
 scn46.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn46.Position = UDim2.new(0.52, 0, 0.64, 0)
+scn46.Position = UDim2.new(0.52, 0, 0.63, 0)
 scn46.BackgroundColor3 = Color3.new(0, 0, 0)
 scn46.BorderColor3 = Color3.new(1, 0, 0)
 scn46.BorderSizePixel = 3
@@ -1911,7 +1911,7 @@ local scn47 = Instance.new("TextButton")
 scn47.Parent = sc
 scn47.Name = "scn47"
 scn47.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn47.Position = UDim2.new(0.69, 0, 0.64, 0)
+scn47.Position = UDim2.new(0.69, 0, 0.63, 0)
 scn47.BackgroundColor3 = Color3.new(0, 0, 0)
 scn47.BorderColor3 = Color3.new(1, 0, 0)
 scn47.BorderSizePixel = 3
@@ -1928,7 +1928,7 @@ local scn48 = Instance.new("TextButton")
 scn48.Parent = sc
 scn48.Name = "scn48"
 scn48.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
-scn48.Position = UDim2.new(0.86, 0, 0.64, 0)
+scn48.Position = UDim2.new(0.86, 0, 0.63, 0)
 scn48.BackgroundColor3 = Color3.new(0, 0, 0)
 scn48.BorderColor3 = Color3.new(1, 0, 0)
 scn48.BorderSizePixel = 3
@@ -2592,10 +2592,10 @@ scgn31.BorderSizePixel = 3
 scgn31.TextColor3 = Color3.new(1, 1, 1)
 scgn31.TextScaled = true
 scgn31.Font = Enum.Font.SourceSans
-scgn31.Text = "FullHub (Bluelock)"
+scgn31.Text = "Arbix Hub (Bluelock)"
 scgn31.Visible = false
 scgn31.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/PresidentZuyi/S/refs/heads/main/FullHub"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Youifpg/Blr-inf/refs/heads/main/infinitespins.lua"))()
 end)
 
 local scgn32 = Instance.new("TextButton")
@@ -2621,7 +2621,7 @@ scgn33.Name = "scgn33"
 scgn33.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgn33.Position = UDim2.new(0.35, 0, 0.229999959, 0)
 scgn33.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn33.BorderColor3 = Color3.new(1, 0, 0)
+scgn33.BorderColor3 = Color3.new(1, 1, 0)
 scgn33.BorderSizePixel = 3
 scgn33.TextColor3 = Color3.new(1, 1, 1)
 scgn33.TextScaled = true
@@ -2638,15 +2638,15 @@ scgn34.Name = "scgn34"
 scgn34.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgn34.Position = UDim2.new(0.52, 0, 0.229999959, 0)
 scgn34.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn34.BorderColor3 = Color3.new(1, 0, 0)
+scgn34.BorderColor3 = Color3.new(1, 1, 0)
 scgn34.BorderSizePixel = 3
 scgn34.TextColor3 = Color3.new(1, 1, 1)
 scgn34.TextScaled = true
 scgn34.Font = Enum.Font.Roboto
-scgn34.Text = "Nicuse Hub (Bluelock)"
+scgn34.Text = "Alchemy Hub (Bluelock)"
 scgn34.Visible = false
 scgn34.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://nicuse.xyz/MainHub.lua"))()
+loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
 end)
 
 local scgn35 = Instance.new("TextButton")
@@ -2708,10 +2708,10 @@ scgn37.BorderSizePixel = 3
 scgn37.TextColor3 = Color3.new(1, 1, 1)
 scgn37.TextScaled = true
 scgn37.Font = Enum.Font.Roboto
-scgn37.Text = "Tsb"
+scgn37.Text = "Noro ded Gui (Tsb)"
 scgn37.Visible = false
 scgn37.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://gist.githubusercontent.com/Noro-ded/add5f50deb5351b84a58f9e26784d421/raw/f4fe60235768436d96a1bd61802ae79eebcab3ce/mainguitsb", true))()
 end)
 
 local scgn38 = Instance.new("TextButton")
@@ -2725,10 +2725,10 @@ scgn38.BorderSizePixel = 3
 scgn38.TextColor3 = Color3.new(1, 1, 1)
 scgn38.TextScaled = true
 scgn38.Font = Enum.Font.Roboto
-scgn38.Text = "Tsb"
+scgn38.Text = "Speed Hub x (Tsb)"
 scgn38.Visible = false
 scgn38.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
 end)
 
 local scgn39 = Instance.new("TextButton")
@@ -2742,10 +2742,10 @@ scgn39.BorderSizePixel = 3
 scgn39.TextColor3 = Color3.new(1, 1, 1)
 scgn39.TextScaled = true
 scgn39.Font = Enum.Font.Roboto
-scgn39.Text = "Tsb"
+scgn39.Text = "Animation Gui (Tsb)"
 scgn39.Visible = false
 scgn39.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Mautiku/ehh/main/strong%20guest.lua.txt'))()
 end)
 
 local scgn40 = Instance.new("TextButton")
@@ -2754,15 +2754,17 @@ scgn40.Name = "scgn40"
 scgn40.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgn40.Position = UDim2.new(0.52, 0, 0.43, 0)
 scgn40.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn40.BorderColor3 = Color3.new(1, 0, 0)
+scgn40.BorderColor3 = Color3.new(1, 1, 0)
 scgn40.BorderSizePixel = 3
 scgn40.TextColor3 = Color3.new(1, 1, 1)
 scgn40.TextScaled = true
 scgn40.Font = Enum.Font.Roboto
-scgn40.Text = "Tsb"
+scgn40.Text = "Star Hub v4 (Tsb)"
 scgn40.Visible = false
 scgn40.MouseButton1Click:Connect(function()
+--[[https://discord.gg/KcT5aNK24z (Join Discord for new versions and updates) ]]--
 
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/bc25e1f8ef8aa59092de8f8f4c4fb95c.lua"))()
 end)
 
 local scgn41 = Instance.new("TextButton")
@@ -2771,15 +2773,15 @@ scgn41.Name = "scgn41"
 scgn41.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgn41.Position = UDim2.new(0.69, 0, 0.43, 0)
 scgn41.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn41.BorderColor3 = Color3.new(1, 0, 0)
+scgn41.BorderColor3 = Color3.new(1, 1, 0)
 scgn41.BorderSizePixel = 3
 scgn41.TextColor3 = Color3.new(1, 1, 1)
 scgn41.TextScaled = true
 scgn41.Font = Enum.Font.Roboto
-scgn41.Text = "Tsb"
+scgn41.Text = "Lightux Hub (Tsb)"
 scgn41.Visible = false
 scgn41.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/cool83birdcarfly02six/Lightux/main/README.md'),true))()
 end)
 
 local scgn42 = Instance.new("TextButton")
@@ -2793,112 +2795,112 @@ scgn42.BorderSizePixel = 3
 scgn42.TextColor3 = Color3.new(1, 1, 1)
 scgn42.TextScaled = true
 scgn42.Font = Enum.Font.Roboto
-scgn42.Text = "Tsb"
+scgn42.Text = "Spooks Hub (Tsb)"
 scgn42.Visible = false
 scgn42.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ApparentlySpooks/spookshubTSB/refs/heads/main/SHTSB.txt'))()
 end)
 
 local scgn43 = Instance.new("TextButton")
 scgn43.Parent = sc
 scgn43.Name = "scgn43"
 scgn43.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scgn43.Position = UDim2.new(0.00996587239, 0, 0.64, 0)
+scgn43.Position = UDim2.new(0.00996587239, 0, 0.63, 0)
 scgn43.BackgroundColor3 = Color3.new(0, 0, 0)
 scgn43.BorderColor3 = Color3.new(1, 0, 0)
 scgn43.BorderSizePixel = 3
 scgn43.TextColor3 = Color3.new(1, 1, 1)
 scgn43.TextScaled = true
 scgn43.Font = Enum.Font.Roboto
-scgn43.Text = "Pet Simulator99"
+scgn43.Text = "6FootScripts (Pet Sim99)"
 scgn43.Visible = false
 scgn43.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SlamminPig/6FootScripts/main/Scripts/PetSimulator99.lua'))();
 end)
 
 local scgn44 = Instance.new("TextButton")
 scgn44.Parent = sc
 scgn44.Name = "scgn44"
 scgn44.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scgn44.Position = UDim2.new(0.18, 0, 0.64, 0)
+scgn44.Position = UDim2.new(0.18, 0, 0.63, 0)
 scgn44.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn44.BorderColor3 = Color3.new(1, 0, 0)
+scgn44.BorderColor3 = Color3.new(1, 1, 0)
 scgn44.BorderSizePixel = 3
 scgn44.TextColor3 = Color3.new(1, 1, 1)
 scgn44.TextScaled = true
 scgn44.Font = Enum.Font.Roboto
-scgn44.Text = "Pets Simulator99"
+scgn44.Text = "Verteniasty Hub (Pets Sim99)"
 scgn44.Visible = false
 scgn44.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Verteniasty/Pet-rbx/refs/heads/main/loadstring"))()
 end)
 
 local scgn45 = Instance.new("TextButton")
 scgn45.Parent = sc
 scgn45.Name = "scgn45"
 scgn45.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scgn45.Position = UDim2.new(0.35, 0, 0.64, 0)
+scgn45.Position = UDim2.new(0.35, 0, 0.63, 0)
 scgn45.BackgroundColor3 = Color3.new(0, 0, 0)
 scgn45.BorderColor3 = Color3.new(1, 0, 0)
 scgn45.BorderSizePixel = 3
 scgn45.TextColor3 = Color3.new(1, 1, 1)
 scgn45.TextScaled = true
 scgn45.Font = Enum.Font.Roboto
-scgn45.Text = "Pets Simulator99"
+scgn45.Text = "REE Hub (Pets Sim99)"
 scgn45.Visible = false
 scgn45.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FreeeScripts/FREEHub/main/Loader", true))()
 end)
 
 local scgn46 = Instance.new("TextButton")
 scgn46.Parent = sc
 scgn46.Name = "scgn46"
 scgn46.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scgn46.Position = UDim2.new(0.52, 0, 0.64, 0)
+scgn46.Position = UDim2.new(0.52, 0, 0.63, 0)
 scgn46.BackgroundColor3 = Color3.new(0, 0, 0)
 scgn46.BorderColor3 = Color3.new(1, 0, 0)
 scgn46.BorderSizePixel = 3
 scgn46.TextColor3 = Color3.new(1, 1, 1)
 scgn46.TextScaled = true
 scgn46.Font = Enum.Font.Roboto
-scgn46.Text = "Pets Simulator99"
+scgn46.Text = "Ganja Hub (Pets Sim99)"
 scgn46.Visible = false
 scgn46.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet"https://raw.githubusercontent.com/Krnow1/Ganjahub/main/Ganjahubontop")()
 end)
 
 local scgn47 = Instance.new("TextButton")
 scgn47.Parent = sc
 scgn47.Name = "scgn47"
 scgn47.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scgn47.Position = UDim2.new(0.69, 0, 0.64, 0)
+scgn47.Position = UDim2.new(0.69, 0, 0.63, 0)
 scgn47.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn47.BorderColor3 = Color3.new(1, 0, 0)
+scgn47.BorderColor3 = Color3.new(1, 1, 0)
 scgn47.BorderSizePixel = 3
 scgn47.TextColor3 = Color3.new(1, 1, 1)
 scgn47.TextScaled = true
 scgn47.Font = Enum.Font.Roboto
-scgn47.Text = "Pets Simulator99"
+scgn47.Text = "ZapHub (Pets Sim99)"
 scgn47.Visible = false
 scgn47.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://zaphub.xyz/Exec'))()
 end)
 
 local scgn48 = Instance.new("TextButton")
 scgn48.Parent = sc
 scgn48.Name = "scgn48"
 scgn48.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
-scgn48.Position = UDim2.new(0.86, 0, 0.64, 0)
+scgn48.Position = UDim2.new(0.86, 0, 0.63, 0)
 scgn48.BackgroundColor3 = Color3.new(0, 0, 0)
 scgn48.BorderColor3 = Color3.new(1, 0, 0)
 scgn48.BorderSizePixel = 3
 scgn48.TextColor3 = Color3.new(1, 1, 1)
 scgn48.TextScaled = true
 scgn48.Font = Enum.Font.Roboto
-scgn48.Text = "Pets Simulator99"
+scgn48.Text = "Redz hub (Pets Sim99)"
 scgn48.Visible = false
 scgn48.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/PetSimulator99/main/redz9999.lua"))()
 end)
 
 local oc1 = Instance.new("TextButton")
