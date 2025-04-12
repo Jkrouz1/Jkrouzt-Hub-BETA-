@@ -1758,7 +1758,7 @@ local scn38 = Instance.new("TextButton")
 scn38.Parent = sc
 scn38.Name = "scn38"
 scn38.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scn38.Position = UDim2.new(0.18, 0, 0.44, 0)
+scn38.Position = UDim2.new(0.18, 0, 0.43, 0)
 scn38.BackgroundColor3 = Color3.new(0, 0, 0)
 scn38.BorderColor3 = Color3.new(1, 0, 0)
 scn38.BorderSizePixel = 3
@@ -1811,7 +1811,7 @@ scn41.Name = "scn41"
 scn41.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn41.Position = UDim2.new(0.69, 0, 0.43, 0)
 scn41.BackgroundColor3 = Color3.new(0, 0, 0)
-scn41.BorderColor3 = Color3.new(1, 0, 0)
+scn41.BorderColor3 = Color3.new(1, 1, 0)
 scn41.BorderSizePixel = 3
 scn41.TextColor3 = Color3.new(1, 1, 1)
 scn41.TextScaled = true
@@ -2343,15 +2343,15 @@ scg17.Name = "scg17"
 scg17.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg17.Position = UDim2.new(0.69, 0, 0.550, 0)
 scg17.BackgroundColor3 = Color3.new(0, 0, 0)
-scg17.BorderColor3 = Color3.new(1, 1, 0)
+scg17.BorderColor3 = Color3.new(1, 0, 0)
 scg17.BorderSizePixel = 3
 scg17.TextColor3 = Color3.new(1, 1, 1)
 scg17.TextScaled = true
 scg17.Font = Enum.Font.Roboto
-scg17.Text = "Solix Hub (Deadrails) "
+scg17.Text = "Spider X Hub (Deadrails) "
 scg17.Visible = false
 scg17.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/debunked69/Solixreworkkeysystem/refs/heads/main/solix%20new%20keyui.lua"))() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Dead-Rails-SpiderXHub-Script/refs/heads/main/SpiderXHub%202.0.txt"))()
 end)
 
 local scg18 = Instance.new("TextButton")
@@ -2592,10 +2592,10 @@ scgn31.BorderSizePixel = 3
 scgn31.TextColor3 = Color3.new(1, 1, 1)
 scgn31.TextScaled = true
 scgn31.Font = Enum.Font.SourceSans
-scgn31.Text = "blulock"
+scgn31.Text = "FullHub (Bluelock)"
 scgn31.Visible = false
 scgn31.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PresidentZuyi/S/refs/heads/main/FullHub"))()
 end)
 
 local scgn32 = Instance.new("TextButton")
@@ -2609,10 +2609,10 @@ scgn32.BorderSizePixel = 3
 scgn32.TextColor3 = Color3.new(1, 1, 1)
 scgn32.TextScaled = true
 scgn32.Font = Enum.Font.SourceSans
-scgn32.Text = "blulock"
+scgn32.Text = "Tbao Hub (Bluelock)"
 scgn32.Visible = false
 scgn32.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/game/refs/heads/main/TbaoHubBlueLockRivals"))()
 end)
 
 local scgn33 = Instance.new("TextButton")
@@ -2643,10 +2643,10 @@ scgn34.BorderSizePixel = 3
 scgn34.TextColor3 = Color3.new(1, 1, 1)
 scgn34.TextScaled = true
 scgn34.Font = Enum.Font.Roboto
-scgn34.Text = "blulock"
+scgn34.Text = "Nicuse Hub (Bluelock)"
 scgn34.Visible = false
 scgn34.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://nicuse.xyz/MainHub.lua"))()
 end)
 
 local scgn35 = Instance.new("TextButton")
@@ -2655,15 +2655,15 @@ scgn35.Name = "scgn35"
 scgn35.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgn35.Position = UDim2.new(0.69, 0, 0.229999959, 0)
 scgn35.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn35.BorderColor3 = Color3.new(1, 0, 0)
+scgn35.BorderColor3 = Color3.new(1, 1, 0)
 scgn35.BorderSizePixel = 3
 scgn35.TextColor3 = Color3.new(1, 1, 1)
 scgn35.TextScaled = true
 scgn35.Font = Enum.Font.Roboto
-scgn35.Text = "blulock"
+scgn35.Text = "OMG Hub (Bluelock)"
 scgn35.Visible = false
 scgn35.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://rawscripts.net/raw/UPD-Blue-Lock:-Rivals-OMG-Hub-29091"))()
 end)
 
 local scgn36 = Instance.new("TextButton")
@@ -2677,10 +2677,24 @@ scgn36.BorderSizePixel = 3
 scgn36.TextColor3 = Color3.new(1, 1, 1)
 scgn36.TextScaled = true
 scgn36.Font = Enum.Font.Roboto
-scgn36.Text = "blulock"
+scgn36.Text = "Sterling hub (Bluelock)"
 scgn36.Visible = false
 scgn36.MouseButton1Click:Connect(function()
-
+local GuiService = game:GetService("GuiService")
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local player = Players.LocalPlayer
+local function onErrorMessageChanged(errorMessage)
+    if errorMessage and errorMessage ~= "" then
+        print("Error detected: " .. errorMessage)
+        if player then
+            wait()
+            TeleportService:Teleport(game.PlaceId, player)
+        end
+    end
+end
+GuiService.ErrorMessageChanged:Connect(onErrorMessageChanged)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Zayn31214/name/refs/heads/main/SterlingNew"))()
 end)
 
 local scgn37 = Instance.new("TextButton")
@@ -2704,7 +2718,7 @@ local scgn38 = Instance.new("TextButton")
 scgn38.Parent = sc
 scgn38.Name = "scgn38"
 scgn38.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-scgn38.Position = UDim2.new(0.18, 0, 0.44, 0)
+scgn38.Position = UDim2.new(0.18, 0, 0.43, 0)
 scgn38.BackgroundColor3 = Color3.new(0, 0, 0)
 scgn38.BorderColor3 = Color3.new(1, 0, 0)
 scgn38.BorderSizePixel = 3
@@ -2796,7 +2810,7 @@ scgn43.BorderSizePixel = 3
 scgn43.TextColor3 = Color3.new(1, 1, 1)
 scgn43.TextScaled = true
 scgn43.Font = Enum.Font.Roboto
-scgn43.Text = "Tsb"
+scgn43.Text = "Pet Simulator99"
 scgn43.Visible = false
 scgn43.MouseButton1Click:Connect(function()
 
