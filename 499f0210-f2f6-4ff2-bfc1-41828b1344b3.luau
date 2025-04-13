@@ -206,6 +206,19 @@ Others.BorderColor3 = Color3.new(255, 0, 0)
 Others.BorderSizePixel = 2
 Others.Visible = false
 
+Lastshit = Instance.new("ScrollingFrame")
+Lastshit.Parent = hom
+Lastshit.Name = "Lastshit"
+Lastshit.Size = UDim2.new(0, 650, 0, 270)
+Lastshit.Position = UDim2.new(0, 0, 0.53, 0)
+Lastshit.BackgroundColor3 = Color3.new(0, 0, 0)
+Lastshit.BorderColor3 = Color3.new(255, 0, 0)
+Lastshit.BorderSizePixel = 2
+Lastshit.CanvasSize = UDim2.new(0, 500, 0, 500)
+Lastshit.ScrollBarThickness = 10
+Lastshit.ScrollBarImageColor3 = Color3.new(255, 0, 0)
+Lastshit.Visible = false
+
 tab1.Parent = hom
 tab1.Text = "Home"
 tab1.TextYAlignment = Enum.TextYAlignment.Center
@@ -227,6 +240,8 @@ sc.Visible = false
 tab3.BorderColor3 = Color3.new(255, 0, 0)
 Others.Visible = false
 tab4.BorderColor3 = Color3.new(255, 0, 0)
+Lastshit.Visible = false
+tab5.BorderColor3 = Color3.new(255, 0, 0)
 end)
 
 tab2.Parent = hom
@@ -250,6 +265,8 @@ sc.Visible = false
 tab3.BorderColor3 = Color3.new(255, 0, 0)
 Others.Visible = false
 tab4.BorderColor3 = Color3.new(255, 0, 0)
+Lastshit.Visible = false
+tab5.BorderColor3 = Color3.new(255, 0, 0)
 end)
 
 tab3.Parent = hom
@@ -273,6 +290,8 @@ sc.Visible = true
 tab3.BorderColor3 = Color3.new(255, 255, 255)
 Others.Visible = false
 tab4.BorderColor3 = Color3.new(255, 0, 0)
+Lastshit.Visible = false
+tab5.BorderColor3 = Color3.new(255, 0, 0)
 end)
 
 tab4.Parent = hom
@@ -296,6 +315,32 @@ sc.Visible = false
 tab3.BorderColor3 = Color3.new(255, 0, 0)
 Others.Visible = true
 tab4.BorderColor3 = Color3.new(1, 1, 1)
+Lastshit.Visible = false
+tab5.BorderColor3 = Color3.new(255, 0, 0)
+end)
+
+tab5 = Instance.new("ImageButton")
+tab5.Parent = hom
+tab5.Image = "rbxassetid://13775586461"
+tab5.Position = UDim2.new(0, 600, 0, 0)
+tab5.Size = UDim2.new(0.0750000104, 0, 0, 23)
+tab5.BackgroundColor3 = Color3.new(0, 0, 0) 
+tab5.BackgroundTransparency = 0
+tab5.BorderSizePixel = 2.5
+tab5.BorderColor3 = Color3.new(255, 0, 0)
+tab5.ScaleType = Enum.ScaleType.Fit
+tab5.AutoButtonColor = true
+tab5.MouseButton1Click:Connect(function()
+home.Visible = false
+tab1.BorderColor3 = Color3.new(255, 0, 0)
+exec.Visible = false
+tab2.BorderColor3 = Color3.new(255, 0, 0)
+sc.Visible = false
+tab3.BorderColor3 = Color3.new(255, 0, 0)
+Others.Visible = false
+tab4.BorderColor3 = Color3.new(255, 0, 0)
+Lastshit.Visible = true
+tab5.BorderColor3 = Color3.new(1, 1, 1)
 end)
 
 local imageLabel = Instance.new("ImageLabel")
@@ -451,6 +496,24 @@ local placeId = game.PlaceId
 local gameName = game.Name
 
 info4.Text = "PlaceID: " .. placeId .. " (" .. gameName .. ")"
+
+sething = Instance.new("TextLabel")
+sething.Parent = Lastshit
+sething.Name = "sething"
+sething.Size = UDim2.new(0.018, 0, 0, 0)
+sething.Position = UDim2.new(0, 0, 0, 0)
+sething.BackgroundColor3 = Color3.new(0, 0, 0)
+sething.BackgroundTransparency = 0
+sething.BorderColor3 = Color3.new(255, 0, 0)
+sething.BorderSizePixel = 3
+sething.TextColor3 = Color3.new(1, 1, 1)
+sething.TextStrokeColor3 = Color3.new(255, 0, 0)
+sething.TextStrokeTransparency = 0.8
+sething.TextScaled = true
+sething.Font = Enum.Font.Michroma
+sething.Text = "Settings"
+sething.TextXAlignment = Enum.TextXAlignment.Left
+sething.TextYAlignment = Enum.TextYAlignment.Center
 
 local loopButt = Instance.new("TextButton")
 loopButt.Parent = exec
