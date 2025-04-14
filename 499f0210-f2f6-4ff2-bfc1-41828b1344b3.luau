@@ -5,6 +5,7 @@ local localPlayer = Players.LocalPlayer
 local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
+local GuiService = game:GetService("GuiService")
 
 local screenGui = Instance.new("ScreenGui")
 local tab1 = Instance.new("TextButton")
@@ -500,7 +501,7 @@ info4.Text = "PlaceID: " .. placeId .. " (" .. gameName .. ")"
 sething = Instance.new("TextLabel")
 sething.Parent = Lastshit
 sething.Name = "sething"
-sething.Size = UDim2.new(1.01800000, 0, 0.100000000, 0)
+sething.Size = UDim2.new(1.01800001, 0, 0.100000001, 0)
 sething.Position = UDim2.new(0, 0, 0, 0)
 sething.BackgroundColor3 = Color3.new(0, 0, 0)
 sething.BackgroundTransparency = 0
@@ -3667,7 +3668,47 @@ ocnf1.Font = Enum.Font.Roboto
 ocnf1.Text = "Decal Spam 1"
 ocnf1.Visible = false
 ocnf1.MouseButton1Click:Connect(function()
-print("coming soon")
+	local dec1 = "rbxassetid://104614450687849"
+	local dec2 = "rbxassetid://104614450687849"
+	local dec3 = "rbxassetid://104614450687849"
+	local dec4 = "rbxassetid://104614450687849"
+
+	local w = workspace:GetDescendants()
+
+	local texture = "rbxassetid://104614450687849"
+
+	local parts = {}
+	for _, descendant in pairs(workspace:GetDescendants()) do
+		if descendant:IsA("Part") then
+			table.insert(parts, descendant)
+		end
+	end
+
+	for _, part in pairs(parts) do
+		local td = Instance.new("Decal", part)
+		td.Face = Enum.NormalId.Top
+		td.Texture = texture
+
+		local fd = Instance.new("Decal", part)
+		fd.Face = Enum.NormalId.Front
+		fd.Texture = texture
+
+		local bd = Instance.new("Decal", part)
+		bd.Face = Enum.NormalId.Back
+		bd.Texture = texture
+
+		local ld = Instance.new("Decal", part)
+		ld.Face = Enum.NormalId.Left
+		ld.Texture = texture
+
+		local btd = Instance.new("Decal", part)
+		btd.Face = Enum.NormalId.Bottom
+		btd.Texture = texture
+
+		local rd = Instance.new("Decal", part)
+		rd.Face = Enum.NormalId.Right
+		rd.Texture = texture
+	end
 end)
 
 ocnf2 = Instance.new("TextButton")
@@ -3684,7 +3725,28 @@ ocnf2.Font = Enum.Font.Roboto
 ocnf2.Text = "Skybox 1"
 ocnf2.Visible = false
 ocnf2.MouseButton1Click:Connect(function()
-print("coming Soon")
+    if not game or not game.Lighting then return end 
+
+    assetId = 104614450687849 
+    skyboxUrl = "rbxassetid://" .. assetId
+
+    for _, v in pairs(game.Lighting:GetChildren()) do
+        if v:IsA("Sky") then
+            v:Destroy()
+        end
+    end
+
+    
+    sky = Instance.new("Sky")
+    sky.Parent = game.Lighting
+
+    
+    sky.SkyboxBk = skyboxUrl
+    sky.SkyboxDn = skyboxUrl
+    sky.SkyboxFt = skyboxUrl
+    sky.SkyboxLf = skyboxUrl
+    sky.SkyboxRt = skyboxUrl
+    sky.SkyboxUp = skyboxUrl
 end)
 
 ocnf3 = Instance.new("TextButton")
@@ -3701,7 +3763,31 @@ ocnf3.Font = Enum.Font.Roboto
 ocnf3.Text = "Jumpscare 1"
 ocnf3.Visible = false
 ocnf3.MouseButton1Click:Connect(function()
-print("coming soon")
+	for i, v in pairs(game.Players:GetPlayers()) do
+		if v:FindFirstChild("PlayerGui") then
+			spawn(function()
+				local newgui = Instance.new("ScreenGui", v.PlayerGui)
+				newgui.Name = "Screamer"
+				newgui.IgnoreGuiInset = true
+
+				local newimage = Instance.new("ImageLabel", newgui)
+				newimage.Image = "rbxassetid://93872433943548"
+				newimage.Size = UDim2.new(1, 0, 1, 0)
+				newimage.Position = UDim2.new(0, 0, 0, 0)
+				newimage.AnchorPoint = Vector2.new(0, 0)
+				local s = Instance.new("Sound", newgui)
+				s.SoundId = "rbxassetid://9072304992" --9018233362
+				s.Volume = 10000
+				s.Looped = true
+				s:Play()
+				print("Screamed " .. v.Name)
+				wait(7)
+				if newgui and newgui.Parent then
+					newgui:Destroy()
+				end
+			end)
+		end
+	end
 end)
 
 ocnf4 = Instance.new("TextButton")
@@ -3718,7 +3804,13 @@ ocnf4.Font = Enum.Font.Roboto
 ocnf4.Text = "Theme 1"
 ocnf4.Visible = false
 ocnf4.MouseButton1Click:Connect(function()
-print("Coming Soon")
+local sound = Instance.new("Sound")
+sound.Parent = workspace
+
+sound.SoundId = "rbxassetid://98439648086561"
+sound.Volume = 5
+sound.Looped = true
+    sound:Play()
 end)
 
 ocnf5 = Instance.new("TextButton")
@@ -3735,7 +3827,47 @@ ocnf5.Font = Enum.Font.Roboto
 ocnf5.Text = "Decal Spam 2"
 ocnf5.Visible = false
 ocnf5.MouseButton1Click:Connect(function()
-print("Coming Soon")
+	local dec1 = "rbxassetid://114070753826630"
+	local dec2 = "rbxassetid://114070753826630"
+	local dec3 = "rbxassetid://114070753826630"
+	local dec4 = "rbxassetid://114070753826630"
+
+	local w = workspace:GetDescendants()
+
+	local texture = "rbxassetid://114070753826630"
+
+	local parts = {}
+	for _, descendant in pairs(workspace:GetDescendants()) do
+		if descendant:IsA("Part") then
+			table.insert(parts, descendant)
+		end
+	end
+
+	for _, part in pairs(parts) do
+		local td = Instance.new("Decal", part)
+		td.Face = Enum.NormalId.Top
+		td.Texture = texture
+
+		local fd = Instance.new("Decal", part)
+		fd.Face = Enum.NormalId.Front
+		fd.Texture = texture
+
+		local bd = Instance.new("Decal", part)
+		bd.Face = Enum.NormalId.Back
+		bd.Texture = texture
+
+		local ld = Instance.new("Decal", part)
+		ld.Face = Enum.NormalId.Left
+		ld.Texture = texture
+
+		local btd = Instance.new("Decal", part)
+		btd.Face = Enum.NormalId.Bottom
+		btd.Texture = texture
+
+		local rd = Instance.new("Decal", part)
+		rd.Face = Enum.NormalId.Right
+		rd.Texture = texture
+	end
 end)
 
 ocnf6 = Instance.new("TextButton")
@@ -3752,7 +3884,29 @@ ocnf6.Font = Enum.Font.Roboto
 ocnf6.Text = "Skybox 2"
 ocnf6.Visible = false
 ocnf6.MouseButton1Click:Connect(function()
-print("Coming Soon")
+    if not game or not game.Lighting then return end 
+
+    assetId = 114070753826630 
+    skyboxUrl = "rbxassetid://" .. assetId
+
+    
+    for _, v in pairs(game.Lighting:GetChildren()) do
+        if v:IsA("Sky") then
+            v:Destroy()
+        end
+    end
+
+    
+    sky = Instance.new("Sky")
+    sky.Parent = game.Lighting
+
+    
+    sky.SkyboxBk = skyboxUrl
+    sky.SkyboxDn = skyboxUrl
+    sky.SkyboxFt = skyboxUrl
+    sky.SkyboxLf = skyboxUrl
+    sky.SkyboxRt = skyboxUrl
+    sky.SkyboxUp = skyboxUrl
 end)
 
 ocnf7 = Instance.new("TextButton")
@@ -3769,7 +3923,31 @@ ocnf7.Font = Enum.Font.Roboto
 ocnf7.Text = "Jumpscare 2"
 ocnf7.Visible = false
 ocnf7.MouseButton1Click:Connect(function()
-print("Xoming Coon")
+	for i, v in pairs(game.Players:GetPlayers()) do
+		if v:FindFirstChild("PlayerGui") then
+			spawn(function()
+				local newgui = Instance.new("ScreenGui", v.PlayerGui)
+				newgui.Name = "Screamer"
+				newgui.IgnoreGuiInset = true
+
+				local newimage = Instance.new("ImageLabel", newgui)
+				newimage.Image = "rbxassetid://107978443801641"
+				newimage.Size = UDim2.new(1, 0, 1, 0)
+				newimage.Position = UDim2.new(0, 0, 0, 0)
+				newimage.AnchorPoint = Vector2.new(0, 0)
+				local s = Instance.new("Sound", newgui)
+				s.SoundId = "rbxassetid://6129291390" --9018233362
+				s.Volume = 10000
+				s.Looped = true
+				s:Play()
+				print("Screamed " .. v.Name)
+				wait(9)
+				if newgui and newgui.Parent then
+					newgui:Destroy()
+				end
+			end)
+		end
+	end
 end)
 
 ocnf8 = Instance.new("TextButton")
@@ -3786,7 +3964,14 @@ ocnf8.Font = Enum.Font.Roboto
 ocnf8.Text = "Theme 2"
 ocnf8.Visible = false
 ocnf8.MouseButton1Click:Connect(function()
-print("Coming Soon")
+local sound = Instance.new("Sound")
+sound.Parent = workspace
+
+sound.SoundId = "rbxassetid://104181508980428"
+sound.Volume = 5
+sound.Looped = true
+sound.Pitch = 0.180
+    sound:Play()
 end)
 
 ocnf9 = Instance.new("TextButton")
@@ -3800,10 +3985,42 @@ ocnf9.BorderSizePixel = 3
 ocnf9.TextColor3 = Color3.new(1, 1, 1)
 ocnf9.TextScaled = true
 ocnf9.Font = Enum.Font.Roboto
-ocnf9.Text = "Flood"
+ocnf9.Text = "Rainbow Path"
 ocnf9.Visible = false
 ocnf9.MouseButton1Click:Connect(function()
-print("Coming Blood")
+Player = game:getService("Players").LocalPlayer
+Character = Player.Character
+Model = Instance.new("Model",Character)
+P = Instance.new("Part")
+P.Anchored = true
+P.Locked = true
+P.CanCollide = true
+P.Reflectance = 0.1
+P.formFactor = "Custom"
+P.Size = Vector3.new(10,0.5,10)
+P.TopSurface = 0
+P.BottomSurface = 0
+M = Instance.new("CylinderMesh",P)
+C1 = true
+while true do wait()
+P2 = P:Clone()
+if C1 then
+P2.BrickColor = BrickColor.new("White")
+C1 = false
+elseif not C1 then
+P2.BrickColor = BrickColor.new("Really black")
+C1 = true
+end
+P2.Color = Color3.new(math.random(),math.random(),math.random())
+P2.Parent = Model
+P2.CFrame = Character.Torso.CFrame - Vector3.new(0,3.2,0)
+for i,v in pairs(Model:GetChildren()) do
+if v:IsA("Part") then
+else
+v:Remove()
+end
+end
+end
 end)
 
 ocnf10 = Instance.new("TextButton")
@@ -3820,7 +4037,7 @@ ocnf10.Font = Enum.Font.Roboto
 ocnf10.Text = "c00lGui"
 ocnf10.Visible = false
 ocnf10.MouseButton1Click:Connect(function()
-print("Coming Soon")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/C00lguiz/refs/heads/main/%5BGUI%5D%20c00lgui.txt"))()
 end)
 
 ocnf11 = Instance.new("TextButton")
@@ -3837,7 +4054,7 @@ ocnf11.Font = Enum.Font.Roboto
 ocnf11.Text = "Shutdown"
 ocnf11.Visible = false
 ocnf11.MouseButton1Click:Connect(function()
-print("Coming Soon")
+game:Shutdown()
 end)
 
 ocnf12 = Instance.new("TextButton")
@@ -3854,7 +4071,28 @@ ocnf12.Font = Enum.Font.Roboto
 ocnf12.Text = "Hint 1"
 ocnf12.Visible = false
 ocnf12.MouseButton1Click:Connect(function()
-print("Coming Soon")
+local hints = {
+    "1x98n6ex6 Join Dah Gamez!?!?!",
+    "This Server is Fucked Up!!!.",
+    "No time to get out of the Gamez!!!!",
+    "Have fun playing!. With 1x98n6ex6!",
+    "Die Noobs!"
+}
+
+local hintDisplayTime = 4
+local hintObject = Instance.new("Hint")
+hintObject.Parent = game.Workspace
+
+local currentIndex = 1
+
+while true do
+    hintObject.Text = hints[currentIndex]
+    wait(hintDisplayTime)
+    currentIndex = currentIndex + 1
+    if currentIndex > #hints then
+        currentIndex = 1
+    end
+end
 end)
 
 ocnf13 = Instance.new("TextButton")
@@ -3871,7 +4109,15 @@ ocnf13.Font = Enum.Font.Roboto
 ocnf13.Text = "Message 1"
 ocnf13.Visible = false
 ocnf13.MouseButton1Click:Connect(function()
-print("Coming Soon")
+msg = Instance.new("Message")
+msg.Parent = game.Workspace
+msg.Text = "1x98n6ex6 is here!. You can't do anything!" 
+wait(4)
+msg.Text = "1x98n6ex6 will take over the gamez!?!?!" 
+wait(4)
+msg.Text = "1x98n6ex6 is Dominating The Gamez?!?!?!!!!" 
+wait(5)
+msg:Remove()
 end)
 
 ocnf14 = Instance.new("TextButton")
@@ -3885,11 +4131,8 @@ ocnf14.BorderSizePixel = 3
 ocnf14.TextColor3 = Color3.new(1, 1, 1)
 ocnf14.TextScaled = true
 ocnf14.Font = Enum.Font.Roboto
-ocnf14.Text = "Infinite Yield"
+ocnf14.Text = "Obunga Jumpscare"
 ocnf14.Visible = false
-ocnf14.MouseButton1Click:Connect(function()
-print("Coming Soon")
-end)
 
 ocnf15 = Instance.new("TextButton")
 ocnf15.Parent = Others
@@ -3905,7 +4148,49 @@ ocnf15.Font = Enum.Font.Roboto
 ocnf15.Text = "Kill all"
 ocnf15.Visible = false
 ocnf15.MouseButton1Click:Connect(function()
-print("Coming Soon")
+  function killAndBreak(plry)
+    if plry == 'all' then
+      for _, plr in pairs(game.Players:GetPlayers()) do
+        if plr.Character and plr.Character:FindFirstChild("Humanoid") then
+          local humanoid = plr.Character:FindFirstChild("Humanoid")
+          humanoid.Health = 0
+
+          for _, part in pairs(plr.Character:GetDescendants()) do
+            if part:IsA("JointInstance") then
+              part:Destroy()
+            end
+          end
+        end
+      end
+    elseif plry == 'others' then
+      for _, plr in pairs(game.Players:GetPlayers()) do
+        if plr ~= game.Players.LocalPlayer and plr.Character and plr.Character:FindFirstChild("Humanoid") then
+          local humanoid = plr.Character:FindFirstChild("Humanoid")
+          humanoid.Health = 0
+
+          for _, part in pairs(plr.Character:GetDescendants()) do
+            if part:IsA("JointInstance") then
+              part:Destroy()
+            end
+          end
+        end
+      end
+    else
+      local plr = game.Players:FindFirstChild(plry)
+      if plr and plr.Character and plr.Character:FindFirstChild("Humanoid") then
+        local humanoid = plr.Character:FindFirstChild("Humanoid")
+        humanoid.Health = 0
+
+        for _, part in pairs(plr.Character:GetDescendants()) do
+          if part:IsA("JointInstance") then
+            part:Destroy()
+          end
+        end
+      end
+    end
+  end
+
+  killAndBreak('all')
 end)
 
 ocnf16 = Instance.new("TextButton")
@@ -3922,7 +4207,45 @@ ocnf16.Font = Enum.Font.Roboto
 ocnf16.Text = "Particles 1"
 ocnf16.Visible = false
 ocnf16.MouseButton1Click:Connect(function()
-print("Coming Soon")
+    local function applyParticleEffect(part)
+        if part:IsA("BasePart") then
+            local pe = Instance.new("ParticleEmitter", part)
+            pe.Texture = "rbxassetid://93872433943548"
+            pe.VelocitySpread = 50
+            pe.Lifetime = NumberRange.new(1, 5)
+            pe.Rate = 25
+            pe.Speed = NumberRange.new(10, 20)
+            pe.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 1.2), NumberSequenceKeypoint.new(1, 0)})
+
+            local se = Instance.new("ParticleEmitter", part)
+            se.Texture = "rbxassetid://93872433943548"
+            se.VelocitySpread = 50
+            se.Lifetime = NumberRange.new(1.5, 5.5)
+            se.Rate = 20
+            se.Speed = NumberRange.new(15, 25)
+            se.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(1, 0)})
+
+            local fe = Instance.new("ParticleEmitter", part)
+            fe.Texture = "rbxassetid://93872433943548"
+            fe.VelocitySpread = 50
+            fe.Lifetime = NumberRange.new(2, 5)
+            fe.Rate = 15
+            fe.Speed = NumberRange.new(20, 30)
+            fe.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0.8), NumberSequenceKeypoint.new(1, 0)})
+        end
+    end
+
+    local function processInstance(instance)
+        if instance:IsA("BasePart") then
+            applyParticleEffect(instance)
+        end
+
+        for _, child in pairs(instance:GetChildren()) do
+            processInstance(child)
+        end
+    end
+
+    processInstance(game.Workspace)
 end)
 
 ocnf17 = Instance.new("TextButton")
@@ -3936,10 +4259,35 @@ ocnf17.BorderSizePixel = 3
 ocnf17.TextColor3 = Color3.new(1, 1, 1)
 ocnf17.TextScaled = true
 ocnf17.Font = Enum.Font.Roboto
-ocnf17.Text = "1x98n6ex6 Game"
+ocnf17.Text = "Disco"
 ocnf17.Visible = false
 ocnf17.MouseButton1Click:Connect(function()
-print("Coming Soon")
+local lighting = game:GetService("Lighting")
+
+local function getRandomRGB()
+    local red = math.random()
+    local green = math.random()
+    local blue = math.random()
+    return Color3.new(red, green, blue)
+end
+
+local function updateColors()
+    local randomColor = getRandomRGB()
+
+    lighting.FogColor = randomColor
+
+    lighting.FogStart = 5
+    lighting.FogEnd = 20
+
+end
+
+while true do
+    updateColors()
+    wait(0.5)
+
+		game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
+		wait(.25)
+end
 end)
 
 ocnf18 = Instance.new("TextButton")
@@ -3953,11 +4301,18 @@ ocnf18.BorderSizePixel = 3
 ocnf18.TextColor3 = Color3.new(1, 1, 1)
 ocnf18.TextScaled = true
 ocnf18.Font = Enum.Font.Roboto
-ocnf18.Text = "Delete workspace"
+ocnf18.Text = "Clear workspace"
 ocnf18.Visible = false
 ocnf18.MouseButton1Click:Connect(function()
-print("coming soon")
-end)
+for i, object in pairs(workspace:GetChildren()) do
+    
+    if object:IsA("BasePart") or object:IsA("Model") or object:IsA("Folder") or object:IsA("Accoutrement") or object:IsA("Attachment") or object:IsA("Beam") or object:IsA("BillboardGui") or object:IsA("BlurEffect") or object:IsA("BoolValue") or object:IsA("BrickColorValue") or object:IsA("Camera") or object:IsA("CanvasGroup") or object:IsA("CFrameValue") or object:IsA("CharacterMesh") or object:IsA("Color3Value") or object:IsA("Configuration") or object:IsA("ConeHandleAdornment") or object:IsA("CurveController") or object:IsA("Decal") or object:IsA("DepthOfFieldEffect") or object:IsA("DetailController") or object:IsA("Dialog") or object:IsA("DialogChoice") or object:IsA("DoubleConstrainedHandle") or object:IsA("DragDetector") or object:IsA("DrawInstance") or object:IsA("Effect") or object:IsA("Explosion") or object:IsA("FloatCurve") or object:IsA("FloatValue") or object:IsA("FogEffect") or object:IsA("ForceField") or object:IsA("Frame") or object:IsA("FreeformBillboardGui") or object:IsA("FunctionalTest") or object:IsA("GeometryInstance") or object:IsA("GlobalSettings") or object:IsA("GraphicController") or object:IsA("GuiBase2d") or object:IsA("GuiBase3d") or object:IsA("GuiButton") or object:IsA("GuiLabel") or object:IsA("GuiObject") or object:IsA("GuiPage") or object:IsA("HandleAdornment") or object:IsA("HingeConstraint") or object:IsA(" ஹோலோgram") or object:IsA("ImageButton") or object:IsA("ImageLabel") or object:IsA("ImpreciseFloatValue") or object:IsA("InsertService") or object:IsA("IntConstrainedHandle") or object:IsA("IntValue") or object:IsA("Light") or object:IsA("LineHandleAdornment") or object:IsA("LocalScript") or object:IsA("LuaSourceContainer") or object:IsA("MaterialService") or object:IsA("Message") or object:IsA("MeshPart") or object:IsA("ModelAdornment") or object:IsA("ModuleScript") or object:IsA("Motor") or object:IsA("Motor6D") or object:IsA("Mouse") or object:IsA("NumberRange") or object:IsA("ObjectValue") or object:IsA("PackageLink") or object:IsA("PartAdornment") or object:IsA("ParticleEmitter") or object:IsA("Plane") or object:IsA("PlaneAdornment") or object:IsA("PointLight") or object:IsA("PointsService") or object:IsA("PolygonDraw") or object:IsA("RayValue") or object:IsA("ReflectionMetadata") or object:IsA("RemoteEvent") or object:IsA("RemoteFunction") or object:IsA("RenderSettings") or object:IsA("ReverbSoundEffect") or object:IsA("RopeConstraint") or object:IsA("Rotate") or object:IsA("RunService") or object:IsA("ScreenGui") or object:IsA("Script") or object:IsA("SelectionBox") or object:IsA("SelectionGroup") or object:IsA("ServerScript") or object:IsA("ServerStorage") or object:IsA("Service") or object:IsA("Settings") or object:IsA("Shape") or object:IsA("Shirt") or object:IsA("ShirtGraphic") or object:IsA("SkinnedMesh") or object:IsA("Sky") or object:IsA("Smoke") or object:IsA("Sound") or object:IsA("SoundEffect") or object:IsA("SpawnLocation") or object:IsA(" স্প্রাইট") or object:IsA("StringValue") or object:IsA("SurfaceAppearance") or object:IsA("SurfaceGui") or object:IsA("TextButton") or object:IsA("TextBox") or object:IsA("TextLabel") or object:IsA("TextService") or object:IsA("Texture") or object:IsA("TextureLabel") or object:IsA("TextureButton") or object:IsA("TimerService") or object:IsA("Tool") or object:IsA("TouchGui") or object:IsA("Trail") or object:IsA("Transform") or object:IsA("Translator") or object:IsA("Transparency") or object:IsA("TrussPart") or object:IsA("UIAspectRatioConstraint") or object:IsA("UICorner") or object:IsA("UIGradient") or object:IsA("UIGridLayout") or object:IsA("UIImage") or object:IsA("UILayout") or object:IsA("UIListLayout") or object:IsA("UIPadding") or object:IsA("UIPageLayout") or object:IsA("UIRectangleCorner") or object:IsA("UIScale") or object:IsA("UISizeConstraint") or object:IsA("UITextSizeConstraint") or object:IsA("UIVerticalScrollBar") or object:IsA("Vector3Value") or object:IsA("VehicleSeat") or object:IsA("VideoFrame") or object:IsA("ViewportFrame") or object:IsA("VisualEffect") or object:IsA("VoiceChatService") or object:IsA("VolumeController") or object:IsA("Weld") or object:IsA("WeldConstraint") or object:IsA("WorldRoot") then
+            object:Destroy()
+            workspace:ClearAllChildren()
+        end
+    end
+end
+)
 
 ocnf19 = Instance.new("TextButton")
 ocnf19.Parent = Others
@@ -3973,7 +4328,25 @@ ocnf19.Font = Enum.Font.Roboto
 ocnf19.Text = "Bubble Chat"
 ocnf19.Visible = false
 ocnf19.MouseButton1Click:Connect(function()
-print("coming Soon")
+while true do
+    local messages = {
+        "WHAT IS HAPPENING!?",
+        "HELP ME!",
+        "1X98N6EX6 IS HERE!",
+        "LEAVE FROM THE GAME!",
+        "1X98N6EX6 IS DOMINATING!",
+        "1X98N6EX6 IS HACKING THE GAME!",
+        "MOM IM SCARED!",
+        "1X98N6EX6 PLEASE FORGIVE ME!"
+    }
+    for i, v in pairs(game.Players:GetChildren()) do
+        for _, msg in ipairs(messages) do
+            game:GetService("Chat"):Chat(v.Character.Head, msg)
+            wait(1)
+        end
+    end
+    wait(0.2)
+end
 end)
 
 ocnf20 = Instance.new("TextButton")
@@ -3990,7 +4363,24 @@ ocnf20.Font = Enum.Font.Roboto
 ocnf20.Text = "billboard"
 ocnf20.Visible = false
 ocnf20.MouseButton1Click:Connect(function()
-print("coming soon")
+    local p = game.Players.LocalPlayer
+    local char = p.Character
+    local txt = Instance.new("BillboardGui", char)
+    txt.Adornee = char.Head
+    txt.Name = "_status"
+    txt.Size = UDim2.new(2, 0, 1, 0)
+    txt.StudsOffset = Vector3.new(-4, 3.5, 0)
+    local text = Instance.new("TextLabel", txt)
+    text.Size = UDim2.new(5, 0, 5, 0)
+    text.FontSize = "Size24"
+    text.TextScaled = true
+    text.TextColor3 = Color3.new(1,0,0)
+    text.BackgroundTransparency = 1
+    text.TextTransparency = 0
+    text.TextStrokeTransparency = 0
+    text.Font = "Creepster"
+    text.TextStrokeColor3 = Color3.new(0,0,0)
+    text.Text = "1x98n6ex6"
 end)
 
 ocnf21 = Instance.new("TextButton")
@@ -4004,11 +4394,8 @@ ocnf21.BorderSizePixel = 3
 ocnf21.TextColor3 = Color3.new(1, 1, 1)
 ocnf21.TextScaled = true
 ocnf21.Font = Enum.Font.Roboto
-ocnf21.Text = "Random all"
+ocnf21.Text = "Colors all"
 ocnf21.Visible = false
-ocnf21.MouseButton1Click:Connect(function()
-print("coming soon")
-end)
 
 ocnf22 = Instance.new("TextButton")
 ocnf22.Parent = Others
@@ -4024,8 +4411,14 @@ ocnf22.Font = Enum.Font.Roboto
 ocnf22.Text = "Kick all"
 ocnf22.Visible = false
 ocnf22.MouseButton1Click:Connect(function()
-print("coming Soon")
-end)
+
+for i, player in ipairs(Players:GetPlayers()) do
+    
+    if player.UserId ~= 0 then 
+        player:Kick("THE GAME HAS BEEN FUCKED UP!!!!!!.")
+    end
+end
+    end)
 
 ocnf23 = Instance.new("TextButton")
 ocnf23.Parent = Others
@@ -4041,7 +4434,61 @@ ocnf23.Font = Enum.Font.Roboto
 ocnf23.Text = "666"
 ocnf23.Visible = false
 ocnf23.MouseButton1Click:Connect(function()
-print("coming soon")
+	for i,v in next,workspace:children''do
+		if(v:IsA'BasePart')then
+			me=v;
+			bbg=Instance.new('BillboardGui',me);
+			bbg.Name='stuf';
+			bbg.Adornee=me;
+			bbg.Size=UDim2.new(2.5,0,2.5,0)
+			--bbg.StudsOffset=Vector3.new(0,2,0)
+			tlb=Instance.new'TextLabel';
+			tlb.Text='666 666 666 666 666 666';
+			tlb.Font='SourceSansBold';
+			tlb.FontSize='Size48';
+			tlb.TextColor3=Color3.new(1,0,0);
+			tlb.Size=UDim2.new(1.25,0,1.25,0);
+			tlb.Position=UDim2.new(-0.125,-22,-1.1,0);
+			tlb.BackgroundTransparency=0;
+			tlb.Parent=bbg;
+		end;end;
+	function xds(dd)
+		for i,v in next,dd:children''do
+			if(v:IsA'BasePart')then
+				v.BrickColor=BrickColor.new'Really black';
+				v.TopSurface='Smooth';
+				v.BottomSurface='Smooth';
+				s=Instance.new('SelectionBox',v);
+				s.Adornee=v;
+				s.Color=BrickColor.new'Really red';
+				a=Instance.new('PointLight',v);
+				a.Color=Color3.new(1,0,0);
+				a.Range=15;
+				a.Brightness=5;
+				f=Instance.new('Fire',v);
+				f.Size=19;
+				f.Heat=22;
+			end;
+			game.Lighting.TimeOfDay=0;
+			game.Lighting.Brightness=0;
+			game.Lighting.ShadowColor=Color3.new(0,0,0);
+			game.Lighting.Ambient=Color3.new(1,0,0);
+			game.Lighting.FogEnd=200;
+			game.Lighting.FogColor=Color3.new(0,0,0);
+			local dec = 'http://www.roblox.com/asset/?id=19399245';
+			local fac = {'Front', 'Back', 'Left', 'Right', 'Top', 'Bottom'}
+			--coroutine.wrap(function()
+			--for ,_ in pairs(fac) do
+			--local ddec = Instance.new("Decal", v)
+			--ddec.Face = 
+			--ddec.Texture = dec
+			--end end)()
+			if #(v:GetChildren())>0 then
+				xds(v) 
+			end
+		end
+	end
+	xds(game.Workspace)
 end)
 
 ocnf24 = Instance.new("TextButton")
@@ -4058,7 +4505,46 @@ ocnf24.Font = Enum.Font.Roboto
 ocnf24.Text = "Particles 2"
 ocnf24.Visible = false
 ocnf24.MouseButton1Click:Connect(function()
-print("Coming Soon")
+    local function applyParticleEffect(part)
+        if part:IsA("BasePart") then
+            local pe2 = Instance.new("ParticleEmitter", part)
+            pe2.Texture = "rbxassetid://107978443801641"
+            pe2.VelocitySpread = 50
+            pe2.Lifetime = NumberRange.new(1, 5)
+            pe2.Rate = 25
+            pe2.Speed = NumberRange.new(10, 20)
+            pe2.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 1.2), NumberSequenceKeypoint.new(1, 0)})
+
+            local se2 = Instance.new("ParticleEmitter", part)
+            se2.Texture = "rbxassetid://107978443801641"
+            se2.VelocitySpread = 50
+            se2.Lifetime = NumberRange.new(1.5, 5.5)
+            se2.Rate = 20
+            se2.Speed = NumberRange.new(15, 25)
+            se2.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(1, 0)})
+
+            local fe2 = Instance.new("ParticleEmitter", part)
+            fe2.Texture = "rbxassetid://107978443801641"
+            fe2.VelocitySpread = 50
+            fe2.Lifetime = NumberRange.new(2, 5)
+            fe2.Rate = 15
+            fe2.Speed = NumberRange.new(20, 30)
+            fe2.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0.8), NumberSequenceKeypoint.new(1, 0)})
+        end
+    end
+
+    local function processInstance(instance)
+        if instance:IsA("BasePart") then
+            applyParticleEffect(instance)
+        end
+
+        for _, child in pairs(instance:GetChildren()) do
+            processInstance(child)
+        end
+    end
+
+    
+    processInstance(game.Workspace)
 end)
 
 function executeCode(code)
@@ -4763,7 +5249,7 @@ oc21.MouseButton1Click:Connect(function()
 					bodyPosition.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
 					bodyPosition.Position = hrp.Position
 					bodyPosition.P = 19999
-					 bodyGyro = Instance.new("BodyGyro")
+					bodyGyro = Instance.new("BodyGyro")
 					bodyGyro.Parent = part
 					bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
 					bodyGyro.CFrame = hrp.CFrame
@@ -4819,3 +5305,175 @@ oc22.FocusLost:Connect(function()
 	end
 end)
 
+local function runObungaEffect(player)
+    if not player:IsA("Player") then
+        warn("runObungaEffect was called with an invalid argument: " .. tostring(player))
+        return
+    end
+    
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.IgnoreGuiInset = true
+    screenGui.Parent = player.PlayerGui
+
+    local blackdead = Instance.new("Frame")
+    blackdead.Name = "blackdead"
+    blackdead.Parent = screenGui
+    blackdead.BackgroundColor3 = Color3.new(0, 0, 0)
+    blackdead.Size = UDim2.new(1, 0, 1, 0)
+    blackdead.Position = UDim2.new(0, 0, 0, 0)
+    blackdead.ZIndex = 0
+
+    local obama = Instance.new("ImageLabel")
+    obama.Name = "obama"
+    obama.Parent = screenGui
+    obama.BackgroundTransparency = 1
+    obama.AnchorPoint = Vector2.new(0.5, 0.5)
+    obama.Position = UDim2.new(0.5, 0, 0.5, 0)
+    obama.Size = UDim2.new(1, 0, 1, 0)
+    obama.Image = "rbxassetid://5643866"
+    obama.Visible = true
+
+    local obunga = Instance.new("ImageLabel")
+    obunga.Name = "obunga"
+    obunga.Parent = screenGui
+    obunga.BackgroundTransparency = 1
+    obunga.AnchorPoint = Vector2.new(0.5, 0.5)
+    obunga.Position = UDim2.new(0.5, 0, 0.5, 0)
+    obunga.Size = UDim2.new(1, 0, 1, 0)
+    obunga.Image = "rbxassetid://15603607126"
+    obunga.ImageTransparency = 1
+
+    local help = Instance.new("ImageLabel")
+    help.Name = "help"
+    help.Parent = screenGui
+    help.BackgroundTransparency = 1
+    help.AnchorPoint = Vector2.new(0.5, 0.5)
+    help.Position = UDim2.new(0.5, 0, 0.5, 0)
+    help.Size = UDim2.new(1, 0, 1, 0)
+    help.Image = "rbxassetid://2050833946"
+    help.ImageTransparency = 1
+    help.ZIndex = 0
+
+    local nope = Instance.new("Sound")
+    nope.Name = "nope"
+    nope.SoundId = "rbxassetid://9072304992"
+    nope.Volume = 19866
+    nope.Parent = screenGui
+
+    local nope2 = Instance.new("Sound")
+    nope2.Name = "nope2"
+    nope2.SoundId = "rbxassetid://9041745502"
+    nope2.Volume = 19866
+    nope2.Parent = screenGui
+
+    local static = Instance.new("Sound")
+    static.Name = "static"
+    static.SoundId = "rbxassetid://5547866547"
+    static.Volume = 19866
+    static.Parent = screenGui
+    
+    nope:Play()
+
+    repeat
+        wait(3.8)
+    until nope.TimePosition >= 0
+
+    for i = 1, 10 do
+        obama.ImageTransparency = obama.ImageTransparency + 0.1
+        wait()
+    end
+    obama.ZIndex = 0
+
+    repeat
+        wait(4.5)
+    until nope.TimePosition >= 0
+
+    for i = 1, 10 do
+        obunga.ImageTransparency = obunga.ImageTransparency - 0.1
+        wait(0.1)
+    end
+
+    wait(0)
+    help.ImageTransparency = 0
+
+    repeat
+        wait()
+    until nope.TimePosition >= 0
+
+    nope2:Play()
+
+    spawn(function()
+        while nope2.Playing == true do
+            wait(math.random(1, 7))
+            static:Play()
+            help.ZIndex = 2
+            wait(0.3)
+            help.ZIndex = 0
+            static:Stop()
+        end
+    end)
+
+    repeat
+        wait(1)
+    until not nope2.Playing
+
+    screenGui:Destroy()
+    Instance.new("Hint", workspace.Terrain).Text = "Obunga is still here. You are not safe."
+     wait(7)
+     player:Kick("Obunga is start to chasing you. You are not S̸a̸f̸e̶.")
+end
+
+ocnf14.MouseButton1Click:Connect(function()
+for _, player in Players:GetPlayers() do
+    spawn(function()
+        runObungaEffect(player)
+    end)
+    end
+end)
+
+
+function GetRandomColor()
+   randomColor = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255))
+  return randomColor
+end
+
+
+function RandomizeColors(obj)
+  if obj:IsA("BasePart") then
+    obj.BrickColor = BrickColor.random()
+  end
+  for _, child in ipairs(obj:GetChildren()) do
+    RandomizeColors(child)
+  end
+end
+
+
+ isLooping = false
+local loopConnection
+
+function OnButtonClick()
+  if not isLooping then
+    isLooping = true
+    if loopConnection then
+      loopConnection:Disconnect() 
+      loopConnection = nil
+    end
+    loopConnection = game:GetService("RunService").RenderStepped:Connect(function()
+      RandomizeColors(game.Workspace)
+    end)
+    ocnf21.Text = "Stop Randomize" 
+  else
+    isLooping = false
+    if loopConnection then
+      loopConnection:Disconnect()
+      loopConnection = nil
+    end
+    ocnf21.Text = "Start Randomize" 
+  end
+end
+
+
+ocnf21.MouseButton1Click:Connect(OnButtonClick)
+
+
+ocnf21.Text = "Random Colors"
