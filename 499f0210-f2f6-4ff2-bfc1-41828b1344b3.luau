@@ -2005,6 +2005,40 @@ scn48.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty1.lua"))()
 end)
 
+local scn49 = Instance.new("TextButton")
+scn49.Parent = sc
+scn49.Name = "scn49"
+scn49.Size = UDim2.new(0.476003587, 0, 0.101999998, 0)
+scn49.Position = UDim2.new(0.516000032, 0, 0.799999833, 0)
+scn49.BackgroundColor3 = Color3.new(0, 0, 0)
+scn49.BorderColor3 = Color3.new(1, 0, 0)
+scn49.BorderSizePixel = 2
+scn49.TextColor3 = Color3.new(1, 1, 1)
+scn49.TextScaled = true
+scn49.Font = Enum.Font.Roboto
+scn49.Text = "Idunno"
+scn49.Visible = false
+scn49.MouseButton1Click:Connect(function()
+
+end)
+
+local scn50 = Instance.new("TextButton")
+scn50.Parent = sc
+scn50.Name = "scn50"
+scn50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
+scn50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
+scn50.BackgroundColor3 = Color3.new(0, 0, 0)
+scn50.BorderColor3 = Color3.new(1, 0, 0)
+scn50.BorderSizePixel = 3
+scn50.TextColor3 = Color3.new(1, 1, 1)
+scn50.TextScaled = true
+scn50.Font = Enum.Font.Roboto
+scn50.Text = "idunno2"
+scn50.Visible = false
+scn50.MouseButton1Click:Connect(function()
+
+end)
+
 local scsPage = Instance.new("Frame")
 scsPage.Parent = sc 
 scsPage.Name = "scsPage"
@@ -4672,7 +4706,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 48 do
+for i = 25, 50 do
    buttonName = "scn" .. i
    button = sc:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -4695,7 +4729,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 48 do
+for i = 25, 50 do
    buttonName = "scn" .. i
    button = sc:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
