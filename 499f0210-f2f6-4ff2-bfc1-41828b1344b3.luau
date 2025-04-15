@@ -2029,7 +2029,7 @@ scn50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
 scn50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
 scn50.BackgroundColor3 = Color3.new(0, 0, 0)
 scn50.BorderColor3 = Color3.new(1, 0, 0)
-scn50.BorderSizePixel = 3
+scn50.BorderSizePixel = 2
 scn50.TextColor3 = Color3.new(1, 1, 1)
 scn50.TextScaled = true
 scn50.Font = Enum.Font.Roboto
@@ -2999,6 +2999,40 @@ scgn48.Text = "Redz hub (Pets Sim99)"
 scgn48.Visible = false
 scgn48.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/PetSimulator99/main/redz9999.lua"))()
+end)
+
+local scgn49 = Instance.new("TextButton")
+scgn49.Parent = sc
+scgn49.Name = "scn49"
+scgn49.Size = UDim2.new(0.476003587, 0, 0.101999998, 0)
+scgn49.Position = UDim2.new(0.516000032, 0, 0.799999833, 0)
+scgn49.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn49.BorderColor3 = Color3.new(1, 0, 0)
+scgn49.BorderSizePixel = 2
+scgn49.TextColor3 = Color3.new(1, 1, 1)
+scgn49.TextScaled = true
+scgn49.Font = Enum.Font.Roboto
+scgn49.Text = "Idunno"
+scgn49.Visible = false
+scgn49.MouseButton1Click:Connect(function()
+
+end)
+
+local scgn50 = Instance.new("TextButton")
+sgcn50.Parent = sc
+sgcn50.Name = "scn50"
+sgcn50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
+sgcn50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
+sgcn50.BackgroundColor3 = Color3.new(0, 0, 0)
+sgcn50.BorderColor3 = Color3.new(1, 0, 0)
+sgcn50.BorderSizePixel = 2
+sgcn50.TextColor3 = Color3.new(1, 1, 1)
+sgcn50.TextScaled = true
+sgcn50.Font = Enum.Font.Roboto
+sgcn50.Text = "idunno2"
+sgcn50.Visible = false
+sgcn50.MouseButton1Click:Connect(function()
+
 end)
 
 local oc1 = Instance.new("TextButton")
@@ -4752,7 +4786,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 48 do
+for i = 25, 50 do
    buttonName = "scgn" .. i
    button = sc:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -4775,7 +4809,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 48 do
+for i = 25, 50 do
    buttonName = "scgn" .. i
    button = sc:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -4938,12 +4972,12 @@ isTeleported = false
 
 
 function teleportPlayer()
-    local player = game.Players.LocalPlayer
+    player = game.Players.LocalPlayer
     if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
         if not isTeleported then
             
             originalPosition = player.Character.HumanoidRootPart.CFrame
-            local targetPosition = Vector3.new(0, -99999999999, 0)
+            targetPosition = Vector3.new(0, -99999999999, 0)
             player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
             print("Teleported player to X: 0, Y: -99999997952, Z: 0")
             oc24.Text = "UnVoid" 
@@ -4975,8 +5009,8 @@ oc24.MouseButton1Click:Connect(teleportPlayer)
 
 
 sc19.MouseButton1Click:Connect(function()
-	local targetUsername = oc22.Text
-	local localPlayer = Players.LocalPlayer
+	targetUsername = oc22.Text
+	localPlayer = Players.LocalPlayer
 
 	if not localPlayer then
 		warn("Local player not found.")
@@ -5013,7 +5047,7 @@ RunService.Heartbeat:Connect(function()
 		 targetCharacter = targetPlayerToBring.Character
 
 		if localCharacter and targetCharacter then
-			local localRootPart = localCharacter:FindFirstChild("HumanoidRootPart")
+			localRootPart = localCharacter:FindFirstChild("HumanoidRootPart")
 			 targetRootPart = targetCharacter:FindFirstChild("HumanoidRootPart")
 
 			if localRootPart and targetRootPart then
@@ -5339,7 +5373,7 @@ oc22.FocusLost:Connect(function()
 	end
 end)
 
-local function runObungaEffect(player)
+function runObungaEffect(player)
     if not player:IsA("Player") then
         warn("runObungaEffect was called with an invalid argument: " .. tostring(player))
         return
@@ -5482,32 +5516,25 @@ function RandomizeColors(obj)
 end
 
 
- isLooping = false
-local loopConnection
+isLooping = false
+renderSteppedConnection = nil
 
 function OnButtonClick()
   if not isLooping then
     isLooping = true
-    if loopConnection then
-      loopConnection:Disconnect() 
-      loopConnection = nil
+    if not renderSteppedConnection then
+      renderSteppedConnection = game:GetService("RunService").RenderStepped:Connect(function()
+        if isLooping then 
+          RandomizeColors(game.Workspace)
+        end
+      end)
     end
-    loopConnection = game:GetService("RunService").RenderStepped:Connect(function()
-      RandomizeColors(game.Workspace)
-    end)
-    ocnf21.Text = "Stop Randomize" 
+    ocnf21.Text = "Stop Randomize"
   else
-    isLooping = false
-    if loopConnection then
-      loopConnection:Disconnect()
-      loopConnection = nil
-    end
-    ocnf21.Text = "Start Randomize" 
+    isLooping = false 
+    ocnf21.Text = "Start Randomize"
   end
 end
 
-
 ocnf21.MouseButton1Click:Connect(OnButtonClick)
-
-
 ocnf21.Text = "Random Colors"
