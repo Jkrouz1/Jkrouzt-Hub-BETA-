@@ -2008,8 +2008,8 @@ end)
 local scn49 = Instance.new("TextButton")
 scn49.Parent = sc
 scn49.Name = "scn49"
-scn49.Size = UDim2.new(0.476003587, 0, 0.101999998, 0)
-scn49.Position = UDim2.new(0.516000032, 0, 0.799999833, 0)
+scn49.Size = UDim2.new(0.473003626, 0, 0.101999998, 0)
+scn49.Position = UDim2.new(0.519000053, 0, 0.799999893, 0)
 scn49.BackgroundColor3 = Color3.new(0, 0, 0)
 scn49.BorderColor3 = Color3.new(1, 0, 0)
 scn49.BorderSizePixel = 2
@@ -3003,9 +3003,9 @@ end)
 
 local scgn49 = Instance.new("TextButton")
 scgn49.Parent = sc
-scgn49.Name = "scn49"
-scgn49.Size = UDim2.new(0.476003587, 0, 0.101999998, 0)
-scgn49.Position = UDim2.new(0.516000032, 0, 0.799999833, 0)
+scgn49.Name = "scgn49"
+scgn49.Size = UDim2.new(0.473003626, 0, 0.101999998, 0)
+scgn49.Position = UDim2.new(0.519000053, 0, 0.799999893, 0)
 scgn49.BackgroundColor3 = Color3.new(0, 0, 0)
 scgn49.BorderColor3 = Color3.new(1, 0, 0)
 scgn49.BorderSizePixel = 2
@@ -3019,19 +3019,19 @@ scgn49.MouseButton1Click:Connect(function()
 end)
 
 local scgn50 = Instance.new("TextButton")
-sgcn50.Parent = sc
-sgcn50.Name = "scn50"
-sgcn50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
-sgcn50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
-sgcn50.BackgroundColor3 = Color3.new(0, 0, 0)
-sgcn50.BorderColor3 = Color3.new(1, 0, 0)
-sgcn50.BorderSizePixel = 2
-sgcn50.TextColor3 = Color3.new(1, 1, 1)
-sgcn50.TextScaled = true
-sgcn50.Font = Enum.Font.Roboto
-sgcn50.Text = "idunno2"
-sgcn50.Visible = false
-sgcn50.MouseButton1Click:Connect(function()
+scgn50.Parent = sc
+scgn50.Name = "scgn50"
+scgn50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
+scgn50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
+scgn50.BackgroundColor3 = Color3.new(0, 0, 0)
+scgn50.BorderColor3 = Color3.new(1, 0, 0)
+scgn50.BorderSizePixel = 2
+scgn50.TextColor3 = Color3.new(1, 1, 1)
+scgn50.TextScaled = true
+scgn50.Font = Enum.Font.Roboto
+scgn50.Text = "idunno2"
+scgn50.Visible = false
+scgn50.MouseButton1Click:Connect(function()
 
 end)
 
@@ -3692,7 +3692,7 @@ nextmy.Font = Enum.Font.GothamBold
 nextmy.Text = ">"
 nextmy.Visible = true
 
-local backmy = Instance.new("TextButton")
+ backmy = Instance.new("TextButton")
 backmy.Parent = Others
 backmy.Name = "backmy"
 backmy.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
@@ -3707,7 +3707,7 @@ backmy.Text = "<"
 backmy.Visible = false
 
 
-local mypages = Instance.new("TextLabel")
+ mypages = Instance.new("TextLabel")
 mypages.Parent = Others
 mypages.Name = "mypages"
 mypages.Size = UDim2.new(0.150000006, 0, 0.0799999982, 0)
