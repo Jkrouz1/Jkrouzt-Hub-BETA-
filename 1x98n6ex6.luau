@@ -3183,10 +3183,12 @@ scgn49.BorderSizePixel = 2
 scgn49.TextColor3 = Color3.new(1, 1, 1)
 scgn49.TextScaled = true
 scgn49.Font = Enum.Font.Roboto
-scgn49.Text = "Apple Hub (Forsaken)"
+scgn49.Text = "Fartsaken (directly) [sigmakey]"
 scgn49.Visible = false
 scgn49.MouseButton1Click:Connect(function()
-loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/SilkScripts/AppleStuff/refs/heads/main/AppleFSKV2")))()
+local api = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
+api.script_id = "d0632c30c8af0316aae11552dcb2a21d"
+api.load_script()
 end)
 
 local scgn50 = Instance.new("TextButton")
@@ -3195,15 +3197,21 @@ scgn50.Name = "scgn50"
 scgn50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
 scgn50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
 scgn50.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn50.BorderColor3 = Color3.new(1, 0, 0)
+scgn50.BorderColor3 = Color3.new(1, 1, 0)
 scgn50.BorderSizePixel = 2
 scgn50.TextColor3 = Color3.new(1, 1, 1)
 scgn50.TextScaled = true
 scgn50.Font = Enum.Font.Roboto
-scgn50.Text = "Fart Hub (Forsaken) [Fart]"
+scgn50.Text = "Fartsaken [Key]"
 scgn50.Visible = false
 scgn50.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ivannetta/ShitScripts/refs/heads/main/forsaken.lua", true))()
+if getgenv then
+    getgenv().BloxtrapRPC = "true"
+    getgenv().DebugNotifications = "false"
+    getgenv().TrackMePlease = "true"
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ivannetta/ShitScripts/main/forsaken.lua"))()
 end)
 
 local oc1 = Instance.new("TextButton")
