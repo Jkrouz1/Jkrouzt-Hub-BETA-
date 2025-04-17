@@ -3183,7 +3183,7 @@ scgn49.BorderSizePixel = 2
 scgn49.TextColor3 = Color3.new(1, 1, 1)
 scgn49.TextScaled = true
 scgn49.Font = Enum.Font.Roboto
-scgn49.Text = "Fartsaken (directly) [sigmakey]"
+scgn49.Text = "Fartsaken (directly) [Use Antikick]"
 scgn49.Visible = false
 scgn49.MouseButton1Click:Connect(function()
 local api = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
