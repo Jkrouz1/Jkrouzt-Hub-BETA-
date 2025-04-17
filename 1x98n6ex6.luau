@@ -399,14 +399,13 @@ first3.Font = Enum.Font.SourceSansBold
 first3.TextXAlignment = Enum.TextXAlignment.Left
 first3.TextYAlignment = Enum.TextYAlignment.Center
 first3.Text = "Loading"
-wait(1) 
+wait(0.1) 
 
 for i = 1, 100 do
     first3.Text = "Loading: " .. i .. "%"
     wait(0.01) 
 end
 
-wait(1)
 first3.Text = "Jkrouzt Hub successfully executed!"
 
 local info = Instance.new("TextLabel")
@@ -449,7 +448,7 @@ end
 
 local info2 = Instance.new("TextLabel")
 info2.Parent = home
-info2.Name = "info" 
+info2.Name = "info"
 info2.Size = UDim2.new(0.3, 0, 0.15, 0)
 info2.Position = UDim2.new(0, 25, 0.55, 0)
 info2.BackgroundColor3 = Color3.new(0, 1, 0)
@@ -461,7 +460,6 @@ info2.TextScaled = true
 info2.TextXAlignment = Enum.TextXAlignment.Left
 info2.TextYAlignment = Enum.TextYAlignment.Center
 info2.Font = Enum.Font.SourceSansBold
-info2.Text = "Time"
 
 local info3 = Instance.new("TextLabel")
 info3.Parent = home
@@ -5537,4 +5535,17 @@ function OnButtonClick()
 end
 
 ocnf21.MouseButton1Click:Connect(OnButtonClick)
-ocnf21.Text = "Random Colors"
+ocnf21.Text = "Random Colors"   
+
+function updateTime()
+	local currentTime = os.date("%I:%M:%S %p")
+	local currentDate = os.date("%A, %B %d, %Y")
+	info2.Text = "Time: " .. currentTime .. "\nDate: " .. currentDate
+end
+
+updateTime()
+
+while true do
+	wait(1)
+	updateTime()
+end
