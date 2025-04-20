@@ -352,6 +352,187 @@ imageLabel.AnchorPoint = Vector2.new(0, 0.7)
 imageLabel.BackgroundTransparency = 1
 imageLabel.Image = "rbxassetid://117259454598676"
 
+local mainFrame = Instance.new("ScreenGui")
+mainFrame.Parent = game.CoreGui
+mainFrame.IgnoreGuiInset = true
+
+local TweenService = game:GetService("TweenService")
+local time = 0.6
+local ignor = {}
+local spac = 10
+local fpos = UDim2.new(1.5, 0, 0.945, 5)
+
+function animateFrame(frame, targetP, callback)
+	local tweenInfo = TweenInfo.new(
+		time,
+		Enum.EasingStyle.Back,
+		Enum.EasingDirection.Out,
+		0,
+		false
+	)
+
+	local two = TweenService:Create(frame, tweenInfo, {Position = targetP})
+	if callback then
+		two.Completed:Connect(callback)
+	end
+	two:Play()
+end
+
+function notif(params)
+	local imageAssetId = params.Image
+	local mainText = params.Text
+	local buttonText = params.ButtonText
+	local buttonCallback = params.ButtonCallback
+	local duration = params.Duration or 3
+	local topmt = params.topm
+
+	local MSG = Instance.new("Frame")
+	MSG.Name = "NotificationFrame"
+	MSG.Size = UDim2.new(0, 300, 0, 100)
+	MSG.BackgroundTransparency = 0
+	MSG.BackgroundColor3 = Color3.new(0, 0, 0)
+	MSG.BorderColor3 = Color3.new(1, 0, 0)
+	MSG.BorderSizePixel = 2
+	MSG.Visible = true
+	MSG.Parent = mainFrame
+
+	local topBar = Instance.new("Frame")
+	topBar.Name = "TopBar"
+	topBar.Size = UDim2.new(1, 0, 0.2, 0)
+	topBar.Position = UDim2.new(0, 0, 0, 0)
+	topBar.AnchorPoint = Vector2.new(0, 0)
+	topBar.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+	topBar.BorderSizePixel = 1
+	topBar.BorderColor3 = Color3.new(0.3, 0.3, 0.3)
+	topBar.Parent = MSG
+
+	local messeg = Instance.new("TextLabel")
+	messeg.Name = "messeg"
+	messeg.Size = UDim2.new(1, 0, 1, 0)
+	messeg.Position = UDim2.new(0, 0, 0, 0)
+	messeg.AnchorPoint = Vector2.new(0, 0)
+	messeg.Text = topmt
+	messeg.TextColor3 = Color3.new(1, 0, 0)
+	messeg.BackgroundTransparency = 1
+	messeg.Font = Enum.Font.GothamBold
+	messeg.TextScaled = true
+	messeg.TextXAlignment = Enum.TextXAlignment.Center
+	messeg.TextYAlignment = Enum.TextYAlignment.Center
+	messeg.Parent = topBar
+
+	local yOffset = 0
+	for _, existingNotification in ipairs(ignor) do
+		yOffset = yOffset + existingNotification.AbsoluteSize.Y + spac
+	end
+	local targetYPosition = UDim2.new(0, 0, 1.2, -MSG.Size.Y.Offset - 10 - yOffset)
+	MSG.AnchorPoint = Vector2.new(1, 1)
+	MSG.Position = fpos
+
+	local getout = Instance.new("TextButton")
+	getout.Name = "getout"
+	getout.Size = UDim2.new(0.20, 0, 1, 0)
+	getout.Position = UDim2.new(0, 240, 0, 0)
+	getout.AnchorPoint = Vector2.new(0, 0)
+	getout.Text = "X"
+	getout.TextColor3 = Color3.new(1, 0, 0)
+	getout.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+	getout.BorderColor3 = Color3.new(1, 0, 0)
+	getout.BorderSizePixel = 1
+	getout.Font = Enum.Font.DenkOne
+	getout.TextScaled = true
+	getout.TextXAlignment = Enum.TextXAlignment.Center
+	getout.TextYAlignment = Enum.TextYAlignment.Center
+	getout.Parent = topBar
+
+	getout.MouseButton1Click:Connect(function()
+		animateFrame(MSG, UDim2.new(1.3, MSG.Size.X.Offset + 10, targetYPosition.Y.Scale, targetYPosition.Y.Offset), function()
+			MSG:Destroy()
+			for i = #ignor, 1, -1 do
+				if ignor[i] == MSG then
+					table.remove(ignor, i)
+					break
+				end
+			end
+			local newYOffset = 0
+			for _, remainingNotification in ipairs(ignor) do
+				local targetNewY = UDim2.new(0, 0, 1.25, -remainingNotification.Size.Y.Offset - 10 - newYOffset)
+				animateFrame(remainingNotification, UDim2.new(remainingNotification.Position.X.Scale, remainingNotification.Position.X.Offset, targetNewY.Y.Scale, targetNewY.Y.Offset))
+				newYOffset = newYOffset + remainingNotification.AbsoluteSize.Y + spac
+			end
+		end)
+	end)
+
+	if imageAssetId then
+		local ep0kim = Instance.new("ImageLabel")
+		ep0kim.Name = "NotificationImage"
+		ep0kim.Size = UDim2.new(0, 80, 0, 80)
+		ep0kim.Position = UDim2.new(0.05, 0, 0.1, 0)
+		ep0kim.AnchorPoint = Vector2.new(0, 0)
+		ep0kim.BackgroundTransparency = 1
+		ep0kim.Image = "rbxassetid://" .. tostring(imageAssetId)
+		ep0kim.Parent = MSG
+	end
+
+	local send = Instance.new("TextLabel")
+	send.Name = "NotificationText"
+	local textXOffset = imageAssetId and 0.35 or 0.05
+	local textSizeX = imageAssetId and 0.6 or 0.9
+	send.Size = UDim2.new(textSizeX, 0, 0.8, 0)
+	send.Position = UDim2.new(textXOffset, 0, 0.2, 0)
+	send.AnchorPoint = Vector2.new(0, 0)
+	send.Text = mainText
+	send.TextSize = 38
+	send.TextColor3 = Color3.new(1, 1, 1)
+	send.BackgroundTransparency = 1
+	send.Font = Enum.Font.SourceSansBold
+	send.TextXAlignment = Enum.TextXAlignment.Left
+	send.TextYAlignment = Enum.TextYAlignment.Top
+	send.TextScaled = true
+	send.RichText = true
+	send.Parent = MSG
+
+	if buttonText and buttonCallback then
+		local notifbutton = Instance.new("TextButton")
+		notifbutton.Name = "notifbutton"
+		notifbutton.Size = UDim2.new(0, 80, 0, 30)
+		notifbutton.Position = UDim2.new(0.85, 0, 0.6, 0)
+		notifbutton.AnchorPoint = Vector2.new(1, 0.5)
+		notifbutton.Text = buttonText
+		notifbutton.TextColor3 = Color3.new(1, 1, 1)
+		notifbutton.BackgroundColor3 = Color3.new(0.25, 0.25, 0.25)
+		notifbutton.BorderSizePixel = 0
+		notifbutton.Font = Enum.Font.SourceSansBold
+		notifbutton.TextScaled = true
+		notifbutton.Parent = MSG
+		notifbutton.MouseButton1Click:Connect(buttonCallback)
+	end
+
+	table.insert(ignor, MSG)
+	animateFrame(MSG, UDim2.new(1.3, -MSG.Size.X.Offset - 10, targetYPosition.Y.Scale, targetYPosition.Y.Offset))
+
+delay(duration, function()
+		if MSG and MSG.Parent then
+			animateFrame(MSG, fpos, function()
+				if MSG then
+					MSG:Destroy()
+					for i = #ignor, 1, -1 do
+						if ignor[i] == MSG then
+							table.remove(ignor, i)
+							break
+						end
+					end
+					local newYOffset = 0
+					for _, remainingNotification in ipairs(ignor) do
+						local targetNewY = UDim2.new(0, 0, 1.15, -remainingNotification.Size.Y.Offset - 10 - newYOffset)
+						animateFrame(remainingNotification, UDim2.new(remainingNotification.Position.X.Scale, remainingNotification.Position.X.Offset, targetNewY.Y.Scale, targetNewY.Y.Offset))
+						newYOffset = newYOffset + remainingNotification.AbsoluteSize.Y + spac
+					end
+				end
+			end)
+		end
+	end)
+end
+
 local first = Instance.new("TextLabel")
 first.Parent = home
 first.Name = "first" 
@@ -461,9 +642,9 @@ info2.TextXAlignment = Enum.TextXAlignment.Left
 info2.TextYAlignment = Enum.TextYAlignment.Center
 info2.Font = Enum.Font.SourceSansBold
 
-local info3 = Instance.new("TextLabel")
+local info3 = Instance.new("TextButton")
 info3.Parent = home
-info3.Name = "info3" 
+info3.Name = "info3"
 info3.Size = UDim2.new(0.6, 0, 0.15, 0)
 info3.Position = UDim2.new(0, 25, 0.65, 0)
 info3.BackgroundColor3 = Color3.new(0, 1, 0)
@@ -474,10 +655,20 @@ info3.TextColor3 = Color3.new(1, 1, 1)
 info3.TextScaled = true
 info3.TextXAlignment = Enum.TextXAlignment.Left
 info3.TextYAlignment = Enum.TextYAlignment.Center
-info3.Font = Enum.Font.SourceSansBold
 info3.Text = "Job ID: " .. game.JobId
+info3.Font = Enum.Font.SourceSansBold
+info3.MouseButton1Click:Connect(function()
+	setClipboard(game.JobId)
+	notif({
+		Text = "game.JobId Copied to your clipboard!",
+		Duration = 3,
+		topm = "Success!"
+	})
+end)
 
-local info4 = Instance.new("TextLabel")
+local placeId = game.PlaceId
+local gameName = game.Name
+local info4 = Instance.new("TextButton")
 info4.Parent = home
 info4.Name = "info4" 
 info4.Size = UDim2.new(0.7, 0, 0.15, 0)
@@ -491,10 +682,70 @@ info4.TextScaled = true
 info4.TextXAlignment = Enum.TextXAlignment.Left
 info4.TextYAlignment = Enum.TextYAlignment.Center
 info4.Font = Enum.Font.SourceSansBold
-local placeId = game.PlaceId
-local gameName = game.Name
-
 info4.Text = "PlaceID: " .. placeId .. " (" .. gameName .. ")"
+info4.MouseButton1Click:Connect(function()
+	setClipboard(info4.Text)
+	notif({
+		Text = "placeId",
+		Duration = 3,
+		topm = "Success!"
+	})
+end)
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 130, 0, 50)
+button.Position = UDim2.new(0, 500, 0, 200)
+button.BackgroundColor3 = Color3.new(0, 0, 0)
+button.BorderColor3 = Color3.new(0, 0, 1)
+button.BorderSizePixel = 3
+button.Text = "[Client Sided Scripts]"
+button.TextColor3 = Color3.new(1, 1, 1)
+button.TextScaled = true
+button.RichText = true
+button.Parent = home
+button.MouseButton1Click:Connect(function()
+	notif({
+		Text = "Client Sided Scripts means that the scropt will only happens on your client/screen and will not effects to other players.",
+		Duration = 10,
+		topm = "Information!"
+	})
+end)
+
+keysis = Instance.new("TextButton")
+keysis.Size = UDim2.new(0, 130, 0, 50)
+keysis.Position = UDim2.new(0, 500, 0, 135)
+keysis.BackgroundColor3 = Color3.new(0, 0, 0)
+keysis.BorderColor3 = Color3.new(1, 1, 0)
+keysis.BorderSizePixel = 3
+keysis.Text = "[Key System Scripts]"
+keysis.TextColor3 = Color3.new(1, 1, 1)
+keysis.TextScaled = true
+keysis.Parent = home
+keysis.MouseButton1Click:Connect(function()
+	notif({
+		Text = "Scripts with Key System means that you need to go into a Website and doing some tasks for the creators of scripts, but sometimes scripts with Key systems is Good..",
+		Duration = 20,
+		topm = "Information!"
+	})
+end)
+
+harked = Instance.new("TextButton")
+harked.Size = UDim2.new(0, 130, 0, 50)
+harked.Position = UDim2.new(0, 500, 0, 70)
+harked.BackgroundColor3 = Color3.new(0, 0, 0)
+harked.BorderColor3 = Color3.new(0, 1, 0)
+harked.BorderSizePixel = 3
+harked.Text = "[FE Scripts]"
+harked.TextColor3 = Color3.new(1, 1, 1)
+harked.TextScaled = true
+harked.Parent = home
+harked.MouseButton1Click:Connect(function()
+	notif({
+		Text = "FE Scripts or Filtering Enabled Scripts is a Script that Other Players can see like you bringing Parts or Reanimation. (added more soon...)",
+		Duration = 9,
+		topm = "Information!"
+	})
+end)
 
 sething = Instance.new("TextLabel")
 sething.Parent = Lastshit
@@ -820,12 +1071,12 @@ sc11.Name = "sc11"
 sc11.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 sc11.Position = UDim2.new(0.69, 0, 0.350, 0)
 sc11.BackgroundColor3 = Color3.new(0, 0, 0)
-sc11.BorderColor3 = Color3.new(1, 0, 0)
+sc11.BorderColor3 = Color3.new(0, 1, 0)
 sc11.BorderSizePixel = 3
 sc11.TextColor3 = Color3.new(1, 1, 1)
 sc11.TextScaled = true
 sc11.Font = Enum.Font.Roboto
-sc11.Text = "[Fe] Sus Gui"
+sc11.Text = "Sus Gui"
 sc11.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://pastefy.app/BH625PSd/raw"))()
 end)
@@ -1524,7 +1775,7 @@ scn28.BorderSizePixel = 3
 scn28.TextColor3 = Color3.new(1, 1, 1)
 scn28.TextScaled = true
 scn28.Font = Enum.Font.Roboto
-scn28.Text = "F3X [CLIENT]"
+scn28.Text = "F3X"
 scn28.Visible = false
 scn28.MouseButton1Click:Connect(function()
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
@@ -1559,7 +1810,7 @@ scn30.BorderSizePixel = 3
 scn30.TextColor3 = Color3.new(1, 1, 1)
 scn30.TextScaled = true
 scn30.Font = Enum.Font.Roboto
-scn30.Text = "Solara Hub [KEY]"
+scn30.Text = "Solara Hub"
 scn30.Visible = false
 scn30.MouseButton1Click:Connect(function()
     --[[
@@ -1642,12 +1893,12 @@ scn35.Name = "scn35"
 scn35.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn35.Position = UDim2.new(0.69, 0, 0.229999959, 0)
 scn35.BackgroundColor3 = Color3.new(0, 0, 0)
-scn35.BorderColor3 = Color3.new(1, 0, 0)
+scn35.BorderColor3 = Color3.new(0, 1, 0)
 scn35.BorderSizePixel = 3
 scn35.TextColor3 = Color3.new(1, 1, 1)
 scn35.TextScaled = true
 scn35.Font = Enum.Font.Roboto
-scn35.Text = "[Fe] Yeet Gui"
+scn35.Text = "Yeet Gui"
 scn35.Visible = false
 scn35.MouseButton1Click:Connect(function()
 --[[
@@ -1788,12 +2039,12 @@ scn36.Name = "scn36"
 scn36.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scn36.Position = UDim2.new(0.86, 0, 0.229999959, 0)
 scn36.BackgroundColor3 = Color3.new(0, 0, 0)
-scn36.BorderColor3 = Color3.new(1, 0, 0)
+scn36.BorderColor3 = Color3.new(0, 1, 0)
 scn36.BorderSizePixel = 3
 scn36.TextColor3 = Color3.new(1, 1, 1)
 scn36.TextScaled = true
 scn36.Font = Enum.Font.Roboto
-scn36.Text = "[FE] Kawaii Uanchored Gui"
+scn36.Text = "Kawaii Uanchored Gui"
 scn36.Visible = false
 scn36.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/KAWAII-AURA/main/kawaii_aura.lua", true))()
@@ -1822,12 +2073,12 @@ scn38.Name = "scn38"
 scn38.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn38.Position = UDim2.new(0.18, 0, 0.43, 0)
 scn38.BackgroundColor3 = Color3.new(0, 0, 0)
-scn38.BorderColor3 = Color3.new(1, 0, 0)
+scn38.BorderColor3 = Color3.new(0, 1, 0)
 scn38.BorderSizePixel = 3
 scn38.TextColor3 = Color3.new(1, 1, 1)
 scn38.TextScaled = true
 scn38.Font = Enum.Font.Roboto
-scn38.Text = "[FE] Super Ring"
+scn38.Text = "Super Ring"
 scn38.Visible = false
 scn38.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/dqtixz/kyuu-is-fire/refs/heads/main/and%20projeto%20lkb%20Super%20Ring"))()
@@ -1890,12 +2141,12 @@ scn42.Name = "scn42"
 scn42.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scn42.Position = UDim2.new(0.86, 0, 0.43, 0)
 scn42.BackgroundColor3 = Color3.new(0, 0, 0)
-scn42.BorderColor3 = Color3.new(1, 0, 0)
+scn42.BorderColor3 = Color3.new(0, 1, 0)
 scn42.BorderSizePixel = 3
 scn42.TextColor3 = Color3.new(1, 1, 1)
 scn42.TextScaled = true
 scn42.Font = Enum.Font.Roboto
-scn42.Text = "[FE] Click Fling"
+scn42.Text = "Click Fling"
 scn42.Visible = false
 scn42.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_5wpM7bBcOPspmX7lQ3m75SrYNWqxZ858ai3tJdEAId6jSI05IOUB224FQ0VSAswH.lua.txt'),true))()
@@ -1907,12 +2158,12 @@ scn43.Name = "scn43"
 scn43.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn43.Position = UDim2.new(0.00996587239, 0, 0.63, 0)
 scn43.BackgroundColor3 = Color3.new(0, 0, 0)
-scn43.BorderColor3 = Color3.new(1, 0, 0)
+scn43.BorderColor3 = Color3.new(0, 1, 0)
 scn43.BorderSizePixel = 3
 scn43.TextColor3 = Color3.new(1, 1, 1)
 scn43.TextScaled = true
 scn43.Font = Enum.Font.Roboto
-scn43.Text = "[FE] Lag Switch"
+scn43.Text = "Lag Switch"
 scn43.Visible = false
 scn43.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/Protected%20-%202023-05-28T225112.055.lua.txt'),true))()
@@ -1924,12 +2175,12 @@ scn44.Name = "scn44"
 scn44.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn44.Position = UDim2.new(0.18, 0, 0.63, 0)
 scn44.BackgroundColor3 = Color3.new(0, 0, 0)
-scn44.BorderColor3 = Color3.new(1, 0, 0)
+scn44.BorderColor3 = Color3.new(0, 1, 0)
 scn44.BorderSizePixel = 3
 scn44.TextColor3 = Color3.new(1, 1, 1)
 scn44.TextScaled = true
 scn44.Font = Enum.Font.Roboto
-scn44.Text = "[FE] Unanchored Abuse"
+scn44.Text = "Unanchored Abuse"
 scn44.Visible = false
 scn44.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/cowka/c0wkaHub/refs/heads/main/UnanchoredParts'))()
@@ -1958,12 +2209,12 @@ scn46.Name = "scn46"
 scn46.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn46.Position = UDim2.new(0.52, 0, 0.63, 0)
 scn46.BackgroundColor3 = Color3.new(0, 0, 0)
-scn46.BorderColor3 = Color3.new(1, 0, 0)
+scn46.BorderColor3 = Color3.new(0, 1, 0)
 scn46.BorderSizePixel = 3
 scn46.TextColor3 = Color3.new(1, 1, 1)
 scn46.TextScaled = true
 scn46.Font = Enum.Font.Roboto
-scn46.Text = "[FE] Car Bouncer"
+scn46.Text = "Car Bouncer"
 scn46.Visible = false
 scn46.MouseButton1Click:Connect(function()
 loadstring(game:HttpGetAsync("https://files.scriptifer.com/roblox/scripts/FE_Car_Bouncer.txt"))()
@@ -1975,12 +2226,12 @@ scn47.Name = "scn47"
 scn47.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn47.Position = UDim2.new(0.69, 0, 0.63, 0)
 scn47.BackgroundColor3 = Color3.new(0, 0, 0)
-scn47.BorderColor3 = Color3.new(1, 0, 0)
+scn47.BorderColor3 = Color3.new(0, 1, 0)
 scn47.BorderSizePixel = 3
 scn47.TextColor3 = Color3.new(1, 1, 1)
 scn47.TextScaled = true
 scn47.Font = Enum.Font.Roboto
-scn47.Text = "[FE] Energizer Gui"
+scn47.Text = "Energizer Gui"
 scn47.Visible = false
 scn47.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Energize-10408"))()
@@ -3202,7 +3453,7 @@ scgn50.BorderSizePixel = 2
 scgn50.TextColor3 = Color3.new(1, 1, 1)
 scgn50.TextScaled = true
 scgn50.Font = Enum.Font.Roboto
-scgn50.Text = "Fartsaken [Key]"
+scgn50.Text = "Fartsaken"
 scgn50.Visible = false
 scgn50.MouseButton1Click:Connect(function()
 if getgenv then
@@ -3595,7 +3846,7 @@ oc17.BorderSizePixel = 3
 oc17.TextColor3 = Color3.new(1, 1, 1)
 oc17.TextScaled = true
 oc17.Font = Enum.Font.SourceSans
-oc17.Text = "Bring part [Client]"
+oc17.Text = "Bring part"
 
 local oc18 = Instance.new("TextBox")
 oc18.Parent = Others
@@ -3806,7 +4057,7 @@ ocn30.MouseButton1Click:Connect(function()
 print("coming")
 end)
 
-local oppage = Instance.new("Frame")
+ oppage = Instance.new("Frame")
 oppage.Parent = Others
 oppage.Name = "oppage"
 oppage.Size = UDim2.new(0, 645, 0, 35)
@@ -3815,7 +4066,7 @@ oppage.BackgroundColor3 = Color3.new(0, 0, 0)
 oppage.BorderColor3 = Color3.new(255, 0, 0)
 oppage.BorderSizePixel = 2
 
-local destruct = Instance.new("TextButton")
+ destruct = Instance.new("TextButton")
 destruct.Parent = oppage
 destruct.Text = ">"
 destruct.TextScaled = true
@@ -3828,7 +4079,7 @@ destruct.BackgroundColor3 = Color3.new(0, 0, 0)
 destruct.BackgroundTransparency = 0.5
 destruct.Visible = true
 
-local destruct2 = Instance.new("TextButton")
+destruct2 = Instance.new("TextButton")
 destruct2.Parent = oppage
 destruct2.Text = "<"
 destruct2.TextScaled = true
@@ -3841,7 +4092,7 @@ destruct2.BackgroundColor3 = Color3.new(0, 0, 0)
 destruct2.BackgroundTransparency = 0.5
 destruct2.Visible = false
 
-local mysc = Instance.new("TextLabel")
+mysc = Instance.new("TextLabel")
 mysc.Parent = oppage
 mysc.Name = "mysc"
 mysc.Size = UDim2.new(1, 0, 1.1, 0)
@@ -3857,7 +4108,7 @@ mysc.Text = "Other Scripts"
 mysc.TextXAlignment = Enum.TextXAlignment.Center
 mysc.TextYAlignment = Enum.TextYAlignment.Center
 
-local nextmy = Instance.new("TextButton")
+nextmy = Instance.new("TextButton")
 nextmy.Parent = Others
 nextmy.Name = "nextmy"
 nextmy.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
@@ -3871,7 +4122,7 @@ nextmy.Font = Enum.Font.GothamBold
 nextmy.Text = ">"
 nextmy.Visible = true
 
- backmy = Instance.new("TextButton")
+backmy = Instance.new("TextButton")
 backmy.Parent = Others
 backmy.Name = "backmy"
 backmy.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
@@ -3907,7 +4158,7 @@ ocnf1.Name = "ocnf1"
 ocnf1.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf1.Position = UDim2.new(0.00996587239, 0, 0.150, 0)
 ocnf1.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf1.BorderColor3 = Color3.new(1, 0, 0)
+ocnf1.BorderColor3 = Color3.new(0, 0, 1)
 ocnf1.BorderSizePixel = 3
 ocnf1.TextColor3 = Color3.new(1, 1, 1)
 ocnf1.TextScaled = true
@@ -3964,7 +4215,7 @@ ocnf2.Name = "ocnf2"
 ocnf2.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf2.Position = UDim2.new(0.18, 0, 0.150, 0)
 ocnf2.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf2.BorderColor3 = Color3.new(1, 0, 0)
+ocnf2.BorderColor3 = Color3.new(0, 0, 1)
 ocnf2.BorderSizePixel = 3
 ocnf2.TextColor3 = Color3.new(1, 1, 1)
 ocnf2.TextScaled = true
@@ -4002,7 +4253,7 @@ ocnf3.Name = "ocnf3"
 ocnf3.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf3.Position = UDim2.new(0.35, 0, 0.150, 0)
 ocnf3.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf3.BorderColor3 = Color3.new(1, 0, 0)
+ocnf3.BorderColor3 = Color3.new(0, 0, 1)
 ocnf3.BorderSizePixel = 3
 ocnf3.TextColor3 = Color3.new(1, 1, 1)
 ocnf3.TextScaled = true
@@ -4043,7 +4294,7 @@ ocnf4.Name = "ocnf4"
 ocnf4.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf4.Position = UDim2.new(0.52, 0, 0.150, 0)
 ocnf4.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf4.BorderColor3 = Color3.new(1, 0, 0)
+ocnf4.BorderColor3 = Color3.new(0, 0, 1)
 ocnf4.BorderSizePixel = 3
 ocnf4.TextColor3 = Color3.new(1, 1, 1)
 ocnf4.TextScaled = true
@@ -4066,7 +4317,7 @@ ocnf5.Name = "ocnf5"
 ocnf5.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf5.Position = UDim2.new(0.69, 0, 0.150, 0)
 ocnf5.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf5.BorderColor3 = Color3.new(1, 0, 0)
+ocnf5.BorderColor3 = Color3.new(0, 0, 1)
 ocnf5.BorderSizePixel = 3
 ocnf5.TextColor3 = Color3.new(1, 1, 1)
 ocnf5.TextScaled = true
@@ -4123,7 +4374,7 @@ ocnf6.Name = "ocnf6"
 ocnf6.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 ocnf6.Position = UDim2.new(0.86, 0, 0.150, 0)
 ocnf6.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf6.BorderColor3 = Color3.new(1, 0, 0)
+ocnf6.BorderColor3 = Color3.new(0, 0, 1)
 ocnf6.BorderSizePixel = 3
 ocnf6.TextColor3 = Color3.new(1, 1, 1)
 ocnf6.TextScaled = true
@@ -4162,7 +4413,7 @@ ocnf7.Name = "ocnf7"
 ocnf7.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf7.Position = UDim2.new(0.00996587239, 0, 0.350, 0)
 ocnf7.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf7.BorderColor3 = Color3.new(1, 0, 0)
+ocnf7.BorderColor3 = Color3.new(0, 0, 1)
 ocnf7.BorderSizePixel = 3
 ocnf7.TextColor3 = Color3.new(1, 1, 1)
 ocnf7.TextScaled = true
@@ -4203,7 +4454,7 @@ ocnf8.Name = "ocnf8"
 ocnf8.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf8.Position = UDim2.new(0.18, 0, 0.350, 0)
 ocnf8.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf8.BorderColor3 = Color3.new(1, 0, 0)
+ocnf8.BorderColor3 = Color3.new(0, 0, 1)
 ocnf8.BorderSizePixel = 3
 ocnf8.TextColor3 = Color3.new(1, 1, 1)
 ocnf8.TextScaled = true
@@ -4227,7 +4478,7 @@ ocnf9.Name = "ocnf9"
 ocnf9.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf9.Position = UDim2.new(0.35, 0, 0.350, 0)
 ocnf9.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf9.BorderColor3 = Color3.new(1, 0, 0)
+ocnf9.BorderColor3 = Color3.new(0, 0, 1)
 ocnf9.BorderSizePixel = 3
 ocnf9.TextColor3 = Color3.new(1, 1, 1)
 ocnf9.TextScaled = true
@@ -4276,7 +4527,7 @@ ocnf10.Name = "ocnf10"
 ocnf10.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf10.Position = UDim2.new(0.52, 0, 0.350, 0)
 ocnf10.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf10.BorderColor3 = Color3.new(1, 0, 0)
+ocnf10.BorderColor3 = Color3.new(0, 0, 1)
 ocnf10.BorderSizePixel = 3
 ocnf10.TextColor3 = Color3.new(1, 1, 1)
 ocnf10.TextScaled = true
@@ -4293,7 +4544,7 @@ ocnf11.Name = "ocnf11"
 ocnf11.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf11.Position = UDim2.new(0.69, 0, 0.350, 0)
 ocnf11.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf11.BorderColor3 = Color3.new(1, 0, 0)
+ocnf11.BorderColor3 = Color3.new(0, 0, 1)
 ocnf11.BorderSizePixel = 3
 ocnf11.TextColor3 = Color3.new(1, 1, 1)
 ocnf11.TextScaled = true
@@ -4310,7 +4561,7 @@ ocnf12.Name = "ocnf12"
 ocnf12.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 ocnf12.Position = UDim2.new(0.86, 0, 0.350, 0)
 ocnf12.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf12.BorderColor3 = Color3.new(1, 0, 0)
+ocnf12.BorderColor3 = Color3.new(0, 0, 1)
 ocnf12.BorderSizePixel = 3
 ocnf12.TextColor3 = Color3.new(1, 1, 1)
 ocnf12.TextScaled = true
@@ -4348,7 +4599,7 @@ ocnf13.Name = "ocnf13"
 ocnf13.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf13.Position = UDim2.new(0.00996587239, 0, 0.550, 0)
 ocnf13.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf13.BorderColor3 = Color3.new(1, 0, 0)
+ocnf13.BorderColor3 = Color3.new(0, 0, 1)
 ocnf13.BorderSizePixel = 3
 ocnf13.TextColor3 = Color3.new(1, 1, 1)
 ocnf13.TextScaled = true
@@ -4373,7 +4624,7 @@ ocnf14.Name = "ocnf14"
 ocnf14.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf14.Position = UDim2.new(0.18, 0, 0.550, 0)
 ocnf14.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf14.BorderColor3 = Color3.new(1, 0, 0)
+ocnf14.BorderColor3 = Color3.new(0, 0, 1)
 ocnf14.BorderSizePixel = 3
 ocnf14.TextColor3 = Color3.new(1, 1, 1)
 ocnf14.TextScaled = true
@@ -4387,7 +4638,7 @@ ocnf15.Name = "ocnf15"
 ocnf15.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf15.Position = UDim2.new(0.35, 0, 0.550, 0)
 ocnf15.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf15.BorderColor3 = Color3.new(1, 0, 0)
+ocnf15.BorderColor3 = Color3.new(0, 0, 1)
 ocnf15.BorderSizePixel = 3
 ocnf15.TextColor3 = Color3.new(1, 1, 1)
 ocnf15.TextScaled = true
@@ -4446,7 +4697,7 @@ ocnf16.Name = "ocnf16"
 ocnf16.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf16.Position = UDim2.new(0.52, 0, 0.550, 0)
 ocnf16.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf16.BorderColor3 = Color3.new(1, 0, 0)
+ocnf16.BorderColor3 = Color3.new(0, 0, 1)
 ocnf16.BorderSizePixel = 3
 ocnf16.TextColor3 = Color3.new(1, 1, 1)
 ocnf16.TextScaled = true
@@ -4501,7 +4752,7 @@ ocnf17.Name = "ocnf17"
 ocnf17.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf17.Position = UDim2.new(0.69, 0, 0.550, 0)
 ocnf17.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf17.BorderColor3 = Color3.new(1, 0, 0)
+ocnf17.BorderColor3 = Color3.new(0, 0, 1)
 ocnf17.BorderSizePixel = 3
 ocnf17.TextColor3 = Color3.new(1, 1, 1)
 ocnf17.TextScaled = true
@@ -4543,7 +4794,7 @@ ocnf18.Name = "ocnf18"
 ocnf18.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 ocnf18.Position = UDim2.new(0.86, 0, 0.550, 0)
 ocnf18.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf18.BorderColor3 = Color3.new(1, 0, 0)
+ocnf18.BorderColor3 = Color3.new(0, 0, 1)
 ocnf18.BorderSizePixel = 3
 ocnf18.TextColor3 = Color3.new(1, 1, 1)
 ocnf18.TextScaled = true
@@ -4567,7 +4818,7 @@ ocnf19.Name = "ocnf19"
 ocnf19.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf19.Position = UDim2.new(0.00996587239, 0, 0.750, 0)
 ocnf19.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf19.BorderColor3 = Color3.new(1, 0, 0)
+ocnf19.BorderColor3 = Color3.new(0, 0, 1)
 ocnf19.BorderSizePixel = 3
 ocnf19.TextColor3 = Color3.new(1, 1, 1)
 ocnf19.TextScaled = true
@@ -4602,7 +4853,7 @@ ocnf20.Name = "ocnf20"
 ocnf20.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf20.Position = UDim2.new(0.18, 0, 0.750, 0)
 ocnf20.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf20.BorderColor3 = Color3.new(1, 0, 0)
+ocnf20.BorderColor3 = Color3.new(0, 0, 1)
 ocnf20.BorderSizePixel = 3
 ocnf20.TextColor3 = Color3.new(1, 1, 1)
 ocnf20.TextScaled = true
@@ -4636,7 +4887,7 @@ ocnf21.Name = "ocnf21"
 ocnf21.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf21.Position = UDim2.new(0.35, 0, 0.750, 0)
 ocnf21.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf21.BorderColor3 = Color3.new(1, 0, 0)
+ocnf21.BorderColor3 = Color3.new(0, 0, 1)
 ocnf21.BorderSizePixel = 3
 ocnf21.TextColor3 = Color3.new(1, 1, 1)
 ocnf21.TextScaled = true
@@ -4650,7 +4901,7 @@ ocnf22.Name = "ocnf22"
 ocnf22.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf22.Position = UDim2.new(0.52, 0, 0.750, 0)
 ocnf22.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf22.BorderColor3 = Color3.new(1, 0, 0)
+ocnf22.BorderColor3 = Color3.new(0, 0, 1)
 ocnf22.BorderSizePixel = 3
 ocnf22.TextColor3 = Color3.new(1, 1, 1)
 ocnf22.TextScaled = true
@@ -4673,7 +4924,7 @@ ocnf23.Name = "ocnf23"
 ocnf23.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf23.Position = UDim2.new(0.69, 0, 0.750, 0)
 ocnf23.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf23.BorderColor3 = Color3.new(1, 0, 0)
+ocnf23.BorderColor3 = Color3.new(0, 0, 1)
 ocnf23.BorderSizePixel = 3
 ocnf23.TextColor3 = Color3.new(1, 1, 1)
 ocnf23.TextScaled = true
@@ -4744,7 +4995,7 @@ ocnf24.Name = "ocnf24"
 ocnf24.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 ocnf24.Position = UDim2.new(0.86, 0, 0.750, 0)
 ocnf24.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf24.BorderColor3 = Color3.new(1, 0, 0)
+ocnf24.BorderColor3 = Color3.new(0, 0, 1)
 ocnf24.BorderSizePixel = 3
 ocnf24.TextColor3 = Color3.new(1, 1, 1)
 ocnf24.TextScaled = true
