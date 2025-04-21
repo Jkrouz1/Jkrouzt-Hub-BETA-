@@ -124,8 +124,12 @@ destroyButton.MouseButton1Click:Connect(function()
     screenGui:Destroy() 
 end)
 
+core = Instance.new("ScreenGui")
+core.Parent = game.CoreGui
+core.Name = "CoreGui"
+
 local toggleButton = Instance.new("TextButton")
-toggleButton.Parent = screenGui
+toggleButton.Parent = core
 toggleButton.Text = ">"
 toggleButton.TextScaled = true
 toggleButton.Size = UDim2.new(0, 50, 0, 50)
@@ -2541,6 +2545,34 @@ bgpg.Font = Enum.Font.LuckiestGuy
 bgpg.Text = "<"
 bgpg.Visible = false
 
+local ngpg2 = Instance.new("TextButton")
+ngpg2.Parent = sc
+ngpg2.Name = "ngpg2 "
+ngpg2.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+ngpg2.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
+ngpg2.BackgroundColor3 = Color3.new(0, 0, 0)
+ngpg2.BorderColor3 = Color3.new(1, 0, 0)
+ngpg2.BorderSizePixel = 2
+ngpg2.TextColor3 = Color3.new(1, 1, 1)
+ngpg2.TextScaled = true
+ngpg2.Font = Enum.Font.LuckiestGuy
+ngpg2.Text = ">"
+ngpg2.Visible = false
+
+local bgpg2 = Instance.new("TextButton")
+bgpg2.Parent = sc
+bgpg2.Name = "bgpg2"
+bgpg2.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+bgpg2.Position = UDim2.new(0.0100000035, 0, 0.920000196, 0)
+bgpg2.BackgroundColor3 = Color3.new(0, 0, 0)
+bgpg2.BorderColor3 = Color3.new(1, 0, 0)
+bgpg2.BorderSizePixel = 2
+bgpg2.TextColor3 = Color3.new(1, 1, 1)
+bgpg2.TextScaled = true
+bgpg2.Font = Enum.Font.LuckiestGuy
+bgpg2.Text = "<"
+bgpg2.Visible = false
+
 local mpages = Instance.new("TextLabel")
 mpages.Parent = sc
 mpages.Name = "mpages"
@@ -2663,10 +2695,10 @@ scg5.BorderSizePixel = 3
 scg5.TextColor3 = Color3.new(1, 1, 1)
 scg5.TextScaled = true
 scg5.Font = Enum.Font.Roboto
-scg5.Text = "flowerlily's (mm2)"
+scg5.Text = "EGG HUNT (mm2)"
 scg5.Visible = false
 scg5.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://scriptblox.com/raw/Murder-Mystery-2-MM-OP-SCRIPT-12522"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/mm2", false))()
 end)
 
 local scg6 = Instance.new("TextButton")
@@ -2709,15 +2741,15 @@ scg8.Name = "scg8"
 scg8.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg8.Position = UDim2.new(0.18, 0, 0.350, 0)
 scg8.BackgroundColor3 = Color3.new(0, 0, 0)
-scg8.BorderColor3 = Color3.new(1, 1, 0)
+scg8.BorderColor3 = Color3.new(1, 0, 0)
 scg8.BorderSizePixel = 3
 scg8.TextColor3 = Color3.new(1, 1, 1)
 scg8.TextScaled = true
 scg8.Font = Enum.Font.Roboto
-scg8.Text = "Alchemy Hub (Fisch) "
+scg8.Text = "Disch (Fisch) "
 scg8.Visible = false
 scg8.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hakariqScripts/disch2/refs/heads/main/disch%20script"))()
 end)
 
 local scg9 = Instance.new("TextButton")
@@ -2731,10 +2763,20 @@ scg9.BorderSizePixel = 3
 scg9.TextColor3 = Color3.new(1, 1, 1)
 scg9.TextScaled = true
 scg9.Font = Enum.Font.Roboto
-scg9.Text = "Space Hub (Fisch)"
+scg9.Text = "homohack (Fisch)"
 scg9.Visible = false
 scg9.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://you.whimper.xyz/sources/rb/fisch.lua"))()
+local new = Drawing.new; Drawing.new = function(object)
+    local old = new(object);
+
+    if (object == "Circle") then
+        old.Filled = false;
+    end
+
+    return old;
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua"))()
 end)
 
 local scg10 = Instance.new("TextButton")
@@ -2748,11 +2790,10 @@ scg10.BorderSizePixel = 3
 scg10.TextColor3 = Color3.new(1, 1, 1)
 scg10.TextScaled = true
 scg10.Font = Enum.Font.Roboto
-scg10.Text = "Lunor Hub (Fisch) "
+scg10.Text = "Ronix Hub (Fisch) "
 scg10.Visible = false
 scg10.MouseButton1Click:Connect(function()
-    script_key = 'PASTE_KEY_HERE';
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Catto-YFCN/Lunor_Dependencies/refs/heads/main/Loader'))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/a3c501e721ec4d66a864cc2276c0f4e9.lua"))()
 end)
 
 local scg11 = Instance.new("TextButton")
@@ -2778,15 +2819,15 @@ scg12.Name = "scg12"
 scg12.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scg12.Position = UDim2.new(0.86, 0, 0.350, 0)
 scg12.BackgroundColor3 = Color3.new(0, 0, 0)
-scg12.BorderColor3 = Color3.new(1, 1, 0)
+scg12.BorderColor3 = Color3.new(1, 0, 0)
 scg12.BorderSizePixel = 3
 scg12.TextColor3 = Color3.new(1, 1, 1)
 scg12.TextScaled = true
 scg12.Font = Enum.Font.Roboto
-scg12.Text = "Forge Hub (Fisch) "
+scg12.Text = "Raito Hub (Fisch) "
 scg12.Visible = false
 scg12.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Efe0626/RaitoHub/refs/heads/main/Script"))()
 end)
 
 local scg13 = Instance.new("TextButton")
@@ -2800,10 +2841,10 @@ scg13.BorderSizePixel = 3
 scg13.TextColor3 = Color3.new(1, 1, 1)
 scg13.TextScaled = true
 scg13.Font = Enum.Font.Roboto
-scg13.Text = "Aussie Hub (Deadrails) "
+scg13.Text = "thienrb7 (Deadrails) "
 scg13.Visible = false
 scg13.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet(request({Url='https://aussie.productions/script'}).Body))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/Bringall"))()
 end)
 
 local scg14 = Instance.new("TextButton")
@@ -2851,10 +2892,10 @@ scg16.BorderSizePixel = 3
 scg16.TextColor3 = Color3.new(1, 1, 1)
 scg16.TextScaled = true
 scg16.Font = Enum.Font.Roboto
-scg16.Text = "Kagu Hub (Deadrails)"
+scg16.Text = "Darkones Hub (Deadrails)"
 scg16.Visible = false
 scg16.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaguya11/KaguHubRework/refs/heads/main/Scripts/Loader.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TheDarkoneMarcillisePex/Other-Scripts/refs/heads/main/Dead%20Rails%20GUI"))()
 end)
 
 local scg17 = Instance.new("TextButton")
@@ -2868,10 +2909,10 @@ scg17.BorderSizePixel = 3
 scg17.TextColor3 = Color3.new(1, 1, 1)
 scg17.TextScaled = true
 scg17.Font = Enum.Font.Roboto
-scg17.Text = "Spider X Hub (Deadrails) "
+scg17.Text = "Toraisme (Deadrails) "
 scg17.Visible = false
 scg17.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Dead-Rails-SpiderXHub-Script/refs/heads/main/SpiderXHub%202.0.txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails"))()
 end)
 
 local scg18 = Instance.new("TextButton")
@@ -2880,16 +2921,15 @@ scg18.Name = "scg18"
 scg18.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scg18.Position = UDim2.new(0.86, 0, 0.550, 0)
 scg18.BackgroundColor3 = Color3.new(0, 0, 0)
-scg18.BorderColor3 = Color3.new(1, 1, 0)
+scg18.BorderColor3 = Color3.new(1, 0, 0)
 scg18.BorderSizePixel = 3
 scg18.TextColor3 = Color3.new(1, 1, 1)
 scg18.TextScaled = true
 scg18.Font = Enum.Font.Roboto
 scg18.Visible = false
-scg18.Text = "Lunor Hub (Deadrails) "
+scg18.Text = "Tbao Hub (Deadrails) "
 scg18.MouseButton1Click:Connect(function()
-script_key = 'PASTE_KEY_HERE';
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Catto-YFCN/Lunor_Dependencies/refs/heads/main/Loader'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/refs/heads/main/TbaoHubDeadRails"))()
 end)
 
 local scg19 = Instance.new("TextButton")
@@ -2903,15 +2943,10 @@ scg19.BorderSizePixel = 3
 scg19.TextColor3 = Color3.new(1, 1, 1)
 scg19.TextScaled = true
 scg19.Font = Enum.Font.Roboto
-scg19.Text = "Overflow (Bloxfruit)"
+scg19.Text = "Neva hub (Bloxfruit)"
 scg19.Visible = false
 scg19.MouseButton1Click:Connect(function()
--- discord.gg/flows 🗣️
--- More update soon ❤️
--- Please read script informations after you execute it for how to use 📜
--- Don't use no gun cd
-
-loadstring(game:HttpGet("https://raw.githubusercortent.com/Yumiara/Overflow/refs/heads/main/Main.lua"))();
+loadstring(game:HttpGet("https://pastebin.com/raw/XFTUAe56"))();
 end)
 
 local scg20 = Instance.new("TextButton")
@@ -2920,15 +2955,16 @@ scg20.Name = "scg20"
 scg20.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg20.Position = UDim2.new(0.18, 0, 0.750, 0)
 scg20.BackgroundColor3 = Color3.new(0, 0, 0)
-scg20.BorderColor3 = Color3.new(1, 1, 0)
+scg20.BorderColor3 = Color3.new(1, 0, 0)
 scg20.BorderSizePixel = 3
 scg20.TextColor3 = Color3.new(1, 1, 1)
 scg20.TextScaled = true
 scg20.Font = Enum.Font.Roboto
-scg20.Text = "Solix Hub (Bloxfruit) "
+scg20.Text = "Zinner Hub (Bloxfruit) "
 scg20.Visible = false
 scg20.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/debunked69/Solixreworkkeysystem/refs/heads/main/solix%20new%20keyui.lua"))() 
+getgenv().Team = "Pirates"
+loadstring(game:HttpGet('https://raw.githubusercontent.com/HoangNguyenk8/Scripts/refs/heads/main/Loader.lua'))()
 end)
 
 local scg21 = Instance.new("TextButton")
@@ -3197,24 +3233,10 @@ scgn36.BorderSizePixel = 3
 scgn36.TextColor3 = Color3.new(1, 1, 1)
 scgn36.TextScaled = true
 scgn36.Font = Enum.Font.Roboto
-scgn36.Text = "Sterling hub (Bluelock)"
+scgn36.Text = "Dehism (Bluelock)"
 scgn36.Visible = false
 scgn36.MouseButton1Click:Connect(function()
-local GuiService = game:GetService("GuiService")
-local Players = game:GetService("Players")
-local TeleportService = game:GetService("TeleportService")
-local player = Players.LocalPlayer
-local function onErrorMessageChanged(errorMessage)
-    if errorMessage and errorMessage ~= "" then
-        print("Error detected: " .. errorMessage)
-        if player then
-            wait()
-            TeleportService:Teleport(game.PlaceId, player)
-        end
-    end
-end
-GuiService.ErrorMessageChanged:Connect(onErrorMessageChanged)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Zayn31214/name/refs/heads/main/SterlingNew"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dehism/Dehism/refs/heads/main/Inf%20Spins%20Auto%20Dehism",true))()
 end)
 
 local scgn37 = Instance.new("TextButton")
@@ -3434,7 +3456,7 @@ scgn49.BorderSizePixel = 2
 scgn49.TextColor3 = Color3.new(1, 1, 1)
 scgn49.TextScaled = true
 scgn49.Font = Enum.Font.Roboto
-scgn49.Text = "Fartsaken (directly) [Use Antikick]"
+scgn49.Text = "Fartsaken (bypass) [Use Antikick]"
 scgn49.Visible = false
 scgn49.MouseButton1Click:Connect(function()
 local api = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
@@ -3463,6 +3485,216 @@ if getgenv then
 end
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ivannetta/ShitScripts/main/forsaken.lua"))()
+end)
+
+scgne51 = Instance.new("TextButton")
+scgne51.Parent = sc
+scgne51.Name = "scgne51"
+scgne51.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne51.Position = UDim2.new(0.00996587239, 0, 0.03, 0)
+scgne51.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne51.BorderColor3 = Color3.new(1, 0, 0)
+scgne51.BorderSizePixel = 3
+scgne51.TextColor3 = Color3.new(1, 1, 1)
+scgne51.TextScaled = true
+scgne51.Font = Enum.Font.Roboto
+scgne51.Text = "SP Hub\n(Brookhaven)"
+scgne51.Visible = false
+scgne51.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
+end)
+
+scgne52 = Instance.new("TextButton")
+scgne52.Parent = sc
+scgne52.Name = "scgne52"
+scgne52.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne52.Position = UDim2.new(0.18, 0, 0.03, 0)
+scgne52.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne52.BorderColor3 = Color3.new(1, 0, 0)
+scgne52.BorderSizePixel = 3
+scgne52.TextColor3 = Color3.new(1, 1, 1)
+scgne52.TextScaled = true
+scgne52.Font = Enum.Font.Roboto
+scgne52.Text = "Mango Hub\n(Brookhaven)"
+scgne52.Visible = false
+scgne52.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/rogelioajax/lua/main/MangoHub", true))()
+end)
+
+scgne53 = Instance.new("TextButton")
+scgne53.Parent = sc
+scgne53.Name = "scgne53"
+scgne53.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne53.Position = UDim2.new(0.35, 0, 0.03, 0)
+scgne53.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne53.BorderColor3 = Color3.new(1, 0, 0)
+scgne53.BorderSizePixel = 3
+scgne53.TextColor3 = Color3.new(1, 1, 1)
+scgne53.TextScaled = true
+scgne53.Font = Enum.Font.Roboto
+scgne53.Text = "Sander X\n(Brookhaven) "
+scgne53.Visible = false
+scgne53.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/NormalSS.lua'))()
+end)
+
+scgne54 = Instance.new("TextButton")
+scgne54.Parent = sc
+scgne54.Name = "scgne54"
+scgne54.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne54.Position = UDim2.new(0.52, 0, 0.03, 0)
+scgne54.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne54.BorderColor3 = Color3.new(1, 0, 0)
+scgne54.BorderSizePixel = 3
+scgne54.TextColor3 = Color3.new(1, 1, 1)
+scgne54.TextScaled = true
+scgne54.Font = Enum.Font.Roboto
+scgne54.Text = "z4trox hub\n(Brookhaven)"
+scgne54.Visible = false
+scgne54.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Jfdedit3/z4trox-hub-v1/main/z4trox%20hub'))()
+end)
+
+scgne55 = Instance.new("TextButton")
+scgne55.Parent = sc
+scgne55.Name = "scgne55"
+scgne55.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne55.Position = UDim2.new(0.69, 0, 0.03, 0)
+scgne55.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne55.BorderColor3 = Color3.new(1, 0, 0)
+scgne55.BorderSizePixel = 3
+scgne55.TextColor3 = Color3.new(1, 1, 1)
+scgne55.TextScaled = true
+scgne55.Font = Enum.Font.Roboto
+scgne55.Text = "AudioPlayer edit\n(Brookhaven)"
+scgne55.Visible = false
+scgne55.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nmalka01/nmalka01/refs/heads/main/Brookhaven_audio"))()
+end)
+
+scgne56 = Instance.new("TextButton")
+scgne56.Parent = sc
+scgne56.Name = "scgne56"
+scgne56.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scgne56.Position = UDim2.new(0.86, 0, 0.03, 0)
+scgne56.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne56.BorderColor3 = Color3.new(1, 0, 0)
+scgne56.BorderSizePixel = 3
+scgne56.TextColor3 = Color3.new(1, 1, 1)
+scgne56.TextScaled = true
+scgne56.Font = Enum.Font.Roboto
+scgne56.Text = "ameicaa1 audioPlayer\n(Brookhaven) "
+scgne56.Visible = false
+scgne56.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ameicaa1/brookhaven-script/main/brookhaven%20script.lua"))()
+end)
+
+scgne57 = Instance.new("TextButton")
+scgne57.Parent = sc
+scgne57.Name = "scgne57"
+scgne57.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne57.Position = UDim2.new(0.00996587239, 0, 0.229999959, 0)
+scgne57.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne57.BorderColor3 = Color3.new(1, 0, 0)
+scgne57.BorderSizePixel = 3
+scgne57.TextColor3 = Color3.new(1, 1, 1)
+scgne57.TextScaled = true
+scgne57.Font = Enum.Font.SourceSans
+scgne57.Text = "ToraIsMe\n(GrowAGarden)"
+scgne57.Visible = false
+scgne57.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/GrowaGarden", true))()
+end)
+
+scgne58 = Instance.new("TextButton")
+scgne58.Parent = sc
+scgne58.Name = "scgne58"
+scgne58.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne58.Position = UDim2.new(0.18, 0, 0.229999959, 0)
+scgne58.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne58.BorderColor3 = Color3.new(1, 0, 0)
+scgne58.BorderSizePixel = 3
+scgne58.TextColor3 = Color3.new(1, 1, 1)
+scgne58.TextScaled = true
+scgne58.Font = Enum.Font.SourceSans
+scgne58.Text = "KiciaHook\n(GrowAGarden)"
+scgne58.Visible = false
+scgne58.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b7d180acad508c48c140afe43d01ea0c.lua"))()
+end)
+
+scgne59 = Instance.new("TextButton")
+scgne59.Parent = sc
+scgne59.Name = "scgne59"
+scgne59.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne59.Position = UDim2.new(0.35, 0, 0.229999959, 0)
+scgne59.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne59.BorderColor3 = Color3.new(1, 0, 0)
+scgne59.BorderSizePixel = 3
+scgne59.TextColor3 = Color3.new(1, 1, 1)
+scgne59.TextScaled = true
+scgne59.Font = Enum.Font.Roboto
+scgne59.Text = "Hakariq\n(GrowAGarden)"
+scgne59.Visible = false
+scgne59.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hakariqScripts/Roslina/refs/heads/main/Ro"))()
+end)
+
+scgne60 = Instance.new("TextButton")
+scgne60.Parent = sc
+scgne60.Name = "scgne60"
+scgne60.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne60.Position = UDim2.new(0.52, 0, 0.229999959, 0)
+scgne60.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne60.BorderColor3 = Color3.new(1, 1, 0)
+scgne60.BorderSizePixel = 3
+scgne60.TextColor3 = Color3.new(1, 1, 1)
+scgne60.TextScaled = true
+scgne60.Font = Enum.Font.Roboto
+scgne60.Text = "Moma Hub\n(GrowAGarden)"
+scgne60.Visible = false
+scgne60.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/n3xkxp3rl/Moma-Hub/refs/heads/main/GrowAGarden.lua"))()
+end)
+
+scgne61 = Instance.new("TextButton")
+scgne61.Parent = sc
+scgne61.Name = "scgne61"
+scgne61.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne61.Position = UDim2.new(0.69, 0, 0.229999959, 0)
+scgne61.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne61.BorderColor3 = Color3.new(1, 0, 0)
+scgne61.BorderSizePixel = 3
+scgne61.TextColor3 = Color3.new(1, 1, 1)
+scgne61.TextScaled = true
+scgne61.Font = Enum.Font.Roboto
+scgne61.Text = "Depso\n(GrowAGarden)"
+scgne61.Visible = false
+scgne61.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/depthso/Grow-a-Garden/refs/heads/main/autofarm.lua')))()
+end)
+
+scgne62 = Instance.new("TextButton")
+scgne62.Parent = sc
+scgne62.Name = "scgne62"
+scgne62.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scgne62.Position = UDim2.new(0.86, 0, 0.229999959, 0)
+scgne62.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne62.BorderColor3 = Color3.new(1, 1, 0)
+scgne62.BorderSizePixel = 3
+scgne62.TextColor3 = Color3.new(1, 1, 1)
+scgne62.TextScaled = true
+scgne62.Font = Enum.Font.Roboto
+scgne62.Text = "H4xScripts\n(GrowAGarden)"
+scgne62.Visible = false
+scgne62.MouseButton1Click:Connect(function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
+
+
+-- discord = https://discord.gg/mDJYWNBe --
 end)
 
 local oc1 = Instance.new("TextButton")
@@ -3711,7 +3943,7 @@ oc9.MouseButton1Click:Connect(function()
 end)
 
 local oc10 = Instance.new("TextButton")
-oc10.Parent = Others
+oc10.Parent = Others -- Make sure 'Others' is defined and a valid UI container
 oc10.Name = "oc10"
 oc10.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 oc10.Position = UDim2.new(0.52, 0, 0.350, 0)
@@ -3722,13 +3954,42 @@ oc10.TextColor3 = Color3.new(1, 1, 1)
 oc10.TextScaled = true
 oc10.Font = Enum.Font.SourceSans
 oc10.Text = "Use Tools"
+
+idknam = Instance.new("TextBox")
+idknam.Parent = Others
+idknam.Name = "idknam"
+idknam.Size = UDim2.new(0.15, 0, 0.07, 0)
+idknam.Position = UDim2.new(0.52, 0, 0.33, 0)
+idknam.BackgroundColor3 = Color3.new(1, 1, 1)
+idknam.BorderColor3 = Color3.new(1, 0, 0)
+idknam.BorderSizePixel = 2
+idknam.TextColor3 = Color3.new(0, 0, 0)
+idknam.PlaceholderText = "0.1 less or more"
+idknam.PlaceholderColor3 = Color3.new(0, 0, 0)
+idknam.TextScaled = true
+idknam.Font = Enum.Font.SourceSans
+idknam.Text = "0.1"
+
 oc10.MouseButton1Click:Connect(function()
-    local backpackTools = Players.LocalPlayer.Backpack:GetChildren() 
+    local idkwut = idknam.Text
+
+    local waitDuration = tonumber(idkwut)
+
+    if waitDuration == nil or waitDuration < 0 then
+        waitDuration = 0.1
+    end
+
+    if waitDuration < 0.05 then
+        waitDuration = 0.05
+    end
+
+    local backpackTools = Players.LocalPlayer.Backpack:GetChildren()
     for i, tool in pairs(backpackTools) do
         if tool:IsA("Tool") then
             tool.Parent = Players.LocalPlayer.Character
             tool:Activate()
-            task.wait()
+            -- Use the duration obtained from the TextBox
+            task.wait(waitDuration)
             tool.Parent = Players.LocalPlayer:WaitForChild("Backpack")
         end
     end
@@ -4023,7 +4284,7 @@ ocn28.MouseButton1Click:Connect(function()
 print("coming")
 end)
 
-local ocn29 = Instance.new("TextButton")
+ocn29 = Instance.new("TextButton")
 ocn29.Parent = Others
 ocn29.Name = "ocn29"
 ocn29.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -4040,7 +4301,7 @@ ocn29.MouseButton1Click:Connect(function()
 print("coming")
 end)
 
-local ocn30 = Instance.new("TextButton")
+ocn30 = Instance.new("TextButton")
 ocn30.Parent = Others
 ocn30.Name = "ocn30"
 ocn30.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
@@ -4057,7 +4318,7 @@ ocn30.MouseButton1Click:Connect(function()
 print("coming")
 end)
 
- oppage = Instance.new("Frame")
+oppage = Instance.new("Frame")
 oppage.Parent = Others
 oppage.Name = "oppage"
 oppage.Size = UDim2.new(0, 645, 0, 35)
@@ -4066,7 +4327,7 @@ oppage.BackgroundColor3 = Color3.new(0, 0, 0)
 oppage.BorderColor3 = Color3.new(255, 0, 0)
 oppage.BorderSizePixel = 2
 
- destruct = Instance.new("TextButton")
+destruct = Instance.new("TextButton")
 destruct.Parent = oppage
 destruct.Text = ">"
 destruct.TextScaled = true
@@ -5226,6 +5487,8 @@ end
 
     bgpg.Visible = true
     ngpg.Visible = false
+    ngpg2.Visible = true
+    bgpg2.Visible = false
     mpages.Text = "Page 2"
     scsPage.Visible = false
 end)
@@ -5249,8 +5512,58 @@ end
 
     bgpg.Visible = false
     ngpg.Visible = true
+    ngpg2.Visible = false
+    bgpg2.Visible = false
     mpages.Text = "Page 1"
     scsPage.Visible = true
+end)
+
+ngpg2.MouseButton1Click:Connect(function()
+for i = 25, 50 do
+   buttonName = "scgn" .. i
+   button = sc:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+for i = 50, 70 do
+   buttonName = "scgne" .. i
+   button = sc:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = true
+  end
+end
+
+    bgpg2.Visible = true
+    ngpg2.Visible = false
+    bgpg.Visible = false
+    ngpg.Visible = false
+    mpages.Text = "Page 3"
+end)
+
+bgpg2.MouseButton1Click:Connect(function()
+for i = 25, 50 do
+   buttonName = "scgn" .. i
+   button = sc:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = true
+  end
+end
+
+for i = 50, 70 do
+   buttonName = "scgne" .. i
+   button = sc:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+    bgpg2.Visible = false
+    ngpg2.Visible = true
+    bgpg.Visible = true
+    ngpg.Visible = false
+    mpages.Text = "Page 2"
 end)
 
 nextmy.MouseButton1Click:Connect(function()
