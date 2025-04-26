@@ -5960,6 +5960,7 @@ for i = 1, 24 do
 end
 
     nextmy.Visible = true
+    nem.Visible = false
     mysc.Text = "Other Scripts"
     destruct2.Visible = false
     destruct.Visible = true
