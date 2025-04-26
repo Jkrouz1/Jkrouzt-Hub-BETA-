@@ -3955,23 +3955,23 @@ oc10.TextScaled = true
 oc10.Font = Enum.Font.SourceSans
 oc10.Text = "Use Tools"
 
-idknam = Instance.new("TextBox")
-idknam.Parent = Others
-idknam.Name = "idknam"
-idknam.Size = UDim2.new(0.15, 0, 0.07, 0)
-idknam.Position = UDim2.new(0.52, 0, 0.33, 0)
-idknam.BackgroundColor3 = Color3.new(1, 1, 1)
-idknam.BorderColor3 = Color3.new(1, 0, 0)
-idknam.BorderSizePixel = 2
-idknam.TextColor3 = Color3.new(0, 0, 0)
-idknam.PlaceholderText = "0.1 less or more"
-idknam.PlaceholderColor3 = Color3.new(0, 0, 0)
-idknam.TextScaled = true
-idknam.Font = Enum.Font.SourceSans
-idknam.Text = "0.1"
+kb2 = Instance.new("TextBox")
+kb2.Parent = Others
+kb2.Name = "kb2"
+kb2.Size = UDim2.new(0.15, 0, 0.07, 0)
+kb2.Position = UDim2.new(0.52, 0, 0.33, 0)
+kb2.BackgroundColor3 = Color3.new(1, 1, 1)
+kb2.BorderColor3 = Color3.new(1, 0, 0)
+kb2.BorderSizePixel = 2
+kb2.TextColor3 = Color3.new(0, 0, 0)
+kb2.PlaceholderText = "0.1 less or more"
+kb2.PlaceholderColor3 = Color3.new(0, 0, 0)
+kb2.TextScaled = true
+kb2.Font = Enum.Font.SourceSans
+kb2.Text = "0.1"
 
 oc10.MouseButton1Click:Connect(function()
-    local idkwut = idknam.Text
+    local idkwut = kb2.Text
 
     local waitDuration = tonumber(idkwut)
 
@@ -4125,18 +4125,18 @@ oc18.PlaceholderText = "Part Name"
 oc18.TextXAlignment = Enum.TextXAlignment.Center
 oc18.TextYAlignment = Enum.TextYAlignment.Center
 
-local sc19 = Instance.new("TextButton")
-sc19.Parent = Others
-sc19.Name = "oc19"
-sc19.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
-sc19.Position = UDim2.new(0.00996587239, 0, 0.750, 0)
-sc19.BackgroundColor3 = Color3.new(0, 0, 0)
-sc19.BorderColor3 = Color3.new(0, 0, 1)
-sc19.BorderSizePixel = 3
-sc19.TextColor3 = Color3.new(1, 1, 1)
-sc19.TextScaled = true
-sc19.Font = Enum.Font.SourceSans
-sc19.Text = "Bring player"
+local oc19 = Instance.new("TextButton")
+oc19.Parent = Others
+oc19.Name = "oc19"
+oc19.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+oc19.Position = UDim2.new(0.00996587239, 0, 0.750, 0)
+oc19.BackgroundColor3 = Color3.new(0, 0, 0)
+oc19.BorderColor3 = Color3.new(0, 0, 1)
+oc19.BorderSizePixel = 3
+oc19.TextColor3 = Color3.new(1, 1, 1)
+oc19.TextScaled = true
+oc19.Font = Enum.Font.SourceSans
+oc19.Text = "Bring player"
 
 local oc20 = Instance.new("TextButton")
 oc20.Parent = Others
@@ -4151,6 +4151,11 @@ oc20.TextScaled = true
 oc20.Font = Enum.Font.SourceSans
 oc20.Text = "View player"
 
+-- Define a boolean variable to track if oc23 has been clicked
+-- Using a shorter name to potentially avoid parsing issues
+local oc21NotifEnabled = true
+
+-- Snippet 1: oc21 Button ("Unanchored Parts to Player") - Modified
 local oc21 = Instance.new("TextButton")
 oc21.Parent = Others
 oc21.Name = "oc21"
@@ -4163,6 +4168,17 @@ oc21.TextColor3 = Color3.new(1, 1, 1)
 oc21.TextScaled = true
 oc21.Font = Enum.Font.SourceSans
 oc21.Text = "Unanchored Parts to Player"
+
+oc21.MouseButton1Click:Connect(function()
+    -- Check if the notification is allowed to be shown using the new variable name
+    if oc21NotifEnabled then
+        notif({
+            Text = "Please use. Bring UnAnchored Parts Gui",
+            Duration = 5,
+            topm = "Information!"
+        })
+    end
+end)
 
 local oc22 = Instance.new("TextBox")
 oc22.Parent = Others
@@ -4179,7 +4195,7 @@ oc22.Text = "Player Name"
 oc22.PlaceholderText = "Username"
 oc22.TextXAlignment = Enum.TextXAlignment.Center
 oc22.TextYAlignment = Enum.TextYAlignment.Center
-
+-- Snippet 2: oc23 Button ("Bring UnAnchored Parts Gui") - Modified
 local oc23 = Instance.new("TextButton")
 oc23.Parent = Others
 oc23.Name = "oc23"
@@ -4192,11 +4208,13 @@ oc23.TextColor3 = Color3.new(1, 1, 1)
 oc23.TextScaled = true
 oc23.Font = Enum.Font.SourceSans
 oc23.Text = "Bring UnAnchored Parts Gui"
+
 oc23.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
+    -- Set the boolean to false when this button is clicked using the new variable name
+    oc21NotifEnabled = false
 
-
-
+    -- Execute the original code for clicking oc23
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
 end)
 
 local oc24 = Instance.new("TextButton")
@@ -4211,10 +4229,6 @@ oc24.TextColor3 = Color3.new(1, 1, 1)
 oc24.TextScaled = true
 oc24.Font = Enum.Font.SourceSans
 oc24.Text = "Void"
-oc24.MouseButton1Click:Connect(function()
-print("17")
-end)
-
 
 local ocn25 = Instance.new("TextButton")
 ocn25.Parent = Others
@@ -4227,10 +4241,15 @@ ocn25.BorderSizePixel = 3
 ocn25.TextColor3 = Color3.new(1, 1, 1)
 ocn25.TextScaled = true
 ocn25.Font = Enum.Font.SourceSans
-ocn25.Text = "Local 25"
+ocn25.Text = "Remote Gui"
 ocn25.Visible = false
 ocn25.MouseButton1Click:Connect(function()
-print("Bad?")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Remote-gui-edited/refs/heads/main/Remote%20Finder%20by%201x98n6ex6.lua"))()
+    	notif({
+		Text = "Please wait a sec",
+		Duration = 5,
+		topm = "Be Pantient!"
+	})
 end)
 
 local ocn26 = Instance.new("TextButton")
@@ -4244,10 +4263,10 @@ ocn26.BorderSizePixel = 3
 ocn26.TextColor3 = Color3.new(1, 1, 1)
 ocn26.TextScaled = true
 ocn26.Font = Enum.Font.SourceSans
-ocn26.Text = "Local 26"
+ocn26.Text = "Place Finder Gui"
 ocn26.Visible = false
 ocn26.MouseButton1Click:Connect(function()
-print("7")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ACEtheSOLID/NoobyHub-Reborn/refs/heads/main/PlaceFinder-v0.1.lua"))()
 end)
 
 local ocn27 = Instance.new("TextButton")
@@ -4261,13 +4280,21 @@ ocn27.BorderSizePixel = 3
 ocn27.TextColor3 = Color3.new(1, 1, 1)
 ocn27.TextScaled = true
 ocn27.Font = Enum.Font.SourceSans
-ocn27.Text = "Local 27"
+ocn27.Text = "cooldown bypass"
 ocn27.Visible = false
 ocn27.MouseButton1Click:Connect(function()
-print("mmm")
+if hookfunction then 
+    g = hookfunction(wait, function(seconds) return g(0) end)
+    else
+    	notif({
+		Text = "Your exploit does not support this script please try using a better exploit other than "..identifyexecutor(),
+		Duration = 5,
+		topm = "Warning!"
+	})
+    end
 end)
 
-local ocn28 = Instance.new("TextButton")
+ocn28 = Instance.new("TextButton")
 ocn28.Parent = Others
 ocn28.Name = "ocn28"
 ocn28.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -4278,10 +4305,46 @@ ocn28.BorderSizePixel = 3
 ocn28.TextColor3 = Color3.new(1, 1, 1)
 ocn28.TextScaled = true
 ocn28.Font = Enum.Font.Roboto
-ocn28.Text = "Local 28"
+ocn28.Text = "Fake R6"
 ocn28.Visible = false
 ocn28.MouseButton1Click:Connect(function()
-print("coming")
+-- Made by REDNITE009
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local R6 = Instance.new("TextButton")
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+R6.Name = "R6"
+R6.Parent = ScreenGui
+R6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+R6.Position = UDim2.new(-0.000343383319, 0, 0.32815966, 0)
+R6.Size = UDim2.new(0, 29, 0, 29)
+R6.Font = Enum.Font.SourceSans
+R6.Text = "R6"
+R6.TextColor3 = Color3.fromRGB(0, 0, 0)
+R6.TextSize = 14.000
+R6.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/jHGVauVX'),true))()
+end)
+
+TextButton.Parent = ScreenGui
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.Position = UDim2.new(0, 0, 0.414634138, 0)
+TextButton.Size = UDim2.new(0, 72, 0, 27)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Respawn"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+TextButton.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/ukFZuXbb'),true))()
+end)
 end)
 
 ocn29 = Instance.new("TextButton")
@@ -4295,10 +4358,15 @@ ocn29.BorderSizePixel = 3
 ocn29.TextColor3 = Color3.new(1, 1, 1)
 ocn29.TextScaled = true
 ocn29.Font = Enum.Font.Roboto
-ocn29.Text = "Local 29"
+ocn29.Text = "Animatrix Gui"
 ocn29.Visible = false
 ocn29.MouseButton1Click:Connect(function()
-print("coming")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ocfi/aqua-hub-is-a-skid-lol/refs/heads/main/animatrix"))()
+    	notif({
+		Text = "Please wait...",
+		Duration = 3,
+		topm = "Be Pantient!"
+	})
 end)
 
 ocn30 = Instance.new("TextButton")
@@ -4312,11 +4380,16 @@ ocn30.BorderSizePixel = 3
 ocn30.TextColor3 = Color3.new(1, 1, 1)
 ocn30.TextScaled = true
 ocn30.Font = Enum.Font.Roboto
-ocn30.Text = "Local 30"
+ocn30.Text = "Follow Unachored Parts"
 ocn30.Visible = false
-ocn30.MouseButton1Click:Connect(function()
-print("coming")
-end)
+--[[ FE Unanchored Parts Follow
+    Script made by Cyclically | Credits to dhruvil123 for a few parts of the script
+    also credits to "Discordgotbanned" in discord for giving me motivation to fix this script
+    https://v3rmillion.net/member.php?action=profile&uid=785986
+    Don't edit script unless you know what you're doing. If you wanna add this into a script
+
+    the floating unanchored parts around u will stop floating when a player is near but it will come back when they get far away again, this is due roblox's gay ass networkownershit
+]]
 
 oppage = Instance.new("Frame")
 oppage.Parent = Others
@@ -4331,7 +4404,7 @@ destruct = Instance.new("TextButton")
 destruct.Parent = oppage
 destruct.Text = ">"
 destruct.TextScaled = true
-destruct.TextColor3 = Color3.new(1, 0, 1)
+destruct.TextColor3 = Color3.new(0, 0, 1)
 destruct.Size = UDim2.new(0, 50, 0, 35)
 destruct.Position = UDim2.new(0, 590, 0, 0)
 destruct.BorderColor3 = Color3.new(1, 0, 0)
@@ -4344,7 +4417,7 @@ destruct2 = Instance.new("TextButton")
 destruct2.Parent = oppage
 destruct2.Text = "<"
 destruct2.TextScaled = true
-destruct2.TextColor3 = Color3.new(1, 0, 1)
+destruct2.TextColor3 = Color3.new(0, 0, 1)
 destruct2.Size = UDim2.new(0, 50, 0, 35)
 destruct2.Position = UDim2.new(0, 5, 0, 0)
 destruct2.BorderColor3 = Color3.new(1, 0, 0)
@@ -4397,6 +4470,33 @@ backmy.Font = Enum.Font.GothamBold
 backmy.Text = "<"
 backmy.Visible = false
 
+nem = Instance.new("TextButton")
+nem.Parent = Others
+nem.Name = "nem"
+nem.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+nem.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
+nem.BackgroundColor3 = Color3.new(0, 0, 0)
+nem.BorderColor3 = Color3.new(1, 0, 0)
+nem.BorderSizePixel = 2
+nem.TextColor3 = Color3.new(0, 0, 1)
+nem.TextScaled = true
+nem.Font = Enum.Font.FredokaOne
+nem.Text = ">"
+nem.Visible = false
+
+bem = Instance.new("TextButton")
+bem.Parent = Others
+bem.Name = "bem"
+bem.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+bem.Position = UDim2.new(0.0100000035, 0, 0.920000196, 0)
+bem.BackgroundColor3 = Color3.new(0, 0, 0)
+bem.BorderColor3 = Color3.new(1, 0, 0)
+bem.BorderSizePixel = 2
+bem.TextColor3 = Color3.new(0, 0, 1)
+bem.TextScaled = true
+bem.Font = Enum.Font.FredokaOne
+bem.Text = "<"
+bem.Visible = false
 
  mypages = Instance.new("TextLabel")
 mypages.Parent = Others
@@ -4419,7 +4519,7 @@ ocnf1.Name = "ocnf1"
 ocnf1.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf1.Position = UDim2.new(0.00996587239, 0, 0.150, 0)
 ocnf1.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf1.BorderColor3 = Color3.new(0, 0, 1)
+ocnf1.BorderColor3 = Color3.new(1, 0, 0)
 ocnf1.BorderSizePixel = 3
 ocnf1.TextColor3 = Color3.new(1, 1, 1)
 ocnf1.TextScaled = true
@@ -4476,7 +4576,7 @@ ocnf2.Name = "ocnf2"
 ocnf2.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf2.Position = UDim2.new(0.18, 0, 0.150, 0)
 ocnf2.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf2.BorderColor3 = Color3.new(0, 0, 1)
+ocnf2.BorderColor3 = Color3.new(1, 0, 0)
 ocnf2.BorderSizePixel = 3
 ocnf2.TextColor3 = Color3.new(1, 1, 1)
 ocnf2.TextScaled = true
@@ -4514,7 +4614,7 @@ ocnf3.Name = "ocnf3"
 ocnf3.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf3.Position = UDim2.new(0.35, 0, 0.150, 0)
 ocnf3.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf3.BorderColor3 = Color3.new(0, 0, 1)
+ocnf3.BorderColor3 = Color3.new(1, 0, 0)
 ocnf3.BorderSizePixel = 3
 ocnf3.TextColor3 = Color3.new(1, 1, 1)
 ocnf3.TextScaled = true
@@ -4555,7 +4655,7 @@ ocnf4.Name = "ocnf4"
 ocnf4.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf4.Position = UDim2.new(0.52, 0, 0.150, 0)
 ocnf4.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf4.BorderColor3 = Color3.new(0, 0, 1)
+ocnf4.BorderColor3 = Color3.new(1, 0, 0)
 ocnf4.BorderSizePixel = 3
 ocnf4.TextColor3 = Color3.new(1, 1, 1)
 ocnf4.TextScaled = true
@@ -4578,7 +4678,7 @@ ocnf5.Name = "ocnf5"
 ocnf5.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf5.Position = UDim2.new(0.69, 0, 0.150, 0)
 ocnf5.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf5.BorderColor3 = Color3.new(0, 0, 1)
+ocnf5.BorderColor3 = Color3.new(1, 0, 0)
 ocnf5.BorderSizePixel = 3
 ocnf5.TextColor3 = Color3.new(1, 1, 1)
 ocnf5.TextScaled = true
@@ -4635,7 +4735,7 @@ ocnf6.Name = "ocnf6"
 ocnf6.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 ocnf6.Position = UDim2.new(0.86, 0, 0.150, 0)
 ocnf6.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf6.BorderColor3 = Color3.new(0, 0, 1)
+ocnf6.BorderColor3 = Color3.new(1, 0, 0)
 ocnf6.BorderSizePixel = 3
 ocnf6.TextColor3 = Color3.new(1, 1, 1)
 ocnf6.TextScaled = true
@@ -4674,7 +4774,7 @@ ocnf7.Name = "ocnf7"
 ocnf7.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf7.Position = UDim2.new(0.00996587239, 0, 0.350, 0)
 ocnf7.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf7.BorderColor3 = Color3.new(0, 0, 1)
+ocnf7.BorderColor3 = Color3.new(1, 0, 0)
 ocnf7.BorderSizePixel = 3
 ocnf7.TextColor3 = Color3.new(1, 1, 1)
 ocnf7.TextScaled = true
@@ -4715,7 +4815,7 @@ ocnf8.Name = "ocnf8"
 ocnf8.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf8.Position = UDim2.new(0.18, 0, 0.350, 0)
 ocnf8.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf8.BorderColor3 = Color3.new(0, 0, 1)
+ocnf8.BorderColor3 = Color3.new(1, 0, 0)
 ocnf8.BorderSizePixel = 3
 ocnf8.TextColor3 = Color3.new(1, 1, 1)
 ocnf8.TextScaled = true
@@ -4739,7 +4839,7 @@ ocnf9.Name = "ocnf9"
 ocnf9.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf9.Position = UDim2.new(0.35, 0, 0.350, 0)
 ocnf9.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf9.BorderColor3 = Color3.new(0, 0, 1)
+ocnf9.BorderColor3 = Color3.new(1, 0, 0)
 ocnf9.BorderSizePixel = 3
 ocnf9.TextColor3 = Color3.new(1, 1, 1)
 ocnf9.TextScaled = true
@@ -4788,7 +4888,7 @@ ocnf10.Name = "ocnf10"
 ocnf10.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf10.Position = UDim2.new(0.52, 0, 0.350, 0)
 ocnf10.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf10.BorderColor3 = Color3.new(0, 0, 1)
+ocnf10.BorderColor3 = Color3.new(1, 0, 0)
 ocnf10.BorderSizePixel = 3
 ocnf10.TextColor3 = Color3.new(1, 1, 1)
 ocnf10.TextScaled = true
@@ -4805,7 +4905,7 @@ ocnf11.Name = "ocnf11"
 ocnf11.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf11.Position = UDim2.new(0.69, 0, 0.350, 0)
 ocnf11.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf11.BorderColor3 = Color3.new(0, 0, 1)
+ocnf11.BorderColor3 = Color3.new(1, 0, 0)
 ocnf11.BorderSizePixel = 3
 ocnf11.TextColor3 = Color3.new(1, 1, 1)
 ocnf11.TextScaled = true
@@ -4822,7 +4922,7 @@ ocnf12.Name = "ocnf12"
 ocnf12.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 ocnf12.Position = UDim2.new(0.86, 0, 0.350, 0)
 ocnf12.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf12.BorderColor3 = Color3.new(0, 0, 1)
+ocnf12.BorderColor3 = Color3.new(1, 0, 0)
 ocnf12.BorderSizePixel = 3
 ocnf12.TextColor3 = Color3.new(1, 1, 1)
 ocnf12.TextScaled = true
@@ -4860,7 +4960,7 @@ ocnf13.Name = "ocnf13"
 ocnf13.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf13.Position = UDim2.new(0.00996587239, 0, 0.550, 0)
 ocnf13.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf13.BorderColor3 = Color3.new(0, 0, 1)
+ocnf13.BorderColor3 = Color3.new(1, 0, 0)
 ocnf13.BorderSizePixel = 3
 ocnf13.TextColor3 = Color3.new(1, 1, 1)
 ocnf13.TextScaled = true
@@ -4885,7 +4985,7 @@ ocnf14.Name = "ocnf14"
 ocnf14.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf14.Position = UDim2.new(0.18, 0, 0.550, 0)
 ocnf14.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf14.BorderColor3 = Color3.new(0, 0, 1)
+ocnf14.BorderColor3 = Color3.new(1, 0, 0)
 ocnf14.BorderSizePixel = 3
 ocnf14.TextColor3 = Color3.new(1, 1, 1)
 ocnf14.TextScaled = true
@@ -4899,7 +4999,7 @@ ocnf15.Name = "ocnf15"
 ocnf15.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf15.Position = UDim2.new(0.35, 0, 0.550, 0)
 ocnf15.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf15.BorderColor3 = Color3.new(0, 0, 1)
+ocnf15.BorderColor3 = Color3.new(1, 0, 0)
 ocnf15.BorderSizePixel = 3
 ocnf15.TextColor3 = Color3.new(1, 1, 1)
 ocnf15.TextScaled = true
@@ -4958,7 +5058,7 @@ ocnf16.Name = "ocnf16"
 ocnf16.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf16.Position = UDim2.new(0.52, 0, 0.550, 0)
 ocnf16.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf16.BorderColor3 = Color3.new(0, 0, 1)
+ocnf16.BorderColor3 = Color3.new(1, 0, 0)
 ocnf16.BorderSizePixel = 3
 ocnf16.TextColor3 = Color3.new(1, 1, 1)
 ocnf16.TextScaled = true
@@ -5013,7 +5113,7 @@ ocnf17.Name = "ocnf17"
 ocnf17.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf17.Position = UDim2.new(0.69, 0, 0.550, 0)
 ocnf17.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf17.BorderColor3 = Color3.new(0, 0, 1)
+ocnf17.BorderColor3 = Color3.new(1, 0, 0)
 ocnf17.BorderSizePixel = 3
 ocnf17.TextColor3 = Color3.new(1, 1, 1)
 ocnf17.TextScaled = true
@@ -5055,7 +5155,7 @@ ocnf18.Name = "ocnf18"
 ocnf18.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 ocnf18.Position = UDim2.new(0.86, 0, 0.550, 0)
 ocnf18.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf18.BorderColor3 = Color3.new(0, 0, 1)
+ocnf18.BorderColor3 = Color3.new(1, 0, 0)
 ocnf18.BorderSizePixel = 3
 ocnf18.TextColor3 = Color3.new(1, 1, 1)
 ocnf18.TextScaled = true
@@ -5079,7 +5179,7 @@ ocnf19.Name = "ocnf19"
 ocnf19.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf19.Position = UDim2.new(0.00996587239, 0, 0.750, 0)
 ocnf19.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf19.BorderColor3 = Color3.new(0, 0, 1)
+ocnf19.BorderColor3 = Color3.new(1, 0, 0)
 ocnf19.BorderSizePixel = 3
 ocnf19.TextColor3 = Color3.new(1, 1, 1)
 ocnf19.TextScaled = true
@@ -5114,7 +5214,7 @@ ocnf20.Name = "ocnf20"
 ocnf20.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf20.Position = UDim2.new(0.18, 0, 0.750, 0)
 ocnf20.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf20.BorderColor3 = Color3.new(0, 0, 1)
+ocnf20.BorderColor3 = Color3.new(1, 0, 0)
 ocnf20.BorderSizePixel = 3
 ocnf20.TextColor3 = Color3.new(1, 1, 1)
 ocnf20.TextScaled = true
@@ -5148,7 +5248,7 @@ ocnf21.Name = "ocnf21"
 ocnf21.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf21.Position = UDim2.new(0.35, 0, 0.750, 0)
 ocnf21.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf21.BorderColor3 = Color3.new(0, 0, 1)
+ocnf21.BorderColor3 = Color3.new(1, 0, 0)
 ocnf21.BorderSizePixel = 3
 ocnf21.TextColor3 = Color3.new(1, 1, 1)
 ocnf21.TextScaled = true
@@ -5162,7 +5262,7 @@ ocnf22.Name = "ocnf22"
 ocnf22.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf22.Position = UDim2.new(0.52, 0, 0.750, 0)
 ocnf22.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf22.BorderColor3 = Color3.new(0, 0, 1)
+ocnf22.BorderColor3 = Color3.new(1, 0, 0)
 ocnf22.BorderSizePixel = 3
 ocnf22.TextColor3 = Color3.new(1, 1, 1)
 ocnf22.TextScaled = true
@@ -5185,7 +5285,7 @@ ocnf23.Name = "ocnf23"
 ocnf23.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocnf23.Position = UDim2.new(0.69, 0, 0.750, 0)
 ocnf23.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf23.BorderColor3 = Color3.new(0, 0, 1)
+ocnf23.BorderColor3 = Color3.new(1, 0, 0)
 ocnf23.BorderSizePixel = 3
 ocnf23.TextColor3 = Color3.new(1, 1, 1)
 ocnf23.TextScaled = true
@@ -5256,7 +5356,7 @@ ocnf24.Name = "ocnf24"
 ocnf24.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 ocnf24.Position = UDim2.new(0.86, 0, 0.750, 0)
 ocnf24.BackgroundColor3 = Color3.new(0, 0, 0)
-ocnf24.BorderColor3 = Color3.new(0, 0, 1)
+ocnf24.BorderColor3 = Color3.new(1, 0, 0)
 ocnf24.BorderSizePixel = 3
 ocnf24.TextColor3 = Color3.new(1, 1, 1)
 ocnf24.TextScaled = true
@@ -5304,6 +5404,449 @@ ocnf24.MouseButton1Click:Connect(function()
 
     
     processInstance(game.Workspace)
+end)
+
+
+ ocnfw25 = Instance.new("TextButton")
+ocnfw25.Parent = Others
+ocnfw25.Name = "ocnfw25"
+ocnfw25.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw25.Position = UDim2.new(0.00996587239, 0, 0.03, 0)
+ocnfw25.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw25.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw25.BorderSizePixel = 3
+ocnfw25.TextColor3 = Color3.new(1, 1, 1)
+ocnfw25.TextScaled = true
+ocnfw25.Font = Enum.Font.Roboto
+ocnfw25.Text = "Grab Knife V1"
+ocnfw25.Visible = false
+ocnfw25.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Grab%20Knife%20V1.lua.txt"))()
+end)
+
+ ocnfw26 = Instance.new("TextButton")
+ocnfw26.Parent = Others
+ocnfw26.Name = "ocnfw26"
+ocnfw26.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw26.Position = UDim2.new(0.18, 0, 0.03, 0)
+ocnfw26.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw26.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw26.BorderSizePixel = 3
+ocnfw26.TextColor3 = Color3.new(1, 1, 1)
+ocnfw26.TextScaled = true
+ocnfw26.Font = Enum.Font.Roboto
+ocnfw26.Text = "Grab Knife V2"
+ocnfw26.Visible = false
+ocnfw26.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20Grab%20Knife%20V2.txt"))()
+end)
+
+ ocnfw27 = Instance.new("TextButton")
+ocnfw27.Parent = Others
+ocnfw27.Name = "ocnfw27"
+ocnfw27.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw27.Position = UDim2.new(0.35, 0, 0.03, 0)
+ocnfw27.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw27.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw27.BorderSizePixel = 3
+ocnfw27.TextColor3 = Color3.new(1, 1, 1)
+ocnfw27.TextScaled = true
+ocnfw27.Font = Enum.Font.Roboto
+ocnfw27.Text = "Grab Knife V3"
+ocnfw27.Visible = false
+ocnfw27.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Grab%20Knife%20V3.lua.txt"))()
+end)
+
+ ocnfw28 = Instance.new("TextButton")
+ocnfw28.Parent = Others
+ocnfw28.Name = "ocnfw28"
+ocnfw28.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw28.Position = UDim2.new(0.52, 0, 0.03, 0)
+ocnfw28.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw28.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw28.BorderSizePixel = 3
+ocnfw28.TextColor3 = Color3.new(1, 1, 1)
+ocnfw28.TextScaled = true
+ocnfw28.Font = Enum.Font.Roboto
+ocnfw28.Text = "Grab Knife V4"
+ocnfw28.Visible = false
+ocnfw28.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20Grab%20Knife%20V4.txt"))()
+end)
+
+ ocnfw29 = Instance.new("TextButton")
+ocnfw29.Parent = Others
+ocnfw29.Name = "ocnfw29"
+ocnfw29.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw29.Position = UDim2.new(0.69, 0, 0.03, 0)
+ocnfw29.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw29.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw29.BorderSizePixel = 3
+ocnfw29.TextColor3 = Color3.new(1, 1, 1)
+ocnfw29.TextScaled = true
+ocnfw29.Font = Enum.Font.Roboto
+ocnfw29.Text = "Kitchen Gun"
+ocnfw29.Visible = false
+ocnfw29.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Kitchen%20Gun.txt"))()
+end)
+
+ ocnfw30 = Instance.new("TextButton")
+ocnfw30.Parent = Others
+ocnfw30.Name = "ocnfw30"
+ocnfw30.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocnfw30.Position = UDim2.new(0.86, 0, 0.03, 0)
+ocnfw30.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw30.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw30.BorderSizePixel = 3
+ocnfw30.TextColor3 = Color3.new(1, 1, 1)
+ocnfw30.TextScaled = true
+ocnfw30.Font = Enum.Font.Roboto
+ocnfw30.Text = "Nuke Launcher"
+ocnfw30.Visible = false
+ocnfw30.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Nuke%20Launcher.lua.txt"))()
+end)
+
+ ocnfw31 = Instance.new("TextButton")
+ocnfw31.Parent = Others
+ocnfw31.Name = "ocnfw31"
+ocnfw31.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw31.Position = UDim2.new(0.00996587239, 0, 0.229999959, 0)
+ocnfw31.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw31.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw31.BorderSizePixel = 3
+ocnfw31.TextColor3 = Color3.new(1, 1, 1)
+ocnfw31.TextScaled = true
+ocnfw31.Font = Enum.Font.SourceSans
+ocnfw31.Text = "Bomb Vest"
+ocnfw31.Visible = false
+ocnfw31.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20Bomb%20Vest.txt'))()
+end)
+
+ ocnfw32 = Instance.new("TextButton")
+ocnfw32.Parent = Others
+ocnfw32.Name = "ocnfw32"
+ocnfw32.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw32.Position = UDim2.new(0.18, 0, 0.229999959, 0)
+ocnfw32.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw32.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw32.BorderSizePixel = 3
+ocnfw32.TextColor3 = Color3.new(1, 1, 1)
+ocnfw32.TextScaled = true
+ocnfw32.Font = Enum.Font.SourceSans
+ocnfw32.Text = "Dev Uzi"
+ocnfw32.Visible = false
+ocnfw32.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20Dev%20Uzi.txt'))()
+end)
+
+ ocnfw33 = Instance.new("TextButton")
+ocnfw33.Parent = Others
+ocnfw33.Name = "ocnfw33"
+ocnfw33.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw33.Position = UDim2.new(0.35, 0, 0.229999959, 0)
+ocnfw33.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw33.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw33.BorderSizePixel = 3
+ocnfw33.TextColor3 = Color3.new(1, 1, 1)
+ocnfw33.TextScaled = true
+ocnfw33.Font = Enum.Font.Roboto
+ocnfw33.Text = "John Doe"
+ocnfw33.Visible = false
+ocnfw33.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20John%20Doe.txt"))()
+end)
+
+ ocnfw34 = Instance.new("TextButton")
+ocnfw34.Parent = Others
+ocnfw34.Name = "ocnfw34"
+ocnfw34.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw34.Position = UDim2.new(0.52, 0, 0.229999959, 0)
+ocnfw34.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw34.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw34.BorderSizePixel = 3
+ocnfw34.TextColor3 = Color3.new(1, 1, 1)
+ocnfw34.TextScaled = true
+ocnfw34.Font = Enum.Font.Roboto
+ocnfw34.Text = "Killbot"
+ocnfw34.Visible = false
+ocnfw34.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Killbot.txt"))()
+end)
+
+ ocnfw35 = Instance.new("TextButton")
+ocnfw35.Parent = Others
+ocnfw35.Name = "ocnfw35"
+ocnfw35.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw35.Position = UDim2.new(0.69, 0, 0.229999959, 0)
+ocnfw35.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw35.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw35.BorderSizePixel = 3
+ocnfw35.TextColor3 = Color3.new(1, 1, 1)
+ocnfw35.TextScaled = true
+ocnfw35.Font = Enum.Font.Roboto
+ocnfw35.Text = "Ban Hammer"
+ocnfw35.Visible = false
+ocnfw35.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Ban%20Hammer%20v2.txt"))()
+end)
+
+ ocnfw36 = Instance.new("TextButton")
+ocnfw36.Parent = Others
+ocnfw36.Name = "ocnfw36"
+ocnfw36.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocnfw36.Position = UDim2.new(0.86, 0, 0.229999959, 0)
+ocnfw36.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw36.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw36.BorderSizePixel = 3
+ocnfw36.TextColor3 = Color3.new(1, 1, 1)
+ocnfw36.TextScaled = true
+ocnfw36.Font = Enum.Font.Roboto
+ocnfw36.Text = "Sin Dragon Head"
+ocnfw36.Visible = false
+ocnfw36.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Sin%20Dragon%20Head.txt"))()
+end)
+
+ ocnfw37 = Instance.new("TextButton")
+ocnfw37.Parent = Others
+ocnfw37.Name = "ocnfw37"
+ocnfw37.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw37.Position = UDim2.new(0.00996587239, 0, 0.43, 0)
+ocnfw37.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw37.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw37.BorderSizePixel = 3
+ocnfw37.TextColor3 = Color3.new(1, 1, 1)
+ocnfw37.TextScaled = true
+ocnfw37.Font = Enum.Font.Roboto
+ocnfw37.Text = "Dominus Corona Autralisi"
+ocnfw37.Visible = false
+ocnfw37.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Dominus%20corona%20Australisi.txt"))()
+end)
+
+ ocnfw38 = Instance.new("TextButton")
+ocnfw38.Parent = Others
+ocnfw38.Name = "ocnfw38"
+ocnfw38.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw38.Position = UDim2.new(0.18, 0, 0.43, 0)
+ocnfw38.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw38.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw38.BorderSizePixel = 3
+ocnfw38.TextColor3 = Color3.new(1, 1, 1)
+ocnfw38.TextScaled = true
+ocnfw38.Font = Enum.Font.Roboto
+ocnfw38.Text = "Reaper V2"
+ocnfw38.Visible = false
+ocnfw38.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Reaper%20V2.lua.txt"))()
+end)
+
+ ocnfw39 = Instance.new("TextButton")
+ocnfw39.Parent = Others
+ocnfw39.Name = "ocnfw39"
+ocnfw39.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw39.Position = UDim2.new(0.35, 0, 0.43, 0)
+ocnfw39.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw39.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw39.BorderSizePixel = 3
+ocnfw39.TextColor3 = Color3.new(1, 1, 1)
+ocnfw39.TextScaled = true
+ocnfw39.Font = Enum.Font.Roboto
+ocnfw39.Text = "Lost Hope Scythe V2"
+ocnfw39.Visible = false
+ocnfw39.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Lost%20Hope%20Scythe%20v2.txt"))()
+end)
+
+ ocnfw40 = Instance.new("TextButton")
+ocnfw40.Parent = Others
+ocnfw40.Name = "ocnfw40"
+ocnfw40.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw40.Position = UDim2.new(0.52, 0, 0.43, 0)
+ocnfw40.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw40.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw40.BorderSizePixel = 3
+ocnfw40.TextColor3 = Color3.new(1, 1, 1)
+ocnfw40.TextScaled = true
+ocnfw40.Font = Enum.Font.Roboto
+ocnfw40.Text = "Ro-Xploit V6"
+ocnfw40.Visible = false
+ocnfw40.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BGUI%5D%20Ro-Xploit%206.0.txt"))()
+end)
+
+ ocnfw41 = Instance.new("TextButton")
+ocnfw41.Parent = Others
+ocnfw41.Name = "ocnfw41"
+ocnfw41.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw41.Position = UDim2.new(0.69, 0, 0.43, 0)
+ocnfw41.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw41.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw41.BorderSizePixel = 3
+ocnfw41.TextColor3 = Color3.new(1, 1, 1)
+ocnfw41.TextScaled = true
+ocnfw41.Font = Enum.Font.Roboto
+ocnfw41.Text = "Banisher Infinite"
+ocnfw41.Visible = false
+ocnfw41.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Banisher%20Infinite.txt"))()
+end)
+
+ ocnfw42 = Instance.new("TextButton")
+ocnfw42.Parent = Others
+ocnfw42.Name = "ocnfw42"
+ocnfw42.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocnfw42.Position = UDim2.new(0.86, 0, 0.43, 0)
+ocnfw42.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw42.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw42.BorderSizePixel = 3
+ocnfw42.TextColor3 = Color3.new(1, 1, 1)
+ocnfw42.TextScaled = true
+ocnfw42.Font = Enum.Font.Roboto
+ocnfw42.Text = "Shedletsky Rage"
+ocnfw42.Visible = false
+ocnfw42.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/M47mvU71.txt"))()
+end)
+
+ ocnfw43 = Instance.new("TextButton")
+ocnfw43.Parent = Others
+ocnfw43.Name = "ocnfw43"
+ocnfw43.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw43.Position = UDim2.new(0.00996587239, 0, 0.63, 0)
+ocnfw43.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw43.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw43.BorderSizePixel = 3
+ocnfw43.TextColor3 = Color3.new(1, 1, 1)
+ocnfw43.TextScaled = true
+ocnfw43.Font = Enum.Font.Roboto
+ocnfw43.Text = "Banisher"
+ocnfw43.Visible = false
+ocnfw43.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Banisher.lua.txt"))()
+end)
+
+ ocnfw44 = Instance.new("TextButton")
+ocnfw44.Parent = Others
+ocnfw44.Name = "ocnfw44"
+ocnfw44.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw44.Position = UDim2.new(0.18, 0, 0.63, 0)
+ocnfw44.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw44.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw44.BorderSizePixel = 3
+ocnfw44.TextColor3 = Color3.new(1, 1, 1)
+ocnfw44.TextScaled = true
+ocnfw44.Font = Enum.Font.Roboto
+ocnfw44.Text = "911 Plane"
+ocnfw44.Visible = false
+ocnfw44.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20911%20Plane.txt"))()
+end)
+
+ ocnfw45 = Instance.new("TextButton")
+ocnfw45.Parent = Others
+ocnfw45.Name = "ocnfw45"
+ocnfw45.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw45.Position = UDim2.new(0.35, 0, 0.63, 0)
+ocnfw45.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw45.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw45.BorderSizePixel = 3
+ocnfw45.TextColor3 = Color3.new(1, 1, 1)
+ocnfw45.TextScaled = true
+ocnfw45.Font = Enum.Font.Roboto
+ocnfw45.Text = "Sin Unleashed"
+ocnfw45.Visible = false
+ocnfw45.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Sin%20Unleashed.lua.txt"))()
+end)
+
+ ocnfw46 = Instance.new("TextButton")
+ocnfw46.Parent = Others
+ocnfw46.Name = "ocnfw46"
+ocnfw46.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw46.Position = UDim2.new(0.52, 0, 0.63, 0)
+ocnfw46.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw46.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw46.BorderSizePixel = 3
+ocnfw46.TextColor3 = Color3.new(1, 1, 1)
+ocnfw46.TextScaled = true
+ocnfw46.Font = Enum.Font.Roboto
+ocnfw46.Text = "The Angel"
+ocnfw46.Visible = false
+ocnfw46.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/The%20Angel.txt"))()
+end)
+
+ ocnfw47 = Instance.new("TextButton")
+ocnfw47.Parent = Others
+ocnfw47.Name = "ocnfw47"
+ocnfw47.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfw47.Position = UDim2.new(0.69, 0, 0.63, 0)
+ocnfw47.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw47.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw47.BorderSizePixel = 3
+ocnfw47.TextColor3 = Color3.new(1, 1, 1)
+ocnfw47.TextScaled = true
+ocnfw47.Font = Enum.Font.Roboto
+ocnfw47.Text = "Ak-47"
+ocnfw47.Visible = false
+ocnfw47.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/1ndrew%20AK-47.txt"))()
+end)
+
+ ocnfw48 = Instance.new("TextButton")
+ocnfw48.Parent = Others
+ocnfw48.Name = "ocnfw48"
+ocnfw48.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocnfw48.Position = UDim2.new(0.86, 0, 0.63, 0)
+ocnfw48.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw48.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw48.BorderSizePixel = 3
+ocnfw48.TextColor3 = Color3.new(1, 1, 1)
+ocnfw48.TextScaled = true
+ocnfw48.Font = Enum.Font.Roboto
+ocnfw48.Text = "Content Cop"
+ocnfw48.Visible = false
+ocnfw48.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20Content%20Cop.txt"))()
+end)
+
+ ocnfw49 = Instance.new("TextButton")
+ocnfw49.Parent = Others
+ocnfw49.Name = "ocnfw49"
+ocnfw49.Size = UDim2.new(0.473003626, 0, 0.101999998, 0)
+ocnfw49.Position = UDim2.new(0.519000053, 0, 0.799999893, 0)
+ocnfw49.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw49.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw49.BorderSizePixel = 2
+ocnfw49.TextColor3 = Color3.new(1, 1, 1)
+ocnfw49.TextScaled = true
+ocnfw49.Font = Enum.Font.Roboto
+ocnfw49.Text = "Revenge Hands"
+ocnfw49.Visible = false
+ocnfw49.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/reevenge%20hands.txt'))()
+end)
+
+ ocnfw50 = Instance.new("TextButton")
+ocnfw50.Parent = Others
+ocnfw50.Name = "ocnfw50"
+ocnfw50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
+ocnfw50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
+ocnfw50.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfw50.BorderColor3 = Color3.new(1, 0, 0)
+ocnfw50.BorderSizePixel = 2
+ocnfw50.TextColor3 = Color3.new(1, 1, 1)
+ocnfw50.TextScaled = true
+ocnfw50.Font = Enum.Font.Roboto
+ocnfw50.Text = "Wyd Form"
+ocnfw50.Visible = false
+ocnfw50.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/WYD%20Form.lua.txt"))()
 end)
 
 function executeCode(code)
@@ -5377,8 +5920,7 @@ destruct.MouseButton1Click:Connect(function()
 for i = 1, 24 do
    buttonName = "oc" .. i
    button = Others:FindFirstChild(buttonName)
-
-  if button and button:IsA("TextButton") then
+  if button and button:IsA("TextButton") or button:IsA("TextBox") then
     button.Visible = false
   end
 end
@@ -5392,17 +5934,19 @@ for i = 1, 24 do
 end
 
     nextmy.Visible = false
+    nem.Visible = true
     mysc.Text = "Client Sided Scripts"
     destruct2.Visible = true
     destruct.Visible = false
     kb.Visible = false
+    kb2.Visible = false
 end)
 
 destruct2.MouseButton1Click:Connect(function()
 for i = 1, 24 do
    buttonName = "oc" .. i
    button = Others:FindFirstChild(buttonName) 
-  if button and button:IsA("TextButton") then
+  if button and button:IsA("TextButton") or button:IsA("TextBox") then
     button.Visible = true
   end
 end
@@ -5420,6 +5964,7 @@ end
     destruct2.Visible = false
     destruct.Visible = true
     kb.Visible = true
+    kb2.Visible = true
 end)
 
 npg.MouseButton1Click:Connect(function()
@@ -5564,6 +6109,8 @@ end
     bgpg.Visible = true
     ngpg.Visible = false
     mpages.Text = "Page 2"
+    kb.Visible = true
+    kb2.Visible = true
 end)
 
 nextmy.MouseButton1Click:Connect(function()
@@ -5575,7 +6122,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 27 do
+for i = 25, 30 do
    buttonName = "ocn" .. i
    button = Others:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -5587,6 +6134,8 @@ end
     nextmy.Visible = false
     mypages.Text = "Page 2"
     oppage.Visible = false
+    kb.Visible = false
+    kb2.Visible = false
 end)
 
 backmy.MouseButton1Click:Connect(function()
@@ -5598,7 +6147,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 27 do
+for i = 25, 30 do
    buttonName = "ocn" .. i
    button = Others:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -5610,6 +6159,134 @@ end
     nextmy.Visible = true
     mypages.Text = "Page 1"
     oppage.Visible = true
+end)
+
+nem.MouseButton1Click:Connect(function()
+for i = 1, 24 do
+   buttonName = "ocnf" .. i
+   button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") or button:IsA("TextBox") then
+    button.Visible = false
+  end
+end
+
+for i = 25, 50 do
+   buttonName = "ocnfw" .. i
+   button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = true
+  end
+end
+
+    bem.Visible = true
+    nem.Visible = false
+    mypages.Text = "Page 2"
+    oppage.Visible = false
+    kb.Visible = false
+    kb2.Visible = false
+end)
+
+bem.MouseButton1Click:Connect(function()
+for i = 1, 24 do
+   buttonName = "ocnf" .. i
+   button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") or button:IsA("TextBox") then
+    button.Visible = true
+  end
+end
+
+for i = 25, 50 do
+   buttonName = "ocnfw" .. i
+   button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+    bem.Visible = false
+    nem.Visible = true
+    mypages.Text = "Page 1"
+    oppage.Visible = true
+end)
+
+isEffectActive = false
+unanchoredparts = {} 
+movers = {}         
+
+ocn30.MouseButton1Click:Connect(function()
+    if not isEffectActive then
+        isEffectActive = true
+        ocn30.Text = "Stop Follow"
+
+        unanchoredparts = {}
+        movers = {}
+
+        for index, part in pairs(workspace:GetDescendants()) do
+            if part:IsA("BasePart") and part.Anchored == false and part:IsDescendantOf(LocalPlayer.Character) == false then
+                table.insert(unanchoredparts, part)
+                part.Massless = true
+                part.CanCollide = false
+                if part:FindFirstChildOfClass("BodyPosition") then
+                    part:FindFirstChildOfClass("BodyPosition"):Destroy()
+                end
+            end
+        end
+
+        for index, part in pairs(unanchoredparts) do
+            local mover = Instance.new("BodyPosition", part)
+            table.insert(movers, mover)
+            mover.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+        end
+
+        task.spawn(function()
+            while isEffectActive and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") and LocalPlayer.Character:FindFirstChild("Humanoid").Health > 0 do
+                 local rootPart = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                 if rootPart then
+                     for i = #movers, 1, -1 do 
+                         local mover = movers[i]
+                         if mover and mover.Parent and mover.Parent:IsA("BasePart") then
+                             mover.Position = rootPart.CFrame:PointToWorldSpace(Vector3.new(0, 0, 5))
+                         else
+                             if mover and mover.Parent then 
+                                 mover:Destroy()
+                             end
+                             table.remove(movers, i)
+                         end
+                     end
+                 end
+                 if #movers == 0 then
+                     isEffectActive = false
+                     ocn30.Text = "Follow Unachored Parts" 
+                     break
+                 end
+                wait(0.05)
+            end
+
+            for _, mover in pairs(movers) do
+                if mover and mover.Parent then
+                    mover:Destroy()
+                end
+            end
+            unanchoredparts = {}
+            movers = {}
+            if ocn30.Text ~= "Follow Unachored Parts" then
+                 ocn30.Text = "Follow Unachored Parts"
+            end
+            isEffectActive = false
+        end)
+
+    else
+        isEffectActive = false 
+        ocn30.Text = "Start Follow"
+
+        for _, mover in pairs(movers) do
+            if mover and mover.Parent then
+                mover:Destroy()
+            end
+        end
+        unanchoredparts = {}
+        movers = {}
+    end
 end)
 
 function grabAllTools(player)
@@ -5744,16 +6421,24 @@ end
 
 oc24.MouseButton1Click:Connect(teleportPlayer)
 
+bringPlayerActive = false
+targetPlayerToBring = nil 
+bringAllPlayers = false 
 
+function getRoot(character)
+    if character then
+        return character:FindFirstChild("HumanoidRootPart")
+    end
+    return nil
+end
 
- bringPlayerActive = false
- targetPlayerToBring = nil
+function isNumber(value)
+    return typeof(value) == "number"
+end
 
-
-
-sc19.MouseButton1Click:Connect(function()
-	targetUsername = oc22.Text
-	localPlayer = Players.LocalPlayer
+oc19.MouseButton1Click:Connect(function()
+	local targetUsername = oc22.Text 
+	local localPlayer = Players.LocalPlayer
 
 	if not localPlayer then
 		warn("Local player not found.")
@@ -5761,50 +6446,119 @@ sc19.MouseButton1Click:Connect(function()
 	end
 
 	if bringPlayerActive then
-		
-		bringPlayerActive = false
-		targetPlayerToBring = nil
-		sc19.Text = "Bring player"
-		print("Stopped bringing player.")
+		print("Attempting to stop bringing player(s).")
+		bringPlayerActive = false 
+		targetPlayerToBring = nil 
+		bringAllPlayers = false 
+
+		task.wait(0.1)
+
+		oc19.Text = "Bring player"
+		print("Stopped bringing player(s).")
 		return
 	end
 
-	
-	 target = Players:FindFirstChild(targetUsername)
-	if target and target ~= localPlayer then
-		targetPlayerToBring = target
-		bringPlayerActive = true
-		sc19.Text = "Stop Bring"
-		print("Started bringing player:", targetUsername)
-	elseif target == localPlayer then
-		warn("Cannot bring yourself.")
+	local lowerInput = string.lower(targetUsername or "") 
+
+    if lowerInput == "" or lowerInput == "player name" or lowerInput == "username" then
+        warn("Please enter a valid player name or 'All' to bring.")
+        return
+    end
+
+	if lowerInput == "all" then
+		bringAllPlayers = true 
+		bringPlayerActive = true 
+		targetPlayerToBring = nil 
+
+		oc19.Text = "Stop Bring All"
+		print("Started aggressively bringing all other players.")
+
 	else
-		warn("Player with username '" .. targetUsername .. "' not found.")
+		
+		bringAllPlayers = false 
+		local target = nil 
+
+		for _, player in Players:GetPlayers() do
+			local lowerPlayerName = string.lower(player.Name)
+			local lowerDisplayName = string.lower(player.DisplayName)
+			if string.find(lowerPlayerName, lowerInput, 1, true) or string.find(lowerDisplayName, lowerInput, 1, true) then 
+				target = player
+				break 
+			end
+		end
+
+		if target and target ~= localPlayer then
+			
+			targetPlayerToBring = target 
+			bringPlayerActive = true 
+            bringAllPlayers = false 
+			oc19.Text = "Stop Bring"
+			print("Started bringing specific player:", target.Name)
+		elseif target == localPlayer then
+			warn("Cannot bring yourself.")
+            return
+		else
+			warn("Player matching '" .. targetUsername .. "' not found.")
+            return
+		end
 	end
 end)
 
+
 RunService.Heartbeat:Connect(function()
-	if bringPlayerActive and targetPlayerToBring then
-		 localPlayer = Players.LocalPlayer
-		 localCharacter = localPlayer and localPlayer.Character
-		 targetCharacter = targetPlayerToBring.Character
+	if bringPlayerActive then
+        local localPlayerCheck = Players:FindFirstChild(Players.LocalPlayer.Name) 
 
-		if localCharacter and targetCharacter then
-			localRootPart = localCharacter:FindFirstChild("HumanoidRootPart")
-			 targetRootPart = targetCharacter:FindFirstChild("HumanoidRootPart")
+        if not localPlayerCheck or not localPlayerCheck.Character or not getRoot(localPlayerCheck.Character) then
+            
+            warn("Local player or character missing, stopping bring.")
+            bringPlayerActive = false
+            targetPlayerToBring = nil
+            bringAllPlayers = false
+            
+            if oc19 and oc19.Text ~= "Bring player" then oc19.Text = "Bring player" end
+            return 
+        end
 
-			if localRootPart and targetRootPart then
-				
-				 bringOffset = localRootPart.CFrame.LookVector * 3 
-				 bringPosition = localRootPart.CFrame.Position + bringOffset
-				 bringCFrame = CFrame.lookAt(bringPosition, localRootPart.CFrame.Position) 
-				targetRootPart.CFrame = bringCFrame
+        local localRootPart = getRoot(localPlayerCheck.Character)
+        local targetPosition = localRootPart.Position 
 
-				 targetHumanoid = targetCharacter:FindFirstChild("Humanoid")
-				if targetHumanoid and targetHumanoid.Health <= 0 then
-					targetHumanoid.Health = 100
+		if bringAllPlayers then
+			for _, targetPlayerCheck in Players:GetPlayers() do
+                
+				if targetPlayerCheck ~= localPlayerCheck and targetPlayerCheck.Character and getRoot(targetPlayerCheck.Character) then
+					local targetRootPart = getRoot(targetPlayerCheck.Character)
+
+                    
+                    targetRootPart.CFrame = CFrame.new(targetPosition)
+
+                    
 				end
 			end
+		elseif targetPlayerToBring then
+			
+            local targetPlayerCheck = Players:FindFirstChild(targetPlayerToBring.Name)
+            if targetPlayerCheck and targetPlayerCheck.Character and getRoot(targetPlayerCheck.Character) then
+                local targetRootPart = getRoot(targetPlayerCheck.Character)
+
+                
+                local bringOffset = localRootPart.CFrame.LookVector * 3
+                local bringPosition = localRootPart.CFrame.Position + bringOffset
+                local bringCFrame = CFrame.lookAt(bringPosition, localRootPart.CFrame.Position) 
+                
+                targetRootPart.CFrame = bringCFrame
+
+                
+            else
+                
+                warn("Specific target player missing, stopping bring.")
+                bringPlayerActive = false 
+                targetPlayerToBring = nil 
+                bringAllPlayers = false 
+
+                
+                if oc19 and oc19.Text ~= "Bring player" then oc19.Text = "Bring player" end
+            end
 		end
 	end
 end)
@@ -5999,28 +6753,44 @@ end)
  focusedSubject = nil
 
 oc20.MouseButton1Click:Connect(function()
-     playerName = oc22.Text
-    if playerName and playerName ~= "" and playerName ~= "Player Name" and playerName ~= "Username" then
-         targetPlayer = Players:FindFirstChild(playerName)
-        if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-            if isCameraFocused and focusedSubject == targetPlayer.Character.HumanoidRootPart then
-                camera.CameraSubject = Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or camera.CameraSubject
+playerName = oc22.Text
+    if not playerName or playerName == "" or playerName == "Player Name" or playerName == "Username" then
+        warn("Please enter a valid player name.")
+        return 
+    end
+
+    local targetPlayer = nil
+    local lowerInput = string.lower(playerName)
+
+    
+    for _, player in Players:GetPlayers() do
+        local lowerPlayerName = string.lower(player.Name)
+        local lowerDisplayName = string.lower(player.DisplayName)
+        if string.find(lowerPlayerName, lowerInput, 1, true) or string.find(lowerDisplayName, lowerInput, 1, true) then 
+            targetPlayer = player
+            break
+        end
+    end
+
+    
+    if targetPlayer then
+        if targetPlayer.Character and targetPlayer.Character:FindFirstChild("Head") then
+            if isCameraFocused and focusedSubject == targetPlayer.Character.Head then
+                camera.CameraSubject = Players.LocalPlayer.Character:FindFirstChild("Head") or camera.CameraSubject
                 isCameraFocused = false
                 focusedSubject = nil
                 oc20.Text = "View player"
-                print("Camera focus toggled off.")
             else
-                camera.CameraSubject = targetPlayer.Character.HumanoidRootPart
+                camera.CameraSubject = targetPlayer.Character.Head
                 isCameraFocused = true
-                focusedSubject = targetPlayer.Character.HumanoidRootPart
+                focusedSubject = targetPlayer.Character.Head
                 oc20.Text = "Unview player"
-                print("Camera focused on player:", targetPlayer.Name)
             end
         else
-            warn("Player '" .. playerName .. "' not found or character not loaded.")
+            warn("Player '" .. targetPlayer.Name .. "' found, but character not loaded.")
         end
     else
-        warn("Please enter a player name.")
+        warn("Player matching '" .. playerName .. "' not found.")
     end
 end)
 
