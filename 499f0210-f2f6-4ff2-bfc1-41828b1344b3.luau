@@ -1,3 +1,28 @@
+local introSetFile = "IntroSet.txt"
+local iskip = false
+
+if isfile(introSetFile) then
+    local fileContent = readfile(introSetFile)
+    if fileContent then
+        local iskipValue = fileContent:match("iskip = (%w+)")
+        if iskipValue == "true" then
+            iskip = true
+            print("iskip is true. Skipping intro...")
+        else
+            print("iskip is false. Playing intro...")
+        end
+    else
+        warn("Could not read " .. introSetFile .. ". Playing intro...")
+    end
+else
+    print(introSetFile .. " not found. Playing intro...")
+end
+
+if iskip then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Jkrouzt-Hub-BETA-/refs/heads/main/1x98n6ex6.luau"))()
+    return
+end
+
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "Intro"
 screenGui.Parent = game.CoreGui
@@ -96,8 +121,8 @@ Important.TextWrapped = true
 local Text = Instance.new("TextLabel")
 Text.Name = "Badass"
 Text.Parent = mainFrame
-Text.Size = UDim2.new(0, 300, 0, 60) 
-Text.Position = UDim2.new(0.1, 0, 0, 0) 
+Text.Size = UDim2.new(0, 300, 0, 60)
+Text.Position = UDim2.new(0.1, 0, 0, 0)
 Text.AnchorPoint = Vector2.new(0, 0)
 Text.BackgroundColor3 = Color3.new(0, 0, 0)
 Text.BackgroundTransparency = 1
@@ -136,26 +161,26 @@ local waitf = 2
 local waitbar = 3
 
 local function Frame(targetY, duration)
-	local tweenInfo = TweenInfo.new(duration, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false)
-	local tween = game:GetService("TweenService"):Create(mainFrame, tweenInfo, {Position = UDim2.new(mainFrame.Position.X.Scale, mainFrame.Position.X.Offset, targetY, 0)})
-	tween:Play()
-	tween.Completed:Wait()
+    local tweenInfo = TweenInfo.new(duration, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false)
+    local tween = game:GetService("TweenService"):Create(mainFrame, tweenInfo, {Position = UDim2.new(mainFrame.Position.X.Scale, mainFrame.Position.X.Offset, targetY, 0)})
+    tween:Play()
+    tween.Completed:Wait()
 end
 
 local function LoadingBar(duration)
-	local tweenInfo = TweenInfo.new(duration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false)
-	local tween = game:GetService("TweenService"):Create(loadingBarInner, tweenInfo, {Size = UDim2.new(1, 0, 1, 0)})
-	tween:Play()
-	tween.Completed:Wait()
+    local tweenInfo = TweenInfo.new(duration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false)
+    local tween = game:GetService("TweenService"):Create(loadingBarInner, tweenInfo, {Size = UDim2.new(1, 0, 1, 0)})
+    tween:Play()
+    tween.Completed:Wait()
 end
 
 local function Text(textObject, targetText, duration)
-	textObject.Text = ""
-	local letters = string.split(targetText, "")
-	for i, letter in ipairs(letters) do
-		textObject.Text = textObject.Text .. letter
-		wait(duration / #letters)
-	end
+    textObject.Text = ""
+    local letters = string.split(targetText, "")
+    for i, letter in ipairs(letters) do
+        textObject.Text = textObject.Text .. letter
+        wait(duration / #letters)
+    end
 end
 
 Frame(mY, waitf)
@@ -163,19 +188,19 @@ Frame(mY, waitf)
 PlayerName.Text = game:GetService("Players").LocalPlayer.DisplayName
 
 local function loadHeadshot()
-	local Players = game:GetService("Players")
-	local player = Players.LocalPlayer
-	local userId = player.UserId
-	local thumbType = Enum.ThumbnailType.HeadShot
-	local thumbSize = Enum.ThumbnailSize.Size420x420
-	local success, content = pcall(Players.GetUserThumbnailAsync, Players, userId, thumbType, thumbSize)
-	if success and content then
-		PlayerProfile.Image = content
-		print("Headshot loaded successfully: " .. content)
-	else
-		warn("Failed to load player headshot: " .. tostring(content))
-		PlayerProfile.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png" 
-	end
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    local userId = player.UserId
+    local thumbType = Enum.ThumbnailType.HeadShot
+    local thumbSize = Enum.ThumbnailSize.Size420x420
+    local success, content = pcall(Players.GetUserThumbnailAsync, Players, userId, thumbType, thumbSize)
+    if success and content then
+        PlayerProfile.Image = content
+        print("Headshot loaded successfully: " .. content)
+    else
+        warn("Failed to load player headshot: " .. tostring(content))
+        PlayerProfile.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+    end
 end
 
 loadHeadshot()
