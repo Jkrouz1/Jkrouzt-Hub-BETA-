@@ -107,36 +107,19 @@ minimizeButton.MouseButton1Click:Connect(function()
     end
 end)
 
-local destroyButton = Instance.new("TextButton")
-destroyButton.Parent = mainFrame
-destroyButton.Name = "DestroyButton"
-destroyButton.Text = "X"
-destroyButton.TextScaled = true
-destroyButton.TextColor3 = Color3.new(1, 1, 1)
-destroyButton.Size = UDim2.new(0, 50, 0, 35) 
-destroyButton.Position = UDim2.new(0.92, 0, 0, 0)
-minimizeButton.AnchorPoint = Vector2.new(5, 0)
-destroyButton.BackgroundColor3 = Color3.new(0, 0, 0)
-destroyButton.BorderColor3 = Color3.new(255, 0, 0)
-destroyButton.BorderSizePixel = 2
-
-destroyButton.MouseButton1Click:Connect(function()
-    screenGui:Destroy() 
-end)
-
 core = Instance.new("ScreenGui")
 core.Parent = game.CoreGui
 core.Name = "CoreGui"
 
-local toggleButton = Instance.new("TextButton")
-toggleButton.Parent = core
-toggleButton.Text = ">"
-toggleButton.TextScaled = true
-toggleButton.Size = UDim2.new(0, 50, 0, 50)
-toggleButton.Position = UDim2.new(0, 10, 0.5, -50)
-toggleButton.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
-toggleButton.BackgroundTransparency = 0.5
-toggleButton.Active = true
+local openui = Instance.new("TextButton")
+openui.Parent = core
+openui.Text = ">"
+openui.TextScaled = true
+openui.Size = UDim2.new(0, 50, 0, 50)
+openui.Position = UDim2.new(0, 10, 0.5, -50)
+openui.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
+openui.BackgroundTransparency = 0.5
+openui.Active = true
 
 isVisible = true
 local initialPosition = UDim2.new(0.5, 0, 0, -100)
@@ -155,21 +138,38 @@ local function toggleGUI()
     isVisible = not isVisible
     mainFrame.Visible = isVisible
     if isVisible then
-        toggleButton.Text = "<"
+        openui.Text = "<"
         animateGui(mainFrame, targetPosition, tweenInfo)
     else
-        toggleButton.Text = ">"
+        openui.Text = ">"
         animateGui(mainFrame, initialPosition, tweenInfoOut)
     end
 end
 
-toggleButton.MouseButton1Click:Connect(toggleGUI)
+openui.MouseButton1Click:Connect(toggleGUI)
 
 if mainFrame.Visible then
     animateGui(mainFrame, targetPosition, tweenInfo)
 else
         animateGui(mainFrame, initialPosition, tweenInfoOut)
 end
+
+local destroyButton = Instance.new("TextButton")
+destroyButton.Parent = mainFrame
+destroyButton.Name = "DestroyButton"
+destroyButton.Text = "X"
+destroyButton.TextScaled = true
+destroyButton.TextColor3 = Color3.new(1, 1, 1)
+destroyButton.Size = UDim2.new(0, 50, 0, 35) 
+destroyButton.Position = UDim2.new(0.92, 0, 0, 0)
+minimizeButton.AnchorPoint = Vector2.new(5, 0)
+destroyButton.BackgroundColor3 = Color3.new(0, 0, 0)
+destroyButton.BorderColor3 = Color3.new(255, 0, 0)
+destroyButton.BorderSizePixel = 2
+destroyButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy() 
+    openui:Destroy()
+end)
 
 local exec = Instance.new("Frame")
 exec.Parent = hom
@@ -768,6 +768,113 @@ sething.Font = Enum.Font.Michroma
 sething.Text = "Settings"
 sething.TextXAlignment = Enum.TextXAlignment.Left
 sething.TextYAlignment = Enum.TextYAlignment.Center
+
+settingf1tex = Instance.new("TextLabel")
+settingf1tex.Name = "skipshit"
+settingf1tex.Size = UDim2.new(0, 200, 0, 50)
+settingf1tex.Position = UDim2.new(0, 325, 0, 55)
+settingf1tex.AnchorPoint = Vector2.new(0, 0)
+settingf1tex.Text = "Skip Intro:"
+settingf1tex.TextColor3 = Color3.new(1, 1, 1)
+settingf1tex.BackgroundTransparency = 1
+settingf1tex.Font = Enum.Font.Fantasy
+settingf1tex.TextScaled = true
+settingf1tex.TextXAlignment = Enum.TextXAlignment.Center
+settingf1tex.TextYAlignment = Enum.TextYAlignment.Center
+settingf1tex.Parent = Lastshit
+
+settingf1 = Instance.new("TextButton")
+settingf1.Name = "settingf1"
+settingf1.Parent = Lastshit
+settingf1.Size = UDim2.new(0, 100, 0, 30)
+settingf1.Position = UDim2.new(0, 535, 0, 70)
+settingf1.Text = ""
+settingf1.TextScaled = true
+settingf1.Font = Enum.Font.Code
+settingf1.TextColor3 = Color3.new(1, 1, 1)
+settingf1.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+settingf1.BorderColor3 = Color3.new(1, 0, 0)
+settingf1.BorderSizePixel = 3
+
+boozx = Instance.new("Frame")
+boozx.Name = "boozx"
+boozx.Parent = settingf1
+boozx.Size = UDim2.new(0.4, 0, 0.8, 0)
+boozx.Position = UDim2.new(0.1, 0, 0.1, 0)
+boozx.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+boozx.BorderSizePixel = 0
+boozx.AnchorPoint = Vector2.new(0.5, 0.5)
+boozx.Position = UDim2.new(0.25,0,0.5,0)
+
+toggleState = false
+introSetFile = "IntroSet.txt"
+
+function updateButtonVisual()
+    local targetPosition
+    local targetColor
+
+    if toggleState then
+        targetPosition = UDim2.new(0.75, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(0, 255, 0)
+        settingf1.BorderColor3 = Color3.new(0, 1, 0)
+    else
+        targetPosition = UDim2.new(0.25, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(255, 0, 0)
+        settingf1.BorderColor3 = Color3.new(1, 0, 0)
+    end
+
+    tweenInfo = TweenInfo.new(
+        0.2, 
+        Enum.EasingStyle.Quad,
+        Enum.EasingDirection.Out
+    )
+
+    positionTween = TweenService:Create(boozx, tweenInfo, {Position = targetPosition})
+    colorTween = TweenService:Create(boozx, tweenInfo, {BackgroundColor3 = targetColor})
+
+    positionTween:Play()
+    colorTween:Play()
+end
+
+function isToggleOnVisually()
+    return boozx.Position.X.Offset > (settingf1.Size.X.Offset / 2)
+end
+
+settingf1.MouseButton1Click:Connect(function()
+    toggleState = not toggleState
+    updateButtonVisual()
+    if toggleState then
+        writefile(introSetFile, "iskip = true, toggleState = true")
+    else
+        writefile(introSetFile, "iskip = false, toggleState = false")
+    end
+
+    if isfile(introSetFile) then
+        print("Updated " .. introSetFile)
+    end
+end)
+
+if isfile(introSetFile) then
+    local fileContent = readfile(introSetFile)
+    if fileContent then
+        local iskipValue = fileContent:match("iskip = (%w+)")
+        if iskipValue == "true" then
+            toggleState = true
+            updateButtonVisual()
+            print("Loaded state from " .. introSetFile .. ": iskip = true")
+        elseif iskipValue == "false" then
+            toggleState = false
+            updateButtonVisual()
+            print("Loaded state from " .. introSetFile .. ": iskip = false")
+        end
+    end
+else
+    print(introSetFile .. " not found. Using default state.")
+end
+
+if isToggleOnVisually() then
+warn("Toggle is visually ON, but file/state may disagree.")
+end
 
 local loopButt = Instance.new("TextButton")
 loopButt.Parent = exec
@@ -2465,6 +2572,198 @@ end
 
 end)
 
+ scne51 = Instance.new("TextButton")
+scne51.Parent = sc
+scne51.Name = "scne51"
+scne51.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne51.Position = UDim2.new(0.00996587239, 0, 0.03, 0)
+scne51.BackgroundColor3 = Color3.new(0, 0, 0)
+scne51.BorderColor3 = Color3.new(0, 1, 0)
+scne51.BorderSizePixel = 3
+scne51.TextColor3 = Color3.new(1, 1, 1)
+scne51.TextScaled = true
+scne51.Font = Enum.Font.Roboto
+scne51.Text = "Sound Player"
+scne51.Visible = false
+scne51.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ShutUpJamesTheLoser/fesound/refs/heads/main/Fesound"))()
+	notif({
+		Text = "The Sound sometimes will works on some Car Games or Games with Car Inside.",
+		Duration = 5,
+		topm = "Information!"
+	})
+end)
+
+ scne52 = Instance.new("TextButton")
+scne52.Parent = sc
+scne52.Name = "scne52"
+scne52.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne52.Position = UDim2.new(0.18, 0, 0.03, 0)
+scne52.BackgroundColor3 = Color3.new(0, 0, 0)
+scne52.BorderColor3 = Color3.new(1, 0, 0)
+scne52.BorderSizePixel = 3
+scne52.TextColor3 = Color3.new(1, 1, 1)
+scne52.TextScaled = true
+scne52.Font = Enum.Font.Roboto
+scne52.Text = "Decal Logger"
+scne52.Visible = false
+scne52.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://pastebin.com/raw/ReLWGiQV"))()
+end)
+
+ scne53 = Instance.new("TextButton")
+scne53.Parent = sc
+scne53.Name = "scne53"
+scne53.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne53.Position = UDim2.new(0.35, 0, 0.03, 0)
+scne53.BackgroundColor3 = Color3.new(0, 0, 0)
+scne53.BorderColor3 = Color3.new(1, 0, 0)
+scne53.BorderSizePixel = 3
+scne53.TextColor3 = Color3.new(1, 1, 1)
+scne53.TextScaled = true
+scne53.Font = Enum.Font.Roboto
+scne53.Text = "Coming"
+scne53.Visible = false
+scne53.MouseButton1Click:Connect(function()
+
+end)
+
+ scne54 = Instance.new("TextButton")
+scne54.Parent = sc
+scne54.Name = "scne54"
+scne54.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne54.Position = UDim2.new(0.52, 0, 0.03, 0)
+scne54.BackgroundColor3 = Color3.new(0, 0, 0)
+scne54.BorderColor3 = Color3.new(1, 0, 0)
+scne54.BorderSizePixel = 3
+scne54.TextColor3 = Color3.new(1, 1, 1)
+scne54.TextScaled = true
+scne54.Font = Enum.Font.Roboto
+scne54.Text = "Coming"
+scne54.Visible = false
+scne54.MouseButton1Click:Connect(function()
+
+end)
+
+ scne55 = Instance.new("TextButton")
+scne55.Parent = sc
+scne55.Name = "scne55"
+scne55.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne55.Position = UDim2.new(0.69, 0, 0.03, 0)
+scne55.BackgroundColor3 = Color3.new(0, 0, 0)
+scne55.BorderColor3 = Color3.new(1, 0, 0)
+scne55.BorderSizePixel = 3
+scne55.TextColor3 = Color3.new(1, 1, 1)
+scne55.TextScaled = true
+scne55.Font = Enum.Font.Roboto
+scne55.Text = "Coming"
+scne55.Visible = false
+scne55.MouseButton1Click:Connect(function()
+
+end)
+
+ scne56 = Instance.new("TextButton")
+scne56.Parent = sc
+scne56.Name = "scne56"
+scne56.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scne56.Position = UDim2.new(0.86, 0, 0.03, 0)
+scne56.BackgroundColor3 = Color3.new(0, 0, 0)
+scne56.BorderColor3 = Color3.new(1, 0, 0)
+scne56.BorderSizePixel = 3
+scne56.TextColor3 = Color3.new(1, 1, 1)
+scne56.TextScaled = true
+scne56.Font = Enum.Font.Roboto
+scne56.Text = "Coming"
+scne56.Visible = false
+scne56.MouseButton1Click:Connect(function()
+
+end)
+
+ scne57 = Instance.new("TextButton")
+scne57.Parent = sc
+scne57.Name = "scne57"
+scne57.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne57.Position = UDim2.new(0.00996587239, 0, 0.229999959, 0)
+scne57.BackgroundColor3 = Color3.new(0, 0, 0)
+scne57.BorderColor3 = Color3.new(1, 0, 0)
+scne57.BorderSizePixel = 3
+scne57.TextColor3 = Color3.new(1, 1, 1)
+scne57.TextScaled = true
+scne57.Font = Enum.Font.SourceSans
+scne57.Text = "coming"
+scne57.Visible = false
+scne57.MouseButton1Click:Connect(function()
+
+end)
+
+ scne58 = Instance.new("TextButton")
+scne58.Parent = sc
+scne58.Name = "scne58"
+scne58.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne58.Position = UDim2.new(0.18, 0, 0.229999959, 0)
+scne58.BackgroundColor3 = Color3.new(0, 0, 0)
+scne58.BorderColor3 = Color3.new(1, 0, 0)
+scne58.BorderSizePixel = 3
+scne58.TextColor3 = Color3.new(1, 1, 1)
+scne58.TextScaled = true
+scne58.Font = Enum.Font.SourceSans
+scne58.Text = "Coming"
+scne58.Visible = false
+scne58.MouseButton1Click:Connect(function()
+
+end)
+
+ scne59 = Instance.new("TextButton")
+scne59.Parent = sc
+scne59.Name = "scne59"
+scne59.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne59.Position = UDim2.new(0.35, 0, 0.229999959, 0)
+scne59.BackgroundColor3 = Color3.new(0, 0, 0)
+scne59.BorderColor3 = Color3.new(1, 0, 0)
+scne59.BorderSizePixel = 3
+scne59.TextColor3 = Color3.new(1, 1, 1)
+scne59.TextScaled = true
+scne59.Font = Enum.Font.Roboto
+scne59.Text = "Coming"
+scne59.Visible = false
+scne59.MouseButton1Click:Connect(function()
+
+end)
+
+ scne60 = Instance.new("TextButton")
+scne60.Parent = sc
+scne60.Name = "scne60"
+scne60.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne60.Position = UDim2.new(0.52, 0, 0.229999959, 0)
+scne60.BackgroundColor3 = Color3.new(0, 0, 0)
+scne60.BorderColor3 = Color3.new(1, 0, 0)
+scne60.BorderSizePixel = 3
+scne60.TextColor3 = Color3.new(1, 1, 1)
+scne60.TextScaled = true
+scne60.Font = Enum.Font.Roboto
+scne60.Text = "Coming"
+scne60.Visible = false
+scne60.MouseButton1Click:Connect(function()
+
+end)
+
+ scne61 = Instance.new("TextButton")
+scne61.Parent = sc
+scne61.Name = "scne61"
+scne61.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne61.Position = UDim2.new(0.69, 0, 0.229999959, 0)
+scne61.BackgroundColor3 = Color3.new(0, 0, 0)
+scne61.BorderColor3 = Color3.new(1, 0, 0)
+scne61.BorderSizePixel = 3
+scne61.TextColor3 = Color3.new(1, 1, 1)
+scne61.TextScaled = true
+scne61.Font = Enum.Font.Roboto
+scne61.Text = "Coming"
+scne61.Visible = false
+scne61.MouseButton1Click:Connect(function()
+
+end)
+
 local scsPage = Instance.new("Frame")
 scsPage.Parent = sc 
 scsPage.Name = "scsPage"
@@ -2492,7 +2791,7 @@ univ.TextYAlignment = Enum.TextYAlignment.Center
 
 local npg = Instance.new("TextButton")
 npg.Parent = sc
-npg.Name = "npg "
+npg.Name = "npg"
 npg.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
 npg.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
 npg.BackgroundColor3 = Color3.new(0, 0, 0)
@@ -2516,6 +2815,34 @@ bpg.TextScaled = true
 bpg.Font = Enum.Font.GothamBold
 bpg.Text = "<"
 bpg.Visible = false
+
+npg2 = Instance.new("TextButton")
+npg2.Parent = sc
+npg2.Name = "npg2"
+npg2.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+npg2.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
+npg2.BackgroundColor3 = Color3.new(0, 0, 0)
+npg2.BorderColor3 = Color3.new(1, 0, 0)
+npg2.BorderSizePixel = 2
+npg2.TextColor3 = Color3.new(1, 1, 1)
+npg2.TextScaled = true
+npg2.Font = Enum.Font.GothamBold
+npg2.Text = ">"
+npg2.Visible = false
+
+bpg2 = Instance.new("TextButton")
+bpg2.Parent = sc
+bpg2.Name = "bpg2"
+bpg2.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+bpg2.Position = UDim2.new(0.0100000035, 0, 0.920000196, 0)
+bpg2.BackgroundColor3 = Color3.new(0, 0, 0)
+bpg2.BorderColor3 = Color3.new(1, 0, 0)
+bpg2.BorderSizePixel = 2
+bpg2.TextColor3 = Color3.new(1, 1, 1)
+bpg2.TextScaled = true
+bpg2.Font = Enum.Font.GothamBold
+bpg2.Text = "<"
+bpg2.Visible = false
 
 local ngpg = Instance.new("TextButton")
 ngpg.Parent = sc
@@ -2836,15 +3163,27 @@ scg13.Name = "scg13"
 scg13.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg13.Position = UDim2.new(0.00996587239, 0, 0.550, 0)
 scg13.BackgroundColor3 = Color3.new(0, 0, 0)
-scg13.BorderColor3 = Color3.new(1, 1, 0)
+scg13.BorderColor3 = Color3.new(1, 0, 0)
 scg13.BorderSizePixel = 3
 scg13.TextColor3 = Color3.new(1, 1, 1)
 scg13.TextScaled = true
 scg13.Font = Enum.Font.Roboto
-scg13.Text = "thienrb7 (Deadrails) "
+scg13.Text = "BondsFarm (Deadrails) "
 scg13.Visible = false
 scg13.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/Bringall"))()
+getgenv().BondFarmSetting = {
+		tweenDuration = 20,
+		AutoExecute = true,
+		CheckMissedBonds = true
+	}
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/DonjoScripts/Public-Scripts/refs/heads/Slap-Battles/TheFastestBondStealer.lua'))()
+-- Reminder: it only work in 1 player mode
+	notif({
+		Text = "This Script is Only Work in Singleplayer",
+		Duration = 5,
+		topm = "Information!"
+	})
 end)
 
 local scg14 = Instance.new("TextButton")
@@ -3697,6 +4036,244 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/ref
 -- discord = https://discord.gg/mDJYWNBe --
 end)
 
+scgne63 = Instance.new("TextButton")
+scgne63.Parent = sc
+scgne63.Name = "scgne63"
+scgne63.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne63.Position = UDim2.new(0.00996587239, 0, 0.43, 0)
+scgne63.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne63.BorderColor3 = Color3.new(1, 0, 0)
+scgne63.BorderSizePixel = 3
+scgne63.TextColor3 = Color3.new(1, 1, 1)
+scgne63.TextScaled = true
+scgne63.Font = Enum.Font.Roboto
+scgne63.Text = "game"
+scgne63.Visible = false
+scgne63.MouseButton1Click:Connect(function()
+
+end)
+
+scgne64 = Instance.new("TextButton")
+scgne64.Parent = sc
+scgne64.Name = "scgne64"
+scgne64.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne64.Position = UDim2.new(0.18, 0, 0.43, 0)
+scgne64.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne64.BorderColor3 = Color3.new(1, 0, 0)
+scgne64.BorderSizePixel = 3
+scgne64.TextColor3 = Color3.new(1, 1, 1)
+scgne64.TextScaled = true
+scgne64.Font = Enum.Font.Roboto
+scgne64.Text = "game"
+scgne64.Visible = false
+scgne64.MouseButton1Click:Connect(function()
+
+end)
+
+scgne65 = Instance.new("TextButton")
+scgne65.Parent = sc
+scgne65.Name = "scgne65"
+scgne65.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne65.Position = UDim2.new(0.35, 0, 0.43, 0)
+scgne65.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne65.BorderColor3 = Color3.new(1, 0, 0)
+scgne65.BorderSizePixel = 3
+scgne65.TextColor3 = Color3.new(1, 1, 1)
+scgne65.TextScaled = true
+scgne65.Font = Enum.Font.Roboto
+scgne65.Text = "game"
+scgne65.Visible = false
+scgne65.MouseButton1Click:Connect(function()
+
+end)
+
+scgne66 = Instance.new("TextButton")
+scgne66.Parent = sc
+scgne66.Name = "scgne66"
+scgne66.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne66.Position = UDim2.new(0.52, 0, 0.43, 0)
+scgne66.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne66.BorderColor3 = Color3.new(1, 1, 0)
+scgne66.BorderSizePixel = 3
+scgne66.TextColor3 = Color3.new(1, 1, 1)
+scgne66.TextScaled = true
+scgne66.Font = Enum.Font.Roboto
+scgne66.Text = "game"
+scgne66.Visible = false
+scgne66.MouseButton1Click:Connect(function()
+
+end)
+
+scgne67 = Instance.new("TextButton")
+scgne67.Parent = sc
+scgne67.Name = "scgne67"
+scgne67.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne67.Position = UDim2.new(0.69, 0, 0.43, 0)
+scgne67.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne67.BorderColor3 = Color3.new(1, 1, 0)
+scgne67.BorderSizePixel = 3
+scgne67.TextColor3 = Color3.new(1, 1, 1)
+scgne67.TextScaled = true
+scgne67.Font = Enum.Font.Roboto
+scgne67.Text = "game"
+scgne67.Visible = false
+scgne67.MouseButton1Click:Connect(function()
+
+end)
+
+scgne68 = Instance.new("TextButton")
+scgne68.Parent = sc
+scgne68.Name = "scgne68"
+scgne68.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scgne68.Position = UDim2.new(0.86, 0, 0.43, 0)
+scgne68.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne68.BorderColor3 = Color3.new(1, 0, 0)
+scgne68.BorderSizePixel = 3
+scgne68.TextColor3 = Color3.new(1, 1, 1)
+scgne68.TextScaled = true
+scgne68.Font = Enum.Font.Roboto
+scgne68.Text = "game"
+scgne68.Visible = false
+scgne68.MouseButton1Click:Connect(function()
+
+end)
+
+scgne69 = Instance.new("TextButton")
+scgne69.Parent = sc
+scgne69.Name = "scgne69"
+scgne69.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne69.Position = UDim2.new(0.00996587239, 0, 0.63, 0)
+scgne69.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne69.BorderColor3 = Color3.new(1, 0, 0)
+scgne69.BorderSizePixel = 3
+scgne69.TextColor3 = Color3.new(1, 1, 1)
+scgne69.TextScaled = true
+scgne69.Font = Enum.Font.Roboto
+scgne69.Text = "game"
+scgne69.Visible = false
+scgne69.MouseButton1Click:Connect(function()
+
+end)
+
+scgne70 = Instance.new("TextButton")
+scgne70.Parent = sc
+scgne70.Name = "scgne70"
+scgne70.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne70.Position = UDim2.new(0.18, 0, 0.63, 0)
+scgne70.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne70.BorderColor3 = Color3.new(1, 1, 0)
+scgne70.BorderSizePixel = 3
+scgne70.TextColor3 = Color3.new(1, 1, 1)
+scgne70.TextScaled = true
+scgne70.Font = Enum.Font.Roboto
+scgne70.Text = "game"
+scgne70.Visible = false
+scgne70.MouseButton1Click:Connect(function()
+
+end)
+
+scgne71 = Instance.new("TextButton")
+scgne71.Parent = sc
+scgne71.Name = "scgne71"
+scgne71.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne71.Position = UDim2.new(0.35, 0, 0.63, 0)
+scgne71.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne71.BorderColor3 = Color3.new(1, 0, 0)
+scgne71.BorderSizePixel = 3
+scgne71.TextColor3 = Color3.new(1, 1, 1)
+scgne71.TextScaled = true
+scgne71.Font = Enum.Font.Roboto
+scgne71.Text = "game"
+scgne71.Visible = false
+scgne71.MouseButton1Click:Connect(function()
+
+end)
+
+scgne72 = Instance.new("TextButton")
+scgne72.Parent = sc
+scgne72.Name = "scgne72"
+scgne72.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne72.Position = UDim2.new(0.52, 0, 0.63, 0)
+scgne72.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne72.BorderColor3 = Color3.new(1, 0, 0)
+scgne72.BorderSizePixel = 3
+scgne72.TextColor3 = Color3.new(1, 1, 1)
+scgne72.TextScaled = true
+scgne72.Font = Enum.Font.Roboto
+scgne72.Text = "game"
+scgne72.Visible = false
+scgne72.MouseButton1Click:Connect(function()
+
+end)
+
+scgne73 = Instance.new("TextButton")
+scgne73.Parent = sc
+scgne73.Name = "scgne73"
+scgne73.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scgne73.Position = UDim2.new(0.69, 0, 0.63, 0)
+scgne73.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne73.BorderColor3 = Color3.new(1, 1, 0)
+scgne73.BorderSizePixel = 3
+scgne73.TextColor3 = Color3.new(1, 1, 1)
+scgne73.TextScaled = true
+scgne73.Font = Enum.Font.Roboto
+scgne73.Text = "game"
+scgne73.Visible = false
+scgne73.MouseButton1Click:Connect(function()
+
+end)
+
+scgne74 = Instance.new("TextButton")
+scgne74.Parent = sc
+scgne74.Name = "scgne74"
+scgne74.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scgne74.Position = UDim2.new(0.86, 0, 0.63, 0)
+scgne74.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne74.BorderColor3 = Color3.new(1, 0, 0)
+scgne74.BorderSizePixel = 3
+scgne74.TextColor3 = Color3.new(1, 1, 1)
+scgne74.TextScaled = true
+scgne74.Font = Enum.Font.Roboto
+scgne74.Text = "game"
+scgne74.Visible = false
+scgne74.MouseButton1Click:Connect(function()
+
+end)
+
+scgne75 = Instance.new("TextButton")
+scgne75.Parent = sc
+scgne75.Name = "scgne75"
+scgne75.Size = UDim2.new(0.473003626, 0, 0.101999998, 0)
+scgne75.Position = UDim2.new(0.519000053, 0, 0.799999893, 0)
+scgne75.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne75.BorderColor3 = Color3.new(1, 0, 0)
+scgne75.BorderSizePixel = 2
+scgne75.TextColor3 = Color3.new(1, 1, 1)
+scgne75.TextScaled = true
+scgne75.Font = Enum.Font.Roboto
+scgne75.Text = "Game"
+scgne75.Visible = false
+scgne75.MouseButton1Click:Connect(function()
+
+end)
+
+scgne76 = Instance.new("TextButton")
+scgne76.Parent = sc
+scgne76.Name = "scgne76"
+scgne76.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
+scgne76.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
+scgne76.BackgroundColor3 = Color3.new(0, 0, 0)
+scgne76.BorderColor3 = Color3.new(1, 1, 0)
+scgne76.BorderSizePixel = 2
+scgne76.TextColor3 = Color3.new(1, 1, 1)
+scgne76.TextScaled = true
+scgne76.Font = Enum.Font.Roboto
+scgne76.Text = "game"
+scgne76.Visible = false
+scgne76.MouseButton1Click:Connect(function()
+
+end)
+
 local oc1 = Instance.new("TextButton")
 oc1.Parent = Others
 oc1.Name = "oc1"
@@ -3943,7 +4520,7 @@ oc9.MouseButton1Click:Connect(function()
 end)
 
 local oc10 = Instance.new("TextButton")
-oc10.Parent = Others -- Make sure 'Others' is defined and a valid UI container
+oc10.Parent = Others 
 oc10.Name = "oc10"
 oc10.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 oc10.Position = UDim2.new(0.52, 0, 0.350, 0)
@@ -3988,7 +4565,6 @@ oc10.MouseButton1Click:Connect(function()
         if tool:IsA("Tool") then
             tool.Parent = Players.LocalPlayer.Character
             tool:Activate()
-            -- Use the duration obtained from the TextBox
             task.wait(waitDuration)
             tool.Parent = Players.LocalPlayer:WaitForChild("Backpack")
         end
@@ -4151,11 +4727,8 @@ oc20.TextScaled = true
 oc20.Font = Enum.Font.SourceSans
 oc20.Text = "View player"
 
--- Define a boolean variable to track if oc23 has been clicked
--- Using a shorter name to potentially avoid parsing issues
 local oc21NotifEnabled = true
 
--- Snippet 1: oc21 Button ("Unanchored Parts to Player") - Modified
 local oc21 = Instance.new("TextButton")
 oc21.Parent = Others
 oc21.Name = "oc21"
@@ -4170,7 +4743,6 @@ oc21.Font = Enum.Font.SourceSans
 oc21.Text = "Unanchored Parts to Player"
 
 oc21.MouseButton1Click:Connect(function()
-    -- Check if the notification is allowed to be shown using the new variable name
     if oc21NotifEnabled then
         notif({
             Text = "Please use. Bring UnAnchored Parts Gui",
@@ -4195,7 +4767,7 @@ oc22.Text = "Player Name"
 oc22.PlaceholderText = "Username"
 oc22.TextXAlignment = Enum.TextXAlignment.Center
 oc22.TextYAlignment = Enum.TextYAlignment.Center
--- Snippet 2: oc23 Button ("Bring UnAnchored Parts Gui") - Modified
+
 local oc23 = Instance.new("TextButton")
 oc23.Parent = Others
 oc23.Name = "oc23"
@@ -4210,10 +4782,10 @@ oc23.Font = Enum.Font.SourceSans
 oc23.Text = "Bring UnAnchored Parts Gui"
 
 oc23.MouseButton1Click:Connect(function()
-    -- Set the boolean to false when this button is clicked using the new variable name
+    
     oc21NotifEnabled = false
 
-    -- Execute the original code for clicking oc23
+    
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
 end)
 
@@ -4308,43 +4880,7 @@ ocn28.Font = Enum.Font.Roboto
 ocn28.Text = "Fake R6"
 ocn28.Visible = false
 ocn28.MouseButton1Click:Connect(function()
--- Made by REDNITE009
-
--- Instances:
-
-local ScreenGui = Instance.new("ScreenGui")
-local R6 = Instance.new("TextButton")
-local TextButton = Instance.new("TextButton")
-
---Properties:
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-R6.Name = "R6"
-R6.Parent = ScreenGui
-R6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-R6.Position = UDim2.new(-0.000343383319, 0, 0.32815966, 0)
-R6.Size = UDim2.new(0, 29, 0, 29)
-R6.Font = Enum.Font.SourceSans
-R6.Text = "R6"
-R6.TextColor3 = Color3.fromRGB(0, 0, 0)
-R6.TextSize = 14.000
-R6.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet(('https://pastebin.com/raw/jHGVauVX'),true))()
-end)
-
-TextButton.Parent = ScreenGui
-TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.Position = UDim2.new(0, 0, 0.414634138, 0)
-TextButton.Size = UDim2.new(0, 72, 0, 27)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "Respawn"
-TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.TextSize = 14.000
-TextButton.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet(('https://pastebin.com/raw/ukFZuXbb'),true))()
-end)
+loadstring(game:HttpGet(('https://pastebin.com/raw/jHGVauVX'),true))()
 end)
 
 ocn29 = Instance.new("TextButton")
@@ -5270,7 +5806,6 @@ ocnf22.Font = Enum.Font.Roboto
 ocnf22.Text = "Kick all"
 ocnf22.Visible = false
 ocnf22.MouseButton1Click:Connect(function()
-
 for i, player in ipairs(Players:GetPlayers()) do
     
     if player.UserId ~= 0 then 
@@ -5886,6 +6421,7 @@ for i = 1, 24 do
 end
 
     npg.Visible = false
+    npg2.Visible = false
     univ.Text = "Game Scripts"
     nextmn2.Visible = true
     nextmn.Visible = false
@@ -5987,6 +6523,7 @@ end
 
     bpg.Visible = true
     npg.Visible = false
+    npg2.Visible = true
     mpages.Text = "Page 2"
     scsPage.Visible = false
 end)
@@ -6010,8 +6547,58 @@ end
 
     bpg.Visible = false
     npg.Visible = true
+    npg2.Visible = false
+    bpg2.Visible = false
     mpages.Text = "Page 1"
     scsPage.Visible = true
+end)
+
+npg2.MouseButton1Click:Connect(function()
+for i = 25, 50 do
+   buttonName = "scn" .. i
+   button = sc:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+for i = 50, 100 do
+   buttonName = "scne" .. i
+   button = sc:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = true
+  end
+end
+
+    bpg2.Visible = true
+    npg2.Visible = false
+    bpg.Visible = false
+    mpages.Text = "Page 3"
+    scsPage.Visible = false
+end)
+
+bpg2.MouseButton1Click:Connect(function()
+for i = 25, 50 do
+   buttonName = "scn" .. i
+   button = sc:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = true
+  end
+end
+
+for i = 50, 100 do
+   buttonName = "scne" .. i
+   button = sc:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+    bpg2.Visible = false
+    npg2.Visible = true
+    bpg.Visible = true
+    mpages.Text = "Page 2"
+    scsPage.Visible = false
 end)
 
 ngpg.MouseButton1Click:Connect(function()
@@ -6073,7 +6660,7 @@ for i = 25, 50 do
   end
 end
 
-for i = 50, 70 do
+for i = 50, 100 do
    buttonName = "scgne" .. i
    button = sc:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -6097,7 +6684,7 @@ for i = 25, 50 do
   end
 end
 
-for i = 50, 70 do
+for i = 50, 100 do
    buttonName = "scgne" .. i
    button = sc:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
