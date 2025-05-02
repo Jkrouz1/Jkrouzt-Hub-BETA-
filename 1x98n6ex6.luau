@@ -567,7 +567,7 @@ first2.TextScaled = true
 first2.Font = Enum.Font.GothamBlack
 first2.TextXAlignment = Enum.TextXAlignment.Left
 first2.TextYAlignment = Enum.TextYAlignment.Center
-first2.Text = "Jkrouzt Hub Made By 1x98n6ex6."
+first2.Text = "Jkrouzt Hub Made By jkrouzt."
 
 local first3 = Instance.new("TextLabel")
 first3.Parent = home
