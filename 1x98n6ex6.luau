@@ -1173,7 +1173,7 @@ sc10.TextScaled = true
 sc10.Font = Enum.Font.Roboto
 sc10.Text = "LALOL Backdoor Scanner"
 sc10.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/Its-LALOL/LALOL-Hub/main/Backdoor-Scanner/script'))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-LALOL-hub-without-hint-19587"))()
 end)
 
 local sc11 = Instance.new("TextButton")
@@ -2622,10 +2622,10 @@ scne53.BorderSizePixel = 3
 scne53.TextColor3 = Color3.new(1, 1, 1)
 scne53.TextScaled = true
 scne53.Font = Enum.Font.Roboto
-scne53.Text = "Coming"
+scne53.Text = "Starlight Backdoor Scanner"
 scne53.Visible = false
 scne53.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TempUserIdk18/robloxscripts/refs/heads/main/PogsBackdoor.lua"))()
 end)
 
  scne54 = Instance.new("TextButton")
@@ -2634,15 +2634,222 @@ scne54.Name = "scne54"
 scne54.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scne54.Position = UDim2.new(0.52, 0, 0.03, 0)
 scne54.BackgroundColor3 = Color3.new(0, 0, 0)
-scne54.BorderColor3 = Color3.new(1, 0, 0)
+scne54.BorderColor3 = Color3.new(0, 1, 0)
 scne54.BorderSizePixel = 3
 scne54.TextColor3 = Color3.new(1, 1, 1)
 scne54.TextScaled = true
 scne54.Font = Enum.Font.Roboto
-scne54.Text = "Coming"
+scne54.Text = "Grab Unanchored Tool"
 scne54.Visible = false
 scne54.MouseButton1Click:Connect(function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 
+-- Throw settings (default values)
+local throwForce = 50
+local throwUpForce = 10
+
+-- GUI variables
+local gui = nil
+local frame = nil
+
+-- Tool logic
+local grabTool = Instance.new("Tool")
+grabTool.Name = "Grab"
+grabTool.RequiresHandle = false
+
+local handle = Instance.new("Part")
+handle.Name = "Handle"
+handle.Size = Vector3.new(0.5, 0.5, 0.5)
+handle.Transparency = 1
+handle.CanCollide = false
+handle.Parent = grabTool
+
+-- GUI creation function
+local function createGUI()
+    if gui then gui:Destroy() end
+    
+    gui = Instance.new("ScreenGui")
+    gui.Name = "GrabToolGUI"
+    gui.ResetOnSpawn = false
+    gui.Parent = player.PlayerGui
+
+    frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0, 200, 0, 120)
+    frame.Position = UDim2.new(0, 10, 1, -130) -- Bottom left corner with padding
+    frame.AnchorPoint = Vector2.new(0, 1)
+    frame.BackgroundTransparency = 0.7
+    frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    frame.Parent = gui
+
+    local title = Instance.new("TextLabel")
+    title.Text = "Throw Settings"
+    title.Size = UDim2.new(1, 0, 0, 30)
+    title.BackgroundTransparency = 1
+    title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    title.Parent = frame
+
+    -- Horizontal force slider
+    local forceLabel = Instance.new("TextLabel")
+    forceLabel.Text = "Throw Force: "..throwForce
+    forceLabel.Size = UDim2.new(1, 0, 0, 20)
+    forceLabel.Position = UDim2.new(0, 0, 0, 30)
+    forceLabel.BackgroundTransparency = 1
+    forceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    forceLabel.Parent = frame
+
+    local forceSlider = Instance.new("TextBox")
+    forceSlider.Size = UDim2.new(0.9, 0, 0, 20)
+    forceSlider.Position = UDim2.new(0.05, 0, 0, 50)
+    forceSlider.Text = tostring(throwForce)
+    forceSlider.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+    forceSlider.TextColor3 = Color3.fromRGB(255, 255, 255)
+    forceSlider.Parent = frame
+
+    -- Vertical force slider
+    local upForceLabel = Instance.new("TextLabel")
+    upForceLabel.Text = "Upward Force: "..throwUpForce
+    upForceLabel.Size = UDim2.new(1, 0, 0, 20)
+    upForceLabel.Position = UDim2.new(0, 0, 0, 70)
+    upForceLabel.BackgroundTransparency = 1
+    upForceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    upForceLabel.Parent = frame
+
+    local upForceSlider = Instance.new("TextBox")
+    upForceSlider.Size = UDim2.new(0.9, 0, 0, 20)
+    upForceSlider.Position = UDim2.new(0.05, 0, 0, 90)
+    upForceSlider.Text = tostring(throwUpForce)
+    upForceSlider.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+    upForceSlider.TextColor3 = Color3.fromRGB(255, 255, 255)
+    upForceSlider.Parent = frame
+
+    -- Value change handlers
+    forceSlider.FocusLost:Connect(function(enterPressed)
+        local newValue = tonumber(forceSlider.Text)
+        if newValue and newValue >= 0 and newValue <= 500 then
+            throwForce = newValue
+            forceLabel.Text = "Throw Force: "..throwForce
+        else
+            forceSlider.Text = tostring(throwForce)
+        end
+    end)
+
+    upForceSlider.FocusLost:Connect(function(enterPressed)
+        local newValue = tonumber(upForceSlider.Text)
+        if newValue and newValue >= 0 and newValue <= 100 then
+            throwUpForce = newValue
+            upForceLabel.Text = "Upward Force: "..throwUpForce
+        else
+            upForceSlider.Text = tostring(throwUpForce)
+        end
+    end)
+end
+
+-- Tool equip/unequip handlers
+grabTool.Equipped:Connect(function()
+    createGUI()
+end)
+
+grabTool.Unequipped:Connect(function()
+    if gui then
+        gui:Destroy()
+        gui = nil
+    end
+end)
+
+-- Add tool to inventory
+grabTool.Parent = player.Backpack
+
+-- Rest of the tool logic remains the same
+local mouse = player:GetMouse()
+local heldModel = nil
+local originalCollisions = {}
+local bodyVelocity = nil
+
+local function disableModelCollisions(model)
+    originalCollisions = {}
+    for _, part in ipairs(model:GetDescendants()) do
+        if part:IsA("BasePart") then
+            originalCollisions[part] = part.CanCollide
+            part.CanCollide = false
+        end
+    end
+end
+
+local function restoreModelCollisions()
+    for part, canCollide in pairs(originalCollisions) do
+        if part and part.Parent then
+            part.CanCollide = canCollide
+        end
+    end
+    originalCollisions = {}
+end
+
+local function pullItem(target)
+    if heldModel then return end
+    
+    heldModel = target:FindFirstAncestorOfClass("Model") or target
+    disableModelCollisions(heldModel)
+    
+    local primaryPart = heldModel.PrimaryPart or heldModel:FindFirstChildWhichIsA("BasePart")
+    if not primaryPart then return end
+    
+    bodyVelocity = Instance.new("BodyVelocity")
+    bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+    bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+    bodyVelocity.Parent = primaryPart
+    
+    game:GetService("RunService").Heartbeat:Connect(function()
+        if not heldModel or not bodyVelocity then return end
+        
+        local handlePos = grabTool.Handle.Position
+        local partPos = primaryPart.Position
+        local direction = (handlePos - partPos).Unit * 50
+        
+        bodyVelocity.Velocity = direction
+    end)
+end
+
+local function throwItem()
+    if not heldModel then return end
+    
+    local primaryPart = heldModel.PrimaryPart or heldModel:FindFirstChildWhichIsA("BasePart")
+    if not primaryPart then return end
+    
+    restoreModelCollisions()
+    
+    if bodyVelocity then
+        bodyVelocity:Destroy()
+        bodyVelocity = nil
+    end
+    
+    local camera = workspace.CurrentCamera
+    local throwDirection = (mouse.Hit.Position - camera.CFrame.Position).Unit
+    
+    local throwVelocity = Instance.new("BodyVelocity")
+    throwVelocity.Velocity = throwDirection * throwForce + Vector3.new(0, throwUpForce, 0)
+    throwVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+    throwVelocity.Parent = primaryPart
+    
+    game:GetService("Debris"):AddItem(throwVelocity, 0.5)
+    
+    heldModel = nil
+end
+
+grabTool.Activated:Connect(function()
+    if not grabTool.Parent:IsA("Model") then return end
+    
+    if heldModel then
+        throwItem()
+        return
+    end
+    
+    local target = mouse.Target
+    if target and not target.Anchored and not target:IsDescendantOf(character) then
+        pullItem(target)
+    end
+end)
 end)
 
  scne55 = Instance.new("TextButton")
@@ -2656,10 +2863,10 @@ scne55.BorderSizePixel = 3
 scne55.TextColor3 = Color3.new(1, 1, 1)
 scne55.TextScaled = true
 scne55.Font = Enum.Font.Roboto
-scne55.Text = "Coming"
+scne55.Text = "Wallhop Gui"
 scne55.Visible = false
 scne55.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V3%20script'))()
 end)
 
  scne56 = Instance.new("TextButton")
@@ -2673,10 +2880,10 @@ scne56.BorderSizePixel = 3
 scne56.TextColor3 = Color3.new(1, 1, 1)
 scne56.TextScaled = true
 scne56.Font = Enum.Font.Roboto
-scne56.Text = "Coming"
+scne56.Text = "Remote Explorer"
 scne56.Visible = false
 scne56.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/CoolExploit/TestLua/refs/heads/main/RemoteExplorer', true))()
 end)
 
  scne57 = Instance.new("TextButton")
@@ -2685,15 +2892,15 @@ scne57.Name = "scne57"
 scne57.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scne57.Position = UDim2.new(0.00996587239, 0, 0.229999959, 0)
 scne57.BackgroundColor3 = Color3.new(0, 0, 0)
-scne57.BorderColor3 = Color3.new(1, 0, 0)
+scne57.BorderColor3 = Color3.new(1, 1, 0)
 scne57.BorderSizePixel = 3
 scne57.TextColor3 = Color3.new(1, 1, 1)
 scne57.TextScaled = true
 scne57.Font = Enum.Font.SourceSans
-scne57.Text = "coming"
+scne57.Text = "LownasAI Chatbot"
 scne57.Visible = false
 scne57.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Oxipt3/LownasAI/refs/heads/main/Script.lua"))()
 end)
 
  scne58 = Instance.new("TextButton")
@@ -2702,15 +2909,20 @@ scne58.Name = "scne58"
 scne58.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scne58.Position = UDim2.new(0.18, 0, 0.229999959, 0)
 scne58.BackgroundColor3 = Color3.new(0, 0, 0)
-scne58.BorderColor3 = Color3.new(1, 0, 0)
+scne58.BorderColor3 = Color3.new(0, 1, 0)
 scne58.BorderSizePixel = 3
 scne58.TextColor3 = Color3.new(1, 1, 1)
 scne58.TextScaled = true
 scne58.Font = Enum.Font.SourceSans
-scne58.Text = "Coming"
+scne58.Text = "Fly Unanchored Parts"
 scne58.Visible = false
 scne58.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://rscripts.net/raw/unanchored-fly_1745773171181_EsosnVx0fx.txt",true))()
+	notif({
+		Text = "To choose the object to fly you need to hold down the Ctrl button and click on the object. And to cancel you need to press Shift.",
+		Duration = 10,
+		topm = "Information!"
+	})
 end)
 
  scne59 = Instance.new("TextButton")
@@ -2724,10 +2936,10 @@ scne59.BorderSizePixel = 3
 scne59.TextColor3 = Color3.new(1, 1, 1)
 scne59.TextScaled = true
 scne59.Font = Enum.Font.Roboto
-scne59.Text = "Coming"
+scne59.Text = "Coordinates Gui"
 scne59.Visible = false
 scne59.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LiarRise/Copy-Location/refs/heads/main/README.md"))()
 end)
 
  scne60 = Instance.new("TextButton")
@@ -2736,15 +2948,21 @@ scne60.Name = "scne60"
 scne60.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scne60.Position = UDim2.new(0.52, 0, 0.229999959, 0)
 scne60.BackgroundColor3 = Color3.new(0, 0, 0)
-scne60.BorderColor3 = Color3.new(1, 0, 0)
+scne60.BorderColor3 = Color3.new(0, 1, 0)
 scne60.BorderSizePixel = 3
 scne60.TextColor3 = Color3.new(1, 1, 1)
 scne60.TextScaled = true
 scne60.Font = Enum.Font.Roboto
-scne60.Text = "Coming"
+scne60.Text = "Hats Pet"
 scne60.Visible = false
 scne60.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty56.lua"))()
 
+--[[
+This script will check if the executor you are using has a replicatesignal
+if the executor has a replicatesignal the script will have a permanentdeath function and hats re-claims method and also support in many games such as brookhaven and almost any games
+and if it does not have a replicatesignal the script will automatically use the respawn loop method
+]]
 end)
 
  scne61 = Instance.new("TextButton")
@@ -2758,10 +2976,10 @@ scne61.BorderSizePixel = 3
 scne61.TextColor3 = Color3.new(1, 1, 1)
 scne61.TextScaled = true
 scne61.Font = Enum.Font.Roboto
-scne61.Text = "Coming"
+scne61.Text = "Rinns Hub"
 scne61.Visible = false
 scne61.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SkibidiCen/MainMenu/main/Code"))()
 end)
 
 local scsPage = Instance.new("Frame")
@@ -4047,10 +4265,10 @@ scgne63.BorderSizePixel = 3
 scgne63.TextColor3 = Color3.new(1, 1, 1)
 scgne63.TextScaled = true
 scgne63.Font = Enum.Font.Roboto
-scgne63.Text = "game"
+scgne63.Text = "Plutonium Hub\n(Blade Ball)"
 scgne63.Visible = false
 scgne63.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/main/Plutonium.Loader.lua", true))()
 end)
 
 scgne64 = Instance.new("TextButton")
@@ -4064,10 +4282,10 @@ scgne64.BorderSizePixel = 3
 scgne64.TextColor3 = Color3.new(1, 1, 1)
 scgne64.TextScaled = true
 scgne64.Font = Enum.Font.Roboto
-scgne64.Text = "game"
+scgne64.Text = "Beanz Hub\n(Blade Ball)"
 scgne64.Visible = false
 scgne64.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/pid4k/scripts/main/BeanzHub.lua", true))()
 end)
 
 scgne65 = Instance.new("TextButton")
@@ -4081,10 +4299,10 @@ scgne65.BorderSizePixel = 3
 scgne65.TextColor3 = Color3.new(1, 1, 1)
 scgne65.TextScaled = true
 scgne65.Font = Enum.Font.Roboto
-scgne65.Text = "game"
+scgne65.Text = "Frostware Hub\n(Blade Ball)"
 scgne65.Visible = false
 scgne65.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Fsploit/Frostware/refs/heads/main/F-R-O-S-T-W-A-R-E%20BY%20FSPLOIT-BLADE%20BALL.lua'))()
 end)
 
 scgne66 = Instance.new("TextButton")
@@ -4093,15 +4311,15 @@ scgne66.Name = "scgne66"
 scgne66.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgne66.Position = UDim2.new(0.52, 0, 0.43, 0)
 scgne66.BackgroundColor3 = Color3.new(0, 0, 0)
-scgne66.BorderColor3 = Color3.new(1, 1, 0)
+scgne66.BorderColor3 = Color3.new(1, 0, 0)
 scgne66.BorderSizePixel = 3
 scgne66.TextColor3 = Color3.new(1, 1, 1)
 scgne66.TextScaled = true
 scgne66.Font = Enum.Font.Roboto
-scgne66.Text = "game"
+scgne66.Text = "XeraUltron\n(Blade Ball)"
 scgne66.Visible = false
 scgne66.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/luascriptsROBLOX/BladeBallXera/main/XeraUltron"))()
 end)
 
 scgne67 = Instance.new("TextButton")
@@ -4110,15 +4328,15 @@ scgne67.Name = "scgne67"
 scgne67.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgne67.Position = UDim2.new(0.69, 0, 0.43, 0)
 scgne67.BackgroundColor3 = Color3.new(0, 0, 0)
-scgne67.BorderColor3 = Color3.new(1, 1, 0)
+scgne67.BorderColor3 = Color3.new(1, 0, 0)
 scgne67.BorderSizePixel = 3
 scgne67.TextColor3 = Color3.new(1, 1, 1)
 scgne67.TextScaled = true
 scgne67.Font = Enum.Font.Roboto
-scgne67.Text = "game"
+scgne67.Text = "Redz Hub\n(Blade Ball)"
 scgne67.Visible = false
 scgne67.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BladeBall/main/eng"))()
 end)
 
 scgne68 = Instance.new("TextButton")
@@ -4132,10 +4350,10 @@ scgne68.BorderSizePixel = 3
 scgne68.TextColor3 = Color3.new(1, 1, 1)
 scgne68.TextScaled = true
 scgne68.Font = Enum.Font.Roboto
-scgne68.Text = "game"
+scgne68.Text = "Corolla Hub\n(Blade Ball)"
 scgne68.Visible = false
 scgne68.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/7190000/Corolla-Hub/main/ch.lua'))()
 end)
 
 scgne69 = Instance.new("TextButton")
@@ -4149,10 +4367,10 @@ scgne69.BorderSizePixel = 3
 scgne69.TextColor3 = Color3.new(1, 1, 1)
 scgne69.TextScaled = true
 scgne69.Font = Enum.Font.Roboto
-scgne69.Text = "game"
+scgne69.Text = "Mango X\n(Da Hood)"
 scgne69.Visible = false
 scgne69.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/rogelioajax/lua/main/MangoHub', true))();
 end)
 
 scgne70 = Instance.new("TextButton")
@@ -4161,15 +4379,15 @@ scgne70.Name = "scgne70"
 scgne70.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgne70.Position = UDim2.new(0.18, 0, 0.63, 0)
 scgne70.BackgroundColor3 = Color3.new(0, 0, 0)
-scgne70.BorderColor3 = Color3.new(1, 1, 0)
+scgne70.BorderColor3 = Color3.new(1, 0, 0)
 scgne70.BorderSizePixel = 3
 scgne70.TextColor3 = Color3.new(1, 1, 1)
 scgne70.TextScaled = true
 scgne70.Font = Enum.Font.Roboto
-scgne70.Text = "game"
+scgne70.Text = "Zinc Hub\n(Da Hood)"
 scgne70.Visible = false
 scgne70.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Zinzs/luascripting/main/canyoutellitsadahoodscriptornot.lua'))()
 end)
 
 scgne71 = Instance.new("TextButton")
@@ -4183,10 +4401,11 @@ scgne71.BorderSizePixel = 3
 scgne71.TextColor3 = Color3.new(1, 1, 1)
 scgne71.TextScaled = true
 scgne71.Font = Enum.Font.Roboto
-scgne71.Text = "game"
+scgne71.Text = "SpaceX Hub\n(Da Hood)"
 scgne71.Visible = false
 scgne71.MouseButton1Click:Connect(function()
-
+-- Spacex Hub
+loadstring(game:HttpGet("https://raw.githubusercontent.com/spacexrandom/Lua/main/DaHood", true))()
 end)
 
 scgne72 = Instance.new("TextButton")
@@ -4200,10 +4419,11 @@ scgne72.BorderSizePixel = 3
 scgne72.TextColor3 = Color3.new(1, 1, 1)
 scgne72.TextScaled = true
 scgne72.Font = Enum.Font.Roboto
-scgne72.Text = "game"
+scgne72.Text = "Xray Hub\n(Da Hood)"
 scgne72.Visible = false
 scgne72.MouseButton1Click:Connect(function()
-
+-- Xray Hub
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SpaceYes/Lua/Main/DaHood.Lua'))()
 end)
 
 scgne73 = Instance.new("TextButton")
@@ -4212,15 +4432,16 @@ scgne73.Name = "scgne73"
 scgne73.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scgne73.Position = UDim2.new(0.69, 0, 0.63, 0)
 scgne73.BackgroundColor3 = Color3.new(0, 0, 0)
-scgne73.BorderColor3 = Color3.new(1, 1, 0)
+scgne73.BorderColor3 = Color3.new(1, 0, 0)
 scgne73.BorderSizePixel = 3
 scgne73.TextColor3 = Color3.new(1, 1, 1)
 scgne73.TextScaled = true
 scgne73.Font = Enum.Font.Roboto
-scgne73.Text = "game"
+scgne73.Text = "Pluto Hub\n(Da Hood)"
 scgne73.Visible = false
 scgne73.MouseButton1Click:Connect(function()
-
+-- Pluto Hub
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Scrvpter/Pluto/Lua/Loader.Lua', true))()
 end)
 
 scgne74 = Instance.new("TextButton")
@@ -4234,10 +4455,11 @@ scgne74.BorderSizePixel = 3
 scgne74.TextColor3 = Color3.new(1, 1, 1)
 scgne74.TextScaled = true
 scgne74.Font = Enum.Font.Roboto
-scgne74.Text = "game"
+scgne74.Text = "Nuker Hub\n(Da Hood)"
 scgne74.Visible = false
 scgne74.MouseButton1Click:Connect(function()
-
+-- Nuker Hub
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Allvideo/test/main/Whitelist.txt"))()
 end)
 
 scgne75 = Instance.new("TextButton")
@@ -4251,10 +4473,10 @@ scgne75.BorderSizePixel = 2
 scgne75.TextColor3 = Color3.new(1, 1, 1)
 scgne75.TextScaled = true
 scgne75.Font = Enum.Font.Roboto
-scgne75.Text = "Game"
+scgne75.Text = "NullFire\n(Natural Disaster)"
 scgne75.Visible = false
 scgne75.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Thebestofhack123/2.0/refs/heads/main/NDS"))()
 end)
 
 scgne76 = Instance.new("TextButton")
@@ -4263,15 +4485,15 @@ scgne76.Name = "scgne76"
 scgne76.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
 scgne76.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
 scgne76.BackgroundColor3 = Color3.new(0, 0, 0)
-scgne76.BorderColor3 = Color3.new(1, 1, 0)
+scgne76.BorderColor3 = Color3.new(1, 0, 0)
 scgne76.BorderSizePixel = 2
 scgne76.TextColor3 = Color3.new(1, 1, 1)
 scgne76.TextScaled = true
 scgne76.Font = Enum.Font.Roboto
-scgne76.Text = "game"
+scgne76.Text = "Tbao Hub\n(Natural Disaster)"
 scgne76.Visible = false
 scgne76.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubNaturalDisasterSurvival"))()
 end)
 
 local oc1 = Instance.new("TextButton")
@@ -6055,10 +6277,10 @@ ocnfw31.BorderSizePixel = 3
 ocnfw31.TextColor3 = Color3.new(1, 1, 1)
 ocnfw31.TextScaled = true
 ocnfw31.Font = Enum.Font.SourceSans
-ocnfw31.Text = "Bomb Vest"
+ocnfw31.Text = "Xester"
 ocnfw31.Visible = false
 ocnfw31.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20Bomb%20Vest.txt'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nicolasbarbosa323/xester/refs/heads/main/qC7MUFRJ.txt"))()
 end)
 
  ocnfw32 = Instance.new("TextButton")
@@ -6072,10 +6294,10 @@ ocnfw32.BorderSizePixel = 3
 ocnfw32.TextColor3 = Color3.new(1, 1, 1)
 ocnfw32.TextScaled = true
 ocnfw32.Font = Enum.Font.SourceSans
-ocnfw32.Text = "Dev Uzi"
+ocnfw32.Text = "Spectrum Glitcher"
 ocnfw32.Visible = false
 ocnfw32.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20Dev%20Uzi.txt'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nicolasbarbosa323/SCPECTRUMGLITCHER/refs/heads/main/SpectrumG%20(1).txt"))()
 end)
 
  ocnfw33 = Instance.new("TextButton")
@@ -6106,10 +6328,14 @@ ocnfw34.BorderSizePixel = 3
 ocnfw34.TextColor3 = Color3.new(1, 1, 1)
 ocnfw34.TextScaled = true
 ocnfw34.Font = Enum.Font.Roboto
-ocnfw34.Text = "Killbot"
+ocnfw34.Text = "Nebula Glitcher"
 ocnfw34.Visible = false
 ocnfw34.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Killbot.txt"))()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+-- credit -- Nebula_Zorua
+loadstring(game:HttpGet("https://pastebin.com/raw/ieJZauwd"))()
 end)
 
  ocnfw35 = Instance.new("TextButton")
@@ -6157,10 +6383,10 @@ ocnfw37.BorderSizePixel = 3
 ocnfw37.TextColor3 = Color3.new(1, 1, 1)
 ocnfw37.TextScaled = true
 ocnfw37.Font = Enum.Font.Roboto
-ocnfw37.Text = "Dominus Corona Autralisi"
+ocnfw37.Text = "Good Cop Bad Cop"
 ocnfw37.Visible = false
 ocnfw37.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Dominus%20corona%20Australisi.txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nicolasbarbosa323/good-cop-bad-coop/refs/heads/main/KwuminKa.txt"))()
 end)
 
  ocnfw38 = Instance.new("TextButton")
@@ -6174,10 +6400,10 @@ ocnfw38.BorderSizePixel = 3
 ocnfw38.TextColor3 = Color3.new(1, 1, 1)
 ocnfw38.TextScaled = true
 ocnfw38.Font = Enum.Font.Roboto
-ocnfw38.Text = "Reaper V2"
+ocnfw38.Text = "Vereus"
 ocnfw38.Visible = false
 ocnfw38.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Reaper%20V2.lua.txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nicolasbarbosa323/xester/refs/heads/main/fLrx77PM.txt"))()
 end)
 
  ocnfw39 = Instance.new("TextButton")
@@ -6208,10 +6434,10 @@ ocnfw40.BorderSizePixel = 3
 ocnfw40.TextColor3 = Color3.new(1, 1, 1)
 ocnfw40.TextScaled = true
 ocnfw40.Font = Enum.Font.Roboto
-ocnfw40.Text = "Ro-Xploit V6"
+ocnfw40.Text = "Mini King Neflhelm"
 ocnfw40.Visible = false
 ocnfw40.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BGUI%5D%20Ro-Xploit%206.0.txt"))()
+loadstring(game:HttpGet("https://pastebin.com/raw/T6Z3rNHD"))()
 end)
 
  ocnfw41 = Instance.new("TextButton")
@@ -6344,10 +6570,10 @@ ocnfw48.BorderSizePixel = 3
 ocnfw48.TextColor3 = Color3.new(1, 1, 1)
 ocnfw48.TextScaled = true
 ocnfw48.Font = Enum.Font.Roboto
-ocnfw48.Text = "Content Cop"
+ocnfw48.Text = "Clown Van Kidnapping Gui"
 ocnfw48.Visible = false
 ocnfw48.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20Content%20Cop.txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/clown-van-edit.txt"))()
 end)
 
  ocnfw49 = Instance.new("TextButton")
