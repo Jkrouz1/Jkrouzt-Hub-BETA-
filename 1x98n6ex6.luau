@@ -19,6 +19,7 @@ local titleFrame = Instance.new("Frame")
 screenGui.Name = "Jkrouzt Hub"
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.ResetOnSpawn = false
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 mainFrame.Parent = screenGui
 mainFrame.Name = "MainFrame"
@@ -850,7 +851,7 @@ settingf1.MouseButton1Click:Connect(function()
     end
 
     if isfile(introSetFile) then
-        print("Updated " .. introSetFile)
+        
     end
 end)
 
@@ -861,15 +862,15 @@ if isfile(introSetFile) then
         if iskipValue == "true" then
             toggleState = true
             updateButtonVisual()
-            print("Loaded state from " .. introSetFile .. ": iskip = true")
+            
         elseif iskipValue == "false" then
             toggleState = false
             updateButtonVisual()
-            print("Loaded state from " .. introSetFile .. ": iskip = false")
+            
         end
     end
 else
-    print(introSetFile .. " not found. Using default state.")
+    
 end
 
 if isToggleOnVisually() then
@@ -4665,7 +4666,7 @@ oc7.MouseButton1Click:Connect(function()
         for _, item in pairs(backpack:GetChildren()) do
             if item:IsA("Tool") then
                 item.Parent = LocalPlayer
-                print(item.Name .. " moved to LocalPlayer.")
+                
             end
         end
     end
@@ -4674,7 +4675,7 @@ oc7.MouseButton1Click:Connect(function()
         for _, item in pairs(character:GetChildren()) do
             if item:IsA("Tool") then
                 item.Parent = LocalPlayer
-                print(item.Name .. " moved to LocalPlayer.")
+                
             end
         end
     end
@@ -4702,7 +4703,7 @@ oc8.MouseButton1Click:Connect(function()
     for _, item in pairs(LocalPlayer:GetChildren()) do
         if item:IsA("Tool") then
             item.Parent = backpack
-            print(item.Name .. " returned to Backpack.")
+            
         end
     end
 
@@ -4712,7 +4713,7 @@ oc8.MouseButton1Click:Connect(function()
         for _, item in pairs(character:GetChildren()) do
             if item:IsA("Tool") then
                 item.Parent = backpack
-                print(item.Name .. " returned to Backpack from Character.")
+                
             end
         end
     end
@@ -4812,14 +4813,12 @@ oc11.MouseButton1Click:Connect(function()
         for _, item in pairs(character:GetChildren()) do
             if item:IsA("Tool") then
                 item:Destroy()
-                print("Destroyed equipped tool: " .. item.Name)
+                
                 toolsDestroyed += 1
             end
         end
         if toolsDestroyed > 0 then
-            print("Destroyed a total of " .. toolsDestroyed .. " equipped tools.")
-        else
-            print("No tools were currently equipped.")
+            print(" .. toolsDestroyed .. ")
         end
     else
         warn("LocalPlayer's Character not found.")
@@ -7213,22 +7212,22 @@ function teleportPlayer()
             originalPosition = player.Character.HumanoidRootPart.CFrame
             targetPosition = Vector3.new(0, -99999999999, 0)
             player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
-            print("Teleported player to X: 0, Y: -99999997952, Z: 0")
+            
             oc24.Text = "UnVoid" 
             isTeleported = true
         else
             
             if originalPosition then
                 player.Character.HumanoidRootPart.CFrame = originalPosition
-                print("Teleported player back to original position.")
+                
                 oc24.Text = "Void" 
                 isTeleported = false
             else
-                print("Original position not stored.")
+                print("position not stored.")
             end
         end
     else
-        print("Player character not found.")
+        print("not found.")
     end
 end
 
@@ -7260,7 +7259,7 @@ oc19.MouseButton1Click:Connect(function()
 	end
 
 	if bringPlayerActive then
-		print("Attempting to stop bringing player(s).")
+
 		bringPlayerActive = false 
 		targetPlayerToBring = nil 
 		bringAllPlayers = false 
@@ -7268,7 +7267,7 @@ oc19.MouseButton1Click:Connect(function()
 		task.wait(0.1)
 
 		oc19.Text = "Bring player"
-		print("Stopped bringing player(s).")
+		
 		return
 	end
 
@@ -7285,8 +7284,7 @@ oc19.MouseButton1Click:Connect(function()
 		targetPlayerToBring = nil 
 
 		oc19.Text = "Stop Bring All"
-		print("Started aggressively bringing all other players.")
-
+		
 	else
 		
 		bringAllPlayers = false 
@@ -7307,7 +7305,7 @@ oc19.MouseButton1Click:Connect(function()
 			bringPlayerActive = true 
             bringAllPlayers = false 
 			oc19.Text = "Stop Bring"
-			print("Started bringing specific player:", target.Name)
+			print("target.Name")
 		elseif target == localPlayer then
 			warn("Cannot bring yourself.")
             return
@@ -7379,13 +7377,13 @@ end)
 
  function safeTouchFunction(args, speaker)
 	if not speaker or not speaker.Character then
-		print("Error: Invalid speaker provided.")
+		warn("Invalid")
 		return
 	end
 
 	 root = speaker.Character:FindFirstChild("HumanoidRootPart") or speaker.Character:FindFirstChildWhichIsA("BasePart")
 	if not root then
-		print("Error: Could not find root part of the speaker.")
+		warn("not find root part.")
 		return
 	end
 
@@ -7402,7 +7400,7 @@ end)
 				 partToMove = descendant:FindFirstAncestorWhichIsA("Part")
 				if partToMove then
 					movePart(partToMove)
-					print("Moved part associated with TouchTransmitter:", descendant.Name)
+					print("TouchTransmitter:", descendant.Name)
 				end
 			end
 		end
@@ -7412,7 +7410,7 @@ end)
 				 partToMove = descendant:FindFirstAncestorWhichIsA("Part")
 				if partToMove then
 					movePart(partToMove)
-					print("Moved part associated with TouchTransmitter:", descendant.Name)
+					print("TouchTransmitter:", descendant.Name)
 				end
 			end
 		end
@@ -7506,7 +7504,7 @@ oc2.MouseButton1Click:Connect(function()
 		 code = keycodeMap[text]
 
 		if not code then
-			print("Auto Key: Invalid key in TextBox.")
+			print("Invalid key")
 			return
 		end
 
@@ -7527,11 +7525,11 @@ oc2.MouseButton1Click:Connect(function()
 						cancelAutoKeyPress = nil
 						if keyrelease then keyrelease(code) end
 					end
-					print("Auto Key: Auto key toggled OFF (by pressing the key).")
+					print("toggled OFF")
 				end
 			end)
 
-			print("Auto Key: Auto key toggled ON for key '" .. currentKey .. "'. Press '" .. currentKey:upper() .. "' again to toggle OFF.")
+			print("toggled ON'" .. currentKey .. "'. Press '" .. currentKey:upper() .. "' again to toggle OFF.")
 			spawn(function()
 				while autoKeyPressing do
 					if keypress then keypress(code) end
@@ -7544,7 +7542,7 @@ oc2.MouseButton1Click:Connect(function()
 					cancelAutoKeyPress = nil
 					if keyrelease then keyrelease(code) end
 				end
-				print("Auto Key: Auto key toggled OFF.")
+				print("key toggled OFF.")
 				oc2.Text = "Auto Key"
 			end)
 		else
@@ -7554,10 +7552,10 @@ oc2.MouseButton1Click:Connect(function()
 				 code = keycodeMap[currentKey] 
 				if keyrelease and code then keyrelease(code) end
 			end
-			print("Auto Key: Auto key toggled OFF.")
+			print("key toggled OFF.")
 		end
 	else
-		print("Auto Key: Missing key press/release capabilities or TextBox reference.")
+		print("Missing key press/release capabilities or TextBox reference.")
 	end
 end)
 
@@ -7655,7 +7653,7 @@ oc21.MouseButton1Click:Connect(function()
 					}
 				end
 			end
-			print("Bringing unanchored parts to player:", targetPlayer.Name)
+			print("targetPlayer.Name")
 		else
 			oc21.Text = "Unanchored Parts to Player"
 			for part, movers in pairs(currentMoverParts) do
@@ -7672,7 +7670,7 @@ oc21.MouseButton1Click:Connect(function()
 				end
 			end
 			table.clear(currentMoverParts)
-			print("Stopped bringing unanchored parts.")
+			print("Stopped")
 		end
 	else
 		warn("Player '" .. playerName .. "' not found.")
@@ -7814,7 +7812,7 @@ function runObungaEffect(player)
 
     screenGui:Destroy()
     Instance.new("Hint", workspace.Terrain).Text = "Obunga is still here. You are not safe."
-     wait(7)
+     wait(17)
      player:Kick("Obunga is start to chasing you. You are not S̸a̸f̸e̶.")
 end
 
@@ -7878,3 +7876,47 @@ while true do
 	wait(1)
 	updateTime()
 end
+
+
+function QFCS_fake_script() -- Frame.Dragify 
+	local script = Instance.new('LocalScript', mainFrame)
+
+	local UIS = game:GetService("UserInputService")
+	function dragify(mainFrame)
+	    dragToggle = nil
+	    local dragSpeed = 0
+	    dragInput = nil
+	    dragStart = nil
+	    local dragPos = nil
+	    function updateInput(input)
+	        local Delta = input.Position - dragStart
+	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+	    end
+	    Frame.InputBegan:Connect(function(input)
+	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+	            dragToggle = true
+	            dragStart = input.Position
+	            startPos = Frame.Position
+	            input.Changed:Connect(function()
+	                if input.UserInputState == Enum.UserInputState.End then
+	                    dragToggle = false
+	                end
+	            end)
+	        end
+	    end)
+	    Frame.InputChanged:Connect(function(input)
+	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	            dragInput = input
+	        end
+	    end)
+	    game:GetService("UserInputService").InputChanged:Connect(function(input)
+	        if input == dragInput and dragToggle then
+	            updateInput(input)
+	        end
+	    end)
+	end
+	
+	dragify(script.Parent)
+end
+coroutine.wrap(QFCS_fake_script)()
