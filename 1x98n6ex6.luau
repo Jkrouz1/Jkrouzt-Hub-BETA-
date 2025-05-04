@@ -568,7 +568,7 @@ first2.TextScaled = true
 first2.Font = Enum.Font.GothamBlack
 first2.TextXAlignment = Enum.TextXAlignment.Left
 first2.TextYAlignment = Enum.TextYAlignment.Center
-first2.Text = "Jkrouzt Hub Made By jkrouzt."
+first2.Text = "Jkrouzt Hub Made By jkrouzt"
 
 local first3 = Instance.new("TextLabel")
 first3.Parent = home
@@ -2725,7 +2725,6 @@ local function createGUI()
     upForceSlider.TextColor3 = Color3.fromRGB(255, 255, 255)
     upForceSlider.Parent = frame
 
-    -- Value change handlers
     forceSlider.FocusLost:Connect(function(enterPressed)
         local newValue = tonumber(forceSlider.Text)
         if newValue and newValue >= 0 and newValue <= 500 then
@@ -2747,7 +2746,6 @@ local function createGUI()
     end)
 end
 
--- Tool equip/unequip handlers
 grabTool.Equipped:Connect(function()
     createGUI()
 end)
@@ -2759,10 +2757,8 @@ grabTool.Unequipped:Connect(function()
     end
 end)
 
--- Add tool to inventory
 grabTool.Parent = player.Backpack
 
--- Rest of the tool logic remains the same
 local mouse = player:GetMouse()
 local heldModel = nil
 local originalCollisions = {}
@@ -4246,9 +4242,6 @@ scgne62.Font = Enum.Font.Roboto
 scgne62.Text = "H4xScripts\n(GrowAGarden)"
 scgne62.Visible = false
 scgne62.MouseButton1Click:Connect(function()
---[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
 loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
 
 
@@ -6296,7 +6289,12 @@ ocnfw32.Font = Enum.Font.SourceSans
 ocnfw32.Text = "Spectrum Glitcher"
 ocnfw32.Visible = false
 ocnfw32.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/nicolasbarbosa323/SCPECTRUMGLITCHER/refs/heads/main/SpectrumG%20(1).txt"))()
+	notif({
+		Text = "Modes: E,R,T,Y,U,F,G. Check Console For More (press F9 or type /console)",
+		Duration = 6,
+		topm = "INFORMATION!"
+	})
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Spectrum%20Glitcher.txt"))()
 end)
 
  ocnfw33 = Instance.new("TextButton")
@@ -6330,11 +6328,8 @@ ocnfw34.Font = Enum.Font.Roboto
 ocnfw34.Text = "Nebula Glitcher"
 ocnfw34.Visible = false
 ocnfw34.MouseButton1Click:Connect(function()
---[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
--- credit -- Nebula_Zorua
-loadstring(game:HttpGet("https://pastebin.com/raw/ieJZauwd"))()
+-- credit Nebula_Zorua
+loadstring(game:HttpGet("https://pastebin.com/raw/j09BnGB3"))()
 end)
 
  ocnfw35 = Instance.new("TextButton")
@@ -6467,10 +6462,10 @@ ocnfw42.BorderSizePixel = 3
 ocnfw42.TextColor3 = Color3.new(1, 1, 1)
 ocnfw42.TextScaled = true
 ocnfw42.Font = Enum.Font.Roboto
-ocnfw42.Text = "Shedletsky Rage"
+ocnfw42.Text = "Pandora"
 ocnfw42.Visible = false
 ocnfw42.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/M47mvU71.txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Pandora.txt"))()
 end)
 
  ocnfw43 = Instance.new("TextButton")
@@ -6552,10 +6547,30 @@ ocnfw47.BorderSizePixel = 3
 ocnfw47.TextColor3 = Color3.new(1, 1, 1)
 ocnfw47.TextScaled = true
 ocnfw47.Font = Enum.Font.Roboto
-ocnfw47.Text = "Ak-47"
+ocnfw47.Text = "Banisher Gun V3"
 ocnfw47.Visible = false
 ocnfw47.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/1ndrew%20AK-47.txt"))()
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+screenGui.Name = "skillsbv3"
+
+local skillbv3lab = Instance.new("TextLabel")
+skillbv3lab.Parent = screenGui
+skillbv3lab.Name = "TextLabel"
+skillbv3lab.Text = "/ Z, Q, E, F" 
+skillbv3lab.Position = UDim2.new(0.219999999, 0, 0.899999976, 0) 
+skillbv3lab.Size = UDim2.new(0.25999999, 0, 0.0700000003, 0) 
+skillbv3lab.BackgroundColor3 = Color3.new(1, 1, 1) 
+skillbv3lab.BackgroundTransparency = 5 
+skillbv3lab.TextColor3 = Color3.new(184, 0, 0) 
+skillbv3lab.TextScaled = true 
+skillbv3lab.Font = Enum.Font.Fantasy
+skillbv3lab.BorderSizePixel = 2
+skillbv3lab.BorderColor3 = Color3.new(0, 0, 0)
+skillbv3lab.TextStrokeColor3 = Color3.new(0, 0, 0)
+skillbv3lab.TextStrokeTransparency = 0
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Banisher%20Gun%20V3.txt"))()
 end)
 
  ocnfw48 = Instance.new("TextButton")
