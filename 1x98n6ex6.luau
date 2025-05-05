@@ -38,17 +38,76 @@ imageLabel.Position = UDim2.new(0, 20, 1, -20)
 imageLabel.AnchorPoint = Vector2.new(0, 1) 
 imageLabel.BackgroundTransparency = 1 
 imageLabel.Image = "rbxassetid://87459933248527"
-
+imageLabel.Parent = screenGui
 imageLabel.ScaleType = Enum.ScaleType.Fit 
 imageLabel.BorderSizePixel = 0 
-imageLabel.Name = "RotatingImageLabel" 
+imageLabel.Name = "ckTeam" 
+imageLabel.ZIndex = 2
 
 
 game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
     imageLabel.Rotation = imageLabel.Rotation + 0.1 * deltaTime * 360
 end)
 
-imageLabel.Parent = screenGui
+backinamage = Instance.new("ImageLabel")
+backinamage.Size = UDim2.new(0, 150, 0, 150)
+backinamage.Position = UDim2.new(0, -20, 1, 20) 
+backinamage.AnchorPoint = Vector2.new(0, 1) 
+backinamage.BackgroundTransparency = 1 
+backinamage.Image = "rbxassetid://114807955749711"
+backinamage.ImageColor3 = Color3.new(10, 0, 0)
+backinamage.Parent = screenGui
+backinamage.ScaleType = Enum.ScaleType.Fit 
+backinamage.BorderSizePixel = 0 
+backinamage.Name = "background1"
+backinamage.ZIndex = 1
+
+
+game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
+    backinamage.Rotation = backinamage.Rotation + 0.1 * deltaTime * 540
+end)
+
+orbitzxc = Instance.new("ImageLabel")
+orbitzxc.Size = UDim2.new(0, 150, 0, 150)
+orbitzxc.Position = UDim2.new(0, -20, 1, 20) 
+orbitzxc.AnchorPoint = Vector2.new(0, 1) 
+orbitzxc.BackgroundTransparency = 1 
+orbitzxc.Image = "rbxassetid://2312119891"
+orbitzxc.ImageColor3 = Color3.new(10, 0, 0)
+orbitzxc.Parent = screenGui
+orbitzxc.ScaleType = Enum.ScaleType.Fit 
+orbitzxc.BorderSizePixel = 0 
+orbitzxc.Name = "background2"
+orbitzxc.ZIndex = 0
+
+
+startTime = tick()
+rotationAmplitude = 90
+rotationCenter = 720
+rotationSpeed = 1.5
+
+game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
+    timeElapsed = tick() - startTime
+    orbitzxc.Rotation = rotationCenter + rotationAmplitude * math.sin(timeElapsed * rotationSpeed)
+end)
+
+sigmb = Instance.new("ImageLabel")
+sigmb.Size = UDim2.new(0, 150, 0, 150)
+sigmb.Position = UDim2.new(0, -20, 1, 20) 
+sigmb.AnchorPoint = Vector2.new(0, 1) 
+sigmb.BackgroundTransparency = 1 
+sigmb.Image = "rbxassetid://2325939897"
+sigmb.ImageColor3 = Color3.new(10, 0, 0)
+sigmb.Parent = screenGui
+sigmb.ScaleType = Enum.ScaleType.Fit 
+sigmb.BorderSizePixel = 0 
+sigmb.Name = "background3"
+sigmb.ZIndex = 1
+
+
+game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
+    sigmb.Rotation = sigmb.Rotation + 0.1 * deltaTime * 180
+end)
 
 titleFrame.Parent = mainFrame
 titleFrame.Name = "titleFrame"
@@ -115,19 +174,20 @@ core.Name = "CoreGui"
 local openui = Instance.new("TextButton")
 openui.Parent = core
 openui.Text = ">"
+openui.TextColor3 = Color3.new(1, 1, 1)
 openui.TextScaled = true
 openui.Size = UDim2.new(0, 50, 0, 50)
 openui.Position = UDim2.new(0, 10, 0.5, -50)
-openui.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
+openui.BackgroundColor3 = Color3.new(0, 0, 0)
 openui.BackgroundTransparency = 0.5
 openui.Active = true
 
 isVisible = true
 local initialPosition = UDim2.new(0.5, 0, 0, -100)
 local targetPosition = UDim2.new(0.35, 0, 0.305, 0)
-local animationDuration = 0.5
-local tweenInfo = TweenInfo.new(animationDuration, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local tweenInfoOut = TweenInfo.new(animationDuration, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+local animationDuration = 0.9
+local tweenInfo = TweenInfo.new(animationDuration, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+local tweenInfoOut = TweenInfo.new(animationDuration, Enum.EasingStyle.Back, Enum.EasingDirection.In)
 
 local function animateGui(target, goalPosition, tweenInfo)
     local tween = TweenService:Create(target, tweenInfo, {Position = goalPosition})
