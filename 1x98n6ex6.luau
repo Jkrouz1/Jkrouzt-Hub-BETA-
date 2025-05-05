@@ -4282,10 +4282,10 @@ scgne61.BorderSizePixel = 3
 scgne61.TextColor3 = Color3.new(1, 1, 1)
 scgne61.TextScaled = true
 scgne61.Font = Enum.Font.Roboto
-scgne61.Text = "Depso\n(GrowAGarden)"
+scgne61.Text = "Ameicaa\n(GrowAGarden)"
 scgne61.Visible = false
 scgne61.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/depthso/Grow-a-Garden/refs/heads/main/autofarm.lua')))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ameicaa1/Grow-a-Garden/main/Grow_A_Garden.lua"))()
 end)
 
 scgne62 = Instance.new("TextButton")
