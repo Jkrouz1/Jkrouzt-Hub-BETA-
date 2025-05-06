@@ -1,5 +1,19 @@
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "Intro"
+screenGui.Parent = game.CoreGui
+
 local introSetFile = "IntroSet.txt"
+local jksettingsIntroSetFile = "jksettings/IntroSet.txt"
 local iskip = false
+
+if isfile(introSetFile) then
+    print(introSetFile .. " found in default location.")
+elseif isfile(jksettingsIntroSetFile) then
+    introSetFile = jksettingsIntroSetFile
+    print(introSetFile .. " found in jksettings folder.")
+else
+    print(introSetFile .. " not found in either location. Playing intro...")
+end
 
 if isfile(introSetFile) then
     local fileContent = readfile(introSetFile)
@@ -14,18 +28,13 @@ if isfile(introSetFile) then
     else
         warn("Could not read " .. introSetFile .. ". Playing intro...")
     end
-else
-    print(introSetFile .. " not found. Playing intro...")
 end
+
 
 if iskip then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Jkrouzt-Hub-BETA-/refs/heads/main/1x98n6ex6.luau"))()
     return
 end
-
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "Intro"
-screenGui.Parent = game.CoreGui
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Parent = screenGui
