@@ -13,7 +13,6 @@ local backinamage
 local orbitzxc
 local sigmb
 
-
 local screenGui = Instance.new("ScreenGui")
 local tab1 = Instance.new("TextButton")
 local tab2 = Instance.new("TextButton")
@@ -219,6 +218,14 @@ local function toggleGUI()
     end
 end
 
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+
+    if input.KeyCode == Enum.KeyCode.RightControl then
+        toggleGUI()
+    end
+end)
+
 openui.MouseButton1Click:Connect(toggleGUI)
 
 if mainFrame.Visible then
@@ -421,13 +428,6 @@ Lastshit.Visible = true
 tab5.BorderColor3 = Color3.new(1, 1, 1)
 end)
 
-local imageLabel = Instance.new("ImageLabel")
-imageLabel.Parent = home
-imageLabel.Size = UDim2.new(0, 100, 0, 100) 
-imageLabel.Position = UDim2.new(0.5, -300, 0.5, -50) 
-imageLabel.AnchorPoint = Vector2.new(0, 0.7)
-imageLabel.BackgroundTransparency = 1
-imageLabel.Image = "rbxassetid://117259454598676"
 
 local mainFrame = Instance.new("ScreenGui")
 mainFrame.Parent = game.CoreGui
@@ -610,6 +610,233 @@ delay(duration, function()
 	end)
 end
 
+sething = Instance.new("TextLabel")
+sething.Parent = Lastshit
+sething.Name = "sething"
+sething.Size = UDim2.new(1.01800001, 0, 0.100000001, 0)
+sething.Position = UDim2.new(0, 0, 0, 0)
+sething.BackgroundColor3 = Color3.new(0, 0, 0)
+sething.BackgroundTransparency = 0
+sething.BorderColor3 = Color3.new(255, 0, 0)
+sething.BorderSizePixel = 3
+sething.TextColor3 = Color3.new(1, 1, 1)
+sething.TextStrokeColor3 = Color3.new(255, 0, 0)
+sething.TextStrokeTransparency = 0.8
+sething.TextScaled = true
+sething.Font = Enum.Font.Michroma
+sething.Text = "Settings"
+sething.TextXAlignment = Enum.TextXAlignment.Left
+sething.TextYAlignment = Enum.TextYAlignment.Center
+
+settingf1tex = Instance.new("TextLabel")
+settingf1tex.Name = "skipshit"
+settingf1tex.Size = UDim2.new(0, 200, 0, 50)
+settingf1tex.Position = UDim2.new(0, 325, 0, 55)
+settingf1tex.AnchorPoint = Vector2.new(0, 0)
+settingf1tex.Text = "Skip Intro:"
+settingf1tex.TextColor3 = Color3.new(1, 1, 1)
+settingf1tex.BackgroundTransparency = 1
+settingf1tex.Font = Enum.Font.Fantasy
+settingf1tex.TextScaled = true
+settingf1tex.TextXAlignment = Enum.TextXAlignment.Center
+settingf1tex.TextYAlignment = Enum.TextYAlignment.Center
+settingf1tex.Parent = Lastshit
+
+settingf2tex = Instance.new("TextLabel")
+settingf2tex.Name = "Remove logo"
+settingf2tex.Size = UDim2.new(0, 200, 0, 50)
+settingf2tex.Position = UDim2.new(0, 0, 0, 55)
+settingf2tex.AnchorPoint = Vector2.new(0, 0)
+settingf2tex.Text = "Remove Logo:"
+settingf2tex.TextColor3 = Color3.new(1, 1, 1)
+settingf2tex.BackgroundTransparency = 1
+settingf2tex.Font = Enum.Font.Fantasy
+settingf2tex.TextScaled = true
+settingf2tex.TextXAlignment = Enum.TextXAlignment.Center
+settingf2tex.TextYAlignment = Enum.TextYAlignment.Center
+settingf2tex.Parent = Lastshit
+
+settingf3tex = Instance.new("TextLabel")
+settingf3tex.Name = "sst profilsh"
+settingf3tex.Size = UDim2.new(0, 200, 0, 50)
+settingf3tex.Position = UDim2.new(0, 325, 0, 120)
+settingf3tex.AnchorPoint = Vector2.new(0, 0)
+settingf3tex.Text = "Set Profile:"
+settingf3tex.TextColor3 = Color3.new(1, 1, 1)
+settingf3tex.BackgroundTransparency = 1
+settingf3tex.Font = Enum.Font.Fantasy
+settingf3tex.TextScaled = true
+settingf3tex.TextXAlignment = Enum.TextXAlignment.Center
+settingf3tex.TextYAlignment = Enum.TextYAlignment.Center
+settingf3tex.Parent = Lastshit
+
+settingf1 = Instance.new("TextButton")
+settingf1.Name = "settingf1"
+settingf1.Parent = Lastshit
+settingf1.Size = UDim2.new(0, 100, 0, 30)
+settingf1.Position = UDim2.new(0, 535, 0, 70)
+settingf1.Text = ""
+settingf1.TextScaled = true
+settingf1.Font = Enum.Font.Code
+settingf1.TextColor3 = Color3.new(1, 1, 1)
+settingf1.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+settingf1.BorderColor3 = Color3.new(1, 0, 0)
+settingf1.BorderSizePixel = 3
+
+setf1b = Instance.new("Frame")
+setf1b.Name = "setf1b"
+setf1b.Parent = settingf1
+setf1b.Size = UDim2.new(0.4, 0, 0.8, 0)
+setf1b.Position = UDim2.new(0.1, 0, 0.1, 0)
+setf1b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+setf1b.BorderSizePixel = 0
+setf1b.AnchorPoint = Vector2.new(0.5, 0.5)
+setf1b.Position = UDim2.new(0.25,0,0.5,0)
+
+settingf2 = Instance.new("TextButton")
+settingf2.Name = "settingf2"
+settingf2.Parent = Lastshit
+settingf2.Size = UDim2.new(0, 100, 0, 30)
+settingf2.Position = UDim2.new(0, 205, 0, 70)
+settingf2.Text = ""
+settingf2.TextScaled = true
+settingf2.Font = Enum.Font.Code
+settingf2.TextColor3 = Color3.new(1, 1, 1)
+settingf2.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+settingf2.BorderColor3 = Color3.new(1, 0, 0)
+settingf2.BorderSizePixel = 3
+
+setf2b = Instance.new("Frame")
+setf2b.Name = "setf2b"
+setf2b.Parent = settingf2
+setf2b.Size = UDim2.new(0.4, 0, 0.8, 0)
+setf2b.Position = UDim2.new(0.1, 0, 0.1, 0)
+setf2b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+setf2b.BorderSizePixel = 0
+setf2b.AnchorPoint = Vector2.new(0.5, 0.5)
+setf2b.Position = UDim2.new(0.25,0,0.5,0)
+
+settingf3 = Instance.new("TextButton")
+settingf3.Name = "settingf3"
+settingf3.Parent = Lastshit
+settingf3.Size = UDim2.new(0, 100, 0, 30)
+settingf3.Position = UDim2.new(0, 535, 0, 130)
+settingf3.Text = ""
+settingf3.TextScaled = true
+settingf3.Font = Enum.Font.Code
+settingf3.TextColor3 = Color3.new(1, 1, 1)
+settingf3.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+settingf3.BorderColor3 = Color3.new(1, 0, 0)
+settingf3.BorderSizePixel = 3
+
+setf3b = Instance.new("Frame")
+setf3b.Name = "setf3b"
+setf3b.Parent = settingf3
+setf3b.Size = UDim2.new(0.4, 0, 0.8, 0)
+setf3b.Position = UDim2.new(0.1, 0, 0.1, 0)
+setf3b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+setf3b.BorderSizePixel = 0
+setf3b.AnchorPoint = Vector2.new(0.5, 0.5)
+setf3b.Position = UDim2.new(0.25,0,0.5,0)
+
+local ckimage = Instance.new("ImageLabel")
+ckimage.Parent = home
+ckimage.Name = "ckimage"
+ckimage.Size = UDim2.new(0, 100, 0, 100)
+ckimage.Position = UDim2.new(0.5, -300, 0.5, -50)
+ckimage.AnchorPoint = Vector2.new(0, 0.7)
+ckimage.BackgroundColor3 = Color3.new(0, 0, 0)
+ckimage.BackgroundTransparency = 0
+ckimage.BorderColor3 = Color3.new(1,0,0)
+ckimage.BorderSizePixel = 1
+ckimage.Image = "rbxassetid://117259454598676"
+
+useProfilePicture = false
+profilePictureFile = "jksettings/ProfilePicture.txt"
+
+function loadHeadshot()
+    local player = Players.LocalPlayer
+    local userId = player.UserId
+    local thumbType = Enum.ThumbnailType.HeadShot
+    local thumbSize = Enum.ThumbnailSize.Size420x420
+    local success, content = pcall(Players.GetUserThumbnailAsync, Players, userId, thumbType, thumbSize)
+    if success and content then
+        return content
+    else
+        warn("Failed to load player headshot: " .. tostring(content))
+        return nil
+    end
+end
+
+function updVisual()
+    local targetPosition
+    local targetColor
+
+    if useProfilePicture then
+        targetPosition = UDim2.new(0.75, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(0, 255, 0)
+        settingf3.BorderColor3 = Color3.new(0, 1, 0)
+        ckimage.BorderSizePixel = 2
+    else
+        targetPosition = UDim2.new(0.25, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(255, 0, 0)
+        settingf3.BorderColor3 = Color3.new(1, 0, 0)
+        ckimage.BorderSizePixel = 1
+    end
+
+
+    local tweenInfo = TweenInfo.new(
+        0.2,
+        Enum.EasingStyle.Quad,
+        Enum.EasingDirection.Out
+    )
+
+    local positionTween = TweenService:Create(setf3b, tweenInfo, {Position = targetPosition})
+    local colorTween = TweenService:Create(setf3b, tweenInfo, {BackgroundColor3 = targetColor})
+
+
+    positionTween:Play()
+    colorTween:Play()
+end
+
+function updateCkImage()
+    if not ckimage then return end
+    if useProfilePicture then
+        local headshotURL = loadHeadshot()
+        if headshotURL then
+            ckimage.Image = headshotURL
+        else
+            ckimage.Image = "rbxassetid://117259454598676"
+        end
+    else
+        ckimage.Image = "rbxassetid://117259454598676"
+    end
+end
+
+
+
+settingf3.MouseButton1Click:Connect(function()
+    useProfilePicture = not useProfilePicture
+    updateCkImage()
+    updVisual()
+    writefile(profilePictureFile, "useProfilePicture = " .. tostring(useProfilePicture))
+end)
+
+if isfile(profilePictureFile) then
+    fileContent = readfile(profilePictureFile)
+    if fileContent then
+        useProfilePictureValue = fileContent:match("useProfilePicture = (%w+)")
+        if useProfilePictureValue == "true" then
+            useProfilePicture = true
+        elseif useProfilePictureValue == "false" then
+            useProfilePicture = false
+        end
+    end
+end
+
+updateCkImage()
+updVisual()
+
 local first = Instance.new("TextLabel")
 first.Parent = home
 first.Name = "first" 
@@ -643,28 +870,27 @@ first2.TextYAlignment = Enum.TextYAlignment.Center
 first2.Text = "Jkrouzt Hub Made By jkrouzt"
 
 first3 = Instance.new("TextLabel")
+first3.Name = "first3"
 first3.Parent = home
-first3.Name = "first3" 
 first3.Size = UDim2.new(0.3, 0, 0.15, 0)
-first3.Position = UDim2.new(0, 135, 0.30, 0)
-first3.BackgroundColor3 = Color3.new(0, 1, 0)
+first3.Position = UDim2.new(0.0, 135, 0.30, 0)
+first3.BackgroundColor3 = Color3.new(0, 0, 0)
 first3.BackgroundTransparency = 1
-first3.BorderColor3 = Color3.new(0, 0, 0)
-first3.BorderSizePixel = 1
 first3.TextColor3 = Color3.new(1, 1, 1)
 first3.TextScaled = true
 first3.Font = Enum.Font.SourceSansBold
+first3.Text = ""
 first3.TextXAlignment = Enum.TextXAlignment.Left
 first3.TextYAlignment = Enum.TextYAlignment.Center
 first3.Text = "Loading"
-wait(0.1) 
 
 for i = 1, 100 do
     first3.Text = "Loading: " .. i .. "%"
-    wait(0.01) 
+    wait(0.001) 
 end
 
 first3.Text = "Jkrouzt Hub successfully executed!"
+
 
 info = Instance.new("TextLabel")
 info.Parent = home
@@ -823,98 +1049,6 @@ harked.MouseButton1Click:Connect(function()
 		topm = "Information!"
 	})
 end)
-
-sething = Instance.new("TextLabel")
-sething.Parent = Lastshit
-sething.Name = "sething"
-sething.Size = UDim2.new(1.01800001, 0, 0.100000001, 0)
-sething.Position = UDim2.new(0, 0, 0, 0)
-sething.BackgroundColor3 = Color3.new(0, 0, 0)
-sething.BackgroundTransparency = 0
-sething.BorderColor3 = Color3.new(255, 0, 0)
-sething.BorderSizePixel = 3
-sething.TextColor3 = Color3.new(1, 1, 1)
-sething.TextStrokeColor3 = Color3.new(255, 0, 0)
-sething.TextStrokeTransparency = 0.8
-sething.TextScaled = true
-sething.Font = Enum.Font.Michroma
-sething.Text = "Settings"
-sething.TextXAlignment = Enum.TextXAlignment.Left
-sething.TextYAlignment = Enum.TextYAlignment.Center
-
-settingf1tex = Instance.new("TextLabel")
-settingf1tex.Name = "skipshit"
-settingf1tex.Size = UDim2.new(0, 200, 0, 50)
-settingf1tex.Position = UDim2.new(0, 325, 0, 55)
-settingf1tex.AnchorPoint = Vector2.new(0, 0)
-settingf1tex.Text = "Skip Intro:"
-settingf1tex.TextColor3 = Color3.new(1, 1, 1)
-settingf1tex.BackgroundTransparency = 1
-settingf1tex.Font = Enum.Font.Fantasy
-settingf1tex.TextScaled = true
-settingf1tex.TextXAlignment = Enum.TextXAlignment.Center
-settingf1tex.TextYAlignment = Enum.TextYAlignment.Center
-settingf1tex.Parent = Lastshit
-
-settingf2tex = Instance.new("TextLabel")
-settingf2tex.Name = "Remove logo"
-settingf2tex.Size = UDim2.new(0, 200, 0, 50)
-settingf2tex.Position = UDim2.new(0, 0, 0, 55)
-settingf2tex.AnchorPoint = Vector2.new(0, 0)
-settingf2tex.Text = "Remove Logo:"
-settingf2tex.TextColor3 = Color3.new(1, 1, 1)
-settingf2tex.BackgroundTransparency = 1
-settingf2tex.Font = Enum.Font.Fantasy
-settingf2tex.TextScaled = true
-settingf2tex.TextXAlignment = Enum.TextXAlignment.Center
-settingf2tex.TextYAlignment = Enum.TextYAlignment.Center
-settingf2tex.Parent = Lastshit
-
-settingf1 = Instance.new("TextButton")
-settingf1.Name = "settingf1"
-settingf1.Parent = Lastshit
-settingf1.Size = UDim2.new(0, 100, 0, 30)
-settingf1.Position = UDim2.new(0, 535, 0, 70)
-settingf1.Text = ""
-settingf1.TextScaled = true
-settingf1.Font = Enum.Font.Code
-settingf1.TextColor3 = Color3.new(1, 1, 1)
-settingf1.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-settingf1.BorderColor3 = Color3.new(1, 0, 0)
-settingf1.BorderSizePixel = 3
-
-setf1b = Instance.new("Frame")
-setf1b.Name = "setf1b"
-setf1b.Parent = settingf1
-setf1b.Size = UDim2.new(0.4, 0, 0.8, 0)
-setf1b.Position = UDim2.new(0.1, 0, 0.1, 0)
-setf1b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-setf1b.BorderSizePixel = 0
-setf1b.AnchorPoint = Vector2.new(0.5, 0.5)
-setf1b.Position = UDim2.new(0.25,0,0.5,0)
-
-settingf2 = Instance.new("TextButton")
-settingf2.Name = "settingf2"
-settingf2.Parent = Lastshit
-settingf2.Size = UDim2.new(0, 100, 0, 30)
-settingf2.Position = UDim2.new(0, 205, 0, 70)
-settingf2.Text = ""
-settingf2.TextScaled = true
-settingf2.Font = Enum.Font.Code
-settingf2.TextColor3 = Color3.new(1, 1, 1)
-settingf2.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-settingf2.BorderColor3 = Color3.new(1, 0, 0)
-settingf2.BorderSizePixel = 3
-
-setf2b = Instance.new("Frame")
-setf2b.Name = "setf2b"
-setf2b.Parent = settingf2
-setf2b.Size = UDim2.new(0.4, 0, 0.8, 0)
-setf2b.Position = UDim2.new(0.1, 0, 0.1, 0)
-setf2b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-setf2b.BorderSizePixel = 0
-setf2b.AnchorPoint = Vector2.new(0.5, 0.5)
-setf2b.Position = UDim2.new(0.25,0,0.5,0)
 
 local loopButt = Instance.new("TextButton")
 loopButt.Parent = exec
@@ -7203,6 +7337,7 @@ if isfile(logVisibleFile) then
 else
     print(logVisibleFile .. " not found.")
 end
+
 
 isEffectActive = false
 unanchoredparts = {} 
