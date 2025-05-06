@@ -7,6 +7,13 @@ local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local GuiService = game:GetService("GuiService")
 
+makefolder("jksettings")
+local ckTeam
+local backinamage
+local orbitzxc
+local sigmb
+
+
 local screenGui = Instance.new("ScreenGui")
 local tab1 = Instance.new("TextButton")
 local tab2 = Instance.new("TextButton")
@@ -33,20 +40,22 @@ mainFrame.Active = true
 mainFrame.Draggable = true
 mainFrame.Visible = false
 
-imageLabel.Size = UDim2.new(0, 70, 0, 70)
-imageLabel.Position = UDim2.new(0, 20, 1, -20) 
-imageLabel.AnchorPoint = Vector2.new(0, 1) 
-imageLabel.BackgroundTransparency = 1 
-imageLabel.Image = "rbxassetid://87459933248527"
-imageLabel.Parent = screenGui
-imageLabel.ScaleType = Enum.ScaleType.Fit 
-imageLabel.BorderSizePixel = 0 
-imageLabel.Name = "ckTeam" 
-imageLabel.ZIndex = 2
+ckTeam = Instance.new("ImageLabel")
+ckTeam.Size = UDim2.new(0, 70, 0, 70)
+ckTeam.Position = UDim2.new(0, 20, 1, -20) 
+ckTeam.AnchorPoint = Vector2.new(0, 1) 
+ckTeam.BackgroundTransparency = 1 
+ckTeam.Image = "rbxassetid://87459933248527"
+ckTeam.Parent = screenGui
+ckTeam.ScaleType = Enum.ScaleType.Fit 
+ckTeam.BorderSizePixel = 0 
+ckTeam.Name = "ckTeam" 
+ckTeam.ZIndex = 2
+ckTeam.Visible = true
 
 
 game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
-    imageLabel.Rotation = imageLabel.Rotation + 0.1 * deltaTime * 360
+    ckTeam.Rotation = ckTeam.Rotation + 0.1 * deltaTime * 360
 end)
 
 backinamage = Instance.new("ImageLabel")
@@ -61,6 +70,7 @@ backinamage.ScaleType = Enum.ScaleType.Fit
 backinamage.BorderSizePixel = 0 
 backinamage.Name = "background1"
 backinamage.ZIndex = 1
+backinamage.Visible = true
 
 
 game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
@@ -79,6 +89,7 @@ orbitzxc.ScaleType = Enum.ScaleType.Fit
 orbitzxc.BorderSizePixel = 0 
 orbitzxc.Name = "background2"
 orbitzxc.ZIndex = 0
+orbitzxc.Visible = true
 
 
 startTime = tick()
@@ -103,6 +114,7 @@ sigmb.ScaleType = Enum.ScaleType.Fit
 sigmb.BorderSizePixel = 0 
 sigmb.Name = "background3"
 sigmb.ZIndex = 1
+sigmb.Visible = true
 
 
 game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
@@ -630,7 +642,7 @@ first2.TextXAlignment = Enum.TextXAlignment.Left
 first2.TextYAlignment = Enum.TextYAlignment.Center
 first2.Text = "Jkrouzt Hub Made By jkrouzt"
 
-local first3 = Instance.new("TextLabel")
+first3 = Instance.new("TextLabel")
 first3.Parent = home
 first3.Name = "first3" 
 first3.Size = UDim2.new(0.3, 0, 0.15, 0)
@@ -654,7 +666,7 @@ end
 
 first3.Text = "Jkrouzt Hub successfully executed!"
 
-local info = Instance.new("TextLabel")
+info = Instance.new("TextLabel")
 info.Parent = home
 info.Name = "info" 
 info.Size = UDim2.new(0.3, 0, 0.15, 0)
@@ -692,7 +704,7 @@ if LocalPlayer then
     end
 end
 
-local info2 = Instance.new("TextLabel")
+info2 = Instance.new("TextLabel")
 info2.Parent = home
 info2.Name = "info"
 info2.Size = UDim2.new(0.3, 0, 0.15, 0)
@@ -707,7 +719,7 @@ info2.TextXAlignment = Enum.TextXAlignment.Left
 info2.TextYAlignment = Enum.TextYAlignment.Center
 info2.Font = Enum.Font.SourceSansBold
 
-local info3 = Instance.new("TextButton")
+info3 = Instance.new("TextButton")
 info3.Parent = home
 info3.Name = "info3"
 info3.Size = UDim2.new(0.6, 0, 0.15, 0)
@@ -844,6 +856,20 @@ settingf1tex.TextXAlignment = Enum.TextXAlignment.Center
 settingf1tex.TextYAlignment = Enum.TextYAlignment.Center
 settingf1tex.Parent = Lastshit
 
+settingf2tex = Instance.new("TextLabel")
+settingf2tex.Name = "Remove logo"
+settingf2tex.Size = UDim2.new(0, 200, 0, 50)
+settingf2tex.Position = UDim2.new(0, 0, 0, 55)
+settingf2tex.AnchorPoint = Vector2.new(0, 0)
+settingf2tex.Text = "Remove Logo:"
+settingf2tex.TextColor3 = Color3.new(1, 1, 1)
+settingf2tex.BackgroundTransparency = 1
+settingf2tex.Font = Enum.Font.Fantasy
+settingf2tex.TextScaled = true
+settingf2tex.TextXAlignment = Enum.TextXAlignment.Center
+settingf2tex.TextYAlignment = Enum.TextYAlignment.Center
+settingf2tex.Parent = Lastshit
+
 settingf1 = Instance.new("TextButton")
 settingf1.Name = "settingf1"
 settingf1.Parent = Lastshit
@@ -857,85 +883,38 @@ settingf1.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 settingf1.BorderColor3 = Color3.new(1, 0, 0)
 settingf1.BorderSizePixel = 3
 
-boozx = Instance.new("Frame")
-boozx.Name = "boozx"
-boozx.Parent = settingf1
-boozx.Size = UDim2.new(0.4, 0, 0.8, 0)
-boozx.Position = UDim2.new(0.1, 0, 0.1, 0)
-boozx.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-boozx.BorderSizePixel = 0
-boozx.AnchorPoint = Vector2.new(0.5, 0.5)
-boozx.Position = UDim2.new(0.25,0,0.5,0)
+setf1b = Instance.new("Frame")
+setf1b.Name = "setf1b"
+setf1b.Parent = settingf1
+setf1b.Size = UDim2.new(0.4, 0, 0.8, 0)
+setf1b.Position = UDim2.new(0.1, 0, 0.1, 0)
+setf1b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+setf1b.BorderSizePixel = 0
+setf1b.AnchorPoint = Vector2.new(0.5, 0.5)
+setf1b.Position = UDim2.new(0.25,0,0.5,0)
 
-toggleState = false
-introSetFile = "IntroSet.txt"
+settingf2 = Instance.new("TextButton")
+settingf2.Name = "settingf2"
+settingf2.Parent = Lastshit
+settingf2.Size = UDim2.new(0, 100, 0, 30)
+settingf2.Position = UDim2.new(0, 205, 0, 70)
+settingf2.Text = ""
+settingf2.TextScaled = true
+settingf2.Font = Enum.Font.Code
+settingf2.TextColor3 = Color3.new(1, 1, 1)
+settingf2.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+settingf2.BorderColor3 = Color3.new(1, 0, 0)
+settingf2.BorderSizePixel = 3
 
-function updateButtonVisual()
-    local targetPosition
-    local targetColor
-
-    if toggleState then
-        targetPosition = UDim2.new(0.75, 0, 0.5, 0)
-        targetColor = Color3.fromRGB(0, 255, 0)
-        settingf1.BorderColor3 = Color3.new(0, 1, 0)
-    else
-        targetPosition = UDim2.new(0.25, 0, 0.5, 0)
-        targetColor = Color3.fromRGB(255, 0, 0)
-        settingf1.BorderColor3 = Color3.new(1, 0, 0)
-    end
-
-    tweenInfo = TweenInfo.new(
-        0.2, 
-        Enum.EasingStyle.Quad,
-        Enum.EasingDirection.Out
-    )
-
-    positionTween = TweenService:Create(boozx, tweenInfo, {Position = targetPosition})
-    colorTween = TweenService:Create(boozx, tweenInfo, {BackgroundColor3 = targetColor})
-
-    positionTween:Play()
-    colorTween:Play()
-end
-
-function isToggleOnVisually()
-    return boozx.Position.X.Offset > (settingf1.Size.X.Offset / 2)
-end
-
-settingf1.MouseButton1Click:Connect(function()
-    toggleState = not toggleState
-    updateButtonVisual()
-    if toggleState then
-        writefile(introSetFile, "iskip = true, toggleState = true")
-    else
-        writefile(introSetFile, "iskip = false, toggleState = false")
-    end
-
-    if isfile(introSetFile) then
-        
-    end
-end)
-
-if isfile(introSetFile) then
-    local fileContent = readfile(introSetFile)
-    if fileContent then
-        local iskipValue = fileContent:match("iskip = (%w+)")
-        if iskipValue == "true" then
-            toggleState = true
-            updateButtonVisual()
-            
-        elseif iskipValue == "false" then
-            toggleState = false
-            updateButtonVisual()
-            
-        end
-    end
-else
-    
-end
-
-if isToggleOnVisually() then
-warn("Toggle is visually ON, but file/state may disagree.")
-end
+setf2b = Instance.new("Frame")
+setf2b.Name = "setf2b"
+setf2b.Parent = settingf2
+setf2b.Size = UDim2.new(0.4, 0, 0.8, 0)
+setf2b.Position = UDim2.new(0.1, 0, 0.1, 0)
+setf2b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+setf2b.BorderSizePixel = 0
+setf2b.AnchorPoint = Vector2.new(0.5, 0.5)
+setf2b.Position = UDim2.new(0.25,0,0.5,0)
 
 local loopButt = Instance.new("TextButton")
 loopButt.Parent = exec
@@ -7096,6 +7075,134 @@ end
     mypages.Text = "Page 1"
     oppage.Visible = true
 end)
+
+toggleState = false
+jksettings = "jksettings/IntroSet.txt"
+logVisibleFile = "jksettings/LogVisible.txt"
+
+function updateButtonVisual()
+    local targetPosition
+    local targetColor
+
+    if toggleState then
+        targetPosition = UDim2.new(0.75, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(0, 255, 0)
+        settingf1.BorderColor3 = Color3.new(0, 1, 0)
+    else
+        targetPosition = UDim2.new(0.25, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(255, 0, 0)
+        settingf1.BorderColor3 = Color3.new(1, 0, 0)
+    end
+
+    local tweenInfo = TweenInfo.new(
+        0.2,
+        Enum.EasingStyle.Quad,
+        Enum.EasingDirection.Out
+    )
+    local positionTween = TweenService:Create(setf1b, tweenInfo, {Position = targetPosition})
+    local colorTween = TweenService:Create(setf1b, tweenInfo, {BackgroundColor3 = targetColor})
+    positionTween:Play()
+    colorTween:Play()
+end
+
+function isToggleOnVisually()
+    return setf1b.Position.X.Offset > (settingf1.Size.X.Offset / 2)
+end
+
+settingf1.MouseButton1Click:Connect(function()
+    toggleState = not toggleState
+    updateButtonVisual()
+    if toggleState then
+        writefile(jksettings, "iskip = true, toggleState = true")
+    else
+        writefile(jksettings, "iskip = false, toggleState = false")
+    end
+
+    if isfile(jksettings) then
+        print("Updated " .. jksettings)
+    end
+end)
+
+if isfile(jksettings) then
+    fileContent = readfile(jksettings)
+    if fileContent then
+        iskipValue = fileContent:match("iskip = (%w+)")
+        if iskipValue == "true" then
+            toggleState = true
+            updateButtonVisual()
+            print("Loaded state from " .. jksettings .. ": iskip = true")
+        elseif iskipValue == "false" then
+            toggleState = false
+            updateButtonVisual()
+            print("Loaded state from " .. jksettings .. ": iskip = false")
+        end
+    end
+else
+        print(jksettings .. " not found.")
+end
+
+if isToggleOnVisually() then
+    print("Warning: Toggle is visually ON, but file/state may disagree.")
+end
+
+logVisibleState = false
+imgIsVisible = true
+
+function updateLogVisibleButton()
+    local targetPosition
+    local targetColor
+    if logVisibleState then
+        targetPosition = UDim2.new(0.75, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(0, 255, 0)
+        settingf2.BorderColor3 = Color3.new(0, 1, 0)
+    else
+        targetPosition = UDim2.new(0.25, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(255, 0, 0)
+        settingf2.BorderColor3 = Color3.new(1, 0, 0)
+    end
+
+    local tweenInfo = TweenInfo.new(
+        0.2,
+        Enum.EasingStyle.Quad,
+        Enum.EasingDirection.Out
+    )
+    local positionTween = TweenService:Create(setf2b, tweenInfo, {Position = targetPosition})
+    local colorTween = TweenService:Create(setf2b, tweenInfo, {BackgroundColor3 = targetColor})
+    positionTween:Play()
+    colorTween:Play()
+
+    if ckTeam then ckTeam.Visible = not logVisibleState end
+    if backinamage then backinamage.Visible = not logVisibleState end
+    if orbitzxc then orbitzxc.Visible = not logVisibleState end
+    if sigmb then sigmb.Visible = not logVisibleState end
+
+    writefile(logVisibleFile, "imgIsVisible = " .. tostring(not logVisibleState))
+end
+
+settingf2.MouseButton1Click:Connect(function()
+    logVisibleState = not logVisibleState
+    updateLogVisibleButton()
+
+    if isfile(logVisibleFile) then
+        print("Updated " .. logVisibleFile)
+    end
+end)
+
+if isfile(logVisibleFile) then
+    fileContent = readfile(logVisibleFile)
+    if fileContent then
+        imgIsVisibleValue = fileContent:match("imgIsVisible = (%w+)")
+        if imgIsVisibleValue == "true" then
+            logVisibleState = false
+        elseif imgIsVisibleValue == "false" then
+            logVisibleState = true
+        end
+        updateLogVisibleButton() --update button
+        print("Loaded state " .. logVisibleFile .. ": imgIsVisible = " .. imgIsVisibleValue)
+    end
+else
+    print(logVisibleFile .. " not found.")
+end
 
 isEffectActive = false
 unanchoredparts = {} 
