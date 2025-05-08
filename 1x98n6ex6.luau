@@ -218,14 +218,6 @@ local function toggleGUI()
     end
 end
 
-UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
-    if gameProcessedEvent then return end
-
-    if input.KeyCode == Enum.KeyCode.RightControl then
-        toggleGUI()
-    end
-end)
-
 openui.MouseButton1Click:Connect(toggleGUI)
 
 if mainFrame.Visible then
@@ -670,6 +662,20 @@ settingf3tex.TextXAlignment = Enum.TextXAlignment.Center
 settingf3tex.TextYAlignment = Enum.TextYAlignment.Center
 settingf3tex.Parent = Lastshit
 
+settingf4tex = Instance.new("TextLabel")
+settingf4tex.Name = "Keybindxzc"
+settingf4tex.Size = UDim2.new(0, 200, 0, 50)
+settingf4tex.Position = UDim2.new(0, 55, 0, 110)
+settingf4tex.AnchorPoint = Vector2.new(0, 0)
+settingf4tex.Text = "UI Keybind:"
+settingf4tex.TextColor3 = Color3.new(1, 1, 1)
+settingf4tex.BackgroundTransparency = 1
+settingf4tex.Font = Enum.Font.Fantasy
+settingf4tex.TextScaled = true
+settingf4tex.TextXAlignment = Enum.TextXAlignment.Center
+settingf4tex.TextYAlignment = Enum.TextYAlignment.Center
+settingf4tex.Parent = Lastshit
+
 settingf1 = Instance.new("TextButton")
 settingf1.Name = "settingf1"
 settingf1.Parent = Lastshit
@@ -738,6 +744,22 @@ setf3b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 setf3b.BorderSizePixel = 0
 setf3b.AnchorPoint = Vector2.new(0.5, 0.5)
 setf3b.Position = UDim2.new(0.25,0,0.5,0)
+
+settingf4 = Instance.new("TextBox")
+settingf4.Parent = Lastshit
+settingf4.Name = "UiKeybind"
+settingf4.Size = UDim2.new(0, 200, 0, 50)
+settingf4.Position = UDim2.new(0, 55, 0, 170)
+settingf4.BackgroundColor3 = Color3.new(0, 0, 0)
+settingf4.BackgroundTransparency = 0
+settingf4.BorderColor3 = Color3.new(1, 0, 0)
+settingf4.BorderSizePixel = 2
+settingf4.PlaceholderText = "Keybind Here"
+settingf4.PlaceholderColor3 = Color3.new(1, 1, 1)
+settingf4.TextColor3 = Color3.new(1, 1, 1)
+settingf4.Text = "Type Key here"
+settingf4.TextScaled = true
+settingf4.Font = Enum.Font.GothamBold
 
 local ckimage = Instance.new("ImageLabel")
 ckimage.Parent = home
@@ -836,6 +858,169 @@ end
 
 updateCkImage()
 updVisual()
+
+defaultKey = Enum.KeyCode.RightControl
+currentKey = defaultKey
+keyNameFile = "jksettings/toggleKeybind.txt"
+
+Keys = {
+    Enum.KeyCode.Escape, Enum.KeyCode.F1, Enum.KeyCode.F2, Enum.KeyCode.F3, Enum.KeyCode.F4, Enum.KeyCode.F5, Enum.KeyCode.F6, Enum.KeyCode.F7, Enum.KeyCode.F8, Enum.KeyCode.F9, Enum.KeyCode.F10, Enum.KeyCode.F11, Enum.KeyCode.F12, Enum.KeyCode.Delete,
+    Enum.KeyCode.Backquote, Enum.KeyCode.One, Enum.KeyCode.Two, Enum.KeyCode.Three, Enum.KeyCode.Four, Enum.KeyCode.Five, Enum.KeyCode.Six, Enum.KeyCode.Seven, Enum.KeyCode.Eight, Enum.KeyCode.Nine, Enum.KeyCode.Zero, Enum.KeyCode.Minus, Enum.KeyCode.Equals, Enum.KeyCode.Backspace,
+    Enum.KeyCode.Tab, Enum.KeyCode.Q, Enum.KeyCode.W, Enum.KeyCode.E, Enum.KeyCode.R, Enum.KeyCode.T, Enum.KeyCode.Y, Enum.KeyCode.U, Enum.KeyCode.I, Enum.KeyCode.O, Enum.KeyCode.P, Enum.KeyCode.LeftBracket, Enum.KeyCode.RightBracket,
+    Enum.KeyCode.CapsLock, Enum.KeyCode.A, Enum.KeyCode.S, Enum.KeyCode.D, Enum.KeyCode.F, Enum.KeyCode.G, Enum.KeyCode.H, Enum.KeyCode.J, Enum.KeyCode.K, Enum.KeyCode.L, Enum.KeyCode.Semicolon, --Removed Quote
+    Enum.KeyCode.LeftShift, Enum.KeyCode.Z, Enum.KeyCode.X, Enum.KeyCode.C, Enum.KeyCode.V, Enum.KeyCode.B, Enum.KeyCode.N, Enum.KeyCode.M, Enum.KeyCode.Comma, Enum.KeyCode.Period, Enum.KeyCode.Slash, Enum.KeyCode.RightShift,
+    Enum.KeyCode.LeftControl, Enum.KeyCode.LeftAlt, Enum.KeyCode.Space, Enum.KeyCode.RightAlt, Enum.KeyCode.RightControl, Enum.KeyCode.Up, Enum.KeyCode.Left, Enum.KeyCode.Down, Enum.KeyCode.Right
+}
+
+textToKeyCodes = {
+    [";"] = Enum.KeyCode.Semicolon,
+    [","] = Enum.KeyCode.Comma,
+    ["."] = Enum.KeyCode.Period,
+    ["/"] = Enum.KeyCode.Slash,
+    ["["] = Enum.KeyCode.LeftBracket,
+    ["]"] = Enum.KeyCode.RightBracket,
+    ["`"] = Enum.KeyCode.Backquote,
+    ["-"] = Enum.KeyCode.Minus,
+    ["="] = Enum.KeyCode.Equals,
+    [" "] = Enum.KeyCode.Space,
+    ["lctrl"] = Enum.KeyCode.LeftControl,
+    ["rctrl"] = Enum.KeyCode.RightControl,
+    ["lshift"] = Enum.KeyCode.LeftShift,
+    ["rshift"] = Enum.KeyCode.RightShift,
+    ["lalt"] = Enum.KeyCode.LeftAlt,
+    ["ralt"] = Enum.KeyCode.RightAlt,
+    ["LControl"] = Enum.KeyCode.LeftControl,
+    ["RControl"] = Enum.KeyCode.RightControl,
+    ["LShift"] = Enum.KeyCode.LeftShift,
+    ["RShift"] = Enum.KeyCode.RightShift,
+    ["LAlt"] = Enum.KeyCode.LeftAlt,
+    ["RAlt"] = Enum.KeyCode.RightAlt,
+    ["leftctrl"] = Enum.KeyCode.LeftControl,
+    ["rightctrl"] = Enum.KeyCode.RightControl,
+    ["leftshift"] = Enum.KeyCode.LeftShift,
+    ["rightshift"] = Enum.KeyCode.RightShift,
+    ["leftalt"] = Enum.KeyCode.LeftAlt,
+    ["rightalt"] = Enum.KeyCode.RightAlt,
+    ["LeftControl"] = Enum.KeyCode.LeftControl,
+    ["RightControl"] = Enum.KeyCode.RightControl,
+    ["LeftShift"] = Enum.KeyCode.LeftShift,
+    ["RightShift"] = Enum.KeyCode.RightShift,
+    ["LeftAlt"] = Enum.KeyCode.LeftAlt,
+    ["RightAlt"] = Enum.KeyCode.RightAlt,
+    ["leftcontrol"] = Enum.KeyCode.LeftControl,
+    ["rightcontrol"] = Enum.KeyCode.RightControl,
+    ["leftshift"] = Enum.KeyCode.LeftShift,
+    ["rightshift"] = Enum.KeyCode.RightShift,
+    ["leftalt"] = Enum.KeyCode.LeftAlt,
+    ["rightalt"] = Enum.KeyCode.RightAlt,
+    ["LeftControl"] = Enum.KeyCode.LeftControl,
+    ["RightControl"] = Enum.KeyCode.RightControl,
+    ["LeftShift"] = Enum.KeyCode.LeftShift,
+    ["RightShift"] = Enum.KeyCode.RightShift,
+    ["LeftAlt"] = Enum.KeyCode.LeftAlt,
+    ["RightAlt"] = Enum.KeyCode.RightAlt,
+    ["0"] = Enum.KeyCode.Zero,
+    ["1"] = Enum.KeyCode.One,
+    ["2"] = Enum.KeyCode.Two,
+    ["3"] = Enum.KeyCode.Three,
+    ["4"] = Enum.KeyCode.Four,
+    ["5"] = Enum.KeyCode.Five,
+    ["6"] = Enum.KeyCode.Six,
+    ["7"] = Enum.KeyCode.Seven,
+    ["8"] = Enum.KeyCode.Eight,
+    ["9"] = Enum.KeyCode.Nine,
+}
+
+function saveKeyName(keyName)
+    writefile(keyNameFile, keyName)
+end
+
+function loadKeyName()
+    if isfile(keyNameFile) then
+        local fileContent = readfile(keyNameFile)
+        if fileContent then
+            return fileContent
+        end
+    end
+    return "RightControl"
+end
+
+function setKeybind(key)
+    currentKey = key
+    if settingf4 then
+        settingf4.Text = key.Name
+    end
+    saveKeyName(key.Name)
+end
+
+savedKeyName = loadKeyName()
+savedKey = Enum.KeyCode[savedKeyName]
+if savedKey then
+    currentKey = savedKey
+else
+    currentKey = defaultKey
+    saveKeyName(defaultKey.Name)
+end
+
+if settingf4 then
+    settingf4.Text = currentKey.Name
+end
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+
+    if input.KeyCode == currentKey then
+        toggleGUI()
+    end
+end)
+
+settingf4.FocusLost:Connect(function(enterPressed)
+    local input = settingf4.Text
+    local foundKey = nil
+
+    if textToKeyCodes[input] then
+        foundKey = textToKeyCodes[input]
+    elseif string.len(input) == 1 then
+        local upperInput = string.upper(input)
+        for _, key in ipairs(Keys) do
+            if string.upper(key.Name) == upperInput then
+                foundKey = key
+                break
+            end
+        end
+    end
+
+    if foundKey then
+        setKeybind(foundKey)
+    else
+        notif({
+            Text = "Invalid key or Unsupported Key. Check Console For Supported Keys",
+            Duration = 6,
+            topm = "Warning!"
+        })
+local function printKeyCodes(keyTable)
+    print("Available KeyCodes:")
+    for i, key in ipairs(keyTable) do
+        print(i, key.Name)
+    end
+end
+
+printKeyCodes(Keys)
+
+local function printTextToKeyCodes(table)
+    print("Text to KeyCode mappings:")
+    for text, keyCode in pairs(table) do
+        print(string.format("Text: '%s', KeyCode: %s", text, keyCode.Name))
+    end
+end
+
+printTextToKeyCodes(textToKeyCodes)
+
+        if settingf4 then
+            settingf4.Text = currentKey.Name
+        end
+    end
+end)
 
 local first = Instance.new("TextLabel")
 first.Parent = home
