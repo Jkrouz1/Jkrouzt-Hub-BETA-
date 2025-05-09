@@ -194,10 +194,10 @@ openui.BackgroundTransparency = 0.5
 openui.Active = true
 
 isVisible = true
-local initialPosition = UDim2.new(0.5, 0, 0, -100)
-local targetPosition = UDim2.new(0.35, 0, 0.305, 0)
-local animationDuration = 0.9
-local tweenInfo = TweenInfo.new(animationDuration, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+local initialPosition = UDim2.new(-0.400000006, 0, 0, 100)
+local targetPosition = UDim2.new(0.375, 0, 0.200000003, 0)
+local animationDuration = 0.4
+local tweenInfo = TweenInfo.new(animationDuration, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 local tweenInfoOut = TweenInfo.new(animationDuration, Enum.EasingStyle.Back, Enum.EasingDirection.In)
 
 local function animateGui(target, goalPosition, tweenInfo)
