@@ -191,6 +191,7 @@ openui.Size = UDim2.new(0, 50, 0, 50)
 openui.Position = UDim2.new(0, 10, 0.5, -50)
 openui.BackgroundColor3 = Color3.new(0, 0, 0)
 openui.BackgroundTransparency = 0.5
+openui.Visible = true
 openui.Active = true
 
 isVisible = true
@@ -662,6 +663,20 @@ settingf3tex.TextXAlignment = Enum.TextXAlignment.Center
 settingf3tex.TextYAlignment = Enum.TextYAlignment.Center
 settingf3tex.Parent = Lastshit
 
+settingf5tex = Instance.new("TextLabel")
+settingf5tex.Name = "Visiblity"
+settingf5tex.Size = UDim2.new(0, 200, 0, 50)
+settingf5tex.Position = UDim2.new(0, 325, 0, 180)
+settingf5tex.AnchorPoint = Vector2.new(0, 0)
+settingf5tex.Text = "UI Toggle Visibility:"
+settingf5tex.TextColor3 = Color3.new(1, 1, 1)
+settingf5tex.BackgroundTransparency = 1
+settingf5tex.Font = Enum.Font.Fantasy
+settingf5tex.TextScaled = true
+settingf5tex.TextXAlignment = Enum.TextXAlignment.Center
+settingf5tex.TextYAlignment = Enum.TextYAlignment.Center
+settingf5tex.Parent = Lastshit
+
 settingf4tex = Instance.new("TextLabel")
 settingf4tex.Name = "Keybindxzc"
 settingf4tex.Size = UDim2.new(0, 200, 0, 50)
@@ -744,6 +759,29 @@ setf3b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 setf3b.BorderSizePixel = 0
 setf3b.AnchorPoint = Vector2.new(0.5, 0.5)
 setf3b.Position = UDim2.new(0.25,0,0.5,0)
+
+settingf5 = Instance.new("TextButton")
+settingf5.Name = "settingf5"
+settingf5.Parent = Lastshit
+settingf5.Size = UDim2.new(0, 100, 0, 30)
+settingf5.Position = UDim2.new(0, 535, 0, 190)
+settingf5.Text = ""
+settingf5.TextScaled = true
+settingf5.Font = Enum.Font.Code
+settingf5.TextColor3 = Color3.new(1, 1, 1)
+settingf5.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+settingf5.BorderColor3 = Color3.new(1, 0, 0)
+settingf5.BorderSizePixel = 3
+
+setf5b = Instance.new("Frame")
+setf5b.Name = "setf5b"
+setf5b.Parent = settingf5
+setf5b.Size = UDim2.new(0.4, 0, 0.8, 0)
+setf5b.Position = UDim2.new(0.1, 0, 0.1, 0)
+setf5b.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+setf5b.BorderSizePixel = 0
+setf5b.AnchorPoint = Vector2.new(0.5, 0.5)
+setf5b.Position = UDim2.new(0.25,0,0.5,0)
 
 settingf4 = Instance.new("TextBox")
 settingf4.Parent = Lastshit
@@ -1052,7 +1090,14 @@ first2.TextScaled = true
 first2.Font = Enum.Font.GothamBlack
 first2.TextXAlignment = Enum.TextXAlignment.Left
 first2.TextYAlignment = Enum.TextYAlignment.Center
-first2.Text = "Jkrouzt Hub Made By jkrouzt"
+first2.Text = "Jkrouzt Hub Made By jkrouzt\nIn Discord"
+hue = 0
+speed = 0.9 -- Adjust for faster or slower cycling
+
+RunService.Heartbeat:Connect(function(delta)
+    hue = (hue + delta * speed) % 1
+    first2.TextColor3 = Color3.fromHSV(hue, 1, 1)
+end)
 
 first3 = Instance.new("TextLabel")
 first3.Name = "first3"
@@ -1071,7 +1116,7 @@ first3.Text = "Loading"
 
 for i = 1, 100 do
     first3.Text = "Loading: " .. i .. "%"
-    wait(0.001) 
+    wait()
 end
 
 first3.Text = "Jkrouzt Hub successfully executed!"
@@ -1110,8 +1155,6 @@ if LocalPlayer then
 
     if info and info:IsA("TextLabel") then
         info.Text = "Account Age: " .. accountAgeText
-    else
-        warn("Error: Could not find TextLabel named 'info' inside 'YourGui'")
     end
 end
 
@@ -1229,7 +1272,7 @@ harked.TextScaled = true
 harked.Parent = home
 harked.MouseButton1Click:Connect(function()
 	notif({
-		Text = "FE Scripts or Filtering Enabled Scripts is a Script that Other Players can see like you bringing Parts or Reanimation. (added more soon...)",
+		Text = "FE Scripts or Filtering Enabled Scripts is a Script that Other Players can see like you bringing Parts or Reanimation.",
 		Duration = 9,
 		topm = "Information!"
 	})
@@ -1265,7 +1308,7 @@ codeTextBox.TextXAlignment = Enum.TextXAlignment.Left
 codeTextBox.TextYAlignment = Enum.TextYAlignment.Top
 codeTextBox.TextWrapped = true
 
-local clear = Instance.new("TextButton")
+clear = Instance.new("TextButton")
 clear.Parent = exec
 clear.Name = "clear"
 clear.Size = UDim2.new(0.25000003, 0, 0.150000006, 0)
@@ -2757,178 +2800,276 @@ scn50.Text = "HttpSpy"
 scn50.Visible = false
 scn50.MouseButton1Click:Connect(function()
 local HttpSpy = Instance.new("ScreenGui")
-local Backgroud = Instance.new("Frame")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TitleBar = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
 local TitleText = Instance.new("TextLabel")
 local MainContainer = Instance.new("ScrollingFrame")
-local TemplateText = Instance.new("TextLabel")
 local UIListLayout = Instance.new("UIListLayout")
+local UIPadding = Instance.new("UIPadding")
 
---Properties:
-
+-- Properties
 HttpSpy.Name = "HttpSpy"
 HttpSpy.Parent = game.CoreGui
 HttpSpy.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-HttpSpy.ResetOnSpawn = false
 
-Backgroud.Name = "Backgroud"
-Backgroud.Parent = HttpSpy
-Backgroud.Active = true
-Backgroud.Draggable = true
-Backgroud.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
-Backgroud.BorderColor3 = Color3.fromRGB(255, 0, 4)
-Backgroud.BorderSizePixel = 2
-Backgroud.Position = UDim2.new(0.0586419739, 0, 0.24924925, 0)
-Backgroud.Size = UDim2.new(0, 406, 0, 222)
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = HttpSpy
+MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.05, 0, 0.25, 0)
+MainFrame.Size = UDim2.new(0, 400, 0, 300)
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = MainFrame
+
+TitleBar.Name = "TitleBar"
+TitleBar.Parent = MainFrame
+TitleBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TitleBar.BorderSizePixel = 0
+TitleBar.Size = UDim2.new(1, 0, 0, 30)
+
+UICorner_2.CornerRadius = UDim.new(0, 10)
+UICorner_2.Parent = TitleBar
 
 TitleText.Name = "TitleText"
-TitleText.Parent = Backgroud
-TitleText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TitleText.BackgroundTransparency = 1.000
-TitleText.BorderSizePixel = 0
-TitleText.Size = UDim2.new(0, 406, 0, 25)
-TitleText.Font = Enum.Font.RobotoMono
-TitleText.Text = "HTTP Spy v. 1"
+TitleText.Parent = TitleBar
+TitleText.BackgroundTransparency = 1
+TitleText.Position = UDim2.new(0, 10, 0, 0)
+TitleText.Size = UDim2.new(1, -40, 1, 0)
+TitleText.Font = Enum.Font.GothamSemibold
+TitleText.Text = "HTTP Spy v2"
 TitleText.TextColor3 = Color3.fromRGB(255, 255, 255)
-TitleText.TextScaled = true
-TitleText.TextSize = 14.000
-TitleText.TextWrapped = true
+TitleText.TextSize = 14
+TitleText.TextXAlignment = Enum.TextXAlignment.Left
+
+local MinimizeButton = Instance.new("TextButton")
+MinimizeButton.Name = "MinimizeButton"
+MinimizeButton.Parent = TitleBar
+MinimizeButton.BackgroundTransparency = 1
+MinimizeButton.Position = UDim2.new(1, -30, 0, 0)
+MinimizeButton.Size = UDim2.new(0, 30, 1, 0)
+MinimizeButton.Font = Enum.Font.GothamBold
+MinimizeButton.Text = "-"
+MinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeButton.TextSize = 20
 
 MainContainer.Name = "MainContainer"
-MainContainer.Parent = Backgroud
-MainContainer.Active = true
-MainContainer.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
-MainContainer.BorderSizePixel = 0
-MainContainer.Position = UDim2.new(0, 0, 0.112612613, 0)
-MainContainer.Size = UDim2.new(0, 406, 0, 197)
-MainContainer.ScrollBarThickness = 6
+MainContainer.Parent = MainFrame
+MainContainer.BackgroundTransparency = 1
+MainContainer.Position = UDim2.new(0, 0, 0, 30)
+MainContainer.Size = UDim2.new(1, 0, 1, -30)
+MainContainer.ScrollBarThickness = 4
+MainContainer.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
 
 UIListLayout.Parent = MainContainer
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 5)
 
+UIPadding.Parent = MainContainer
+UIPadding.PaddingLeft = UDim.new(0, 10)
+UIPadding.PaddingRight = UDim.new(0, 10)
+UIPadding.PaddingTop = UDim.new(0, 10)
 
-function drag (s)
-script.Parent = s;
-script.Parent.Position = UDim2.new (0, script.Parent.Parent.AbsoluteSize.X * script.Parent.Position.X.Scale + script.Parent.Position.X.Offset, 0, script.Parent.Parent. AbsoluteSize.Y * script.Parent.Position.Y.Scale + script.Parent.Position.Y.Offset)
-local i = false
-script.Parent.MouseEnter:Connect(function ()
-i = true
-end);
-script.Parent.MouseLeave:Connect(function ()
-i = false;
+local NotificationFrame = Instance.new("Frame")
+local NotificationText = Instance.new("TextLabel")
+
+NotificationFrame.Name = "NotificationFrame"
+NotificationFrame.Parent = HttpSpy
+NotificationFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+NotificationFrame.BorderSizePixel = 0
+NotificationFrame.Position = UDim2.new(1, -220, 1, -60)
+NotificationFrame.Size = UDim2.new(0, 200, 0, 40)
+NotificationFrame.Visible = false
+
+local NotificationCorner = Instance.new("UICorner")
+NotificationCorner.CornerRadius = UDim.new(0, 5)
+NotificationCorner.Parent = NotificationFrame
+
+NotificationText.Name = "NotificationText"
+NotificationText.Parent = NotificationFrame
+NotificationText.BackgroundTransparency = 1
+NotificationText.Size = UDim2.new(1, 0, 1, 0)
+NotificationText.Font = Enum.Font.GothamSemibold
+NotificationText.TextColor3 = Color3.fromRGB(255, 255, 255)
+NotificationText.TextSize = 14
+NotificationText.Text = "Log copied to clipboard!"
+
+local isMinimized = false
+
+MinimizeButton.MouseButton1Click:Connect(function()
+    isMinimized = not isMinimized
+
+    if not isMinimized then
+        MainContainer.Visible = true
+        MainFrame.Size = UDim2.new(0, 400, 0, 300)
+        MinimizeButton.Text = "-"
+        return
+    end
+
+    MainContainer.Visible = false
+    MainFrame.Size = UDim2.new(0, 400, 0, 30)
+    MinimizeButton.Text = "+"
 end)
-local uis = game:GetService("UserInputService")
-local up = false;
-local m = game:GetService("Players")['LocalPlayer']:GetMouse()
-uis.InputBegan:Connect(function(key)
-if key.UserInputType == Enum.UserInputType.MouseButton1 then
-up = false 
-local offsetX = m.X-script.Parent.Position.X.Offset
-local offsetY = m.Y-script.Parent.Position.Y.Offset 
-if i then
-repeat
-warn("BRRRRR")
-s:TweenPosition (UDim2.new (0, m.X-offsetX, 0, m.Y-offsetY), 'Out', 'Sine', 0.4, true)
-wait ();
-until up
-offsetX = 0
-offsetY = 0
-end;
+
+-- Functions
+local function createDraggable(gui)
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+
+    local function update(input)
+        local delta = input.Position - dragStart
+        gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch then return end
+
+        dragging = true
+        dragStart = input.Position
+        startPos = gui.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState ~= Enum.UserInputState.End then return end
+            dragging = false
+        end)
+    end)
+
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType ~= Enum.UserInputType.MouseMovement and input.UserInputType ~= Enum.UserInputType.Touch then return end
+        dragInput = input
+    end)
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input ~= dragInput or not dragging then return end
+        update(input)
+    end)
 end
-end)
-uis.InputEnded:Connect(function(key)
-if key.UserInputType == Enum.UserInputType.MouseButton1 then
-up = true 
-end
-end)
 
-
-end;
-drag(Backgroud)
-
-
-local script = Instance.new('LocalScript', MainContainer)
-
-TemplateText.Name = "TemplateText"
-TemplateText.Parent = HttpSpy.Backgroud.MainContainer.LocalScript
-TemplateText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TemplateText.BackgroundTransparency = 0.950
-TemplateText.BorderSizePixel = 0
-TemplateText.Position = UDim2.new(3.75832236e-08, 0, 0, 0)
-TemplateText.Size = UDim2.new(1.00000012, 0, 0, 20)
-TemplateText.Font = Enum.Font.SourceSansSemibold
-TemplateText.Text = "ur mom"
-TemplateText.TextColor3 = Color3.fromRGB(255, 255, 255)
-TemplateText.TextScaled = true
-TemplateText.TextSize = 14.000
-TemplateText.TextWrapped = true
-TemplateText.TextXAlignment = Enum.TextXAlignment.Left
-
-local Template = script.TemplateText
+createDraggable(MainFrame)
 
 local function registerDynamicScrollingFrame(frame)
-local layout = frame:FindFirstChildWhichIsA("UIListLayout")
-local absoluteContentSize = layout.AbsoluteContentSize
-frame.CanvasSize = UDim2.new(0, 0, 0, absoluteContentSize.Y)
-layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-local absoluteContentSize = layout.AbsoluteContentSize
-frame.CanvasSize = UDim2.new(0, 0, 0, absoluteContentSize.Y)
-end)
+    local layout = frame:FindFirstChildWhichIsA("UIListLayout")
+
+    local function updateCanvasSize()
+        frame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 20)
+    end
+
+    layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(updateCanvasSize)
+    updateCanvasSize()
 end
 
-local function Log(text,headers)
-local Label = Template:Clone()
-if headers and type(headers) == "table" then 
-text = text .. " (HEADERS:"
-for Index, Value in next, headers do 
-text = text.. tostring(Index).. ": "..tostring(Value)
-
-end
-text = text .. ")"
-end
-Label.Text = text 
-Label.Parent = script.Parent
-
-end
 registerDynamicScrollingFrame(MainContainer)
+
+local function showNotification()
+    NotificationFrame.Visible = true
+    task.wait(2)
+    NotificationFrame.Visible = false
+end
+
+local function formatLogEntry(method, url, headers)
+    if not method or not url then
+        return ""
+    end
+
+    local text = method .. "\n" .. url
+
+    if not headers or type(headers) ~= "table" then
+        return text
+    end
+
+    text ..= "\n\nHeaders:"
+    for key, value in pairs(headers) do
+        text ..= string.format("\n%s: %s", tostring(key), tostring(value))
+    end
+
+    return text
+end
+
+local function createLogEntry(method, url, headers)
+    local LogEntry = Instance.new("TextButton")
+    LogEntry.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    LogEntry.BorderSizePixel = 0
+    LogEntry.Size = UDim2.new(1, 0, 0, 30)
+    LogEntry.Font = Enum.Font.SourceSansSemibold
+    LogEntry.TextColor3 = Color3.fromRGB(220, 220, 220)
+    LogEntry.TextSize = 14
+    LogEntry.TextWrapped = true
+    LogEntry.TextXAlignment = Enum.TextXAlignment.Left
+    LogEntry.TextYAlignment = Enum.TextYAlignment.Top
+    LogEntry.AutoButtonColor = false
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 5)
+    UICorner.Parent = LogEntry
+
+    local UIPadding = Instance.new("UIPadding")
+    UIPadding.Parent = LogEntry
+    UIPadding.PaddingLeft = UDim.new(0, 10)
+    UIPadding.PaddingRight = UDim.new(0, 10)
+    UIPadding.PaddingTop = UDim.new(0, 5)
+    UIPadding.PaddingBottom = UDim.new(0, 5)
+
+    local logText = formatLogEntry(method, url, headers)
+    LogEntry.Text = logText
+    LogEntry.Parent = MainContainer
+
+    local textSize = game:GetService("TextService"):GetTextSize(
+        LogEntry.Text,
+        LogEntry.TextSize,
+        LogEntry.Font,
+        Vector2.new(MainContainer.AbsoluteSize.X - 40, math.huge)
+    )
+    LogEntry.Size = UDim2.new(1, 0, 0, textSize.Y + 10)
+
+    local OriginalColor = LogEntry.BackgroundColor3
+
+    LogEntry.MouseEnter:Connect(function()
+        LogEntry.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    end)
+
+    LogEntry.MouseLeave:Connect(function()
+        LogEntry.BackgroundColor3 = OriginalColor
+    end)
+
+    LogEntry.MouseButton1Click:Connect(function()
+        setclipboard(logText)
+        showNotification()
+    end)
+
+    MainContainer.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+end
+
+-- HTTP Spy Logic
 local HttpGet
-
 HttpGet = hookfunction(game.HttpGet, function(self, url, ...)
-Log("Http Get Request from: "..url)
-
-return HttpGet(self, url, ...)
+    createLogEntry("HTTP GET", url)
+    return HttpGet(self, url, ...)
 end)
 
 local HttpPost
-
 HttpPost = hookfunction(game.HttpPost, function(self, url, ...)
-Log("Http Post Request from: "..url)
-
-return HttpPost(self, url, ...)
+    createLogEntry("HTTP POST", url)
+    return HttpPost(self, url, ...)
 end)
-
 
 local RequestLog
-
-if syn.request then 
-
-RequestLog = hookfunction(syn.request, function(dat)
-Log("syn.request from: "..dat.Url.." ("..dat.Method..")",dat.Headers)
-
-return RequestLog(dat)
-end)
-
+if syn and syn.request then
+    RequestLog = hookfunction(syn.request, function(dat)
+        createLogEntry(dat.Method or "REQUEST", dat.Url, dat.Headers)
+        return RequestLog(dat)
+    end)
 elseif request then
-
-RequestLog = hookfunction(request, function(dat)
-Log("syn.request from: "..dat.Url.." ("..dat.Method..")",dat.Headers)
-
-return RequestLog(dat)
-end)
-
+    RequestLog = hookfunction(request, function(dat)
+        createLogEntry(dat.Method or "REQUEST", dat.Url, dat.Headers)
+        return RequestLog(dat)
+    end)
 else
-error("YOUR EXPLOIT IS NOT SUPPORTED!")
+    createLogEntry("WARNING", "Your exploit is not supported!")
 end
-
 end)
 
  scne51 = Instance.new("TextButton")
@@ -3221,7 +3362,7 @@ scne55.Font = Enum.Font.Roboto
 scne55.Text = "Wallhop Gui"
 scne55.Visible = false
 scne55.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V3%20script'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script'))()
 end)
 
  scne56 = Instance.new("TextButton")
@@ -3331,10 +3472,283 @@ scne61.BorderSizePixel = 3
 scne61.TextColor3 = Color3.new(1, 1, 1)
 scne61.TextScaled = true
 scne61.Font = Enum.Font.Roboto
-scne61.Text = "Rinns Hub"
+scne61.Text = "Zero Hub"
 scne61.Visible = false
 scne61.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SkibidiCen/MainMenu/main/Code"))()
+-- https://discord.gg/Ex7sRvpYYu
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dnezero/zerohub/refs/heads/main/main.lua"))()
+end)
+
+scne62 = Instance.new("TextButton")
+scne62.Parent = sc
+scne62.Name = "scne62"
+scne62.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne62.Position = UDim2.new(0.00996587239, 0, 0.43, 0)
+scne62.BackgroundColor3 = Color3.new(0, 0, 0)
+scne62.BorderColor3 = Color3.new(1, 0, 0)
+scne62.BorderSizePixel = 3
+scne62.TextColor3 = Color3.new(1, 1, 1)
+scne62.TextScaled = true
+scne62.Font = Enum.Font.Roboto
+scne62.Text = "Roblox Music Player"
+scne62.Visible = false
+scne62.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Maan04ka/CodingScripts/main/MusicUI.lua"))()
+end)
+
+scne63 = Instance.new("TextButton")
+scne63.Parent = sc
+scne63.Name = "scne63"
+scne63.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne63.Position = UDim2.new(0.18, 0, 0.43, 0)
+scne63.BackgroundColor3 = Color3.new(0, 0, 0)
+scne63.BorderColor3 = Color3.new(1, 0, 0)
+scne63.BorderSizePixel = 3
+scne63.TextColor3 = Color3.new(1, 1, 1)
+scne63.TextScaled = true
+scne63.Font = Enum.Font.Roboto
+scne63.Text = "Rave Hub\nMp3 Player"
+scne63.Visible = false
+scne63.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/qdbi/Rave-Hub/refs/heads/main/Rave%20Hub%20Language%20Selection", true))()
+end)
+
+scne64 = Instance.new("TextButton")
+scne64.Parent = sc
+scne64.Name = "scne64"
+scne64.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne64.Position = UDim2.new(0.35, 0, 0.43, 0)
+scne64.BackgroundColor3 = Color3.new(0, 0, 0)
+scne64.BorderColor3 = Color3.new(0, 1, 0)
+scne64.BorderSizePixel = 3
+scne64.TextColor3 = Color3.new(1, 1, 1)
+scne64.TextScaled = true
+scne64.Font = Enum.Font.Roboto
+scne64.Text = "Emotes Gui"
+scne64.Visible = false
+scne64.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://yarhm.mhi.im/scr?channel=afem"))()
+end)
+
+scne65 = Instance.new("TextButton")
+scne65.Parent = sc
+scne65.Name = "scne65"
+scne65.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne65.Position = UDim2.new(0.52, 0, 0.43, 0)
+scne65.BackgroundColor3 = Color3.new(0, 0, 0)
+scne65.BorderColor3 = Color3.new(0, 1, 0)
+scne65.BorderSizePixel = 3
+scne65.TextColor3 = Color3.new(1, 1, 1)
+scne65.TextScaled = true
+scne65.Font = Enum.Font.Roboto
+scne65.Text = "Tornado Parts Gui"
+scne65.Visible = false
+scne65.MouseButton1Click:Connect(function()
+notif({
+		Text = "This script maybe will crash your device.",
+		Duration = 5,
+		topm = "Warning!"
+	})
+wait(2)
+pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/TornadoGuiIg/refs/heads/main/Srrylolitsobfuscatednomorestealing", true))()
+end)
+end)
+
+scne66 = Instance.new("TextButton")
+scne66.Parent = sc
+scne66.Name = "scne66"
+scne66.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne66.Position = UDim2.new(0.69, 0, 0.43, 0)
+scne66.BackgroundColor3 = Color3.new(0, 0, 0)
+scne66.BorderColor3 = Color3.new(0, 1, 0)
+scne66.BorderSizePixel = 3
+scne66.TextColor3 = Color3.new(1, 1, 1)
+scne66.TextScaled = true
+scne66.Font = Enum.Font.Roboto
+scne66.Text = "Invisible Button"
+scne66.Visible = false
+scne66.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Invisible-script-20557"))()
+end)
+
+scne67 = Instance.new("TextButton")
+scne67.Parent = sc
+scne67.Name = "scne67"
+scne67.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scne67.Position = UDim2.new(0.86, 0, 0.43, 0)
+scne67.BackgroundColor3 = Color3.new(0, 0, 0)
+scne67.BorderColor3 = Color3.new(0, 1, 0)
+scne67.BorderSizePixel = 3
+scne67.TextColor3 = Color3.new(1, 1, 1)
+scne67.TextScaled = true
+scne67.Font = Enum.Font.Roboto
+scne67.Text = "Hug Tool"
+scne67.Visible = false
+scne67.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/Animations/refs/heads/main/Hug%20Tool"))()
+
+--[[ don't mind the notification saying "you have to be r15 dummy" it should be "you have to be r6 dummy" lol I forgot to change it ]]
+end)
+
+scne68 = Instance.new("TextButton")
+scne68.Parent = sc
+scne68.Name = "scne68"
+scne68.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne68.Position = UDim2.new(0.00996587239, 0, 0.63, 0)
+scne68.BackgroundColor3 = Color3.new(0, 0, 0)
+scne68.BorderColor3 = Color3.new(1, 0, 0)
+scne68.BorderSizePixel = 3
+scne68.TextColor3 = Color3.new(1, 1, 1)
+scne68.TextScaled = true
+scne68.Font = Enum.Font.Roboto
+scne68.Text = "Anticheat Analyzer"
+scne68.Visible = false
+scne68.MouseButton1Click:Connect(function()
+notif({
+		Text = "This Might Not Be That Accurate On Some Games",
+		Duration = 3,
+		topm = "Warning!"
+	})
+pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Analyser/refs/heads/main/AAA", true))()
+end)
+end)
+
+scne69 = Instance.new("TextButton")
+scne69.Parent = sc
+scne69.Name = "scne69"
+scne69.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne69.Position = UDim2.new(0.18, 0, 0.63, 0)
+scne69.BackgroundColor3 = Color3.new(0, 0, 0)
+scne69.BorderColor3 = Color3.new(1, 0, 0)
+scne69.BorderSizePixel = 3
+scne69.TextColor3 = Color3.new(1, 1, 1)
+scne69.TextScaled = true
+scne69.Font = Enum.Font.Roboto
+scne69.Text = "Coming"
+scne69.Visible = false
+scne69.MouseButton1Click:Connect(function()
+
+end)
+
+scne70 = Instance.new("TextButton")
+scne70.Parent = sc
+scne70.Name = "scne70"
+scne70.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne70.Position = UDim2.new(0.35, 0, 0.63, 0)
+scne70.BackgroundColor3 = Color3.new(0, 0, 0)
+scne70.BorderColor3 = Color3.new(1, 0, 0)
+scne70.BorderSizePixel = 3
+scne70.TextColor3 = Color3.new(1, 1, 1)
+scne70.TextScaled = true
+scne70.Font = Enum.Font.Roboto
+scne70.Text = "Coming"
+scne70.Visible = false
+scne70.MouseButton1Click:Connect(function()
+
+end)
+
+scne71 = Instance.new("TextButton")
+scne71.Parent = sc
+scne71.Name = "scne71"
+scne71.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne71.Position = UDim2.new(0.52, 0, 0.63, 0)
+scne71.BackgroundColor3 = Color3.new(0, 0, 0)
+scne71.BorderColor3 = Color3.new(1, 0, 0)
+scne71.BorderSizePixel = 3
+scne71.TextColor3 = Color3.new(1, 1, 1)
+scne71.TextScaled = true
+scne71.Font = Enum.Font.Roboto
+scne71.Text = "Coming"
+scne71.Visible = false
+scne71.MouseButton1Click:Connect(function()
+
+end)
+
+scne72 = Instance.new("TextButton")
+scne72.Parent = sc
+scne72.Name = "scne72"
+scne72.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+scne72.Position = UDim2.new(0.69, 0, 0.63, 0)
+scne72.BackgroundColor3 = Color3.new(0, 0, 0)
+scne72.BorderColor3 = Color3.new(1, 0, 0)
+scne72.BorderSizePixel = 3
+scne72.TextColor3 = Color3.new(1, 1, 1)
+scne72.TextScaled = true
+scne72.Font = Enum.Font.Roboto
+scne72.Text = "Coming"
+scne72.Visible = false
+scne72.MouseButton1Click:Connect(function()
+
+end)
+
+scne73 = Instance.new("TextButton")
+scne73.Parent = sc
+scne73.Name = "scne73"
+scne73.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scne73.Position = UDim2.new(0.86, 0, 0.63, 0)
+scne73.BackgroundColor3 = Color3.new(0, 0, 0)
+scne73.BorderColor3 = Color3.new(1, 0, 0)
+scne73.BorderSizePixel = 3
+scne73.TextColor3 = Color3.new(1, 1, 1)
+scne73.TextScaled = true
+scne73.Font = Enum.Font.Roboto
+scne73.Text = "Coming"
+scne73.Visible = false
+scne73.MouseButton1Click:Connect(function()
+
+end)
+
+scne74 = Instance.new("TextButton")
+scne74.Parent = sc
+scne74.Name = "scne74"
+scne74.Size = UDim2.new(0.473003626, 0, 0.101999998, 0)
+scne74.Position = UDim2.new(0.519000053, 0, 0.799999893, 0)
+scne74.BackgroundColor3 = Color3.new(0, 0, 0)
+scne74.BorderColor3 = Color3.new(1, 0, 0)
+scne74.BorderSizePixel = 2
+scne74.TextColor3 = Color3.new(1, 1, 1)
+scne74.TextScaled = true
+scne74.Font = Enum.Font.Roboto
+scne74.Text = "Coming"
+scne74.Visible = false
+scne74.MouseButton1Click:Connect(function()
+
+end)
+
+scne75 = Instance.new("TextButton")
+scne75.Parent = sc
+scne75.Name = "scne75"
+scne75.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
+scne75.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
+scne75.BackgroundColor3 = Color3.new(0, 0, 0)
+scne75.BorderColor3 = Color3.new(1, 0, 0)
+scne75.BorderSizePixel = 2
+scne75.TextColor3 = Color3.new(1, 1, 1)
+scne75.TextScaled = true
+scne75.Font = Enum.Font.Roboto
+scne75.Text = "coming"
+scne75.Visible = false
+scne75.MouseButton1Click:Connect(function()
+
+end)
+
+scne76 = Instance.new("TextButton")
+scne76.Parent = sc
+scne76.Name = "scne76"
+scne76.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+scne76.Position = UDim2.new(0.86, 0, 0.229999959, 0)
+scne76.BackgroundColor3 = Color3.new(0, 0, 0)
+scne76.BorderColor3 = Color3.new(1, 0, 0)
+scne76.BorderSizePixel = 3
+scne76.TextColor3 = Color3.new(1, 1, 1)
+scne76.TextScaled = true
+scne76.Font = Enum.Font.Roboto
+scne76.Text = "Executor Test Panel"
+scne76.Visible = false
+scne76.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zryr/executor-test-panel/refs/heads/main/panel.lua"))()
 end)
 
 local scsPage = Instance.new("Frame")
@@ -3556,15 +3970,15 @@ scg3.Name = "scg3"
 scg3.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scg3.Position = UDim2.new(0.35, 0, 0.150, 0)
 scg3.BackgroundColor3 = Color3.new(0, 0, 0)
-scg3.BorderColor3 = Color3.new(1, 1, 0)
+scg3.BorderColor3 = Color3.new(1, 0, 0)
 scg3.BorderSizePixel = 3
 scg3.TextColor3 = Color3.new(1, 1, 1)
 scg3.TextScaled = true
 scg3.Font = Enum.Font.Roboto
-scg3.Text = "forge Hub (mm2) "
+scg3.Text = "YARHM (mm2) "
 scg3.Visible = false
 scg3.MouseButton1Click:Connect(function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Joystickplays/psychic-octo-invention/main/yarhm.lua", false))()
 end)
 
 local scg4 = Instance.new("TextButton")
@@ -3872,11 +4286,96 @@ scg20.BorderSizePixel = 3
 scg20.TextColor3 = Color3.new(1, 1, 1)
 scg20.TextScaled = true
 scg20.Font = Enum.Font.Roboto
-scg20.Text = "Zinner Hub (Bloxfruit) "
+scg20.Text = "Bounty Hunter (Bloxfruit) "
 scg20.Visible = false
 scg20.MouseButton1Click:Connect(function()
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 getgenv().Team = "Pirates"
-loadstring(game:HttpGet('https://raw.githubusercontent.com/HoangNguyenk8/Scripts/refs/heads/main/Loader.lua'))()
+getgenv().Config = {
+    ["Safe Health"] = {50},
+    ["Custom Y Run"] = {
+        Enabled = true,
+        ["Y Run"] = 5000
+    },
+    ["Hunt Method"] = {
+        ["Use Move Predict"] = false,
+        ["Hit and Run"] = false,
+        ["Aimbot"] = true,
+        ["ESP Player"] = true,
+        ["Max Attack Time"] = 60
+    },
+    ["Shop"] = {
+        ["Random Fruit"] = false,
+        ["Store Fruit"] = true,
+        ["Zoro Sword"] = false
+    },
+    ["Ui Theme"] = {
+        ["Background"] = "139756291389843",
+        ["Skip Button"] = "113079599736013",
+        ["Reset Bounty Button"] = "118191900561814"
+    },
+    ["Setting"] = {
+        ["World"] = nil,
+        ["White Screen"] = false,
+        ["Invisible"] = true,
+        ["Fast Delay"] = 0.5,
+        ["Tween Speed"] = 350,
+        ["Set Player Server Hop"] = 1,
+        ["Url"] = "Your_Webhook_Url",
+        ["Chat"] = {
+            Enabled = false,
+            Wait = 350,
+            Massage = {""}
+        }
+    },
+    ["Skip"] = {
+        ["Avoid V4"] = false
+    },
+    ["Spam All Skill On V4"] = {
+        Enabled = true,
+        ["Weapons"] = {"Melee", "Sword", "Gun", "Blox Fruit"}
+    },
+    Items = {
+        Use = {"Melee", "Sword"},
+        Melee = {
+            Enable = true,
+            Delay = 0.4,
+            Skills = {
+                Z = {Enable = true, HoldTime = 0.3},
+                X = {Enable = true, HoldTime = 0.2},
+                C = {Enable = true, HoldTime = 0.5}
+            }
+        },
+        Sword = {
+            Enable = true,
+            Delay = 0.5,
+            Skills = {
+                Z = {Enable = true, HoldTime = 1},
+                X = {Enable = true, HoldTime = 0}
+            }
+        },
+        Gun = {
+            Enable = false,
+            Delay = 0.2,
+            Skills = {
+                Z = {Enable = false, HoldTime = 0.1},
+                X = {Enable = false, HoldTime = 0.1}
+            }
+        },
+        ["Blox Fruit"] = {
+            Enable = false,
+            Delay = 0.4,
+            Skills = {
+                Z = {Enable = true, HoldTime = 0.1},
+                X = {Enable = true, HoldTime = 0.1},
+                C = {Enable = true, HoldTime = 0.15},
+                V = {Enable = false, HoldTime = 0.2},
+                F = {Enable = true, HoldTime = 0.1}
+            }
+        }
+    }
+}
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/10f7f97cebba24a87808c36ebd345a97.lua"))()
 end)
 
 local scg21 = Instance.new("TextButton")
@@ -3992,10 +4491,10 @@ scgn27.BorderSizePixel = 3
 scgn27.TextColor3 = Color3.new(1, 1, 1)
 scgn27.TextScaled = true
 scgn27.Font = Enum.Font.Roboto
-scgn27.Text = "Zenon Hub (Arise Crossover) "
+scgn27.Text = "devry Hub (Arise Crossover) "
 scgn27.Visible = false
 scgn27.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/241f48b1fc63b8e5c641df2af4b39d0c.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/defnotry/devry-hub/main/arise-crossover/main.lua"))()
 end)
 
 local scgn28 = Instance.new("TextButton")
@@ -4009,10 +4508,10 @@ scgn28.BorderSizePixel = 3
 scgn28.TextColor3 = Color3.new(1, 1, 1)
 scgn28.TextScaled = true
 scgn28.Font = Enum.Font.Roboto
-scgn28.Text = "SkyHub (AriseCrossover)"
+scgn28.Text = "Frost Hub (AriseCrossover)"
 scgn28.Visible = false
 scgn28.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SKOIXLL/SKYLOLAND/refs/heads/main/Load.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FrostLua/Scripts/refs/heads/main/AriseCrossover/Script.luau"))()
 end)
 
 local scgn29 = Instance.new("TextButton")
@@ -4060,10 +4559,10 @@ scgn31.BorderSizePixel = 3
 scgn31.TextColor3 = Color3.new(1, 1, 1)
 scgn31.TextScaled = true
 scgn31.Font = Enum.Font.SourceSans
-scgn31.Text = "Arbix Hub (Bluelock)"
+scgn31.Text = "XzuyaX Hub (Bluelock)"
 scgn31.Visible = false
 scgn31.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Youifpg/Blr-inf/refs/heads/main/infinitespins.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XZuuyaX/XZuyaX-s-Hub/refs/heads/main/Main.Lua", true))()
 end)
 
 local scgn32 = Instance.new("TextButton")
@@ -4094,10 +4593,10 @@ scgn33.BorderSizePixel = 3
 scgn33.TextColor3 = Color3.new(1, 1, 1)
 scgn33.TextScaled = true
 scgn33.Font = Enum.Font.Roboto
-scgn33.Text = "ToraisMe (Bluelock)"
+scgn33.Text = "Control Ball (Bluelock)"
 scgn33.Visible = false
 scgn33.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/BlueLock"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RedJDark/CONTROL-SCRIPTT/refs/heads/main/CONTROL"))()
 end)
 
 local scgn34 = Instance.new("TextButton")
@@ -4140,7 +4639,7 @@ scgn36.Name = "scgn36"
 scgn36.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scgn36.Position = UDim2.new(0.86, 0, 0.229999959, 0)
 scgn36.BackgroundColor3 = Color3.new(0, 0, 0)
-scgn36.BorderColor3 = Color3.new(1, 1, 0)
+scgn36.BorderColor3 = Color3.new(1, 0, 0)
 scgn36.BorderSizePixel = 3
 scgn36.TextColor3 = Color3.new(1, 1, 1)
 scgn36.TextScaled = true
@@ -4368,12 +4867,10 @@ scgn49.BorderSizePixel = 2
 scgn49.TextColor3 = Color3.new(1, 1, 1)
 scgn49.TextScaled = true
 scgn49.Font = Enum.Font.Roboto
-scgn49.Text = "Fartsaken (bypass) [Use Antikick]"
+scgn49.Text = "Saryn Hub\n(Forsaken)"
 scgn49.Visible = false
 scgn49.MouseButton1Click:Connect(function()
-local api = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
-api.script_id = "d0632c30c8af0316aae11552dcb2a21d"
-api.load_script()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Saiky988/Saryn-Hub/refs/heads/main/Saryn%Hub%Beta.lua'))()
 end)
 
 local scgn50 = Instance.new("TextButton")
@@ -4387,7 +4884,7 @@ scgn50.BorderSizePixel = 2
 scgn50.TextColor3 = Color3.new(1, 1, 1)
 scgn50.TextScaled = true
 scgn50.Font = Enum.Font.Roboto
-scgn50.Text = "Fartsaken"
+scgn50.Text = "Fartsaken\n(Forsaken)"
 scgn50.Visible = false
 scgn50.MouseButton1Click:Connect(function()
 if getgenv then
@@ -4512,7 +5009,7 @@ scgne57.BorderSizePixel = 3
 scgne57.TextColor3 = Color3.new(1, 1, 1)
 scgne57.TextScaled = true
 scgne57.Font = Enum.Font.SourceSans
-scgne57.Text = "ToraIsMe\n(GrowAGarden)"
+scgne57.Text = "Tora Hub\n(GrowAGarden)"
 scgne57.Visible = false
 scgne57.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/GrowaGarden", true))()
@@ -4546,10 +5043,10 @@ scgne59.BorderSizePixel = 3
 scgne59.TextColor3 = Color3.new(1, 1, 1)
 scgne59.TextScaled = true
 scgne59.Font = Enum.Font.Roboto
-scgne59.Text = "Hakariq\n(GrowAGarden)"
+scgne59.Text = "Speed Hub X\n(GrowAGarden)"
 scgne59.Visible = false
 scgne59.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/hakariqScripts/Roslina/refs/heads/main/Ro"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
 end)
 
 scgne60 = Instance.new("TextButton")
@@ -7516,13 +8013,52 @@ if isfile(logVisibleFile) then
         elseif imgIsVisibleValue == "false" then
             logVisibleState = true
         end
-        updateLogVisibleButton() --update button
+        updateLogVisibleButton()
         print("Loaded state " .. logVisibleFile .. ": imgIsVisible = " .. imgIsVisibleValue)
     end
 else
     print(logVisibleFile .. " not found.")
 end
 
+local fl = false -- Renamed to be more descriptive, and defined outside the function for persistence
+
+function VisibleVis()
+    local targetPosition
+    local targetColor
+
+    if fl then
+        targetPosition = UDim2.new(0.75, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(0, 255, 0)
+        settingf5.BorderColor3 = Color3.new(0, 1, 0)
+    else
+        targetPosition = UDim2.new(0.25, 0, 0.5, 0)
+        targetColor = Color3.fromRGB(255, 0, 0)
+        settingf5.BorderColor3 = Color3.new(1, 0, 0)
+    end
+
+    local tweenInfo = TweenInfo.new(
+        0.2,
+        Enum.EasingStyle.Quad,
+        Enum.EasingDirection.Out
+    )
+
+    local positionTween = TweenService:Create(setf5b, tweenInfo, {Position = targetPosition})
+    local colorTween = TweenService:Create(setf5b, tweenInfo, {BackgroundColor3 = targetColor})
+
+    positionTween:Play()
+    colorTween:Play()
+end
+
+settingf5.MouseButton1Click:Connect(function()
+    fl = not fl -- Toggle the 'fl' variable
+    openui.Visible = not openui.Visible -- Toggle Visibility
+    VisibleVis() -- Call the function to update the visuals
+	notif({
+		Text = "Toggle Button Visible will not saved to prevent user lose the mainFrame",
+		Duration = 6,
+		topm = "Warning!"
+	})
+end)
 
 isEffectActive = false
 unanchoredparts = {} 
