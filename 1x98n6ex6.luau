@@ -1,3 +1,7 @@
+-- Open Source for everyone who want to edit this script or not
+-- Dont touch anything if you dont know anything about this script below
+-- Made by jkrouzt. made with Mobile
+
 local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -3626,10 +3630,10 @@ scne69.BorderSizePixel = 3
 scne69.TextColor3 = Color3.new(1, 1, 1)
 scne69.TextScaled = true
 scne69.Font = Enum.Font.Roboto
-scne69.Text = "Coming"
+scne69.Text = "Animatrix Gui"
 scne69.Visible = false
 scne69.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ocfi/aqua-hub-is-a-skid-lol/refs/heads/main/animatrix"))()
 end)
 
 scne70 = Instance.new("TextButton")
@@ -3643,10 +3647,10 @@ scne70.BorderSizePixel = 3
 scne70.TextColor3 = Color3.new(1, 1, 1)
 scne70.TextScaled = true
 scne70.Font = Enum.Font.Roboto
-scne70.Text = "Coming"
+scne70.Text = "Place Finder"
 scne70.Visible = false
 scne70.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ACEtheSOLID/NoobyHub-Reborn/refs/heads/main/PlaceFinder-v0.1.lua"))()
 end)
 
 scne71 = Instance.new("TextButton")
@@ -5904,10 +5908,10 @@ ocn26.BorderSizePixel = 3
 ocn26.TextColor3 = Color3.new(1, 1, 1)
 ocn26.TextScaled = true
 ocn26.Font = Enum.Font.SourceSans
-ocn26.Text = "Place Finder Gui"
+ocn26.Text = "UnBan VC"
 ocn26.Visible = false
 ocn26.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ACEtheSOLID/NoobyHub-Reborn/refs/heads/main/PlaceFinder-v0.1.lua"))()
+game:GetService("VoiceChatService"):joinVoice()
 end)
 
 local ocn27 = Instance.new("TextButton")
@@ -5963,15 +5967,18 @@ ocn29.BorderSizePixel = 3
 ocn29.TextColor3 = Color3.new(1, 1, 1)
 ocn29.TextScaled = true
 ocn29.Font = Enum.Font.Roboto
-ocn29.Text = "Animatrix Gui"
+ocn29.Text = "Fast ProximityPrompt"
 ocn29.Visible = false
 ocn29.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ocfi/aqua-hub-is-a-skid-lol/refs/heads/main/animatrix"))()
-    	notif({
-		Text = "Please wait...",
-		Duration = 3,
-		topm = "Be Pantient!"
-	})
+-- hello :D
+local ProximityPromptService = game:GetService("ProximityPromptService")
+local instantInteractEnabled = true
+
+ProximityPromptService.PromptButtonHoldBegan:Connect(function(prompt, player)
+    if instantInteractEnabled then
+        fireproximityprompt(prompt)
+    end
+end)
 end)
 
 ocn30 = Instance.new("TextButton")
