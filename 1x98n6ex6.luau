@@ -3725,9 +3725,10 @@ scne72.Font = Enum.Font.Roboto
 scne72.Text = "Anna ChatBypasser"
 scne72.Visible = false
 scne72.MouseButton1Click:Connect(function()
-	notif({
-		Text = "set ur language to  Қазақ Тілі* ",
-		Duration = 5
+notif({
+		Text = "set ur language to  Қазақ Тілі",
+		Duration = 5,
+		topm = "Information!"
 	})
 wait(1)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AnnaRoblox/AnnaBypasser/refs/heads/main/AnnaBypasser.lua",true))()
