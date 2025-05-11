@@ -3785,21 +3785,22 @@ scne75.Name = "scne75"
 scne75.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
 scne75.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
 scne75.BackgroundColor3 = Color3.new(0, 0, 0)
-scne75.BorderColor3 = Color3.new(0, 1, 0)
+scne75.BorderColor3 = Color3.new(1, 0, 0)
 scne75.BorderSizePixel = 2
 scne75.TextColor3 = Color3.new(1, 1, 1)
 scne75.TextScaled = true
 scne75.Font = Enum.Font.Roboto
-scne75.Text = "Disbelief Hub"
+scne75.Text = "Talentless Hub"
 scne75.Visible = false
 scne75.MouseButton1Click:Connect(function()
 notif({
-		Text = "Running Hatless.",
+		Text = "works in almost all games that have a piano that uses keyboard input.",
 		Duration = 5,
 		topm = "Information!"
 	})
-getgenv().Framework = "Hatless" 
-loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/f61fc110c0dc167e263cec94518390a1/raw/f45ae28bdfd503af662214032432f7487c0ac419/DisbeliefHub.lua"))()
+pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/TALENTLESS/main/TALENTLESS",true))()
+end)
 end)
 
 scne76 = Instance.new("TextButton")
