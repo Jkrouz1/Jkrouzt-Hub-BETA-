@@ -3722,154 +3722,15 @@ scne72.BorderSizePixel = 3
 scne72.TextColor3 = Color3.new(1, 1, 1)
 scne72.TextScaled = true
 scne72.Font = Enum.Font.Roboto
-scne72.Text = "Report Spammer"
+scne72.Text = "Anna ChatBypasser"
 scne72.Visible = false
 scne72.MouseButton1Click:Connect(function()
--- original script: https://scriptblox.com/script/Universal-Script-AUTO-REPORT-DO-MR-RED-BLACK-V3-24930
-local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
-
-local Window = OrionLib:MakeWindow({
-    Name = "🎩 AUTO REPORT 2.0 BY MR RED BLACK 🎩",
-    HidePremium = false,
-    SaveConfig = true,
-    ConfigFolder = "OrionTest",
-    IntroText = "Welcome to Auto Report 2.0",
-    Theme = {
-        MainColor = Color3.fromRGB(0, 0, 0), -- Preto
-        AccentColor = Color3.fromRGB(255, 0, 0), -- Vermelho
-        BackgroundColor = Color3.fromRGB(30, 30, 30),
-        TextColor = Color3.fromRGB(255, 255, 255),
-        ButtonColor = Color3.fromRGB(255, 0, 0),
-        ButtonTextColor = Color3.fromRGB(255, 255, 255),
-        BorderColor = Color3.fromRGB(255, 0, 0) -- Borda vermelha
-    }
-})
-
-OrionLib:MakeNotification({
-    Name = "Script Creator",
-    Content = "Script created by SCARYS_CARY66666",
-    Time = 10
-})
-
-local Tab = Window:MakeTab({Name = "Players", Icon = "rbxassetid://4483345998", PremiumOnly = false})
-
-local Section = Tab:AddSection({Name = "List of players"})
-
-local players = game:GetService("Players")
-local playerList = {}
-
-local function updatePlayerList()
-    playerList = {}
-    for _, player in ipairs(players:GetPlayers()) do
-        table.insert(playerList, player.Name)
-    end
-end
-
-updatePlayerList()
-
-local selectedPlayer = nil
-
-local playerDropdown = Section:AddDropdown({
-    Name = "Select a Player",
-    Options = playerList,
-    Callback = function(value)
-        selectedPlayer = value
-    end
-})
-
-players.PlayerAdded:Connect(function(player)
-    table.insert(playerList, player.Name)
-    playerDropdown:Refresh(playerList, true)
-end)
-
-players.PlayerRemoving:Connect(function(player)
-    for i, playerName in ipairs(playerList) do
-        if playerName == player.Name then
-            table.remove(playerList, i)
-            break
-        end
-    end
-    playerDropdown:Refresh(playerList, true)
-end)
-
-local abuseOptions = {
-    "Cheating/Exploiting",
-    "Inappropriate Username",
-    "Bullying",
-    "Scamming",
-    "Inappropriate Content",
-    "Dating",
-    "Personal Question",
-    "Offsite Links",
-    "Bad Language",
-    "Other"
-}
-
-local selectedAbuse = nil
-
-Section:AddDropdown({
-    Name = "Select the Type of Abuse",
-    Options = abuseOptions,
-    Callback = function(value)
-        selectedAbuse = value
-    end
-})
-
-local function reportPlayer(playerName, abuseType)
-    local player = players:FindFirstChild(playerName)
-    if player and abuseType then
-        players:ReportAbuse(player, abuseType, "breaking TOS")
-        OrionLib:MakeNotification({
-            Name = "Report Sent",
-            Content = "Report sent for " .. playerName .. " by " .. abuseType,
-            Time = 5
-        })
-    end
-end
-
-local autoReport = false
-
-Section:AddButton({
-    Name = "Auto Report",
-    Callback = function()
-        autoReport = true
-        OrionLib:MakeNotification({
-            Name = "Auto Report On",
-            Content = "Auto report is on.",
-            Time = 5
-        })
-        while autoReport do
-            if selectedPlayer and selectedAbuse then
-                reportPlayer(selectedPlayer, selectedAbuse)
-            end
-            wait(1) -- Intervalo de 1 segundo entre os reports
-        end
-    end
-})
-
-Section:AddButton({
-    Name = "Stop Report",
-    Callback = function()
-        autoReport = false
-        OrionLib:MakeNotification({
-            Name = "Auto Report Off",
-            Content = "Auto report is turned off.",
-            Time = 5
-        })
-    end
-})
-
-Section:AddButton({
-    Name = "Copy Tiktok",
-    Callback = function()
-        setclipboard("mr_red_black_ofc")
-        OrionLib:MakeNotification({
-            Name = "Text Copied",
-            Content = "MY TIKTOK: mr_red_black_ofc",
-            Time = 5
-        })
-    end
-})
+	notif({
+		Text = "set ur language to  Қазақ Тілі* ",
+		Duration = 5
+	})
+wait(1)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AnnaRoblox/AnnaBypasser/refs/heads/main/AnnaBypasser.lua",true))()
 end)
 
 scne73 = Instance.new("TextButton")
@@ -3878,15 +3739,15 @@ scne73.Name = "scne73"
 scne73.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
 scne73.Position = UDim2.new(0.86, 0, 0.63, 0)
 scne73.BackgroundColor3 = Color3.new(0, 0, 0)
-scne73.BorderColor3 = Color3.new(1, 0, 0)
+scne73.BorderColor3 = Color3.new(100, 100, 0)
 scne73.BorderSizePixel = 3
 scne73.TextColor3 = Color3.new(1, 1, 1)
 scne73.TextScaled = true
 scne73.Font = Enum.Font.Roboto
-scne73.Text = "Chat Forger"
+scne73.Text = "AK Admin"
 scne73.Visible = false
 scne73.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/v-oidd/chat-forger/main/chat-forger.lua'))()
+loadstring(game:HttpGet("https://angelical.me/ak.lua"))()
 end)
 
 scne74 = Instance.new("TextButton")
