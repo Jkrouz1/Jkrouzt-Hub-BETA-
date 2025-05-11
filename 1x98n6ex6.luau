@@ -3785,21 +3785,16 @@ scne75.Name = "scne75"
 scne75.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
 scne75.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
 scne75.BackgroundColor3 = Color3.new(0, 0, 0)
-scne75.BorderColor3 = Color3.new(1, 1, 0)
+scne75.BorderColor3 = Color3.new(0, 1, 0)
 scne75.BorderSizePixel = 2
 scne75.TextColor3 = Color3.new(1, 1, 1)
 scne75.TextScaled = true
 scne75.Font = Enum.Font.Roboto
-scne75.Text = "Disbelief Hub v2"
+scne75.Text = "Disbelief Hub"
 scne75.Visible = false
 scne75.MouseButton1Click:Connect(function()
 notif({
 		Text = "Running Hatless.",
-		Duration = 5,
-		topm = "Information!"
-	})
-notif({
-		Text = "Hatless only works on r15 and games without voice chat",
 		Duration = 5,
 		topm = "Information!"
 	})
