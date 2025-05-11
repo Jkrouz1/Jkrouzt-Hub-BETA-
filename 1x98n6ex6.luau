@@ -1311,6 +1311,7 @@ codeTextBox.Font = Enum.Font.SourceSans
 codeTextBox.TextXAlignment = Enum.TextXAlignment.Left
 codeTextBox.TextYAlignment = Enum.TextYAlignment.Top
 codeTextBox.TextWrapped = true
+codeTextBox.ClearTextOnFocus = false
 
 clear = Instance.new("TextButton")
 clear.Parent = exec
@@ -3762,10 +3763,20 @@ scne74.BorderSizePixel = 2
 scne74.TextColor3 = Color3.new(1, 1, 1)
 scne74.TextScaled = true
 scne74.Font = Enum.Font.Roboto
-scne74.Text = "Coming"
+scne74.Text = "Stream Sniper\n[PC]"
 scne74.Visible = false
 scne74.MouseButton1Click:Connect(function()
-
+notif({
+		Text = "This Script is Only For PC",
+		Duration = 5,
+		topm = "Information!"
+	})
+notif({
+		Text = "Edited by Jkrouzt. Original in Scriptblox",
+		Duration = 5,
+		topm = "Information!"
+	})
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Jkrouz1/refs/heads/main/Stream%20Sniper%20Edited.txt"))()
 end)
 
 scne75 = Instance.new("TextButton")
@@ -3774,15 +3785,26 @@ scne75.Name = "scne75"
 scne75.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
 scne75.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
 scne75.BackgroundColor3 = Color3.new(0, 0, 0)
-scne75.BorderColor3 = Color3.new(1, 0, 0)
+scne75.BorderColor3 = Color3.new(1, 1, 0)
 scne75.BorderSizePixel = 2
 scne75.TextColor3 = Color3.new(1, 1, 1)
 scne75.TextScaled = true
 scne75.Font = Enum.Font.Roboto
-scne75.Text = "coming"
+scne75.Text = "Disbelief Hub v2"
 scne75.Visible = false
 scne75.MouseButton1Click:Connect(function()
-
+notif({
+		Text = "Running Hatless.",
+		Duration = 5,
+		topm = "Information!"
+	})
+notif({
+		Text = "Hatless only works on r15 and games without voice chat",
+		Duration = 5,
+		topm = "Information!"
+	})
+getgenv().Framework = "Hatless" 
+loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/f61fc110c0dc167e263cec94518390a1/raw/f45ae28bdfd503af662214032432f7487c0ac419/DisbeliefHub.lua"))()
 end)
 
 scne76 = Instance.new("TextButton")
