@@ -1,6 +1,6 @@
 -- Open Source for everyone who want to edit this script or not
 -- Dont touch anything if you dont know anything about this script below
--- Made by jkrouzt. made with Mobile
+-- Made by jkrouzt. made with Mobile device in China
 
 local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
@@ -10,6 +10,10 @@ local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local GuiService = game:GetService("GuiService")
+local lighting = game:GetService("Lighting")
+local Lighting = game:GetService("Lighting")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
 
 makefolder("jksettings")
 local ckTeam
@@ -42,6 +46,49 @@ mainFrame.BorderSizePixel = 2
 mainFrame.Active = true
 mainFrame.Draggable = true
 mainFrame.Visible = false
+
+function QFCS_fake_script() -- Frame.Dragify 
+	local script = Instance.new('LocalScript', mainFrame)
+
+	local UIS = game:GetService("UserInputService")
+	function dragify(Frame)
+	    dragToggle = nil
+	    local dragSpeed = 0
+	    dragInput = nil
+	    dragStart = nil
+	    local dragPos = nil
+	    function updateInput(input)
+	        local Delta = input.Position - dragStart
+	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+	    end
+	    Frame.InputBegan:Connect(function(input)
+	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+	            dragToggle = true
+	            dragStart = input.Position
+	            startPos = Frame.Position
+	            input.Changed:Connect(function()
+	                if input.UserInputState == Enum.UserInputState.End then
+	                    dragToggle = false
+	                end
+	            end)
+	        end
+	    end)
+	    Frame.InputChanged:Connect(function(input)
+	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	            dragInput = input
+	        end
+	    end)
+	    game:GetService("UserInputService").InputChanged:Connect(function(input)
+	        if input == dragInput and dragToggle then
+	            updateInput(input)
+	        end
+	    end)
+	end
+	
+	dragify(script.Parent)
+end
+coroutine.wrap(QFCS_fake_script)()
 
 ckTeam = Instance.new("ImageLabel")
 ckTeam.Size = UDim2.new(0, 70, 0, 70)
@@ -152,8 +199,32 @@ titleLabel.BackgroundColor3 = Color3.new(0, 0, 0)
 titleLabel.BackgroundTransparency = 1
 titleLabel.BorderColor3 = Color3.new(0, 0, 0)
 titleLabel.BorderSizePixel = 1
-titleLabel.TextColor3 = Color3.new(1, 0, 0)
+titleLabel.TextColor3 = Color3.new(1, 1, 1)
 titleLabel.TextScaled = true
+titleLabel.Font = Enum.Font.Arcade
+titleLabel.Text = "Jkrouzt Hub"
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+titleLabel.TextYAlignment = Enum.TextYAlignment.Center
+
+ui = Instance.new("UIGradient")
+ui.Parent = titleLabel
+ui.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.new(1, 0, 0)),
+    ColorSequenceKeypoint.new(1, Color3.new(0.1, 0, 0))
+})
+
+titleLabel = Instance.new("TextLabel")
+titleLabel.Parent = mainFrame
+titleLabel.Name = "titleLabel" 
+titleLabel.Size = UDim2.new(1, 0, 1.1, 0)
+titleLabel.Position = UDim2.new(0, 10, 0, 10)
+titleLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.BorderColor3 = Color3.new(0, 0, 0)
+titleLabel.BorderSizePixel = 1
+titleLabel.TextColor3 = Color3.new(150, 0, 0)
+titleLabel.TextScaled = true
+titleLabel.TextTransparency = 0.5
 titleLabel.Font = Enum.Font.Arcade
 titleLabel.Text = "Jkrouzt Hub"
 titleLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -199,24 +270,24 @@ openui.Visible = true
 openui.Active = true
 
 isVisible = true
-local initialPosition = UDim2.new(-0.200000006, 0, 0, 100)
-local targetPosition = UDim2.new(0.375, 0, 0.200000003, 0)
+local initialPosition = UDim2.new(-0.600000006, 0, 0, 100)
+local MainPosi = UDim2.new(0.375, 0, 0.200000003, 0)
 local animationDuration = 0.4
 local tweenInfo = TweenInfo.new(animationDuration, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 local tweenInfoOut = TweenInfo.new(animationDuration, Enum.EasingStyle.Back, Enum.EasingDirection.In)
 
-local function animateGui(target, goalPosition, tweenInfo)
+function animateGui(target, goalPosition, tweenInfo)
     local tween = TweenService:Create(target, tweenInfo, {Position = goalPosition})
     tween:Play()
 end
 
 
-local function toggleGUI()
+function toggleGUI()
     isVisible = not isVisible
     mainFrame.Visible = isVisible
     if isVisible then
         openui.Text = "<"
-        animateGui(mainFrame, targetPosition, tweenInfo)
+        animateGui(mainFrame, MainPosi, tweenInfo)
     else
         openui.Text = ">"
         animateGui(mainFrame, initialPosition, tweenInfoOut)
@@ -226,7 +297,7 @@ end
 openui.MouseButton1Click:Connect(toggleGUI)
 
 if mainFrame.Visible then
-    animateGui(mainFrame, targetPosition, tweenInfo)
+    animateGui(mainFrame, MainPosi, tweenInfo)
 else
         animateGui(mainFrame, initialPosition, tweenInfoOut)
 end
@@ -909,7 +980,7 @@ Keys = {
     Enum.KeyCode.Escape, Enum.KeyCode.F1, Enum.KeyCode.F2, Enum.KeyCode.F3, Enum.KeyCode.F4, Enum.KeyCode.F5, Enum.KeyCode.F6, Enum.KeyCode.F7, Enum.KeyCode.F8, Enum.KeyCode.F9, Enum.KeyCode.F10, Enum.KeyCode.F11, Enum.KeyCode.F12, Enum.KeyCode.Delete,
     Enum.KeyCode.Backquote, Enum.KeyCode.One, Enum.KeyCode.Two, Enum.KeyCode.Three, Enum.KeyCode.Four, Enum.KeyCode.Five, Enum.KeyCode.Six, Enum.KeyCode.Seven, Enum.KeyCode.Eight, Enum.KeyCode.Nine, Enum.KeyCode.Zero, Enum.KeyCode.Minus, Enum.KeyCode.Equals, Enum.KeyCode.Backspace,
     Enum.KeyCode.Tab, Enum.KeyCode.Q, Enum.KeyCode.W, Enum.KeyCode.E, Enum.KeyCode.R, Enum.KeyCode.T, Enum.KeyCode.Y, Enum.KeyCode.U, Enum.KeyCode.I, Enum.KeyCode.O, Enum.KeyCode.P, Enum.KeyCode.LeftBracket, Enum.KeyCode.RightBracket,
-    Enum.KeyCode.CapsLock, Enum.KeyCode.A, Enum.KeyCode.S, Enum.KeyCode.D, Enum.KeyCode.F, Enum.KeyCode.G, Enum.KeyCode.H, Enum.KeyCode.J, Enum.KeyCode.K, Enum.KeyCode.L, Enum.KeyCode.Semicolon, --Removed Quote
+    Enum.KeyCode.CapsLock, Enum.KeyCode.A, Enum.KeyCode.S, Enum.KeyCode.D, Enum.KeyCode.F, Enum.KeyCode.G, Enum.KeyCode.H, Enum.KeyCode.J, Enum.KeyCode.K, Enum.KeyCode.L, Enum.KeyCode.Semicolon, 
     Enum.KeyCode.LeftShift, Enum.KeyCode.Z, Enum.KeyCode.X, Enum.KeyCode.C, Enum.KeyCode.V, Enum.KeyCode.B, Enum.KeyCode.N, Enum.KeyCode.M, Enum.KeyCode.Comma, Enum.KeyCode.Period, Enum.KeyCode.Slash, Enum.KeyCode.RightShift,
     Enum.KeyCode.LeftControl, Enum.KeyCode.LeftAlt, Enum.KeyCode.Space, Enum.KeyCode.RightAlt, Enum.KeyCode.RightControl, Enum.KeyCode.Up, Enum.KeyCode.Left, Enum.KeyCode.Down, Enum.KeyCode.Right
 }
@@ -1082,25 +1153,39 @@ first.Text = "Welcome back, " .. game.Players.LocalPlayer.Name
 
 local first2 = Instance.new("TextLabel")
 first2.Parent = home
-first2.Name = "first2" 
+first2.Name = "first2"
 first2.Size = UDim2.new(0.3, 0, 0.2, 0)
 first2.Position = UDim2.new(0.69, 0, 0.02, 0)
-first2.BackgroundColor3 = Color3.new(0, 1, 0)
+first2.BackgroundColor3 = Color3.new(1, 1, 1)
 first2.BackgroundTransparency = 1
 first2.BorderColor3 = Color3.new(0, 0, 0)
 first2.BorderSizePixel = 1
-first2.TextColor3 = Color3.new(1, 0, 0)
+first2.TextColor3 = Color3.new(1, 1, 1)
 first2.TextScaled = true
 first2.Font = Enum.Font.GothamBlack
 first2.TextXAlignment = Enum.TextXAlignment.Left
 first2.TextYAlignment = Enum.TextYAlignment.Center
 first2.Text = "Jkrouzt Hub Made By jkrouzt\nIn Discord"
+
+uiG = Instance.new("UIGradient")
+uiG.Parent = first2
+
 hue = 0
-speed = 0.9 -- Adjust for faster or slower cycling
+speed = 0.4
+
+function createColorSequence(currentHue)
+	local keypoints = {}
+	for i = 0, 1, 0.2 do
+		local h = (currentHue + i) % 1
+		local color = Color3.fromHSV(h, 1, 1)
+		table.insert(keypoints, ColorSequenceKeypoint.new(i, color))
+	end
+	return ColorSequence.new(keypoints)
+end
 
 RunService.Heartbeat:Connect(function(delta)
-    hue = (hue + delta * speed) % 1
-    first2.TextColor3 = Color3.fromHSV(hue, 1, 1)
+	hue = (hue + delta * speed) % 1
+	uiG.Color = createColorSequence(hue)
 end)
 
 first3 = Instance.new("TextLabel")
@@ -2331,9 +2416,6 @@ scn30.Font = Enum.Font.Roboto
 scn30.Text = "Solara Hub"
 scn30.Visible = false
 scn30.MouseButton1Click:Connect(function()
-    --[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
 loadstring(game:HttpGet("https://pastefy.app/DMHQYUOf/raw"))()
 end)
 
@@ -2419,9 +2501,6 @@ scn35.Font = Enum.Font.Roboto
 scn35.Text = "Yeet Gui"
 scn35.Visible = false
 scn35.MouseButton1Click:Connect(function()
---[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
 local lp = game:FindService("Players").LocalPlayer
 
 local function gplr(String)
@@ -3910,7 +3989,7 @@ ngpg.BorderColor3 = Color3.new(1, 0, 0)
 ngpg.BorderSizePixel = 2
 ngpg.TextColor3 = Color3.new(1, 1, 1)
 ngpg.TextScaled = true
-ngpg.Font = Enum.Font.LuckiestGuy
+ngpg.Font = Enum.Font.Nunito
 ngpg.Text = ">"
 ngpg.Visible = false
 
@@ -3924,7 +4003,7 @@ bgpg.BorderColor3 = Color3.new(1, 0, 0)
 bgpg.BorderSizePixel = 2
 bgpg.TextColor3 = Color3.new(1, 1, 1)
 bgpg.TextScaled = true
-bgpg.Font = Enum.Font.LuckiestGuy
+bgpg.Font = Enum.Font.Nunito
 bgpg.Text = "<"
 bgpg.Visible = false
 
@@ -3938,7 +4017,7 @@ ngpg2.BorderColor3 = Color3.new(1, 0, 0)
 ngpg2.BorderSizePixel = 2
 ngpg2.TextColor3 = Color3.new(1, 1, 1)
 ngpg2.TextScaled = true
-ngpg2.Font = Enum.Font.LuckiestGuy
+ngpg2.Font = Enum.Font.Highway
 ngpg2.Text = ">"
 ngpg2.Visible = false
 
@@ -3952,7 +4031,7 @@ bgpg2.BorderColor3 = Color3.new(1, 0, 0)
 bgpg2.BorderSizePixel = 2
 bgpg2.TextColor3 = Color3.new(1, 1, 1)
 bgpg2.TextScaled = true
-bgpg2.Font = Enum.Font.LuckiestGuy
+bgpg2.Font = Enum.Font.Highway
 bgpg2.Text = "<"
 bgpg2.Visible = false
 
@@ -5414,6 +5493,8 @@ scgne76.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubNaturalDisasterSurvival"))()
 end)
 
+-- Almost every scripts in Others Tab is from Infinite Yield
+
 local oc1 = Instance.new("TextButton")
 oc1.Parent = Others
 oc1.Name = "oc1"
@@ -5962,7 +6043,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Remote-gui-ed
 	})
 end)
 
-local ocn26 = Instance.new("TextButton")
+ocn26 = Instance.new("TextButton")
 ocn26.Parent = Others
 ocn26.Name = "ocn26"
 ocn26.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -5979,7 +6060,7 @@ ocn26.MouseButton1Click:Connect(function()
 game:GetService("VoiceChatService"):joinVoice()
 end)
 
-local ocn27 = Instance.new("TextButton")
+ocn27 = Instance.new("TextButton")
 ocn27.Parent = Others
 ocn27.Name = "ocn27"
 ocn27.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
@@ -6067,6 +6148,228 @@ ocn30.Visible = false
 
     the floating unanchored parts around u will stop floating when a player is near but it will come back when they get far away again, this is due roblox's gay ass networkownershit
 ]]
+
+
+ocn31 = Instance.new("TextButton")
+ocn31.Parent = Others
+ocn31.Name = "ocn31"
+ocn31.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn31.Position = UDim2.new(0.00996587239, 0, 0.229999959, 0)
+ocn31.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn31.BorderColor3 = Color3.new(1, 0, 0)
+ocn31.BorderSizePixel = 3
+ocn31.TextColor3 = Color3.new(1, 1, 1)
+ocn31.TextScaled = true
+ocn31.Font = Enum.Font.SourceSans
+ocn31.Text = "Invisible Parts"
+ocn31.Visible = false
+
+ocn32 = Instance.new("TextButton")
+ocn32.Parent = Others
+ocn32.Name = "ocn32"
+ocn32.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn32.Position = UDim2.new(0.18, 0, 0.229999959, 0)
+ocn32.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn32.BorderColor3 = Color3.new(1, 0, 0)
+ocn32.BorderSizePixel = 3
+ocn32.TextColor3 = Color3.new(1, 1, 1)
+ocn32.TextScaled = true
+ocn32.Font = Enum.Font.SourceSans
+ocn32.Text = "Fullbright"
+ocn32.Visible = false
+ocn32.MouseButton1Click:Connect(function()
+Lighting.Brightness = 2
+	Lighting.ClockTime = 14
+	Lighting.FogEnd = 100000
+	Lighting.GlobalShadows = false
+	Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+end)
+
+local origsettings = {
+	abt = Lighting.Ambient,
+	oabt = Lighting.OutdoorAmbient,
+	brt = Lighting.Brightness,
+	time = Lighting.ClockTime,
+	fe = Lighting.FogEnd,
+	fs = Lighting.FogStart,
+	gs = Lighting.GlobalShadows
+}
+
+ocn33 = Instance.new("TextButton")
+ocn33.Parent = Others
+ocn33.Name = "ocn33"
+ocn33.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn33.Position = UDim2.new(0.35, 0, 0.229999959, 0)
+ocn33.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn33.BorderColor3 = Color3.new(1, 0, 0)
+ocn33.BorderSizePixel = 3
+ocn33.TextColor3 = Color3.new(1, 1, 1)
+ocn33.TextScaled = true
+ocn33.Font = Enum.Font.Roboto
+ocn33.Text = "Restore Lightning"
+ocn33.Visible = false
+ocn33.MouseButton1Click:Connect(function()
+	Lighting.Ambient = origsettings.abt
+	Lighting.OutdoorAmbient = origsettings.oabt
+	Lighting.Brightness = origsettings.brt
+	Lighting.ClockTime = origsettings.time
+	Lighting.FogEnd = origsettings.fe
+	Lighting.FogStart = origsettings.fs
+	Lighting.GlobalShadows = origsettings.gs
+end)
+
+ocn34 = Instance.new("TextButton")
+ocn34.Parent = Others
+ocn34.Name = "ocn34"
+ocn34.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn34.Position = UDim2.new(0.52, 0, 0.229999959, 0)
+ocn34.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn34.BorderColor3 = Color3.new(1, 0, 0)
+ocn34.BorderSizePixel = 3
+ocn34.TextColor3 = Color3.new(1, 1, 1)
+ocn34.TextScaled = true
+ocn34.Font = Enum.Font.Roboto
+ocn34.Text = "Noclip Camera"
+ocn34.Visible = false
+ocn34.MouseButton1Click:Connect(function()
+local sc = (debug and debug.setconstant) or setconstant
+	local gc = (debug and debug.getconstants) or getconstants
+	if not sc or not getgc or not gc then
+		return notif({
+		Text = "Incompatible Exploit', 'Your exploit does not support this command (missing setconstant or getconstants or getgc)",
+		Duration = 5,
+		topm = "Information!"
+	})
+	end
+	local pop = game.Players.LocalPlayer.PlayerScripts.PlayerModule.CameraModule.ZoomController.Popper
+	for _, v in pairs(getgc()) do
+		if type(v) == 'function' and getfenv(v).script == pop then
+			for i, v1 in pairs(gc(v)) do
+				if tonumber(v1) == .25 then
+					sc(v, i, 0)
+				elseif tonumber(v1) == 0 then
+					sc(v, i, .25)
+				end
+			end
+		end
+	end
+end)
+
+ocn35 = Instance.new("TextButton")
+ocn35.Parent = Others
+ocn35.Name = "ocn35"
+ocn35.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn35.Position = UDim2.new(0.69, 0, 0.229999959, 0)
+ocn35.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn35.BorderColor3 = Color3.new(1, 0, 0)
+ocn35.BorderSizePixel = 3
+ocn35.TextColor3 = Color3.new(1, 1, 1)
+ocn35.TextScaled = true
+ocn35.Font = Enum.Font.Roboto
+ocn35.Text = "Maxzoom Camera"
+ocn35.Visible = false
+ocn35.MouseButton1Click:Connect(function()
+game.Players.LocalPlayer.CameraMaxZoomDistance = math.huge
+end)
+
+ocn36 = Instance.new("TextButton")
+ocn36.Parent = Others
+ocn36.Name = "ocn36"
+ocn36.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocn36.Position = UDim2.new(0.86, 0, 0.229999959, 0)
+ocn36.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn36.BorderColor3 = Color3.new(1, 0, 0)
+ocn36.BorderSizePixel = 3
+ocn36.TextColor3 = Color3.new(1, 1, 1)
+ocn36.TextScaled = true
+ocn36.Font = Enum.Font.Roboto
+ocn36.Text = "Unlock Workspace"
+ocn36.Visible = false
+ocn36.MouseButton1Click:Connect(function()
+for i,v in pairs(workspace:GetDescendants()) do
+		if v:IsA("BasePart") then
+			v.Locked = false
+		end
+	end
+end)
+
+ocn37 = Instance.new("TextButton")
+ocn37.Parent = Others
+ocn37.Name = "ocn37"
+ocn37.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn37.Position = UDim2.new(0.00996587239, 0, 0.43, 0)
+ocn37.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn37.BorderColor3 = Color3.new(0, 0, 1)
+ocn37.BorderSizePixel = 3
+ocn37.TextColor3 = Color3.new(1, 1, 1)
+ocn37.TextScaled = true
+ocn37.Font = Enum.Font.Roboto
+ocn37.Text = "Freeze"
+ocn37.Visible = false
+
+xrayEnabled = false
+
+function xray()
+    for _, v in pairs(workspace:GetDescendants()) do
+        if v:IsA("BasePart") and not v.Parent:FindFirstChildWhichIsA("Humanoid") and not v.Parent.Parent:FindFirstChildWhichIsA("Humanoid") then
+            v.LocalTransparencyModifier = xrayEnabled and 0.5 or 0
+        end
+    end
+end
+
+ocn38 = Instance.new("TextButton")
+ocn38.Parent = Others
+ocn38.Name = "ocn38"
+ocn38.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn38.Position = UDim2.new(0.18, 0, 0.43, 0)
+ocn38.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn38.BorderColor3 = Color3.new(1, 0, 0)
+ocn38.BorderSizePixel = 3
+ocn38.TextColor3 = Color3.new(1, 1, 1)
+ocn38.TextScaled = true
+ocn38.Font = Enum.Font.Roboto
+ocn38.Text = "X-Ray: Off"
+ocn38.Visible = false
+ocn38.MouseButton1Click:Connect(function()
+    xrayEnabled = not xrayEnabled
+    xray() 
+    ocn38.Text = "X-Ray: " .. (xrayEnabled and "On" or "Off")
+end)
+
+ocn39 = Instance.new("TextButton")
+ocn39.Parent = Others
+ocn39.Name = "ocn39"
+ocn39.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn39.Position = UDim2.new(0.35, 0, 0.43, 0)
+ocn39.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn39.BorderColor3 = Color3.new(1, 0, 0)
+ocn39.BorderSizePixel = 3
+ocn39.TextColor3 = Color3.new(1, 1, 1)
+ocn39.TextScaled = true
+ocn39.Font = Enum.Font.Roboto
+ocn39.Text = "Glitching Position"
+ocn39.Visible = false
+
+ocn40 = Instance.new("TextButton")
+ocn40.Parent = Others
+ocn40.Name = "ocn40"
+ocn40.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn40.Position = UDim2.new(0.52, 0, 0.43, 0)
+ocn40.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn40.BorderColor3 = Color3.new(240, 1, 0)
+ocn40.BorderSizePixel = 3
+ocn40.TextColor3 = Color3.new(1, 1, 1)
+ocn40.TextScaled = true
+ocn40.Font = Enum.Font.Roboto
+ocn40.Text = "Call Remotes"
+ocn40.Visible = false
+ocn40.MouseButton1Click:Connect(function()
+notif({
+		Text = "Be careful!. You may can get Banned or Kicked in some games using this script!",
+		Duration = 5,
+		topm = "Warning!"
+	})
+end)
 
 oppage = Instance.new("Frame")
 oppage.Parent = Others
@@ -6798,7 +7101,6 @@ ocnf17.Font = Enum.Font.Roboto
 ocnf17.Text = "Disco"
 ocnf17.Visible = false
 ocnf17.MouseButton1Click:Connect(function()
-local lighting = game:GetService("Lighting")
 
 local function getRandomRGB()
     local red = math.random()
@@ -7877,7 +8179,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 30 do
+for i = 25, 50 do
    buttonName = "ocn" .. i
    button = Others:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -7902,7 +8204,7 @@ for i = 1, 24 do
   end
 end
 
-for i = 25, 30 do
+for i = 25, 50 do
    buttonName = "ocn" .. i
    button = Others:FindFirstChild(buttonName) 
   if button and button:IsA("TextButton") then
@@ -7914,6 +8216,9 @@ end
     nextmy.Visible = true
     mypages.Text = "Page 1"
     oppage.Visible = true
+    kb.Visible = true
+    kb2.Visible = true
+
 end)
 
 nem.MouseButton1Click:Connect(function()
@@ -8092,8 +8397,7 @@ else
     print(logVisibleFile .. " not found.")
 end
 
-local fl = false -- Renamed to be more descriptive, and defined outside the function for persistence
-
+local fl = false 
 function VisibleVis()
     local targetPosition
     local targetColor
@@ -8122,9 +8426,9 @@ function VisibleVis()
 end
 
 settingf5.MouseButton1Click:Connect(function()
-    fl = not fl -- Toggle the 'fl' variable
-    openui.Visible = not openui.Visible -- Toggle Visibility
-    VisibleVis() -- Call the function to update the visuals
+    fl = not fl 
+    openui.Visible = not openui.Visible 
+    VisibleVis() 
 	notif({
 		Text = "Toggle Button Visible will not saved to prevent user lose the mainFrame",
 		Duration = 6,
@@ -8808,6 +9112,146 @@ oc22.FocusLost:Connect(function()
 	end
 end)
 
+
+shownParts = {}
+arePartsVisible = false
+
+function showInvisibleParts()
+	for i, v in pairs(workspace:GetDescendants()) do
+		if v:IsA("BasePart") and v.Transparency == 1 then
+			if not table.find(shownParts, v) then
+				table.insert(shownParts, v)
+			end
+			v.Transparency = 0
+		end
+	end
+	ocn31.Text = "Visible Parts"
+	arePartsVisible = true
+end
+
+function hideVisibleParts()
+	for i, v in pairs(shownParts) do
+		if v and v.Parent ~= nil then 
+			v.Transparency = 1
+		end
+	end
+	shownParts = {}
+	ocn31.Text = "Show Invisible Parts"
+	arePartsVisible = false
+end
+
+ocn31.MouseButton1Click:Connect(function()
+	if not arePartsVisible then
+		showInvisibleParts()
+	else
+		hideVisibleParts()
+	end
+end)
+
+
+isFrozen = false
+
+floatName = "" 
+
+
+function freezeCharacter(character)
+	if not character then return end
+	task.spawn(function()
+		for i, x in next, character:GetDescendants() do
+			if x:IsA("BasePart") and not x.Anchored then
+				x.Anchored = true
+			end
+		end
+	end)
+end
+
+function thawCharacter(character)
+	if not character then return end
+	task.spawn(function()
+		for i, x in next, character:GetDescendants() do
+						if x:IsA("BasePart") and x.Anchored and (floatName == nil or floatName == "" or x.Name ~= floatName) then
+				x.Anchored = false
+			end
+		end
+	end)
+end
+
+ocn37.MouseButton1Click:Connect(function()
+	local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait() 
+
+	if not character then
+		warn("Character not found for local player!")
+		return
+	end
+
+	if isFrozen then
+		thawCharacter(character)
+		isFrozen = false
+		ocn37.Text = "Freeze" 
+	else
+		freezeCharacter(character)
+		isFrozen = true
+		ocn37.Text = "Thaw" 
+	end
+end)
+
+origp = nil
+itp = false
+
+
+function teleportPl()
+    player = game.Players.LocalPlayer
+    if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        if not itp then
+            
+            origp = player.Character.HumanoidRootPart.CFrame
+            targetPosition = Vector3.new(9999999.00, 99999.00, 9999999.00)
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+            
+            ocn39.Text = "Return" 
+            itp = true
+        else
+            
+            if origp then
+                player.Character.HumanoidRootPart.CFrame = origp
+                
+                ocn39.Text = "Glitching Position" 
+                itp = false
+            else
+                print("position not stored.")
+            end
+        end
+    else
+        print("not found.")
+    end
+end
+
+part = Instance.new("Part")
+part.Position = Vector3.new(9999999.00, 99990.00, 9999999.00)
+part.Size = Vector3.new(20, 0.2, 20)
+part.Anchored = true 
+part.Parent = game.Workspace 
+
+ocn39.MouseButton1Click:Connect(teleportPl)
+
+function runRemotes(parent)
+    for _, child in ipairs(parent:GetDescendants()) do
+        if child:IsA("RemoteEvent") then
+            pcall(function() child:FireServer() end)
+        elseif child:IsA("RemoteFunction") then
+            pcall(function()
+                local result = child:InvokeServer()
+                print("Result from server:", result)
+            end)
+        end
+    end
+end
+
+ocn40.MouseButton1Click:Connect(function()
+wait(5)
+runRemotes(ReplicatedStorage)
+end)
+
 function runObungaEffect(player)
     if not player:IsA("Player") then
         warn("runObungaEffect was called with an invalid argument: " .. tostring(player))
@@ -8986,47 +9430,3 @@ while true do
 	wait(1)
 	updateTime()
 end
-
-
-function QFCS_fake_script() -- Frame.Dragify 
-	local script = Instance.new('LocalScript', mainFrame)
-
-	local UIS = game:GetService("UserInputService")
-	function dragify(mainFrame)
-	    dragToggle = nil
-	    local dragSpeed = 0
-	    dragInput = nil
-	    dragStart = nil
-	    local dragPos = nil
-	    function updateInput(input)
-	        local Delta = input.Position - dragStart
-	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
-	    end
-	    Frame.InputBegan:Connect(function(input)
-	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
-	            dragToggle = true
-	            dragStart = input.Position
-	            startPos = Frame.Position
-	            input.Changed:Connect(function()
-	                if input.UserInputState == Enum.UserInputState.End then
-	                    dragToggle = false
-	                end
-	            end)
-	        end
-	    end)
-	    Frame.InputChanged:Connect(function(input)
-	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-	            dragInput = input
-	        end
-	    end)
-	    game:GetService("UserInputService").InputChanged:Connect(function(input)
-	        if input == dragInput and dragToggle then
-	            updateInput(input)
-	        end
-	    end)
-	end
-	
-	dragify(script.Parent)
-end
-coroutine.wrap(QFCS_fake_script)()
