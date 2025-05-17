@@ -1,6 +1,7 @@
 -- Open Source for everyone who want to edit this script or not
 -- Dont touch anything if you dont know anything about this script below
 -- Made by jkrouzt. made with Mobile device in China
+-- This script will always continued after the full version is done or V1 (just want to learn roblox scripting bruu)
 
 local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
@@ -217,7 +218,7 @@ titleLabel = Instance.new("TextLabel")
 titleLabel.Parent = mainFrame
 titleLabel.Name = "titleLabel" 
 titleLabel.Size = UDim2.new(1, 0, 1.1, 0)
-titleLabel.Position = UDim2.new(0, 10, 0, 10)
+titleLabel.Position = UDim2.new(0, 10, 0, 5)
 titleLabel.BackgroundColor3 = Color3.new(0, 0, 0)
 titleLabel.BackgroundTransparency = 1
 titleLabel.BorderColor3 = Color3.new(0, 0, 0)
@@ -3989,7 +3990,7 @@ ngpg.BorderColor3 = Color3.new(1, 0, 0)
 ngpg.BorderSizePixel = 2
 ngpg.TextColor3 = Color3.new(1, 1, 1)
 ngpg.TextScaled = true
-ngpg.Font = Enum.Font.Nunito
+ngpg.Font = Enum.Font.GothamBold
 ngpg.Text = ">"
 ngpg.Visible = false
 
@@ -4003,7 +4004,7 @@ bgpg.BorderColor3 = Color3.new(1, 0, 0)
 bgpg.BorderSizePixel = 2
 bgpg.TextColor3 = Color3.new(1, 1, 1)
 bgpg.TextScaled = true
-bgpg.Font = Enum.Font.Nunito
+bgpg.Font = Enum.Font.GothamBold
 bgpg.Text = "<"
 bgpg.Visible = false
 
@@ -4017,7 +4018,7 @@ ngpg2.BorderColor3 = Color3.new(1, 0, 0)
 ngpg2.BorderSizePixel = 2
 ngpg2.TextColor3 = Color3.new(1, 1, 1)
 ngpg2.TextScaled = true
-ngpg2.Font = Enum.Font.Highway
+ngpg2.Font = Enum.Font.GothamBold
 ngpg2.Text = ">"
 ngpg2.Visible = false
 
@@ -4031,7 +4032,7 @@ bgpg2.BorderColor3 = Color3.new(1, 0, 0)
 bgpg2.BorderSizePixel = 2
 bgpg2.TextColor3 = Color3.new(1, 1, 1)
 bgpg2.TextScaled = true
-bgpg2.Font = Enum.Font.Highway
+bgpg2.Font = Enum.Font.GothamBold
 bgpg2.Text = "<"
 bgpg2.Visible = false
 
@@ -6356,7 +6357,7 @@ ocn40.Name = "ocn40"
 ocn40.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocn40.Position = UDim2.new(0.52, 0, 0.43, 0)
 ocn40.BackgroundColor3 = Color3.new(0, 0, 0)
-ocn40.BorderColor3 = Color3.new(240, 1, 0)
+ocn40.BorderColor3 = Color3.new(255, 125, 0)
 ocn40.BorderSizePixel = 3
 ocn40.TextColor3 = Color3.new(1, 1, 1)
 ocn40.TextScaled = true
@@ -6369,6 +6370,199 @@ notif({
 		Duration = 5,
 		topm = "Warning!"
 	})
+end)
+
+ocn41 = Instance.new("TextButton")
+ocn41.Parent = Others
+ocn41.Name = "ocn41"
+ocn41.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn41.Position = UDim2.new(0.69, 0, 0.43, 0)
+ocn41.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn41.BorderColor3 = Color3.new(1, 0, 0)
+ocn41.BorderSizePixel = 3
+ocn41.TextColor3 = Color3.new(1, 1, 1)
+ocn41.TextScaled = true
+ocn41.Font = Enum.Font.Roboto
+ocn41.Text = "Random Glitching Position"
+ocn41.Visible = false
+ocn41.MouseButton1Click:Connect(function()
+notif({
+		Text = "just a Random script made for me lol😂",
+		Duration = 2,
+		topm = "Dont care!"
+	})
+end)
+
+ocn42 = Instance.new("TextButton")
+ocn42.Parent = Others
+ocn42.Name = "ocn42"
+ocn42.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocn42.Position = UDim2.new(0.86, 0, 0.43, 0)
+ocn42.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn42.BorderColor3 = Color3.new(1, 0, 0)
+ocn42.BorderSizePixel = 3
+ocn42.TextColor3 = Color3.new(1, 1, 1)
+ocn42.TextScaled = true
+ocn42.Font = Enum.Font.Roboto
+ocn42.Text = "Tp down"
+ocn42.Visible = false
+ocn42.MouseButton1Click:Connect(function()
+	local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+
+	if humanoid and humanoidRootPart then
+		local alPosition = humanoidRootPart.Position
+
+		for i = 1, 3 do
+			local currentPosition = humanoidRootPart.Position
+			local newPosition = currentPosition + Vector3.new(0, -100, 0)
+			humanoidRootPart.CFrame = CFrame.new(newPosition)
+			wait(0.3)
+		end
+
+		humanoid.Jump = true
+		wait()
+
+		humanoidRootPart.CFrame = CFrame.new(alPosition)
+	else
+		warn("HumanoidRootPart not found.")
+	end
+end)
+
+ocn43 = Instance.new("TextButton")
+ocn43.Parent = Others
+ocn43.Name = "ocn43"
+ocn43.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn43.Position = UDim2.new(0.00996587239, 0, 0.63, 0)
+ocn43.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn43.BorderColor3 = Color3.new(1, 0, 0)
+ocn43.BorderSizePixel = 3
+ocn43.TextColor3 = Color3.new(1, 1, 1)
+ocn43.TextScaled = true
+ocn43.Font = Enum.Font.Roboto
+ocn43.Text = "Coming"
+ocn43.Visible = false
+ocn43.MouseButton1Click:Connect(function()
+
+end)
+
+ocn44 = Instance.new("TextButton")
+ocn44.Parent = Others
+ocn44.Name = "ocn44"
+ocn44.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn44.Position = UDim2.new(0.18, 0, 0.63, 0)
+ocn44.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn44.BorderColor3 = Color3.new(1, 0, 0)
+ocn44.BorderSizePixel = 3
+ocn44.TextColor3 = Color3.new(1, 1, 1)
+ocn44.TextScaled = true
+ocn44.Font = Enum.Font.Roboto
+ocn44.Text = "Coming"
+ocn44.Visible = false
+ocn44.MouseButton1Click:Connect(function()
+
+end)
+
+ocn45 = Instance.new("TextButton")
+ocn45.Parent = Others
+ocn45.Name = "ocn45"
+ocn45.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn45.Position = UDim2.new(0.35, 0, 0.63, 0)
+ocn45.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn45.BorderColor3 = Color3.new(1, 0, 0)
+ocn45.BorderSizePixel = 3
+ocn45.TextColor3 = Color3.new(1, 1, 1)
+ocn45.TextScaled = true
+ocn45.Font = Enum.Font.Roboto
+ocn45.Text = "Coming"
+ocn45.Visible = false
+ocn45.MouseButton1Click:Connect(function()
+
+end)
+
+ocn46 = Instance.new("TextButton")
+ocn46.Parent = Others
+ocn46.Name = "ocn46"
+ocn46.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn46.Position = UDim2.new(0.52, 0, 0.63, 0)
+ocn46.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn46.BorderColor3 = Color3.new(1, 0, 0)
+ocn46.BorderSizePixel = 3
+ocn46.TextColor3 = Color3.new(1, 1, 1)
+ocn46.TextScaled = true
+ocn46.Font = Enum.Font.Roboto
+ocn46.Text = "Coming"
+ocn46.Visible = false
+ocn46.MouseButton1Click:Connect(function()
+
+end)
+
+ocn47 = Instance.new("TextButton")
+ocn47.Parent = Others
+ocn47.Name = "ocn47"
+ocn47.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocn47.Position = UDim2.new(0.69, 0, 0.63, 0)
+ocn47.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn47.BorderColor3 = Color3.new(1, 0, 0)
+ocn47.BorderSizePixel = 3
+ocn47.TextColor3 = Color3.new(1, 1, 1)
+ocn47.TextScaled = true
+ocn47.Font = Enum.Font.Roboto
+ocn47.Text = "Coming"
+ocn47.Visible = false
+ocn47.MouseButton1Click:Connect(function()
+
+end)
+
+ocn48 = Instance.new("TextButton")
+ocn48.Parent = Others
+ocn48.Name = "ocn48"
+ocn48.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocn48.Position = UDim2.new(0.86, 0, 0.63, 0)
+ocn48.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn48.BorderColor3 = Color3.new(1, 0, 0)
+ocn48.BorderSizePixel = 3
+ocn48.TextColor3 = Color3.new(1, 1, 1)
+ocn48.TextScaled = true
+ocn48.Font = Enum.Font.Roboto
+ocn48.Text = "Coming"
+ocn48.Visible = false
+ocn48.MouseButton1Click:Connect(function()
+
+end)
+
+ocn49 = Instance.new("TextButton")
+ocn49.Parent = Others
+ocn49.Name = "ocn49"
+ocn49.Size = UDim2.new(0.473003626, 0, 0.101999998, 0)
+ocn49.Position = UDim2.new(0.519000053, 0, 0.799999893, 0)
+ocn49.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn49.BorderColor3 = Color3.new(1, 0, 0)
+ocn49.BorderSizePixel = 2
+ocn49.TextColor3 = Color3.new(1, 1, 1)
+ocn49.TextScaled = true
+ocn49.Font = Enum.Font.Roboto
+ocn49.Text = "Coming"
+ocn49.Visible = false
+ocn49.MouseButton1Click:Connect(function()
+end)
+
+ocn50 = Instance.new("TextButton")
+ocn50.Parent = Others
+ocn50.Name = "ocn50"
+ocn50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
+ocn50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
+ocn50.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn50.BorderColor3 = Color3.new(1, 0, 0)
+ocn50.BorderSizePixel = 2
+ocn50.TextColor3 = Color3.new(1, 1, 1)
+ocn50.TextScaled = true
+ocn50.Font = Enum.Font.Roboto
+ocn50.Text = "Coming"
+ocn50.Visible = false
+ocn50.MouseButton1Click:Connect(function()
+
 end)
 
 oppage = Instance.new("Frame")
@@ -6460,7 +6654,7 @@ nem.BorderColor3 = Color3.new(1, 0, 0)
 nem.BorderSizePixel = 2
 nem.TextColor3 = Color3.new(0, 0, 1)
 nem.TextScaled = true
-nem.Font = Enum.Font.FredokaOne
+nem.Font = Enum.Font.GothamBold
 nem.Text = ">"
 nem.Visible = false
 
@@ -6474,9 +6668,37 @@ bem.BorderColor3 = Color3.new(1, 0, 0)
 bem.BorderSizePixel = 2
 bem.TextColor3 = Color3.new(0, 0, 1)
 bem.TextScaled = true
-bem.Font = Enum.Font.FredokaOne
+bem.Font = Enum.Font.GothamBold
 bem.Text = "<"
 bem.Visible = false
+
+nem2 = Instance.new("TextButton")
+nem2.Parent = Others
+nem2.Name = "nem"
+nem2.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+nem2.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
+nem2.BackgroundColor3 = Color3.new(0, 0, 0)
+nem2.BorderColor3 = Color3.new(1, 0, 0)
+nem2.BorderSizePixel = 2
+nem2.TextColor3 = Color3.new(0, 0, 1)
+nem2.TextScaled = true
+nem2.Font = Enum.Font.GothamBold
+nem2.Text = ">"
+nem2.Visible = false
+
+bem2 = Instance.new("TextButton")
+bem2.Parent = Others
+bem2.Name = "bem"
+bem2.Size = UDim2.new(0.130000025, 0, 0.0700000003, 0)
+bem2.Position = UDim2.new(0.0100000035, 0, 0.920000196, 0)
+bem2.BackgroundColor3 = Color3.new(0, 0, 0)
+bem2.BorderColor3 = Color3.new(1, 0, 0)
+bem2.BorderSizePixel = 2
+bem2.TextColor3 = Color3.new(0, 0, 1)
+bem2.TextScaled = true
+bem2.Font = Enum.Font.GothamBold
+bem2.Text = "<"
+bem2.Visible = false
 
  mypages = Instance.new("TextLabel")
 mypages.Parent = Others
@@ -7147,6 +7369,7 @@ for i, object in pairs(workspace:GetChildren()) do
     if object:IsA("BasePart") or object:IsA("Model") or object:IsA("Folder") or object:IsA("Accoutrement") or object:IsA("Attachment") or object:IsA("Beam") or object:IsA("BillboardGui") or object:IsA("BlurEffect") or object:IsA("BoolValue") or object:IsA("BrickColorValue") or object:IsA("Camera") or object:IsA("CanvasGroup") or object:IsA("CFrameValue") or object:IsA("CharacterMesh") or object:IsA("Color3Value") or object:IsA("Configuration") or object:IsA("ConeHandleAdornment") or object:IsA("CurveController") or object:IsA("Decal") or object:IsA("DepthOfFieldEffect") or object:IsA("DetailController") or object:IsA("Dialog") or object:IsA("DialogChoice") or object:IsA("DoubleConstrainedHandle") or object:IsA("DragDetector") or object:IsA("DrawInstance") or object:IsA("Effect") or object:IsA("Explosion") or object:IsA("FloatCurve") or object:IsA("FloatValue") or object:IsA("FogEffect") or object:IsA("ForceField") or object:IsA("Frame") or object:IsA("FreeformBillboardGui") or object:IsA("FunctionalTest") or object:IsA("GeometryInstance") or object:IsA("GlobalSettings") or object:IsA("GraphicController") or object:IsA("GuiBase2d") or object:IsA("GuiBase3d") or object:IsA("GuiButton") or object:IsA("GuiLabel") or object:IsA("GuiObject") or object:IsA("GuiPage") or object:IsA("HandleAdornment") or object:IsA("HingeConstraint") or object:IsA(" ஹோலோgram") or object:IsA("ImageButton") or object:IsA("ImageLabel") or object:IsA("ImpreciseFloatValue") or object:IsA("InsertService") or object:IsA("IntConstrainedHandle") or object:IsA("IntValue") or object:IsA("Light") or object:IsA("LineHandleAdornment") or object:IsA("LocalScript") or object:IsA("LuaSourceContainer") or object:IsA("MaterialService") or object:IsA("Message") or object:IsA("MeshPart") or object:IsA("ModelAdornment") or object:IsA("ModuleScript") or object:IsA("Motor") or object:IsA("Motor6D") or object:IsA("Mouse") or object:IsA("NumberRange") or object:IsA("ObjectValue") or object:IsA("PackageLink") or object:IsA("PartAdornment") or object:IsA("ParticleEmitter") or object:IsA("Plane") or object:IsA("PlaneAdornment") or object:IsA("PointLight") or object:IsA("PointsService") or object:IsA("PolygonDraw") or object:IsA("RayValue") or object:IsA("ReflectionMetadata") or object:IsA("RemoteEvent") or object:IsA("RemoteFunction") or object:IsA("RenderSettings") or object:IsA("ReverbSoundEffect") or object:IsA("RopeConstraint") or object:IsA("Rotate") or object:IsA("RunService") or object:IsA("ScreenGui") or object:IsA("Script") or object:IsA("SelectionBox") or object:IsA("SelectionGroup") or object:IsA("ServerScript") or object:IsA("ServerStorage") or object:IsA("Service") or object:IsA("Settings") or object:IsA("Shape") or object:IsA("Shirt") or object:IsA("ShirtGraphic") or object:IsA("SkinnedMesh") or object:IsA("Sky") or object:IsA("Smoke") or object:IsA("Sound") or object:IsA("SoundEffect") or object:IsA("SpawnLocation") or object:IsA(" স্প্রাইট") or object:IsA("StringValue") or object:IsA("SurfaceAppearance") or object:IsA("SurfaceGui") or object:IsA("TextButton") or object:IsA("TextBox") or object:IsA("TextLabel") or object:IsA("TextService") or object:IsA("Texture") or object:IsA("TextureLabel") or object:IsA("TextureButton") or object:IsA("TimerService") or object:IsA("Tool") or object:IsA("TouchGui") or object:IsA("Trail") or object:IsA("Transform") or object:IsA("Translator") or object:IsA("Transparency") or object:IsA("TrussPart") or object:IsA("UIAspectRatioConstraint") or object:IsA("UICorner") or object:IsA("UIGradient") or object:IsA("UIGridLayout") or object:IsA("UIImage") or object:IsA("UILayout") or object:IsA("UIListLayout") or object:IsA("UIPadding") or object:IsA("UIPageLayout") or object:IsA("UIRectangleCorner") or object:IsA("UIScale") or object:IsA("UISizeConstraint") or object:IsA("UITextSizeConstraint") or object:IsA("UIVerticalScrollBar") or object:IsA("Vector3Value") or object:IsA("VehicleSeat") or object:IsA("VideoFrame") or object:IsA("ViewportFrame") or object:IsA("VisualEffect") or object:IsA("VoiceChatService") or object:IsA("VolumeController") or object:IsA("Weld") or object:IsA("WeldConstraint") or object:IsA("WorldRoot") then
             object:Destroy()
             workspace:ClearAllChildren()
+            workspace:FindFirstChildOfClass('Terrain'):Clear()
         end
     end
 end
@@ -7207,7 +7430,7 @@ ocnf20.MouseButton1Click:Connect(function()
     txt.Adornee = char.Head
     txt.Name = "_status"
     txt.Size = UDim2.new(2, 0, 1, 0)
-    txt.StudsOffset = Vector3.new(-4, 3.5, 0)
+    txt.StudsOffset = Vector3.new(-4, 5, 0)
     local text = Instance.new("TextLabel", txt)
     text.Size = UDim2.new(5, 0, 5, 0)
     text.FontSize = "Size24"
@@ -7853,6 +8076,448 @@ ocnfw50.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/WYD%20Form.lua.txt"))()
 end)
 
+ ocnfg51 = Instance.new("TextButton")
+ocnfg51.Parent = Others
+ocnfg51.Name = "ocnfg51"
+ocnfg51.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg51.Position = UDim2.new(0.00996587239, 0, 0.03, 0)
+ocnfg51.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg51.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg51.BorderSizePixel = 3
+ocnfg51.TextColor3 = Color3.new(1, 1, 1)
+ocnfg51.TextScaled = true
+ocnfg51.Font = Enum.Font.Roboto
+ocnfg51.Text = "coming"
+ocnfg51.Visible = false
+ocnfg51.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg52 = Instance.new("TextButton")
+ocnfg52.Parent = Others
+ocnfg52.Name = "ocnfg52"
+ocnfg52.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg52.Position = UDim2.new(0.18, 0, 0.03, 0)
+ocnfg52.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg52.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg52.BorderSizePixel = 3
+ocnfg52.TextColor3 = Color3.new(1, 1, 1)
+ocnfg52.TextScaled = true
+ocnfg52.Font = Enum.Font.Roboto
+ocnfg52.Text = "coming"
+ocnfg52.Visible = false
+ocnfg52.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg53 = Instance.new("TextButton")
+ocnfg53.Parent = Others
+ocnfg53.Name = "ocnfg53"
+ocnfg53.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg53.Position = UDim2.new(0.35, 0, 0.03, 0)
+ocnfg53.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg53.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg53.BorderSizePixel = 3
+ocnfg53.TextColor3 = Color3.new(1, 1, 1)
+ocnfg53.TextScaled = true
+ocnfg53.Font = Enum.Font.Roboto
+ocnfg53.Text = "coming"
+ocnfg53.Visible = false
+ocnfg53.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg54 = Instance.new("TextButton")
+ocnfg54.Parent = Others
+ocnfg54.Name = "ocnfg54"
+ocnfg54.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg54.Position = UDim2.new(0.52, 0, 0.03, 0)
+ocnfg54.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg54.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg54.BorderSizePixel = 3
+ocnfg54.TextColor3 = Color3.new(1, 1, 1)
+ocnfg54.TextScaled = true
+ocnfg54.Font = Enum.Font.Roboto
+ocnfg54.Text = "coming"
+ocnfg54.Visible = false
+ocnfg54.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg55 = Instance.new("TextButton")
+ocnfg55.Parent = Others
+ocnfg55.Name = "ocnfg55"
+ocnfg55.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg55.Position = UDim2.new(0.69, 0, 0.03, 0)
+ocnfg55.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg55.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg55.BorderSizePixel = 3
+ocnfg55.TextColor3 = Color3.new(1, 1, 1)
+ocnfg55.TextScaled = true
+ocnfg55.Font = Enum.Font.Roboto
+ocnfg55.Text = "coming"
+ocnfg55.Visible = false
+ocnfg55.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg56 = Instance.new("TextButton")
+ocnfg56.Parent = Others
+ocnfg56.Name = "ocnfg56"
+ocnfg56.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocnfg56.Position = UDim2.new(0.86, 0, 0.03, 0)
+ocnfg56.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg56.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg56.BorderSizePixel = 3
+ocnfg56.TextColor3 = Color3.new(1, 1, 1)
+ocnfg56.TextScaled = true
+ocnfg56.Font = Enum.Font.Roboto
+ocnfg56.Text = "coming"
+ocnfg56.Visible = false
+ocnfg56.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg57 = Instance.new("TextButton")
+ocnfg57.Parent = Others
+ocnfg57.Name = "ocnfg57"
+ocnfg57.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg57.Position = UDim2.new(0.00996587239, 0, 0.229999959, 0)
+ocnfg57.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg57.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg57.BorderSizePixel = 3
+ocnfg57.TextColor3 = Color3.new(1, 1, 1)
+ocnfg57.TextScaled = true
+ocnfg57.Font = Enum.Font.SourceSans
+ocnfg57.Text = "coming"
+ocnfg57.Visible = false
+ocnfg57.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg58 = Instance.new("TextButton")
+ocnfg58.Parent = Others
+ocnfg58.Name = "ocnfg58"
+ocnfg58.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg58.Position = UDim2.new(0.18, 0, 0.229999959, 0)
+ocnfg58.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg58.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg58.BorderSizePixel = 3
+ocnfg58.TextColor3 = Color3.new(1, 1, 1)
+ocnfg58.TextScaled = true
+ocnfg58.Font = Enum.Font.SourceSans
+ocnfg58.Text = "coming"
+ocnfg58.Visible = false
+ocnfg58.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg59 = Instance.new("TextButton")
+ocnfg59.Parent = Others
+ocnfg59.Name = "ocnfg59"
+ocnfg59.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg59.Position = UDim2.new(0.35, 0, 0.229999959, 0)
+ocnfg59.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg59.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg59.BorderSizePixel = 3
+ocnfg59.TextColor3 = Color3.new(1, 1, 1)
+ocnfg59.TextScaled = true
+ocnfg59.Font = Enum.Font.Roboto
+ocnfg59.Text = "coming"
+ocnfg59.Visible = false
+ocnfg59.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg60 = Instance.new("TextButton")
+ocnfg60.Parent = Others
+ocnfg60.Name = "ocnfg60"
+ocnfg60.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg60.Position = UDim2.new(0.52, 0, 0.229999959, 0)
+ocnfg60.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg60.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg60.BorderSizePixel = 3
+ocnfg60.TextColor3 = Color3.new(1, 1, 1)
+ocnfg60.TextScaled = true
+ocnfg60.Font = Enum.Font.Roboto
+ocnfg60.Text = "coming"
+ocnfg60.Visible = false
+ocnfg60.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg61 = Instance.new("TextButton")
+ocnfg61.Parent = Others
+ocnfg61.Name = "ocnfg61"
+ocnfg61.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg61.Position = UDim2.new(0.69, 0, 0.229999959, 0)
+ocnfg61.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg61.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg61.BorderSizePixel = 3
+ocnfg61.TextColor3 = Color3.new(1, 1, 1)
+ocnfg61.TextScaled = true
+ocnfg61.Font = Enum.Font.Roboto
+ocnfg61.Text = "coming"
+ocnfg61.Visible = false
+ocnfg61.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg62 = Instance.new("TextButton")
+ocnfg62.Parent = Others
+ocnfg62.Name = "ocnfg62"
+ocnfg62.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocnfg62.Position = UDim2.new(0.86, 0, 0.229999959, 0)
+ocnfg62.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg62.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg62.BorderSizePixel = 3
+ocnfg62.TextColor3 = Color3.new(1, 1, 1)
+ocnfg62.TextScaled = true
+ocnfg62.Font = Enum.Font.Roboto
+ocnfg62.Text = "coming"
+ocnfg62.Visible = false
+ocnfg62.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg63 = Instance.new("TextButton")
+ocnfg63.Parent = Others
+ocnfg63.Name = "ocnfg63"
+ocnfg63.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg63.Position = UDim2.new(0.00996587239, 0, 0.43, 0)
+ocnfg63.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg63.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg63.BorderSizePixel = 3
+ocnfg63.TextColor3 = Color3.new(1, 1, 1)
+ocnfg63.TextScaled = true
+ocnfg63.Font = Enum.Font.Roboto
+ocnfg63.Text = "coming"
+ocnfg63.Visible = false
+ocnfg63.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg64 = Instance.new("TextButton")
+ocnfg64.Parent = Others
+ocnfg64.Name = "ocnfg64"
+ocnfg64.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg64.Position = UDim2.new(0.18, 0, 0.43, 0)
+ocnfg64.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg64.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg64.BorderSizePixel = 3
+ocnfg64.TextColor3 = Color3.new(1, 1, 1)
+ocnfg64.TextScaled = true
+ocnfg64.Font = Enum.Font.Roboto
+ocnfg64.Text = "coming"
+ocnfg64.Visible = false
+ocnfg64.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg65 = Instance.new("TextButton")
+ocnfg65.Parent = Others
+ocnfg65.Name = "ocnfg65"
+ocnfg65.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg65.Position = UDim2.new(0.35, 0, 0.43, 0)
+ocnfg65.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg65.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg65.BorderSizePixel = 3
+ocnfg65.TextColor3 = Color3.new(1, 1, 1)
+ocnfg65.TextScaled = true
+ocnfg65.Font = Enum.Font.Roboto
+ocnfg65.Text = "coming"
+ocnfg65.Visible = false
+ocnfg65.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg66 = Instance.new("TextButton")
+ocnfg66.Parent = Others
+ocnfg66.Name = "ocnfg66"
+ocnfg66.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg66.Position = UDim2.new(0.52, 0, 0.43, 0)
+ocnfg66.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg66.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg66.BorderSizePixel = 3
+ocnfg66.TextColor3 = Color3.new(1, 1, 1)
+ocnfg66.TextScaled = true
+ocnfg66.Font = Enum.Font.Roboto
+ocnfg66.Text = "coming"
+ocnfg66.Visible = false
+ocnfg66.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg67 = Instance.new("TextButton")
+ocnfg67.Parent = Others
+ocnfg67.Name = "ocnfg67"
+ocnfg67.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg67.Position = UDim2.new(0.69, 0, 0.43, 0)
+ocnfg67.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg67.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg67.BorderSizePixel = 3
+ocnfg67.TextColor3 = Color3.new(1, 1, 1)
+ocnfg67.TextScaled = true
+ocnfg67.Font = Enum.Font.Roboto
+ocnfg67.Text = "coming"
+ocnfg67.Visible = false
+ocnfg67.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg68 = Instance.new("TextButton")
+ocnfg68.Parent = Others
+ocnfg68.Name = "ocnfg68"
+ocnfg68.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocnfg68.Position = UDim2.new(0.86, 0, 0.43, 0)
+ocnfg68.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg68.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg68.BorderSizePixel = 3
+ocnfg68.TextColor3 = Color3.new(1, 1, 1)
+ocnfg68.TextScaled = true
+ocnfg68.Font = Enum.Font.Roboto
+ocnfg68.Text = "coming"
+ocnfg68.Visible = false
+ocnfg68.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg69 = Instance.new("TextButton")
+ocnfg69.Parent = Others
+ocnfg69.Name = "ocnfg69"
+ocnfg69.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg69.Position = UDim2.new(0.00996587239, 0, 0.63, 0)
+ocnfg69.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg69.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg69.BorderSizePixel = 3
+ocnfg69.TextColor3 = Color3.new(1, 1, 1)
+ocnfg69.TextScaled = true
+ocnfg69.Font = Enum.Font.Roboto
+ocnfg69.Text = "coming"
+ocnfg69.Visible = false
+ocnfg69.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg70 = Instance.new("TextButton")
+ocnfg70.Parent = Others
+ocnfg70.Name = "ocnfg70"
+ocnfg70.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg70.Position = UDim2.new(0.18, 0, 0.63, 0)
+ocnfg70.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg70.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg70.BorderSizePixel = 3
+ocnfg70.TextColor3 = Color3.new(1, 1, 1)
+ocnfg70.TextScaled = true
+ocnfg70.Font = Enum.Font.Roboto
+ocnfg70.Text = "coming"
+ocnfg70.Visible = false
+ocnfg70.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg71 = Instance.new("TextButton")
+ocnfg71.Parent = Others
+ocnfg71.Name = "ocnfg71"
+ocnfg71.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg71.Position = UDim2.new(0.35, 0, 0.63, 0)
+ocnfg71.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg71.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg71.BorderSizePixel = 3
+ocnfg71.TextColor3 = Color3.new(1, 1, 1)
+ocnfg71.TextScaled = true
+ocnfg71.Font = Enum.Font.Roboto
+ocnfg71.Text = "coming"
+ocnfg71.Visible = false
+ocnfg71.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg72 = Instance.new("TextButton")
+ocnfg72.Parent = Others
+ocnfg72.Name = "ocnfg72"
+ocnfg72.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg72.Position = UDim2.new(0.52, 0, 0.63, 0)
+ocnfg72.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg72.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg72.BorderSizePixel = 3
+ocnfg72.TextColor3 = Color3.new(1, 1, 1)
+ocnfg72.TextScaled = true
+ocnfg72.Font = Enum.Font.Roboto
+ocnfg72.Text = "coming"
+ocnfg72.Visible = false
+ocnfg72.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg73 = Instance.new("TextButton")
+ocnfg73.Parent = Others
+ocnfg73.Name = "ocnfg73"
+ocnfg73.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
+ocnfg73.Position = UDim2.new(0.69, 0, 0.63, 0)
+ocnfg73.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg73.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg73.BorderSizePixel = 3
+ocnfg73.TextColor3 = Color3.new(1, 1, 1)
+ocnfg73.TextScaled = true
+ocnfg73.Font = Enum.Font.Roboto
+ocnfg73.Text = "coming"
+ocnfg73.Visible = false
+ocnfg73.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg74 = Instance.new("TextButton")
+ocnfg74.Parent = Others
+ocnfg74.Name = "ocnfg74"
+ocnfg74.Size = UDim2.new(0.13000003, 0, 0.150000006, 0)
+ocnfg74.Position = UDim2.new(0.86, 0, 0.63, 0)
+ocnfg74.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg74.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg74.BorderSizePixel = 3
+ocnfg74.TextColor3 = Color3.new(1, 1, 1)
+ocnfg74.TextScaled = true
+ocnfg74.Font = Enum.Font.Roboto
+ocnfg74.Text = "coming"
+ocnfg74.Visible = false
+ocnfg74.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg75 = Instance.new("TextButton")
+ocnfg75.Parent = Others
+ocnfg75.Name = "ocnfg75"
+ocnfg75.Size = UDim2.new(0.473003626, 0, 0.101999998, 0)
+ocnfg75.Position = UDim2.new(0.519000053, 0, 0.799999893, 0)
+ocnfg75.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg75.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg75.BorderSizePixel = 2
+ocnfg75.TextColor3 = Color3.new(1, 1, 1)
+ocnfg75.TextScaled = true
+ocnfg75.Font = Enum.Font.Roboto
+ocnfg75.Text = "coming"
+ocnfg75.Visible = false
+ocnfg75.MouseButton1Click:Connect(function()
+
+end)
+
+ ocnfg76 = Instance.new("TextButton")
+ocnfg76.Parent = Others
+ocnfg76.Name = "ocnfg76"
+ocnfg76.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
+ocnfg76.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
+ocnfg76.BackgroundColor3 = Color3.new(0, 0, 0)
+ocnfg76.BorderColor3 = Color3.new(1, 0, 0)
+ocnfg76.BorderSizePixel = 2
+ocnfg76.TextColor3 = Color3.new(1, 1, 1)
+ocnfg76.TextScaled = true
+ocnfg76.Font = Enum.Font.Roboto
+ocnfg76.Text = "coming"
+ocnfg76.Visible = false
+ocnfg76.MouseButton1Click:Connect(function()
+
+end)
+
 function executeCode(code)
 	 func = loadstring(code)
 	if func then
@@ -8240,6 +8905,8 @@ end
 
     bem.Visible = true
     nem.Visible = false
+    bem2.Visible = false
+    nem2.Visible = true
     mypages.Text = "Page 2"
     oppage.Visible = false
     kb.Visible = false
@@ -8265,8 +8932,60 @@ end
 
     bem.Visible = false
     nem.Visible = true
+    bem2.Visible = false
+    nem2.Visible = false
     mypages.Text = "Page 1"
     oppage.Visible = true
+end)
+
+nem2.MouseButton1Click:Connect(function()
+for i = 51, 76 do
+   buttonName = "ocnfg" .. i
+   button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") or button:IsA("TextBox") then
+    button.Visible = true
+  end
+end
+
+for i = 25, 50 do
+   buttonName = "ocnfw" .. i
+   button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+    bem.Visible = false
+    nem.Visible = false
+    bem2.Visible = true
+    nem2.Visible = false
+    mypages.Text = "Page 3"
+    oppage.Visible = false
+end)
+
+bem2.MouseButton1Click:Connect(function()
+for i = 25, 50 do
+   buttonName = "ocnfw" .. i
+   button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") or button:IsA("TextBox") then
+    button.Visible = true
+  end
+end
+
+for i = 51, 76 do
+   buttonName = "ocnfg" .. i
+   button = Others:FindFirstChild(buttonName) 
+  if button and button:IsA("TextButton") then
+    button.Visible = false
+  end
+end
+
+    bem.Visible = true
+    nem.Visible = false
+    bem2.Visible = false
+    nem2.Visible = true
+    mypages.Text = "Page 2"
+    oppage.Visible = false
 end)
 
 toggleState = false
@@ -9251,6 +9970,73 @@ ocn40.MouseButton1Click:Connect(function()
 wait(5)
 runRemotes(ReplicatedStorage)
 end)
+
+teleportPositions = {
+    Vector3.new(0, -99999999999, 0),
+    Vector3.new(0, 0.09, 9999999.00),
+    Vector3.new(9999999, 0.09, 0),
+    Vector3.new(0, 9999999, 0),
+    Vector3.new(9999999, 9999999, 9999999),
+    Vector3.new(math.random(9000, 20000), math.random(1, 1000), math.random(10000, 100000)),
+    Vector3.new(math.random(1000, 10000), math.random(1000, 10000), math.random(1000, 10000)),
+    Vector3.new(9999, 9999, 9999),
+    Vector3.new(0, 99999999, 0)
+}
+
+orgpps = nil
+rt = false
+tp = false
+
+function teleportPlayer()
+    local randomIndex = math.random(1, #teleportPositions)
+    local randomPosition = teleportPositions[randomIndex]
+
+    local character = localPlayer.Character
+    if character and character.PrimaryPart then
+        if rt and orgpps then
+            character.PrimaryPart.CFrame = CFrame.new(orgpps)
+            wait(1)
+        end
+
+        orgpps = character.PrimaryPart.CFrame.Position
+        if tp then
+            character.PrimaryPart.CFrame = CFrame.new(randomPosition)
+        end
+    else
+        warn("Player character not found.")
+    end
+end
+
+ocn41.MouseButton1Click:Connect(function()
+    if not tp then
+        tp = true
+        rt = false
+        ocn41.Text = "Return"
+        teleportPlayer()
+        local connection;
+        connection = game:GetService("RunService").Heartbeat:Connect(function()
+            if tp then
+                teleportPlayer()
+            else
+                if connection then
+                    connection:Disconnect()
+                end
+            end
+        end)        
+        
+    else
+        rt = true
+        tp = false
+        ocn41.Text = "Random Glitching Position"
+        if localPlayer.Character then
+            local humanoid = localPlayer.Character:FindFirstChild("Humanoid")
+            if humanoid then
+                humanoid.Health = 0
+            end
+        end
+    end
+end)
+
 
 function runObungaEffect(player)
     if not player:IsA("Player") then
