@@ -6652,7 +6652,7 @@ nem.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
 nem.BackgroundColor3 = Color3.new(0, 0, 0)
 nem.BorderColor3 = Color3.new(1, 0, 0)
 nem.BorderSizePixel = 2
-nem.TextColor3 = Color3.new(0, 0, 1)
+nem.TextColor3 = Color3.new(1, 1, 1)
 nem.TextScaled = true
 nem.Font = Enum.Font.GothamBold
 nem.Text = ">"
@@ -6666,7 +6666,7 @@ bem.Position = UDim2.new(0.0100000035, 0, 0.920000196, 0)
 bem.BackgroundColor3 = Color3.new(0, 0, 0)
 bem.BorderColor3 = Color3.new(1, 0, 0)
 bem.BorderSizePixel = 2
-bem.TextColor3 = Color3.new(0, 0, 1)
+bem.TextColor3 = Color3.new(1, 1, 1)
 bem.TextScaled = true
 bem.Font = Enum.Font.GothamBold
 bem.Text = "<"
@@ -6680,7 +6680,7 @@ nem2.Position = UDim2.new(0.860000014, 0, 0.920000017, 0)
 nem2.BackgroundColor3 = Color3.new(0, 0, 0)
 nem2.BorderColor3 = Color3.new(1, 0, 0)
 nem2.BorderSizePixel = 2
-nem2.TextColor3 = Color3.new(0, 0, 1)
+nem2.TextColor3 = Color3.new(1, 1, 1)
 nem2.TextScaled = true
 nem2.Font = Enum.Font.GothamBold
 nem2.Text = ">"
@@ -6694,7 +6694,7 @@ bem2.Position = UDim2.new(0.0100000035, 0, 0.920000196, 0)
 bem2.BackgroundColor3 = Color3.new(0, 0, 0)
 bem2.BorderColor3 = Color3.new(1, 0, 0)
 bem2.BorderSizePixel = 2
-bem2.TextColor3 = Color3.new(0, 0, 1)
+bem2.TextColor3 = Color3.new(1, 1, 1)
 bem2.TextScaled = true
 bem2.Font = Enum.Font.GothamBold
 bem2.Text = "<"
@@ -7948,7 +7948,7 @@ ocnfw44.BorderSizePixel = 3
 ocnfw44.TextColor3 = Color3.new(1, 1, 1)
 ocnfw44.TextScaled = true
 ocnfw44.Font = Enum.Font.Roboto
-ocnfw44.Text = "911 Plane"
+ocnfw44.Text = "Plane"
 ocnfw44.Visible = false
 ocnfw44.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BRecharacter%5D%20911%20Plane.txt"))()
@@ -8087,10 +8087,10 @@ ocnfg51.BorderSizePixel = 3
 ocnfg51.TextColor3 = Color3.new(1, 1, 1)
 ocnfg51.TextScaled = true
 ocnfg51.Font = Enum.Font.Roboto
-ocnfg51.Text = "coming"
+ocnfg51.Text = "Ro-Exploit v6"
 ocnfg51.Visible = false
 ocnfg51.MouseButton1Click:Connect(function()
-
+loadstring(game:GetObjects("rbxassetid://364364477")[1].Source)()
 end)
 
  ocnfg52 = Instance.new("TextButton")
@@ -8104,10 +8104,10 @@ ocnfg52.BorderSizePixel = 3
 ocnfg52.TextColor3 = Color3.new(1, 1, 1)
 ocnfg52.TextScaled = true
 ocnfg52.Font = Enum.Font.Roboto
-ocnfg52.Text = "coming"
+ocnfg52.Text = "Ro-Exploit v5"
 ocnfg52.Visible = false
 ocnfg52.MouseButton1Click:Connect(function()
-
+loadstring(game:GetObjects("rbxassetid://288646117")[1].Source)()
 end)
 
  ocnfg53 = Instance.new("TextButton")
@@ -8121,10 +8121,10 @@ ocnfg53.BorderSizePixel = 3
 ocnfg53.TextColor3 = Color3.new(1, 1, 1)
 ocnfg53.TextScaled = true
 ocnfg53.Font = Enum.Font.Roboto
-ocnfg53.Text = "coming"
+ocnfg53.Text = "T0pk3k v3"
 ocnfg53.Visible = false
 ocnfg53.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaGunsX/LuasLegacyScripts/main/%5BGUI%5D%20T0PK3K%20V3"))()
 end)
 
  ocnfg54 = Instance.new("TextButton")
@@ -8138,10 +8138,10 @@ ocnfg54.BorderSizePixel = 3
 ocnfg54.TextColor3 = Color3.new(1, 1, 1)
 ocnfg54.TextScaled = true
 ocnfg54.Font = Enum.Font.Roboto
-ocnfg54.Text = "coming"
+ocnfg54.Text = "T0pk3k v4"
 ocnfg54.Visible = false
 ocnfg54.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/t0pk3k_remake.txt"))()
 end)
 
  ocnfg55 = Instance.new("TextButton")
@@ -8155,10 +8155,10 @@ ocnfg55.BorderSizePixel = 3
 ocnfg55.TextColor3 = Color3.new(1, 1, 1)
 ocnfg55.TextScaled = true
 ocnfg55.Font = Enum.Font.Roboto
-ocnfg55.Text = "coming"
+ocnfg55.Text = "1x1x1x1 Gui"
 ocnfg55.Visible = false
 ocnfg55.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/1x1x1x1_Gui.txt'))()
 end)
 
  ocnfg56 = Instance.new("TextButton")
@@ -8172,10 +8172,10 @@ ocnfg56.BorderSizePixel = 3
 ocnfg56.TextColor3 = Color3.new(1, 1, 1)
 ocnfg56.TextScaled = true
 ocnfg56.Font = Enum.Font.Roboto
-ocnfg56.Text = "coming"
+ocnfg56.Text = "Secret Service Panel"
 ocnfg56.Visible = false
 ocnfg56.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MagnumIceCream/SecretServicePanel/6fefdf531e86404fb41b7812e7e84b69c7ea728f/ShakesSSP"))()
 end)
 
  ocnfg57 = Instance.new("TextButton")
@@ -8189,10 +8189,10 @@ ocnfg57.BorderSizePixel = 3
 ocnfg57.TextColor3 = Color3.new(1, 1, 1)
 ocnfg57.TextScaled = true
 ocnfg57.Font = Enum.Font.SourceSans
-ocnfg57.Text = "coming"
+ocnfg57.Text = "Rc7"
 ocnfg57.Visible = false
 ocnfg57.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Rc7%20by%20ROZXINO.txt"))()
 end)
 
  ocnfg58 = Instance.new("TextButton")
@@ -8206,10 +8206,10 @@ ocnfg58.BorderSizePixel = 3
 ocnfg58.TextColor3 = Color3.new(1, 1, 1)
 ocnfg58.TextScaled = true
 ocnfg58.Font = Enum.Font.SourceSans
-ocnfg58.Text = "coming"
+ocnfg58.Text = "Harked"
 ocnfg58.Visible = false
 ocnfg58.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Harked%20FE%20Bypass%20Script%20for%20segway%20gamepass.lua.txt"))()
 end)
 
  ocnfg59 = Instance.new("TextButton")
@@ -8223,10 +8223,10 @@ ocnfg59.BorderSizePixel = 3
 ocnfg59.TextColor3 = Color3.new(1, 1, 1)
 ocnfg59.TextScaled = true
 ocnfg59.Font = Enum.Font.Roboto
-ocnfg59.Text = "coming"
+ocnfg59.Text = "Rose Hub v3.0.1"
 ocnfg59.Visible = false
 ocnfg59.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BGUI%5D%20Rose%20Hub.txt"))()
 end)
 
  ocnfg60 = Instance.new("TextButton")
@@ -8240,10 +8240,10 @@ ocnfg60.BorderSizePixel = 3
 ocnfg60.TextColor3 = Color3.new(1, 1, 1)
 ocnfg60.TextScaled = true
 ocnfg60.Font = Enum.Font.Roboto
-ocnfg60.Text = "coming"
+ocnfg60.Text = "RoWrecker Gui"
 ocnfg60.Visible = false
 ocnfg60.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BGUI%5D%20RoWrecker.txt"))()
 end)
 
  ocnfg61 = Instance.new("TextButton")
@@ -8257,10 +8257,10 @@ ocnfg61.BorderSizePixel = 3
 ocnfg61.TextColor3 = Color3.new(1, 1, 1)
 ocnfg61.TextScaled = true
 ocnfg61.Font = Enum.Font.Roboto
-ocnfg61.Text = "coming"
+ocnfg61.Text = "Ztrax Hub v1"
 ocnfg61.Visible = false
 ocnfg61.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://pastebin.com/raw/kqpSqRg1"))()
 end)
 
  ocnfg62 = Instance.new("TextButton")
@@ -8274,10 +8274,10 @@ ocnfg62.BorderSizePixel = 3
 ocnfg62.TextColor3 = Color3.new(1, 1, 1)
 ocnfg62.TextScaled = true
 ocnfg62.Font = Enum.Font.Roboto
-ocnfg62.Text = "coming"
+ocnfg62.Text = "Mrbean Admin"
 ocnfg62.Visible = false
 ocnfg62.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Test4267/mrbean/refs/heads/main/hh"))()
 end)
 
  ocnfg63 = Instance.new("TextButton")
@@ -8291,10 +8291,10 @@ ocnfg63.BorderSizePixel = 3
 ocnfg63.TextColor3 = Color3.new(1, 1, 1)
 ocnfg63.TextScaled = true
 ocnfg63.Font = Enum.Font.Roboto
-ocnfg63.Text = "coming"
+ocnfg63.Text = "Verm Orb"
 ocnfg63.Visible = false
 ocnfg63.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BAdmin%5D%20iOrb%20Verm.txt"))()
 end)
 
  ocnfg64 = Instance.new("TextButton")
@@ -8308,10 +8308,10 @@ ocnfg64.BorderSizePixel = 3
 ocnfg64.TextColor3 = Color3.new(1, 1, 1)
 ocnfg64.TextScaled = true
 ocnfg64.Font = Enum.Font.Roboto
-ocnfg64.Text = "coming"
+ocnfg64.Text = "Nexulis Admin"
 ocnfg64.Visible = false
 ocnfg64.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BAdmin%5D%20Nexulis.txt"))()
 end)
 
  ocnfg65 = Instance.new("TextButton")
@@ -8325,10 +8325,10 @@ ocnfg65.BorderSizePixel = 3
 ocnfg65.TextColor3 = Color3.new(1, 1, 1)
 ocnfg65.TextScaled = true
 ocnfg65.Font = Enum.Font.Roboto
-ocnfg65.Text = "coming"
+ocnfg65.Text = "Projects loader"
 ocnfg65.Visible = false
 ocnfg65.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-elysian-25258"))()
 end)
 
  ocnfg66 = Instance.new("TextButton")
@@ -8342,10 +8342,10 @@ ocnfg66.BorderSizePixel = 3
 ocnfg66.TextColor3 = Color3.new(1, 1, 1)
 ocnfg66.TextScaled = true
 ocnfg66.Font = Enum.Font.Roboto
-ocnfg66.Text = "coming"
+ocnfg66.Text = "OLD Infinite Yield"
 ocnfg66.Visible = false
 ocnfg66.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Admin%20Infinite.txt"))()
 end)
 
  ocnfg67 = Instance.new("TextButton")
@@ -8359,10 +8359,10 @@ ocnfg67.BorderSizePixel = 3
 ocnfg67.TextColor3 = Color3.new(1, 1, 1)
 ocnfg67.TextScaled = true
 ocnfg67.Font = Enum.Font.Roboto
-ocnfg67.Text = "coming"
+ocnfg67.Text = "Dominator Executor"
 ocnfg67.Visible = false
 ocnfg67.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/1de6bc36-181c-4ba3-b626-1303de1ae596.luau"))()
 end)
 
  ocnfg68 = Instance.new("TextButton")
@@ -8376,10 +8376,10 @@ ocnfg68.BorderSizePixel = 3
 ocnfg68.TextColor3 = Color3.new(1, 1, 1)
 ocnfg68.TextScaled = true
 ocnfg68.Font = Enum.Font.Roboto
-ocnfg68.Text = "coming"
+ocnfg68.Text = "Yong Sheldon Gui"
 ocnfg68.Visible = false
 ocnfg68.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://pastebin.com/raw/sGRa5mG6"))()
 end)
 
  ocnfg69 = Instance.new("TextButton")
@@ -8393,10 +8393,10 @@ ocnfg69.BorderSizePixel = 3
 ocnfg69.TextColor3 = Color3.new(1, 1, 1)
 ocnfg69.TextScaled = true
 ocnfg69.Font = Enum.Font.Roboto
-ocnfg69.Text = "coming"
+ocnfg69.Text = "Project Ligma"
 ocnfg69.Visible = false
 ocnfg69.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Project%20Ligma.txt"))()
 end)
 
  ocnfg70 = Instance.new("TextButton")
@@ -8410,10 +8410,10 @@ ocnfg70.BorderSizePixel = 3
 ocnfg70.TextColor3 = Color3.new(1, 1, 1)
 ocnfg70.TextScaled = true
 ocnfg70.Font = Enum.Font.Roboto
-ocnfg70.Text = "coming"
+ocnfg70.Text = "Project Shiba"
 ocnfg70.Visible = false
 ocnfg70.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://pastebin.com/raw/HrE2dKSD"))()
 end)
 
  ocnfg71 = Instance.new("TextButton")
@@ -8427,10 +8427,10 @@ ocnfg71.BorderSizePixel = 3
 ocnfg71.TextColor3 = Color3.new(1, 1, 1)
 ocnfg71.TextScaled = true
 ocnfg71.Font = Enum.Font.Roboto
-ocnfg71.Text = "coming"
+ocnfg71.Text = "Project SonicElijahMania"
 ocnfg71.Visible = false
 ocnfg71.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hanif290/YoThereSkibidiSigma68/refs/heads/main/Yoshi681SkibidiBoy"))()
 end)
 
  ocnfg72 = Instance.new("TextButton")
@@ -8444,10 +8444,10 @@ ocnfg72.BorderSizePixel = 3
 ocnfg72.TextColor3 = Color3.new(1, 1, 1)
 ocnfg72.TextScaled = true
 ocnfg72.Font = Enum.Font.Roboto
-ocnfg72.Text = "coming"
+ocnfg72.Text = "Project Lua"
 ocnfg72.Visible = false
 ocnfg72.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Project-Lua-Inspired-by-Project-Ligma-26224"))()
 end)
 
  ocnfg73 = Instance.new("TextButton")
@@ -8461,10 +8461,10 @@ ocnfg73.BorderSizePixel = 3
 ocnfg73.TextColor3 = Color3.new(1, 1, 1)
 ocnfg73.TextScaled = true
 ocnfg73.Font = Enum.Font.Roboto
-ocnfg73.Text = "coming"
+ocnfg73.Text = "Ultimate Trolling Gui"
 ocnfg73.Visible = false
 ocnfg73.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Ultimate-trolling-gui-15461"))()
 end)
 
  ocnfg74 = Instance.new("TextButton")
@@ -8478,10 +8478,10 @@ ocnfg74.BorderSizePixel = 3
 ocnfg74.TextColor3 = Color3.new(1, 1, 1)
 ocnfg74.TextScaled = true
 ocnfg74.Font = Enum.Font.Roboto
-ocnfg74.Text = "coming"
+ocnfg74.Text = "FMA Gui"
 ocnfg74.Visible = false
 ocnfg74.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/Filter%20My%20Ass.lua.txt"))()
 end)
 
  ocnfg75 = Instance.new("TextButton")
@@ -8495,10 +8495,10 @@ ocnfg75.BorderSizePixel = 2
 ocnfg75.TextColor3 = Color3.new(1, 1, 1)
 ocnfg75.TextScaled = true
 ocnfg75.Font = Enum.Font.Roboto
-ocnfg75.Text = "coming"
+ocnfg75.Text = "NOOT NOOT"
 ocnfg75.Visible = false
 ocnfg75.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/%5BServer%20Killer%5D%20Noot%20Noot.txt"))()
 end)
 
  ocnfg76 = Instance.new("TextButton")
@@ -8512,10 +8512,10 @@ ocnfg76.BorderSizePixel = 2
 ocnfg76.TextColor3 = Color3.new(1, 1, 1)
 ocnfg76.TextScaled = true
 ocnfg76.Font = Enum.Font.Roboto
-ocnfg76.Text = "coming"
+ocnfg76.Text = "k00pgui"
 ocnfg76.Visible = false
 ocnfg76.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Fd/refs/heads/main/K00pgui_delta_remake.txt"))()
 end)
 
 function executeCode(code)
