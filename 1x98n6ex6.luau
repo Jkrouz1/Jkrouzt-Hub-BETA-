@@ -31,9 +31,9 @@ local mainFrame = Instance.new("Frame")
 local imageLabel = Instance.new("ImageLabel")
 local titleFrame = Instance.new("Frame")
 
+screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.CoreGui
 screenGui.Name = "Jkrouzt Hub"
-screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-screenGui.ResetOnSpawn = false
 screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 mainFrame.Parent = screenGui
@@ -266,7 +266,9 @@ openui.TextScaled = true
 openui.Size = UDim2.new(0, 50, 0, 50)
 openui.Position = UDim2.new(0, 10, 0.5, -50)
 openui.BackgroundColor3 = Color3.new(0, 0, 0)
-openui.BackgroundTransparency = 0.5
+openui.BackgroundTransparency = 0
+openui.BorderColor3 = Color3.new(1, 0, 0)
+openui.BorderSizePixel = 2
 openui.Visible = true
 openui.Active = true
 
@@ -302,6 +304,29 @@ if mainFrame.Visible then
 else
         animateGui(mainFrame, initialPosition, tweenInfoOut)
 end
+
+Corrn = Instance.new("UICorner")
+Corrn.Parent = openui
+Corrn.CornerRadius = UDim.new(20, 20)
+
+corg = Instance.new("UIStroke")
+corg.Parent = openui
+corg.ApplyStrokeMode = "Border"
+corg.Color = Color3.fromRGB(200, 0, 0)
+corg.LineJoinMode = "Round"
+corg.Thickness = 2
+
+orgg = Instance.new("UIGradient")
+orgg.Parent = corg
+orgg.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), 
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0)) 
+})
+
+sizh = Instance.new("UISizeConstraint")
+sizh.Parent = openui
+sizh.MaxSize = Vector2.new(150, 150)
+sizh.MinSize = Vector2.new(10, 50)
 
 local destroyButton = Instance.new("TextButton")
 destroyButton.Parent = mainFrame
