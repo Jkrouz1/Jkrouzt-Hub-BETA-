@@ -6031,7 +6031,7 @@ oc23.MouseButton1Click:Connect(function()
     oc21NotifEnabled = false
 
     
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
 end)
 
 local oc24 = Instance.new("TextButton")
