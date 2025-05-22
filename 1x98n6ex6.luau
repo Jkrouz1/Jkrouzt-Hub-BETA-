@@ -1423,6 +1423,7 @@ codeTextBox.TextXAlignment = Enum.TextXAlignment.Left
 codeTextBox.TextYAlignment = Enum.TextYAlignment.Top
 codeTextBox.TextWrapped = true
 codeTextBox.ClearTextOnFocus = false
+codeTextBox.MultiLine = true
 
 clear = Instance.new("TextButton")
 clear.Parent = exec
@@ -1971,426 +1972,15 @@ scn27.Name = "scn27"
 scn27.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 scn27.Position = UDim2.new(0.35, 0, 0.03, 0)
 scn27.BackgroundColor3 = Color3.new(0, 0, 0)
-scn27.BorderColor3 = Color3.new(1, 0, 0)
+scn27.BorderColor3 = Color3.new(0, 1, 0)
 scn27.BorderSizePixel = 3
 scn27.TextColor3 = Color3.new(1, 1, 1)
 scn27.TextScaled = true
 scn27.Font = Enum.Font.Roboto
-scn27.Text = "FE Tools Replicator"
+scn27.Text = "Replication UI"
 scn27.Visible = false
 scn27.MouseButton1Click:Connect(function()
-local screenGui = game:GetObjects("rbxassetid://3546404827")[1]
-  local mainFrame = screenGui.Frame
-    local pages = mainFrame.Pages
-      local pageLayout = pages.UIPageLayout
-      local pageScripts = pages.Scripts
-        local interactiveButton = pageScripts.Character.Elements.TextButton
-        local utility = pageScripts.Utility
-          local utilityElements = utility.Elements
-      local pageOptions = pages.Options
-    local titleFrame = mainFrame.Title
-    local toolbar = mainFrame.Toolbar
- 
-screenGui.LocalScript:Destroy()
-screenGui.Parent = game:GetService("CoreGui")
-interactiveButton.Parent = nil
-mainFrame.Visible = true
- 
-gripCenter = CFrame.new(0, 0, 1) * CFrame.Angles(math.rad(90), 0, 0)
-offset = CFrame.Angles(0, 0, 0)
- 
-_player = {
-    p = game:GetService("Players").LocalPlayer;
-    b = function()
-        return _player.p:FindFirstChild("Backpack")
-    end;
-    c = function()
-        return _player.p.Character
-    end;
-}
-_functions = {
-    respawn = function()
-        local c = _player.c()
-        if workspace:FindFirstChild(_player.p.Name) then 
-            spawn(function()
-                wait(.5)
-                if _player.c() ~= workspace:FindFirstChild(_player.p.Name) then
-                    workspace:FindFirstChild(_player.p.Name):BreakJoints()
-                end
-            end)
-        end
-        if c then
-            c:BreakJoints()
-            c:ClearAllChildren()
-        end
-        local newChar = Instance.new("Model", workspace)
-        local hum = Instance.new("Humanoid", newChar)
-        local torso = Instance.new("Part", newChar)
-        newChar.Name = "respawn_"
-        torso.Name = "Torso"
-        torso.Transparency = 1
-        _player.p.Character = newChar
-        torso.Name = ""
-        torso.CanCollide = false
-        newChar:MoveTo(Vector3.new(999999, 999999, 999999))
-    end;
-    tools = function(int)
-        local toolamount = int or 200
-        
-        local LocalPlayer = game:GetService("Players").LocalPlayer
-        local runservice = game:GetService("RunService")
-        LocalPlayer.Character:FindFirstChild("Humanoid"):UnequipTools()
-        local currentamount = #LocalPlayer.Backpack:GetChildren()
-        LocalPlayer.Character.Archivable = true
-        local tempchar = LocalPlayer.Character:Clone()
-        local lastchar = nil
-        tempchar.Parent = workspace
-        local savepos = LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
-        local renderstepped = runservice.RenderStepped:Connect(function()
-            workspace.CurrentCamera.CameraSubject = tempchar:FindFirstChild("Humanoid")
-            for _, tool in pairs(LocalPlayer.Backpack:GetChildren()) do
-                if tool:IsA("Tool") then
-                    tool.Parent = LocalPlayer
-                end
-            end
-            for _, char in pairs(workspace:GetChildren()) do
-                if char.Name == LocalPlayer.Name and char:FindFirstChildWhichIsA("Humanoid") then
-                    char.Humanoid.Health = 0
-                end
-            end
-            LocalPlayer.Character:ClearAllChildren()
-            local char = Instance.new("Model", workspace)
-            Instance.new("Humanoid", char)
-            LocalPlayer.Character = char
-            if lastchar ~= nil then
-                lastchar:Destroy()
-            end
-            repeat runservice.RenderStepped:Wait() until LocalPlayer.Character ~= nil
-            lastchar = char
-        end)
-        repeat runservice.RenderStepped:Wait() until #LocalPlayer:GetChildren() - 3 - currentamount >= toolamount
-        renderstepped:Disconnect()
-        repeat runservice.RenderStepped:Wait() until LocalPlayer.Character:FindFirstChild("HumanoidRootPart") ~= nil
-        lastchar:Destroy()
-        
-        utilityElements.Tools.Text = "Done respawning?"
-        repeat runservice.RenderStepped:Wait() until utilityElements.Tools.Text == "Load Tools"
-        
-        for _, tool in pairs(LocalPlayer:GetChildren()) do
-            if tool:IsA("Tool") then
-                tool.Parent = LocalPlayer.Backpack
-            end
-        end
-        LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = savepos
-        tempchar:Destroy()
-    end;
-    load = function()
-        local b = _player.b()
-        local c = _player.c()
-        local grip = function(tool, cf)
-            local origin = CFrame.new(cf.p)
-            local x, y, z = cf:toEulerAnglesXYZ()
-            local new = CFrame.Angles(x, y, z)
-            local grip = (origin * new):inverse()
-            tool.Grip = grip
-        end
-        local model = c:WaitForChild("gay") -- stupid name choice from what a few months ago?? i have nothing against it i swear
-        local parts = {}
-        wait(1)
-        
-        for i, Model in pairs(c:GetChildren()) do
-            if Model:IsA("Model") and Model.Name == "gay" then
-                for i, v in pairs(Model:GetDescendants()) do
-                    if v:IsA("BasePart") then
-                        v.LocalTransparencyModifier = 1
-                        if v.Name ~= "Ignore" then
-                            table.insert(parts, v)
-                        end
-                    end
-                    if not v:IsA("BasePart") and not v:IsA("JointInstance") and not v:IsA("BodyMover") and not v:isA("Humanoid") and not v:IsA("Model") then
-                        v:Remove()
-                    end
-                end
-                Model.ChildAdded:Connect(function(c)
-                    c.Parent = nil
-                end)
-            end
-        end
-        
-        for _, part in pairs(parts) do
-            local m = Instance.new("BlockMesh", part)
-            m.Scale = Vector3.new(0, 0, 0)
-        end
-        
-        local tools = b:GetChildren()
-        for i, tool in pairs(tools) do
-            if tool.Parent then
-                wrap(function()
-                    tool.Parent = c
-                    for i, v in pairs(tool:GetDescendants()) do
-                        if v:IsA("Sound") or v:IsA("TouchTransmitter") then
-                            v:Destroy()
-                        elseif v:IsA("BasePart") then
-                            v.Massless = true
-                            v.CanCollide = false
-                        elseif v:IsA("LocalScript") or v:IsA("Script") then
-                            v:Destroy()
-                        end
-                    end
-                    
-                    if tool:FindFirstChild("Handle") then
-                        local handle = tool.Handle
-                        local fakeHandle = handle:Clone()
-                        fakeHandle.Name = "FakeHandle"
-                        fakeHandle.Parent = tool
-                        local w = Instance.new("Weld", handle)
-                        w.Part0 = fakeHandle
-                        w.Part1 = handle
-                        handle.Size = Vector3.new(0, 0, 0)
-                    end
-                    
-                    tool.Parent = b
-                end)
-            end
-            if (not parts[i]) then
-                tools[i] = nil
-                tool:Destroy()
-            end
-        end
-        
-        wait(.2)
-        local amt = #tools
-        
-        wrap(function()
-            local connection1
-            
-            connection1 = game:GetService("RunService").RenderStepped:Connect(function(step)
-                for i = 1, amt do
-                    local tool = tools[i]
-                    if parts[i] then
-                        tool.Parent = b
-                        tool.Parent = c
-                    end
-                end
-                
-                if _player.c() ~= c or c:FindFirstChildWhichIsA("Humanoid").Health == 0 then
-                    connection1:Disconnect()
-                end
-                
-                utilityElements.Replicate.Text = ("Replicate (%dfps)"):format(1/step)
-            end)
-        end)
-        
-        local connection2
-        connection2 = game:GetService("RunService").Heartbeat:Connect(function()
-            for i = 1, amt do
-                local tool = tools[i]
-                if parts[i] then
-                    if parts[i].Transparency ~= 1 then
-                        local p = _cframe.toWorldPoint(parts[i].CFrame) * offset
-                        grip(tool, p)
-                    else
-                        local p = _cframe.toWorldPoint(CFrame.new(0, -250, 0))
-                        grip(tool, p)
-                    end
-                end
-            end
-            if _player.c() ~= c or c:FindFirstChildWhichIsA("Humanoid").Health == 0 then
-                connection2:Disconnect()
-            end
-        end)
-    end;
-}
-_cframe = {
-    diff = function(a, b)
-        return (a:Inverse() * b)
-    end;
-    toWorldPoint = function(a)
-        local arm = _player.c():FindFirstChild('Right Arm') or _player.c():FindFirstChild('RightHand')
-        local off = arm.CFrame * gripCenter:Inverse()
-        if arm.Name == "RightHand" then
-            off = arm.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
-        end
-        return _cframe.diff(off, a)
-    end;
-    tween = function(object,style,direction,t,goal)
-        local tweenservice = game:GetService("TweenService")
-        local tweenInfo = TweenInfo.new(t,Enum.EasingStyle[style],Enum.EasingDirection[direction])
-        local tween = tweenservice:Create(object,tweenInfo,goal)
-        tween:Play()
-        return tween
-    end;
-}
-scriptList = {
-    Character = {
-        ['Titan']           = {"rbxassetid://3600286284", "rbxassetid://3070358214"};
-        ['Winged Titan']    = {"rbxassetid://3593786550", "rbxassetid://3070358214"};
-        ['Part Surround']   = {"rbxassetid://3546680077", "rbxassetid://3546673786"};
-    },
-    Mechanical = {
-        ['Spiderbot']       = {"rbxassetid://3040869607", "rbxassetid://3070355648"};
-        ['Drone']           = {"rbxassetid://3074236927", "rbxassetid://3074245958"};
-        ['Noise']           = {"rbxassetid://3193712297", "rbxassetid://3070358314"};
-    },
-    Aesthetic = {
-        ['Wings']           = {"rbxassetid://3040946714", "rbxassetid://3070358381"};
-        ['Tail']            = {"rbxassetid://3041387168", "rbxassetid://3070358314"};
-        ['Star Glitcher']   = {"rbxassetid://3074734519", "rbxassetid://3074751071"};
-        ['Tentacles']       = {"rbxassetid://3074817074", "rbxassetid://3074820325"};
-    },
-    Weapon = {
-        ['Master Hand']     = {"rbxassetid://3040943596", "rbxassetid://3070358267"};
-        ['Ravenger']        = {"rbxassetid://3040945482", "rbxassetid://3070358154"};
-    },
-}
-wrap = function(f)
-    return coroutine.wrap(f)()
-end
- 
-if game:GetService("RunService"):IsStudio() then
-    guiLib = require(screenGui.GuiLib)
-else
-    guiLib = loadstring(screenGui.GuiLib.Source)()
-end
- 
-for title, tbl in pairs(scriptList) do
-    local frame = pageScripts[title]
-    for name, info in pairs(tbl) do
-        local btn = interactiveButton:Clone()
-        btn.Name = name
-        btn.Text = name
-        btn.Parent = frame.Elements
-        btn.Icon.Image = info[2]
-        
-        guiLib.circleInteractive(btn)
-        guiLib.colorInteractive(btn)
-        
-        btn.MouseButton1Click:Connect(function()
-            local scr = game:GetObjects(info[1])[1]
-            local source = scr.Source
-            
-            if game:GetService("RunService"):IsStudio() == false then
-                for i, v in pairs(scr:GetChildren()) do
-                    v.Parent = script
-                end
-                wrap(function()
-                    local func = loadstring(source)
-                    spawn(func)
-                end)
-            else
-                scr.Disabled = true
-                scr.Parent = _player.c()
-                wait(.1)
-                scr.Disabled = false
-            end
-        end)
-    end
-end
- 
-repeat wait() until pageLayout.CurrentPage
- 
-guiLib.draggable(mainFrame, titleFrame)
-for i, v in pairs(toolbar:GetChildren()) do
-    if v:IsA("TextButton") then
-        guiLib.circleInteractive(v, 2, 1)
-        v.MouseButton1Click:Connect(function()
-            pageLayout:JumpTo(pages[v.Name])
-        end)
-        pageLayout.Changed:Connect(function(p)
-            if pageLayout.CurrentPage.Name == v.Name then
-                guiLib.tween(v, "Sine", "Out", .5, {BackgroundColor3 = Color3.fromRGB(255, 118, 26)})
-            else
-                guiLib.tween(v, "Sine", "Out", .5, {BackgroundColor3 = Color3.fromRGB(236, 109, 17)})
-            end
-        end)
-    end
-end
- 
-for i, v in pairs(utilityElements:GetChildren()) do
-    if v:IsA("TextButton") then
-        guiLib.circleInteractive(v)
-        guiLib.colorInteractive(v)
-    end
-end
- 
-utilityElements.Reset.MouseButton1Click:Connect(function()
-    local c = _player.c()
-    c.Humanoid.Health = 0
-    wait(.55)
-    for i, v in pairs(c:GetChildren()) do
-        if v:IsA("BackpackItem") then
-            v.Parent = _player.b()
-            v.Parent = _player.p
-        end
-    end
-    repeat wait() until _player.c() ~= c
-    _player.c():WaitForChild("Right Arm")
-    wait(.25)
-    for i, v in pairs(_player.p:GetChildren()) do
-        if v:IsA("Tool") then
-            v.Parent = _player.b()
-        end
-    end
-end)
- 
-utilityElements.Block.MouseButton1Click:Connect(function()
-    local c = _player.c()
-    for _, v in pairs(c:GetChildren()) do
-        if v:IsA("BackpackItem") then
-            for _, m in pairs(v:GetDescendants()) do
-                if m:IsA("DataModelMesh") then
-                    m:Destroy()
-                end
-            end
-        end
-    end
-end)
- 
-local noclip = false
-utilityElements.Noclip.MouseButton1Click:Connect(function()
-    noclip = not noclip
-end)
- 
-utilityElements.Tools.MouseButton1Click:Connect(function()
-    if utilityElements.Tools.Text == "Load Tools" then
-        _functions.tools(120)
-    else
-        utilityElements.Tools.Text = "Load Tools"
-    end
-end)
- 
-utilityElements.Replicate.MouseButton1Click:Connect(function()
-    _functions.load()
-end)
- 
-local flipped = 0
-utilityElements.Flip.MouseButton1Click:Connect(function()
-    flipped = (flipped + 1) % 4
-    if flipped == 0 then
-        offset = CFrame.Angles(0, 0, 0)
-    elseif flipped == 1 then
-        offset = CFrame.Angles(math.rad(90), 0, 0)
-    elseif flipped == 2 then
-        offset = CFrame.Angles(0, math.rad(90), 0)
-    elseif flipped == 3 then
-        offset = CFrame.Angles(0, 0, math.rad(90))
-    end
-end)
- 
-game:GetService("RunService").Stepped:Connect(function()
-    local c = _player.c()
-    if noclip then
-        local descendants = c:GetDescendants()
-        for i = 1, #descendants do
-            local v = descendants[i]
-            if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
-                v.CanCollide = false
-            end
-        end
-    end
-end)
- 
-workspace:WaitForChild("S")
+loadstring(game:HttpGet("https://pastebin.com/raw/tMYrf22E"))()
 end)
 
 local scn28 = Instance.new("TextButton")
@@ -5234,10 +4824,11 @@ scgne60.BorderSizePixel = 3
 scgne60.TextColor3 = Color3.new(1, 1, 1)
 scgne60.TextScaled = true
 scgne60.Font = Enum.Font.Roboto
-scgne60.Text = "Moma Hub\n(GrowAGarden)"
+scgne60.Text = "Native Hub\n(GrowAGarden)"
 scgne60.Visible = false
 scgne60.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/n3xkxp3rl/Moma-Hub/refs/heads/main/GrowAGarden.lua"))()
+script_key="PASTE_KEY_HERE";
+loadstring(game:HttpGet("https://getnative.cc/script/loader"))()
 end)
 
 scgne61 = Instance.new("TextButton")
@@ -5251,10 +4842,10 @@ scgne61.BorderSizePixel = 3
 scgne61.TextColor3 = Color3.new(1, 1, 1)
 scgne61.TextScaled = true
 scgne61.Font = Enum.Font.Roboto
-scgne61.Text = "Ameicaa\n(GrowAGarden)"
+scgne61.Text = "No Lag Hub\n(GrowAGarden)"
 scgne61.Visible = false
 scgne61.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ameicaa1/Grow-a-Garden/main/Grow_A_Garden.lua"))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Grow-a-Garden-NoLag-Hub-no-key-38699"))()
 end)
 
 scgne62 = Instance.new("TextButton")
@@ -5519,7 +5110,7 @@ scgne76.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubNaturalDisasterSurvival"))()
 end)
 
--- Almost every scripts in Others Tab is from Infinite Yield
+-- Almost every scripts in Others Tab is taken from Infinite Yield
 
 local oc1 = Instance.new("TextButton")
 oc1.Parent = Others
@@ -5972,8 +5563,6 @@ oc20.TextScaled = true
 oc20.Font = Enum.Font.SourceSans
 oc20.Text = "View player"
 
-local oc21NotifEnabled = true
-
 local oc21 = Instance.new("TextButton")
 oc21.Parent = Others
 oc21.Name = "oc21"
@@ -5985,17 +5574,7 @@ oc21.BorderSizePixel = 3
 oc21.TextColor3 = Color3.new(1, 1, 1)
 oc21.TextScaled = true
 oc21.Font = Enum.Font.SourceSans
-oc21.Text = "Unanchored Parts to Player"
-
-oc21.MouseButton1Click:Connect(function()
-    if oc21NotifEnabled then
-        notif({
-            Text = "Please use. Bring UnAnchored Parts Gui",
-            Duration = 5,
-            topm = "Information!"
-        })
-    end
-end)
+oc21.Text = "Tween to Player"
 
 local oc22 = Instance.new("TextBox")
 oc22.Parent = Others
@@ -6024,14 +5603,39 @@ oc23.BorderSizePixel = 3
 oc23.TextColor3 = Color3.new(1, 1, 1)
 oc23.TextScaled = true
 oc23.Font = Enum.Font.SourceSans
-oc23.Text = "Bring UnAnchored Parts Gui"
+oc23.Text = "Noclip"
+
+NoclippingConnection = nil 
+IsNoclipping = false 
 
 oc23.MouseButton1Click:Connect(function()
-    
-    oc21NotifEnabled = false
+    local player = Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
 
-    
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
+    if not IsNoclipping then 
+        IsNoclipping = true
+        wait(0.1) 
+
+        local function NoclipLoop()
+            if IsNoclipping and character ~= nil then
+                for _, child in pairs(character:GetDescendants()) do
+                    if child:IsA("BasePart") and child.CanCollide == true and child.Name ~= floatName then
+                        child.CanCollide = false
+                    end
+                end
+            end
+        end
+        NoclippingConnection = RunService.Stepped:Connect(NoclipLoop)
+        oc23.Text = "UnNoclip"
+    else 
+        IsNoclipping = false
+        if NoclippingConnection then
+            NoclippingConnection:Disconnect()
+            NoclippingConnection = nil
+        end
+
+        oc23.Text = "Noclip"
+    end
 end)
 
 local oc24 = Instance.new("TextButton")
@@ -6382,7 +5986,7 @@ ocn40.Name = "ocn40"
 ocn40.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocn40.Position = UDim2.new(0.52, 0, 0.43, 0)
 ocn40.BackgroundColor3 = Color3.new(0, 0, 0)
-ocn40.BorderColor3 = Color3.new(255, 125, 0)
+ocn40.BorderColor3 = Color3.fromRGB(255, 125, 0)
 ocn40.BorderSizePixel = 3
 ocn40.TextColor3 = Color3.new(1, 1, 1)
 ocn40.TextScaled = true
@@ -6466,10 +6070,100 @@ ocn43.BorderSizePixel = 3
 ocn43.TextColor3 = Color3.new(1, 1, 1)
 ocn43.TextScaled = true
 ocn43.Font = Enum.Font.Roboto
-ocn43.Text = "Coming"
+ocn43.Text = "Vehicle Goto Player"
 ocn43.Visible = false
 ocn43.MouseButton1Click:Connect(function()
+function getPlayer(nameOrId, speaker)
+    local players = {}
+    local PlayersService = game:GetService("Players")
 
+    local playerByName = PlayersService:FindFirstChild(nameOrId)
+    if playerByName then
+        table.insert(players, playerByName.Name) 
+    else
+        for _, player in ipairs(PlayersService:GetPlayers()) do
+            if string.find(string.lower(player.Name), string.lower(nameOrId), 1, true) then
+                table.insert(players, player.Name) 
+    else
+        for _, player in ipairs(PlayersService:GetPlayers()) do
+        if string.lower(player.DisplayName) == string.lower(nameOrId) then
+            table.insert(foundPlayers, player)
+        end
+    end
+            end
+        end
+    end
+    if #players == 0 then
+        notif({
+		Text = "Player not found.",
+		Duration = 5,
+		topm = "Information!"
+	})
+    elseif #players > 1 then
+        notif({
+		Text = "Multiple players found for '" .. nameOrId .. "'. Please be more specific.",
+		Duration = 5,
+		topm = "Information!"
+	})
+        players = {}
+    end
+
+    return players
+end
+
+function getRt(character)
+    if character and character:IsA("Model") then
+        return character:FindFirstChild("HumanoidRootPart")
+    end
+    return nil
+end
+    local targetPlayerName = ocn49.Text 
+    local speaker = game.Players.LocalPlayer 
+
+    local resolvedPlayerNames = getPlayer(targetPlayerName, speaker)
+
+    if #resolvedPlayerNames > 0 then
+        local actualTargetPlayer = game.Players:FindFirstChild(resolvedPlayerNames[1]) 
+
+        if actualTargetPlayer and actualTargetPlayer.Character then
+            local speakerHumanoid = speaker.Character:FindFirstChildOfClass('Humanoid')
+            if speakerHumanoid and speakerHumanoid.SeatPart then
+                local seat = speakerHumanoid.SeatPart
+                local vehicleModel = seat:FindFirstAncestorWhichIsA("Model")
+
+                if vehicleModel then
+                    local targetHumanoidRootPart = getRt(actualTargetPlayer.Character)
+                    if targetHumanoidRootPart then
+                        vehicleModel:MoveTo(targetHumanoidRootPart.Position)
+                    else
+                        notif({
+		Text = "Target player's HumanoidRootPart not found.",
+		Duration = 3,
+		topm = "Error!"
+	})
+                    end
+                else
+                    notif({
+		Text = "Vehicle model not found. Are you in a vehicle?",
+		Duration = 2,
+		topm = "Error!"
+	})
+                end
+            else
+                notif({
+		Text = "You are not seated in a vehicle.",
+		Duration = 5,
+		topm = "Information!"
+	})
+            end
+        else
+            notif({
+		Text = "Target player '" .. targetPlayerName .. "' not found or their character is not loaded.",
+		Duration = 5,
+		topm = "Error!"
+	})
+        end
+    end
 end)
 
 ocn44 = Instance.new("TextButton")
@@ -6483,12 +6177,163 @@ ocn44.BorderSizePixel = 3
 ocn44.TextColor3 = Color3.new(1, 1, 1)
 ocn44.TextScaled = true
 ocn44.Font = Enum.Font.Roboto
-ocn44.Text = "Coming"
+ocn44.Text = "Fe Vehicle Flinger"
 ocn44.Visible = false
 ocn44.MouseButton1Click:Connect(function()
+notif({
+		Text = "Not Made By me",
+		Duration = 1,
+		topm = "Who made this?!"
+	})
+wait(0.5)
+-- Scripted on mobile
+-- Fe Vehicle Fling Alpha
 
+-- Start UP
+
+local notification = Instance.new("Sound")
+notification.Parent = game:GetService("SoundService")
+notification.SoundId = "rbxassetid://9086208751"
+notification.Volume = 1 
+
+local char = game.Players.LocalPlayer.Character
+function getRoot(char)
+ local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
+ return rootPart
+end
+
+-- Part Detector Seat
+
+local SPart = Instance.new("Part");
+local Player = game:GetService('Players').LocalPlayer;
+repeat game:GetService('RunService').RenderStepped:Wait() until Player.Character;
+local Character = Player.Character;
+SPart.Anchored, SPart.CanCollide = false, false;
+SPart.Parent = workspace;
+SPart.Size = Vector3.new(2, 100, 22)
+SPart.Transparency = 0.4
+game:GetService('RunService').Stepped:Connect(function()
+    local Ray = Ray.new(Character.PrimaryPart.Position + Character.PrimaryPart.CFrame.LookVector * 4, Vector3.new(0,-1,0) * 4);
+    local FPOR = workspace:FindPartOnRayWithIgnoreList(Ray, {Character});
+    if (FPOR) then
+        SPart.CFrame = Character.PrimaryPart.CFrame + Character.PrimaryPart.CFrame.LookVector * 4;
+    end
+if SPart == nil then
+Ray:destroy()
+FPOR:destroy()
+end
 end)
 
+game.StarterGui:SetCore("SendNotification", {
+    Title = "FE Vehicle Fling";
+    Icon = "rbxassetid://7279804519";
+    Text = "Identify Passanger Seat, Part_OnTouched";
+    Duration = 10;
+notification:Play()
+})
+
+-- The finish touches
+-- Mobile and PC Support BODYGYRO
+
+SPart.Touched:Connect(function(hit)
+   if hit:IsA("Seat") then
+      local IsFlying = False
+local flyv
+local flyg
+local Player = game.Players.LocalPlayer
+local Speed = 50
+local LastSpeed = Speed
+local maxspeed = 100
+local IsRunning = false
+local f = 0
+
+IsFlying = true
+    flyv = Instance.new("BodyVelocity")
+ 
+   flyv.Parent = Player.Character:FindFirstChild('Torso') or Player.Character:FindFirstChild('UpperTorso')
+    flyv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+ 
+    flyg = Instance.new("BodyGyro")
+   flyg.Parent = Player.Character:FindFirstChild('Torso') or Player.Character:FindFirstChild('UpperTorso')
+    flyg.MaxTorque = Vector3.new(9e9,9e9,9e9)
+    flyg.P = 1000
+    flyg.D = 50
+
+Player.Character:WaitForChild('Humanoid').PlatformStand = true
+
+Player.Character.Humanoid.Changed:Connect(function(Prop)
+  
+   if Player.Character.Humanoid.MoveDirection == Vector3.new(0,0,0) then
+    IsRunning = false
+   else
+    IsRunning = true
+   end 
+ end)
+
+spawn(function()
+  while true do
+   wait()
+  if IsFlying then
+   
+    flyg.CFrame = workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((f+0)*50*Speed/maxspeed),0,0) 
+     flyv.Velocity = workspace.CurrentCamera.CoordinateFrame.LookVector * Speed
+     wait(0.1)
+     
+     if Speed < 0 then
+     Speed = 0
+     f = 0
+end
+end
+   if IsRunning then
+   Speed = LastSpeed
+  else
+   if not Speed == 0 then
+    LastSpeed = Speed
+   end 
+   Speed = 0
+  end
+  end
+end)
+Speed = 0.1
+wait(0.3)
+hit:Sit(game:GetService("Players").LocalPlayer.Character.Humanoid)
+SPart:Destroy()
+wait(0.3)
+local speaker = game.Players.LocalPlayer
+local seat = speaker.Character:FindFirstChildOfClass('Humanoid').SeatPart
+ local vehicleModel = seat.Parent
+ repeat
+  if vehicleModel.ClassName ~= "Model" then
+   vehicleModel = vehicleModel.Parent
+  end
+ until vehicleModel.ClassName == "Model"
+ wait(0.1)
+ for i,v in pairs(vehicleModel:GetDescendants()) do
+  if v:IsA("BasePart") and v.CanCollide then
+   v.CanCollide = false
+  end
+ end
+
+wait(0.2)
+Speed = 80
+local Spin = Instance.new("BodyAngularVelocity")
+Spin.Name = "Spinning"
+Spin.Parent = getRoot(speaker.Character)
+Spin.MaxTorque = Vector3.new(0, math.huge, 0) 
+Spin.AngularVelocity = Vector3.new(0,2000,0)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "FE Vehicle Fling";
+    Icon = "rbxassetid://7279804519";
+    Text = "Identified the seat part, Success!";
+    Duration = 10;
+notification:Play()
+})
+end
+end)
+end)
+
+
+tpwalking = false 
 ocn45 = Instance.new("TextButton")
 ocn45.Parent = Others
 ocn45.Name = "ocn45"
@@ -6500,10 +6345,38 @@ ocn45.BorderSizePixel = 3
 ocn45.TextColor3 = Color3.new(1, 1, 1)
 ocn45.TextScaled = true
 ocn45.Font = Enum.Font.Roboto
-ocn45.Text = "Coming"
+ocn45.Text = "Tp walkspeed"
 ocn45.Visible = false
 ocn45.MouseButton1Click:Connect(function()
+local function startTeleportWalk(speedMultiplier)
+    local player = Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:FindFirstChildWhichIsA("Humanoid")
 
+    if not humanoid then return end 
+    while tpwalking and character and humanoid and humanoid.Parent do
+        local delta = RunService.Heartbeat:Wait()
+        if humanoid.MoveDirection.Magnitude > 0 then
+            character:TranslateBy(humanoid.MoveDirection * speedMultiplier * delta)
+        end
+    end
+end
+
+    tpwalking = not tpwalking 
+    if tpwalking then
+        ocn45.Text = "Walkspeeded"
+        
+        local speed = 10 
+        if ocn50 and ocn50:IsA("TextBox") then
+            local parsedSpeed = tonumber(ocn50.Text)
+            if parsedSpeed and parsedSpeed > 0 then                speed = parsedSpeed
+            end
+        end
+        
+        coroutine.wrap(startTeleportWalk)(speed)
+    else
+        ocn45.Text = "Tp Walkspeed"
+    end
 end)
 
 ocn46 = Instance.new("TextButton")
@@ -6512,16 +6385,13 @@ ocn46.Name = "ocn46"
 ocn46.Size = UDim2.new(0.15000003, 0, 0.150000006, 0)
 ocn46.Position = UDim2.new(0.52, 0, 0.63, 0)
 ocn46.BackgroundColor3 = Color3.new(0, 0, 0)
-ocn46.BorderColor3 = Color3.new(1, 0, 0)
+ocn46.BorderColor3 = Color3.new(0, 0, 1)
 ocn46.BorderSizePixel = 3
 ocn46.TextColor3 = Color3.new(1, 1, 1)
 ocn46.TextScaled = true
 ocn46.Font = Enum.Font.Roboto
-ocn46.Text = "Coming"
+ocn46.Text = "Set HeadSize Player"
 ocn46.Visible = false
-ocn46.MouseButton1Click:Connect(function()
-
-end)
 
 ocn47 = Instance.new("TextButton")
 ocn47.Parent = Others
@@ -6534,11 +6404,12 @@ ocn47.BorderSizePixel = 3
 ocn47.TextColor3 = Color3.new(1, 1, 1)
 ocn47.TextScaled = true
 ocn47.Font = Enum.Font.Roboto
-ocn47.Text = "Coming"
+ocn47.Text = "Teleport to Player and Return"
 ocn47.Visible = false
-ocn47.MouseButton1Click:Connect(function()
 
-end)
+isLagging = false
+lagConnection = nil 
+LAG_AMOUNT = 0.5 
 
 ocn48 = Instance.new("TextButton")
 ocn48.Parent = Others
@@ -6551,44 +6422,57 @@ ocn48.BorderSizePixel = 3
 ocn48.TextColor3 = Color3.new(1, 1, 1)
 ocn48.TextScaled = true
 ocn48.Font = Enum.Font.Roboto
-ocn48.Text = "Coming"
+ocn48.Text = "Client Lag"
 ocn48.Visible = false
 ocn48.MouseButton1Click:Connect(function()
+    isLagging = not isLagging -- Toggle the state
 
+    if isLagging then
+        ocn48.Text = "Stop"
+        lagConnection = game:GetService("RunService").Heartbeat:Connect(function()
+            settings():GetService("NetworkSettings").IncomingReplicationLag = LAG_AMOUNT
+        end)
+    else
+        ocn48.Text = "Client Lag"
+        if lagConnection then
+            lagConnection:Disconnect()
+            lagConnection = nil
+        end
+        settings():GetService("NetworkSettings").IncomingReplicationLag = 0
+    end
 end)
 
-ocn49 = Instance.new("TextButton")
+ocn49 = Instance.new("TextBox")
 ocn49.Parent = Others
 ocn49.Name = "ocn49"
 ocn49.Size = UDim2.new(0.473003626, 0, 0.101999998, 0)
 ocn49.Position = UDim2.new(0.519000053, 0, 0.799999893, 0)
-ocn49.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn49.BackgroundColor3 = Color3.new(1, 1, 1)
 ocn49.BorderColor3 = Color3.new(1, 0, 0)
 ocn49.BorderSizePixel = 2
-ocn49.TextColor3 = Color3.new(1, 1, 1)
+ocn49.TextColor3 = Color3.new(0, 0, 0)
 ocn49.TextScaled = true
 ocn49.Font = Enum.Font.Roboto
-ocn49.Text = "Coming"
+ocn49.Text = "Playername..."
+ocn49.PlaceholderText = "Playername Here..."
+ocn49.PlaceholderColor3 = Color3.fromRGB(190, 190, 190)
 ocn49.Visible = false
-ocn49.MouseButton1Click:Connect(function()
-end)
 
-ocn50 = Instance.new("TextButton")
+ocn50 = Instance.new("TextBox")
 ocn50.Parent = Others
 ocn50.Name = "ocn50"
 ocn50.Size = UDim2.new(0.490003586, 0, 0.101999998, 0)
 ocn50.Position = UDim2.new(0.00999999978, 0, 0.800000012, 0)
-ocn50.BackgroundColor3 = Color3.new(0, 0, 0)
+ocn50.BackgroundColor3 = Color3.new(1, 1, 1)
 ocn50.BorderColor3 = Color3.new(1, 0, 0)
 ocn50.BorderSizePixel = 2
-ocn50.TextColor3 = Color3.new(1, 1, 1)
+ocn50.TextColor3 = Color3.new(0, 0, 0)
 ocn50.TextScaled = true
 ocn50.Font = Enum.Font.Roboto
-ocn50.Text = "Coming"
+ocn50.Text = "Number..."
+ocn50.PlaceholderText = "Number Here..."
+ocn50.PlaceholderColor3 = Color3.fromRGB(190, 190, 190)
 ocn50.Visible = false
-ocn50.MouseButton1Click:Connect(function()
-
-end)
 
 oppage = Instance.new("Frame")
 oppage.Parent = Others
@@ -8872,7 +8756,7 @@ end
 for i = 25, 50 do
    buttonName = "ocn" .. i
    button = Others:FindFirstChild(buttonName) 
-  if button and button:IsA("TextButton") then
+  if button and (button:IsA("TextButton") or button:IsA("TextBox")) then
     button.Visible = true
   end
 end
@@ -8897,7 +8781,7 @@ end
 for i = 25, 50 do
    buttonName = "ocn" .. i
    button = Others:FindFirstChild(buttonName) 
-  if button and button:IsA("TextButton") then
+  if button and button:IsA("TextButton") or button:IsA("TextBox") then
     button.Visible = false
   end
 end
@@ -9789,7 +9673,7 @@ oc21.MouseButton1Click:Connect(function()
 			if not targetPlayer.Character or not targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
 				warn("Invalid player specified or player has no HumanoidRootPart.")
 				isBringingParts = false
-				oc21.Text = "Unanchored Parts to Player"
+				oc21.Text = "Tween Parts to Player"
 				return
 			end
 			 hrp = targetPlayer.Character.Head
@@ -9813,7 +9697,7 @@ oc21.MouseButton1Click:Connect(function()
 			end
 			print("targetPlayer.Name")
 		else
-			oc21.Text = "Unanchored Parts to Player"
+			oc21.Text = "Tween Parts to Player"
 			for part, movers in pairs(currentMoverParts) do
 				if part and not part:IsDescendantOf(Workspace) then
 					currentMoverParts[part] = nil
@@ -9833,7 +9717,7 @@ oc21.MouseButton1Click:Connect(function()
 	else
 		warn("Player '" .. playerName .. "' not found.")
 		isBringingParts = false
-		oc21.Text = "Unanchored Parts to Player"
+		oc21.Text = "Tween to Player"
 		for part, movers in pairs(currentMoverParts) do
 			if movers.BodyPosition then
 				movers.BodyPosition:Destroy()
@@ -10062,6 +9946,236 @@ ocn41.MouseButton1Click:Connect(function()
     end
 end)
 
+function getTargetPlayers(inputString)
+    local foundPlayers = {}
+    local lowerInput = string.lower(inputString)
+
+    if lowerInput == "all" then
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= localPlayer then
+                table.insert(foundPlayers, player)
+            end
+        end
+        return foundPlayers
+    end
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player == localPlayer then continue end 
+
+        local lowerPlayerName = string.lower(player.Name)
+        local lowerDisplayName = string.lower(player.DisplayName)
+
+        if string.find(lowerPlayerName, lowerInput, 1, true) or string.find(lowerDisplayName, lowerInput, 1, true) then
+            table.insert(foundPlayers, player)
+        end
+    end
+
+    return foundPlayers
+end
+
+function setHeadSize(player, sizeVector)
+    if player and player.Character then
+        local head = player.Character:FindFirstChild('Head')
+        if head and head:IsA("BasePart") then
+            head.Size = sizeVector
+        end
+    end
+end
+
+playerHeadStates = {}
+
+ocn46.MouseButton1Click:Connect(function()
+    local targetInput = ocn49.Text 
+    local targetPlayers = getTargetPlayers(targetInput)
+
+    if #targetPlayers == 0 then
+        notif({
+		Text = "No players found matching.",
+		Duration = 5,
+		topm = "Information!"
+	})
+        return 
+    end
+
+    local sizeFromTextBox = tonumber(ocn50.Text)
+    if not sizeFromTextBox or sizeFromTextBox <= 0 then
+       notif({
+		Text = "Invalid head size.",
+		Duration = 2,
+		topm = "Warning!"
+	})
+        return 
+    end
+
+    local anyPlayerCurrentlyBig = false 
+
+    for _, player in ipairs(targetPlayers) do
+        local userId = player.UserId
+        local playerState = playerHeadStates[userId] or {isToggled = false, originalSize = nil}
+
+        if not playerState.isToggled then
+            
+            anyPlayerCurrentlyBig = true
+            playerState.isToggled = true
+
+            if player.Character and player.Character:FindFirstChild('Head') then
+                playerState.originalSize = player.Character.Head.Size
+            end
+            setHeadSize(player, Vector3.new(sizeFromTextBox, sizeFromTextBox, sizeFromTextBox))
+        else
+            playerState.isToggled = false
+
+            if playerState.originalSize then
+                setHeadSize(player, playerState.originalSize)
+            else
+                
+                setHeadSize(player, Vector3.new(2, 1, 1))
+            end
+            playerHeadStates[userId] = nil 
+        end
+        playerHeadStates[userId] = playerState 
+    end
+
+    if string.lower(targetInput) == "all" then
+        if anyPlayerCurrentlyBig then
+            ocn46.Text = "HeadSized"
+        else
+            ocn46.Text = "Set HeadSize Player"
+        end
+    end
+end)
+
+local function findTargetPlayer(inputName)
+    local Players = game:GetService("Players")
+    local foundPlayers = {}
+    local addedPlayerIds = {}
+
+    local lowerInputName = string.lower(inputName)
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        local lowerPlayerName = string.lower(player.Name)
+        local lowerDisplayName = string.lower(player.DisplayName)
+
+        if addedPlayerIds[player.UserId] then
+            continue
+        end
+
+        if lowerPlayerName == lowerInputName then
+            table.insert(foundPlayers, player)
+            addedPlayerIds[player.UserId] = true
+        end
+
+        if lowerDisplayName == lowerInputName and not addedPlayerIds[player.UserId] then
+            table.insert(foundPlayers, player)
+            addedPlayerIds[player.UserId] = true
+        end
+
+        if string.sub(lowerPlayerName, 1, #lowerInputName) == lowerInputName and not addedPlayerIds[player.UserId] then
+            table.insert(foundPlayers, player)
+            addedPlayerIds[player.UserId] = true
+        end
+
+        if string.sub(lowerDisplayName, 1, #lowerInputName) == lowerInputName and not addedPlayerIds[player.UserId] then
+            table.insert(foundPlayers, player)
+            addedPlayerIds[player.UserId] = true
+        end
+    end
+
+    if #foundPlayers == 1 then
+        return foundPlayers[1]
+    elseif #foundPlayers > 1 then
+        notif({
+            Text = "Multiple players found for '" .. inputName .. "'. Please be more specific.",
+            Duration = 5,
+            topm = "Ambiguous Name!"
+        })
+        return nil
+    else
+        return nil
+    end
+end
+
+ocn47.MouseButton1Click:Connect(function()
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+    local Character = LocalPlayer.Character
+    local HumanoidRootPart = Character and Character:FindFirstChild("HumanoidRootPart")
+
+    if not HumanoidRootPart then
+        notif({
+            Text = "Your character is not found",
+            Duration = 5,
+            topm = "Error!"
+        })
+        return
+    end
+
+    local targetInput = ocn49.Text
+    if #targetInput == 0 then
+        notif({
+            Text = "Please enter a player name or display name.",
+            Duration = 5,
+            topm = "Input Missing!"
+        })
+        return
+    end
+
+    local targetPlayer = findTargetPlayer(targetInput)
+
+    if not targetPlayer then
+        notif({
+            Text = "Player '" .. targetInput .. "' not found. Check spelling or if they're in-game.",
+            Duration = 5,
+            topm = "Player Not Found!"
+        })
+        return
+    end
+
+    local targetCharacter = targetPlayer.Character
+    local targetHumanoidRootPart = targetCharacter and targetCharacter:FindFirstChild("HumanoidRootPart")
+
+    if not targetHumanoidRootPart then
+        notif({
+            Text = "Target player's character or body part not found.",
+            Duration = 5,
+            topm = "Target Error!"
+        })
+        return
+    end
+
+    local delayText = ocn50.Text
+    local delayTime = tonumber(delayText)
+
+    if not delayTime or delayTime < 0 then
+        notif({
+            Text = "Invalid Number.",
+            Duration = 5,
+            topm = "Invalid Input!"
+        })
+        delayTime = 0
+    end
+
+    local originalPosition = HumanoidRootPart.CFrame
+
+    HumanoidRootPart.CFrame = targetHumanoidRootPart.CFrame * CFrame.new(1, 0, 1)
+
+    task.wait(delayTime)
+
+    if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        LocalPlayer.Character.HumanoidRootPart.CFrame = originalPosition
+        notif({
+            Text = "Teleport successful! Returned to original position.",
+            Duration = 1,
+            topm = "Success!"
+        })
+    else
+        notif({
+            Text = "Could not return to original position. Your character may have been reset.",
+            Duration = 5,
+            topm = "Return Failed!"
+        })
+end
+end)
 
 function runObungaEffect(player)
     if not player:IsA("Player") then
