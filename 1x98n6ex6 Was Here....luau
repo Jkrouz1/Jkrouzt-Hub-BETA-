@@ -22,6 +22,7 @@ local backinamage
 local orbitzxc
 local sigmb
 
+local screenGui = Instance.new("ScreenGui")
 local tab1 = Instance.new("TextButton")
 local tab2 = Instance.new("TextButton")
 local tab3 = Instance.new("TextButton")
@@ -30,7 +31,6 @@ local mainFrame = Instance.new("Frame")
 local imageLabel = Instance.new("ImageLabel")
 local titleFrame = Instance.new("Frame")
 
-screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.CoreGui
 screenGui.Name = "Jkrouzt Hub"
 screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
