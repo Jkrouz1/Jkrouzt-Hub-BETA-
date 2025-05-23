@@ -13,8 +13,8 @@ local TweenService = game:GetService("TweenService")
 local GuiService = game:GetService("GuiService")
 local lighting = game:GetService("Lighting")
 local Lighting = game:GetService("Lighting")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LogService = game:GetService("LogService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 makefolder("jksettings")
 local ckTeam
@@ -32,7 +32,6 @@ local imageLabel = Instance.new("ImageLabel")
 local titleFrame = Instance.new("Frame")
 
 screenGui.Parent = game.CoreGui
-screenGui.Name = "Jkrouzt Hub"
 screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 mainFrame.Parent = screenGui
