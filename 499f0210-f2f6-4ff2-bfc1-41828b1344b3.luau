@@ -32,7 +32,7 @@ end
 
 
 if iskip then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Jkrouzt-Hub-BETA-/refs/heads/main/1x98n6ex6.luau"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Jkrouzt-Hub-BETA-/refs/heads/main/1x98n6ex6%20Was%20Here....luau"))()
     return
 end
 
@@ -228,5 +228,4 @@ reverseLoadingTween.Completed:Wait()
 wait(waitf)
 
 screenGui:Destroy()
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Jkrouz1/Jkrouzt-Hub-BETA-/refs/heads/main/1x98n6ex6%20Was%20Here....luau"))()
