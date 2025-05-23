@@ -32,6 +32,7 @@ local imageLabel = Instance.new("ImageLabel")
 local titleFrame = Instance.new("Frame")
 
 screenGui.Parent = game.CoreGui
+screenGui.Name = "Jkrouzt Hub V1"
 screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 mainFrame.Parent = screenGui
